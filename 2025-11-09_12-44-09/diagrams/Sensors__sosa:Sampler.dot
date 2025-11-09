@@ -1,0 +1,24 @@
+// Diagram for sosa:Sampler
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		sosa_Sampler [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">sosa:Sampler</TD></TR></TABLE>> URL="../classes/Sensors__sosa:Sampler.md" margin=0]
+	}
+	ssn_System [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ssn:System</TD></TR></TABLE>> margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		sosa_Sampling [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sosa:Sampling</TD></TR></TABLE>> margin=0]
+	}
+	sosa_Sampler -> ssn_System [arrowhead=onormal style=solid]
+	sosa_Sampler -> Invis [style=invis]
+	Invis -> sosa_Sampling [style=invis]
+	owl__Thing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">owl::Thing</TD></TR></TABLE>> margin=0]
+	sosa_Sampler -> owl__Thing [label=" onProperty: ssn:implements 
+ «min 1»  " arrowhead=normal style=dashed]
+	sosa_Sampler -> sosa_Sampling [label=" sosa:madeSampling 
+ «only»  " arrowhead=normal style=solid]
+}

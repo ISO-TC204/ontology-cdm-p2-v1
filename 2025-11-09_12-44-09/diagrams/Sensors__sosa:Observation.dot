@@ -1,0 +1,54 @@
+// Diagram for sosa:Observation
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		sosa_Observation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">sosa:Observation</TD></TR><TR><TD ALIGN="LEFT">sosa:resultTime: xsd:dateTime «exactly 1»</TD></TR></TABLE>> URL="../classes/Sensors__sosa:Observation.md" margin=0]
+	}
+	sensorsThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sensorsThing</TD></TR></TABLE>> URL="../_counters/Sensors__sensorsThing.md" margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		sosa_FeatureOfInterest [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sosa:FeatureOfInterest</TD></TR></TABLE>> margin=0]
+		sosa_ObservableProperty [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sosa:ObservableProperty</TD></TR></TABLE>> margin=0]
+		sosa_Procedure [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sosa:Procedure</TD></TR></TABLE>> margin=0]
+		sosa_Result [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sosa:Result</TD></TR></TABLE>> margin=0]
+		sosa_Sensor [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sosa:Sensor</TD></TR></TABLE>> margin=0]
+		ssn_Stimulus [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ssn:Stimulus</TD></TR></TABLE>> margin=0]
+	}
+	sosa_Observation -> sensorsThing [arrowhead=onormal style=solid]
+	sosa_Observation -> Invis [style=invis]
+	Invis -> sosa_FeatureOfInterest [style=invis]
+	sosa_FeatureOfInterest -> sosa_ObservableProperty [style=invis]
+	sosa_ObservableProperty -> sosa_Procedure [style=invis]
+	sosa_Procedure -> sosa_Result [style=invis]
+	sosa_Result -> sosa_Sensor [style=invis]
+	sosa_Sensor -> ssn_Stimulus [style=invis]
+	owl__Thing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">owl::Thing</TD></TR></TABLE>> margin=0]
+	owl__Thing -> sosa_Observation [label=" inverse sosa:madeObservation 
+ «exactly 1»  " arrowhead=inv style=solid]
+	owl__Thing -> sosa_Observation [label=" inverse sosa:isResultOf 
+ «min 1»  " arrowhead=inv style=solid]
+	sosa_Result -> sosa_Observation [label=" inverse sosa:isResultOf 
+ «only»  " arrowhead=inv style=solid]
+	sosa_Observation -> sosa_ObservableProperty [label=" sosa:observedProperty 
+ «only»  " arrowhead=normal style=solid]
+	sosa_Observation -> ssn_Stimulus [label=" ssn:wasOriginatedBy 
+ «only»  " arrowhead=normal style=solid]
+	sosa_Observation -> sosa_Procedure [label=" sosa:usedProcedure 
+ «only»  " arrowhead=normal style=solid]
+	sosa_Sensor -> sosa_Observation [label=" inverse sosa:madeObservation 
+ «only»  " arrowhead=inv style=solid]
+	sosa_Observation -> owl__Thing [label=" sosa:phenomenonTime 
+ «exactly 1»  " arrowhead=normal style=solid]
+	sosa_FeatureOfInterest -> sosa_Observation [label=" inverse sosa:isFeatureOfInterestOf 
+ «only»  " arrowhead=inv style=solid]
+	sosa_Observation -> owl__Thing [label=" ssn:wasOriginatedBy 
+ «exactly 1»  " arrowhead=normal style=solid]
+	owl__Thing -> sosa_Observation [label=" inverse sosa:isFeatureOfInterestOf 
+ «exactly 1»  " arrowhead=inv style=solid]
+	sosa_Observation -> owl__Thing [label=" sosa:observedProperty 
+ «exactly 1»  " arrowhead=normal style=solid]
+}

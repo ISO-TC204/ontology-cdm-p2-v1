@@ -1,0 +1,21 @@
+// Diagram for ssn:Property
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		ssn_Property [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">ssn:Property</TD></TR></TABLE>> URL="../classes/Sensors__ssn:Property.md" margin=0]
+	}
+	sensorsThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sensorsThing</TD></TR></TABLE>> URL="../_counters/Sensors__sensorsThing.md" margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		sosa_FeatureOfInterest [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sosa:FeatureOfInterest</TD></TR></TABLE>> margin=0]
+	}
+	ssn_Property -> sensorsThing [arrowhead=onormal style=solid]
+	ssn_Property -> Invis [style=invis]
+	Invis -> sosa_FeatureOfInterest [style=invis]
+	ssn_Property -> sosa_FeatureOfInterest [label=" ssn:isPropertyOf 
+ «only»  " arrowhead=normal style=solid]
+}

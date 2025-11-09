@@ -1,0 +1,31 @@
+// Diagram for cdmOrg:OrganizationAgent
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		cdmOrg_OrganizationAgent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">cdmOrg:OrganizationAgent</TD></TR></TABLE>> URL="../classes/Organization__cdmOrg:OrganizationAgent.md" margin=0]
+	}
+	agent_Agent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">agent:Agent</TD></TR></TABLE>> margin=0]
+	cdmOrg_CityOrgOntologyThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdmOrg:CityOrgOntologyThing</TD></TR></TABLE>> margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		cdmOrg_Employment [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdmOrg:Employment</TD></TR></TABLE>> margin=0]
+		cdmOrg_Goal [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdmOrg:Goal</TD></TR></TABLE>> margin=0]
+		cdmOrg_Role [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdmOrg:Role</TD></TR></TABLE>> margin=0]
+	}
+	cdmOrg_OrganizationAgent -> agent_Agent [arrowhead=onormal style=solid]
+	cdmOrg_OrganizationAgent -> cdmOrg_CityOrgOntologyThing [arrowhead=onormal style=solid]
+	cdmOrg_OrganizationAgent -> Invis [style=invis]
+	Invis -> cdmOrg_Employment [style=invis]
+	cdmOrg_Employment -> cdmOrg_Goal [style=invis]
+	cdmOrg_Goal -> cdmOrg_Role [style=invis]
+	cdmOrg_OrganizationAgent -> cdmOrg_Employment [label=" cdmOrg:hasEmployment 
+ «only»  " arrowhead=normal style=solid]
+	cdmOrg_OrganizationAgent -> cdmOrg_Goal [label=" cdmOrg:hasGoal 
+ «only»  " arrowhead=normal style=solid]
+	cdmOrg_OrganizationAgent -> cdmOrg_Role [label=" cdmOrg:playsRole 
+ «only»  " arrowhead=normal style=solid]
+}

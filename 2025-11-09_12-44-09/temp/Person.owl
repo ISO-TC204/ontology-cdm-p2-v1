@@ -1,0 +1,815 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Person#"
+     xml:base="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Person#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:adms="http://www.w3.org/ns/adms#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:agent="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agent#"
+     xmlns:change="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Change#"
+     xmlns:cityUnits="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/CityUnits#"
+     xmlns:code="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#"
+     xmlns:contact="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contact#">
+    <owl:Ontology rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Person#">
+        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/1/Agent.owl"/>
+        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/1/CityUnits.owl"/>
+        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/2/Code.owl"/>
+        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/2/Contact.owl"/>
+        <dc:description>Ontology to capture concepts related to Persons.</dc:description>
+        <dc:title>Person Ontology</dc:title>
+        <vann:preferredNamespacePrefix>person</vann:preferredNamespacePrefix>
+        <adms:relatedDocumentation>Under development. Refer to latest version of ISO 5087-1.</adms:relatedDocumentation>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- ns:license -->
+
+    <owl:AnnotationProperty rdf:about="ns:license"/>
+    
+
+
+    <!-- dc:creator -->
+
+    <owl:AnnotationProperty rdf:about="dc:creator"/>
+    
+
+
+    <!-- dc:date -->
+
+    <owl:AnnotationProperty rdf:about="dc:date"/>
+    
+
+
+    <!-- dc:description -->
+
+    <owl:AnnotationProperty rdf:about="dc:description"/>
+    
+
+
+    <!-- dc:issued -->
+
+    <owl:AnnotationProperty rdf:about="dc:issued"/>
+    
+
+
+    <!-- dc:title -->
+
+    <owl:AnnotationProperty rdf:about="dc:title"/>
+    
+
+
+    <!-- terms:creator -->
+
+    <owl:AnnotationProperty rdf:about="terms:creator"/>
+    
+
+
+    <!-- terms:description -->
+
+    <owl:AnnotationProperty rdf:about="terms:description"/>
+    
+
+
+    <!-- terms:issued -->
+
+    <owl:AnnotationProperty rdf:about="terms:issued"/>
+    
+
+
+    <!-- terms:modified -->
+
+    <owl:AnnotationProperty rdf:about="terms:modified"/>
+    
+
+
+    <!-- terms:rights -->
+
+    <owl:AnnotationProperty rdf:about="terms:rights"/>
+    
+
+
+    <!-- terms:title -->
+
+    <owl:AnnotationProperty rdf:about="terms:title"/>
+    
+
+
+    <!-- vann:preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="vann:preferredNamespacePrefix"/>
+    
+
+
+    <!-- vann:preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="vann:preferredNamespaceUri"/>
+    
+
+
+    <!-- owl:versionInfo -->
+
+    <owl:AnnotationProperty rdf:about="owl:versionInfo"/>
+    
+
+
+    <!-- adms:relatedDocumentation -->
+
+    <owl:AnnotationProperty rdf:about="adms:relatedDocumentation"/>
+    
+
+
+    <!-- foaf:based_near -->
+
+    <owl:AnnotationProperty rdf:about="foaf:based_near"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- contact:hasAddress -->
+
+    <owl:ObjectProperty rdf:about="contact:hasAddress"/>
+    
+
+
+    <!-- contact:hasTelephone -->
+
+    <owl:ObjectProperty rdf:about="contact:hasTelephone"/>
+    
+
+
+    <!-- person:PersonOntologyProperty -->
+
+    <owl:ObjectProperty rdf:about="person:PersonOntologyProperty">
+        <dc:description>Added for organizational purposes, to identify properties defined in the Person ontology.</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:alias -->
+
+    <owl:ObjectProperty rdf:about="person:alias">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:birthDate -->
+
+    <owl:ObjectProperty rdf:about="person:birthDate">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+        <change:isInvariant rdf:datatype="xsd:boolean">true</change:isInvariant>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:birthplace -->
+
+    <owl:ObjectProperty rdf:about="person:birthplace">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:children -->
+
+    <owl:ObjectProperty rdf:about="person:children">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+        <dc:description>A child of the person.</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:citizenOf -->
+
+    <owl:ObjectProperty rdf:about="person:citizenOf">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:deathDate -->
+
+    <owl:ObjectProperty rdf:about="person:deathDate">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:deathPlace -->
+
+    <owl:ObjectProperty rdf:about="person:deathPlace">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:forCountry -->
+
+    <owl:ObjectProperty rdf:about="person:forCountry">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:forPerson -->
+
+    <owl:ObjectProperty rdf:about="person:forPerson">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:hasAge -->
+
+    <owl:ObjectProperty rdf:about="person:hasAge">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:hasEducation -->
+
+    <owl:ObjectProperty rdf:about="person:hasEducation">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:hasGenderIdentity -->
+
+    <owl:ObjectProperty rdf:about="person:hasGenderIdentity">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:hasIDType -->
+
+    <owl:ObjectProperty rdf:about="person:hasIDType">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:hasPersonID -->
+
+    <owl:ObjectProperty rdf:about="person:hasPersonID">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+        <change:isInvariant rdf:datatype="xsd:boolean">true</change:isInvariant>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:hasQualification -->
+
+    <owl:ObjectProperty rdf:about="person:hasQualification">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:hasSkill -->
+
+    <owl:ObjectProperty rdf:about="person:hasSkill">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:income -->
+
+    <owl:ObjectProperty rdf:about="person:income">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:issuedBy -->
+
+    <owl:ObjectProperty rdf:about="person:issuedBy">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:name -->
+
+    <owl:ObjectProperty rdf:about="person:name">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:parent -->
+
+    <owl:ObjectProperty rdf:about="person:parent">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+        <dc:description>A parent of this person. Supersedes parents.</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:sex -->
+
+    <owl:ObjectProperty rdf:about="person:sex">
+        <owl:equivalentProperty rdf:resource="http://schema.org/gender"/>
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+        <change:isInvariant rdf:datatype="xsd:boolean">true</change:isInvariant>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:spouse -->
+
+    <owl:ObjectProperty rdf:about="person:spouse">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+        <dc:description>The person&apos;s spouse.</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- person:validityPeriod -->
+
+    <owl:ObjectProperty rdf:about="person:validityPeriod">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2006/time#hasTime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schema.org/gender -->
+
+    <owl:ObjectProperty rdf:about="http://schema.org/gender">
+        <dc:description>Gender of the person.</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- contact:email -->
+
+    <owl:DatatypeProperty rdf:about="contact:email"/>
+    
+
+
+    <!-- person:PersonOntologyDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="person:PersonOntologyDataProperty"/>
+    
+
+
+    <!-- person:additionalName -->
+
+    <owl:DatatypeProperty rdf:about="person:additionalName">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- person:familyName -->
+
+    <owl:DatatypeProperty rdf:about="person:familyName">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- person:givenName -->
+
+    <owl:DatatypeProperty rdf:about="person:givenName">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- person:photoID -->
+
+    <owl:DatatypeProperty rdf:about="person:photoID">
+        <rdfs:subPropertyOf rdf:resource="person:PersonOntologyDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- contact:PhoneNumber -->
+
+    <owl:Class rdf:about="contact:PhoneNumber"/>
+    
+
+
+    <!-- person:Citizenship -->
+
+    <owl:Class rdf:about="person:Citizenship">
+        <rdfs:subClassOf rdf:resource="person:PersonOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:forCountry"/>
+                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="contact:/Country"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:validityPeriod"/>
+                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- person:Education -->
+
+    <owl:Class rdf:about="person:Education">
+        <rdfs:subClassOf rdf:resource="person:PersonOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="code:hasCode"/>
+                <owl:allValuesFrom rdf:resource="code:Code"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- person:Gender -->
+
+    <owl:Class rdf:about="person:Gender">
+        <rdfs:subClassOf rdf:resource="person:PersonOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="code:hasCode"/>
+                <owl:allValuesFrom rdf:resource="code:Code"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- person:IDType -->
+
+    <owl:Class rdf:about="person:IDType">
+        <rdfs:subClassOf rdf:resource="person:PersonOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="code:hasCode"/>
+                <owl:allValuesFrom rdf:resource="code:Code"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- person:Person -->
+
+    <owl:Class rdf:about="person:Person">
+        <rdfs:subClassOf rdf:resource="person:PersonOntologyThing"/>
+        <rdfs:subClassOf rdf:resource="agent:Agent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="contact:hasAddress"/>
+                <owl:allValuesFrom rdf:resource="contact:Address"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="contact:hasTelephone"/>
+                <owl:allValuesFrom rdf:resource="contact:PhoneNumber"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:alias"/>
+                <owl:allValuesFrom rdf:resource="person:PersonName"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:children"/>
+                <owl:allValuesFrom rdf:resource="person:Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:citizenOf"/>
+                <owl:allValuesFrom rdf:resource="person:Citizenship"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:hasEducation"/>
+                <owl:allValuesFrom rdf:resource="person:Education"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:hasGenderIdentity"/>
+                <owl:allValuesFrom rdf:resource="person:Gender"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:hasPersonID"/>
+                <owl:allValuesFrom rdf:resource="person:PersonId"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:hasSkill"/>
+                <owl:allValuesFrom rdf:resource="person:Skill"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:income"/>
+                <owl:allValuesFrom rdf:resource="cityUnits:MonetaryValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:parent"/>
+                <owl:allValuesFrom rdf:resource="person:Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:spouse"/>
+                <owl:allValuesFrom rdf:resource="person:Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:birthDate"/>
+                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/2006/time#Instant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:birthplace"/>
+                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="contact:/Address"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:deathDate"/>
+                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/2006/time#Instant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:deathPlace"/>
+                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="contact:Address"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:name"/>
+                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="person:PersonName"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:sex"/>
+                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="person:Sex"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="contact:email"/>
+                <owl:allValuesFrom rdf:resource="xsd:string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description>A Person may have a unique identifier.
+A Person has a date of birth, and may have a date of death.
+A Person may be a member of a Family and/or a Household.
+A Person has a mother and father, and may have a spouse and/or child(ren). Note that we define the parent relation as the legal relation as opposed to biological. This property may be specialized and restricted, for example hasBiologicalMother: exactly 1 Person.
+A Person may have some Job and associated Income.
+A Person may have access to some Vehicle.
+A Person may have access to some Bicycle.
+A Person may have some TransitPass.
+A Person has an address of residence and may have other contact information such as E-mail, phone number, etcetera.
+A Person has a Schedule for a given point (period) in time.
+Note that some properties are not defined in the Person ontology, but in an extension of the Person ontology that captures the interaction between iCity domain ontologies (e.g. Persons and their Vehicles)</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- person:PersonId -->
+
+    <owl:Class rdf:about="person:PersonId">
+        <rdfs:subClassOf rdf:resource="person:PersonOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:hasIDType"/>
+                <owl:allValuesFrom rdf:resource="person:IDType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:issuedBy"/>
+                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="agent:Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:validityPeriod"/>
+                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/2006/time#Interval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="genProp:hasIdentifier"/>
+                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="xsd:string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:photoID"/>
+                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="xsd:boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- person:PersonName -->
+
+    <owl:Class rdf:about="person:PersonName">
+        <rdfs:subClassOf rdf:resource="person:PersonOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:additionalName"/>
+                <owl:allValuesFrom rdf:resource="xsd:string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:givenName"/>
+                <owl:allValuesFrom rdf:resource="xsd:string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="person:familyName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="xsd:string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- person:PersonOntologyThing -->
+
+    <owl:Class rdf:about="person:PersonOntologyThing">
+        <dc:description>Added for organizational purposes, to identify classes defined in the Person ontology.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- person:Qualification -->
+
+    <owl:Class rdf:about="person:Qualification">
+        <rdfs:subClassOf rdf:resource="person:PersonOntologyThing"/>
+        <dc:description>A Qualification captures some official degree of accomplishment. It may be required for something and/or possessed by some Person.</dc:description>
+        <rdfs:comment>To be defined in greater detail in future versions. Likely to be defined in a separate ontology.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- person:SchemaOrgThing -->
+
+    <owl:Class rdf:about="person:SchemaOrgThing">
+        <dc:description>Added for organizational purposes, to capture the classes reused from Schema.org. Notice that since we cannot import schema.org we must manually reference the individual IRIs.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- person:Sex -->
+
+    <owl:Class rdf:about="person:Sex">
+        <rdfs:subClassOf rdf:resource="person:PersonOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="code:hasCode"/>
+                <owl:allValuesFrom rdf:resource="code:Code"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- person:Skill -->
+
+    <owl:Class rdf:about="person:Skill">
+        <rdfs:subClassOf rdf:resource="person:PersonOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="code:hasCode"/>
+                <owl:allValuesFrom rdf:resource="code:Code"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description>A Skill captures an ability to perfom some activity or set of activities.</dc:description>
+        <rdfs:comment>To be defined in greater detail in future versions. Likely to be defined in a separate ontology.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://schema.org/PostalAddress -->
+
+    <owl:Class rdf:about="http://schema.org/PostalAddress">
+        <rdfs:subClassOf rdf:resource="person:SchemaOrgThing"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- person:female -->
+
+    <owl:NamedIndividual rdf:about="person:female">
+        <rdf:type rdf:resource="person:Sex"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- person:male -->
+
+    <owl:NamedIndividual rdf:about="person:male">
+        <rdf:type rdf:resource="person:Sex"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

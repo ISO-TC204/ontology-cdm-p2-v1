@@ -1,0 +1,80 @@
+// Diagram for person:Person
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		person_Person [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">person:Person</TD></TR><TR><TD ALIGN="LEFT">contact:email: xsd:string «only»</TD></TR></TABLE>> URL="../classes/Person__person:Person.md" margin=0]
+	}
+	agent_Agent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">agent:Agent</TD></TR></TABLE>> margin=0]
+	person_PersonOntologyThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">person:PersonOntologyThing</TD></TR></TABLE>> margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		cityUnits_MonetaryValue [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cityUnits:MonetaryValue</TD></TR></TABLE>> margin=0]
+		"contact_/Address" [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">contact:/Address</TD></TR></TABLE>> margin=0]
+		contact_Address [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">contact:Address</TD></TR></TABLE>> margin=0]
+		contact_PhoneNumber [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">contact:PhoneNumber</TD></TR></TABLE>> margin=0]
+		person_Citizenship [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">person:Citizenship</TD></TR></TABLE>> margin=0]
+		person_Education [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">person:Education</TD></TR></TABLE>> margin=0]
+		person_Gender [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">person:Gender</TD></TR></TABLE>> margin=0]
+		person_PersonId [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">person:PersonId</TD></TR></TABLE>> margin=0]
+		person_PersonName [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">person:PersonName</TD></TR></TABLE>> margin=0]
+		person_Sex [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">person:Sex</TD></TR></TABLE>> margin=0]
+		person_Skill [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">person:Skill</TD></TR></TABLE>> margin=0]
+		time__Instant [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time::Instant</TD></TR></TABLE>> margin=0]
+	}
+	person_Person -> agent_Agent [arrowhead=onormal style=solid]
+	person_Person -> person_PersonOntologyThing [arrowhead=onormal style=solid]
+	person_Person -> Invis [style=invis]
+	Invis -> cityUnits_MonetaryValue [style=invis]
+	cityUnits_MonetaryValue -> "contact_/Address" [style=invis]
+	"contact_/Address" -> contact_Address [style=invis]
+	contact_Address -> contact_PhoneNumber [style=invis]
+	contact_PhoneNumber -> person_Citizenship [style=invis]
+	person_Citizenship -> person_Education [style=invis]
+	person_Education -> person_Gender [style=invis]
+	person_Gender -> person_PersonId [style=invis]
+	person_PersonId -> person_PersonName [style=invis]
+	person_PersonName -> person_Sex [style=invis]
+	person_Sex -> person_Skill [style=invis]
+	person_Skill -> time__Instant [style=invis]
+	person_Person -> person_Skill [label=" person:hasSkill 
+ «only»  " arrowhead=normal style=solid]
+	person_Person -> person_Sex [label=" person:sex 
+ «max 1»  " arrowhead=normal style=solid]
+	person_Person -> time__Instant [label=" person:birthDate 
+ «max 1»  " arrowhead=normal style=solid]
+	person_Person -> "contact_/Address" [label=" person:birthplace 
+ «max 1»  " arrowhead=normal style=solid]
+	person_Person [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">person:Person</TD></TR></TABLE>> margin=0]
+	person_Person -> person_Person [label=" person:parent 
+ «only»  " arrowhead=normal style=solid]
+	person_Person -> contact_PhoneNumber [label=" contact:hasTelephone 
+ «only»  " arrowhead=normal style=solid]
+	person_Person -> person_Person [label=" person:children 
+ «only»  " arrowhead=normal style=solid]
+	person_Person -> person_PersonId [label=" person:hasPersonID 
+ «only»  " arrowhead=normal style=solid]
+	person_Person -> contact_Address [label=" person:deathPlace 
+ «max 1»  " arrowhead=normal style=solid]
+	person_Person -> time__Instant [label=" person:deathDate 
+ «max 1»  " arrowhead=normal style=solid]
+	person_Person -> person_Citizenship [label=" person:citizenOf 
+ «only»  " arrowhead=normal style=solid]
+	person_Person -> contact_Address [label=" contact:hasAddress 
+ «only»  " arrowhead=normal style=solid]
+	person_Person -> person_Person [label=" person:spouse 
+ «only»  " arrowhead=normal style=solid]
+	person_Person -> person_PersonName [label=" person:name 
+ «max 1»  " arrowhead=normal style=solid]
+	person_Person -> cityUnits_MonetaryValue [label=" person:income 
+ «only»  " arrowhead=normal style=solid]
+	person_Person -> person_Education [label=" person:hasEducation 
+ «only»  " arrowhead=normal style=solid]
+	person_Person -> person_PersonName [label=" person:alias 
+ «only»  " arrowhead=normal style=solid]
+	person_Person -> person_Gender [label=" person:hasGenderIdentity 
+ «only»  " arrowhead=normal style=solid]
+}

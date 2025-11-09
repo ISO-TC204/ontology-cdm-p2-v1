@@ -1,0 +1,25 @@
+// Diagram for cdmOrg:BusinessEstablishment
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		cdmOrg_BusinessEstablishment [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">cdmOrg:BusinessEstablishment</TD></TR></TABLE>> URL="../classes/Organization__cdmOrg:BusinessEstablishment.md" margin=0]
+	}
+	cdmOrg_CityOrgOntologyThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdmOrg:CityOrgOntologyThing</TD></TR></TABLE>> margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		"contact_/Address" [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">contact:/Address</TD></TR></TABLE>> margin=0]
+		spatialLoc_Location [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">spatialLoc:Location</TD></TR></TABLE>> margin=0]
+	}
+	cdmOrg_BusinessEstablishment -> cdmOrg_CityOrgOntologyThing [arrowhead=onormal style=solid]
+	cdmOrg_BusinessEstablishment -> Invis [style=invis]
+	Invis -> "contact_/Address" [style=invis]
+	"contact_/Address" -> spatialLoc_Location [style=invis]
+	cdmOrg_BusinessEstablishment -> "contact_/Address" [label=" contact:hasAddress 
+ «only»  " arrowhead=normal style=solid]
+	cdmOrg_BusinessEstablishment -> spatialLoc_Location [label=" spatialLoc:hasLocation 
+ «max 1»  " arrowhead=normal style=solid]
+}

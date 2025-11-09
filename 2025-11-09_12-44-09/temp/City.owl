@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/City#"
+     xml:base="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/City#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:adms="http://www.w3.org/ns/adms#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:schema="http://schema.org/"
+     xmlns:i72="http://ontology.eil.utoronto.ca/ISO21972/iso21972#"
+     xmlns:bylaw="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw#"
+     xmlns:landUse="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/LandUse#"
+     xmlns:organization="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization#">
+    <owl:Ontology rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/City#">
+        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/2/Bylaw.owl"/>
+        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/2/LandUse.owl"/>
+        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/2/Organization.owl"/>
+        <dc:description>The City pattern captures basic information about the geospatial aspects of the city.  In particular it represents the different ways in which the city is administratively divided.</dc:description>
+        <dc:title>City Pattern</dc:title>
+        <vann:preferredNamespacePrefix>city</vann:preferredNamespacePrefix>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</owl:versionInfo>
+        <adms:relatedDocumentation>Under development. Refer to latest draft of ISO 5087-2.</adms:relatedDocumentation>
+    </owl:Ontology>
+    
+
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+   
+    <!-- :CityObjectProperty -->
+
+    <owl:ObjectProperty rdf:about=":CityObjectProperty"/>
+    
+
+
+    <!-- :administrativeArea -->
+
+    <owl:ObjectProperty rdf:about=":administrativeArea">
+        <rdfs:subPropertyOf rdf:resource=":CityObjectProperty"/>
+        <owl:inverseOf rdf:resource=":administrativeAreaOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :administrativeAreaOf -->
+
+    <owl:ObjectProperty rdf:about=":administrativeAreaOf">
+        <rdfs:subPropertyOf rdf:resource=":CityObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasGovernment -->
+
+    <owl:ObjectProperty rdf:about=":hasGovernment">
+        <rdfs:subPropertyOf rdf:resource=":CityObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+    <!-- schema:name -->
+
+    <owl:DatatypeProperty rdf:about="schema:name">
+        <rdfs:subPropertyOf rdf:resource=":CityOntologyDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- :CityOntologyDataProperty -->
+
+    <owl:DatatypeProperty rdf:about=":CityOntologyDataProperty"/>
+    
+
+
+    <!-- :hasPopulationSize -->
+
+    <owl:DatatypeProperty rdf:about=":hasPopulationSize">
+        <rdfs:subPropertyOf rdf:resource=":CityOntologyDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- :legalName -->
+
+    <owl:DatatypeProperty rdf:about=":legalName">
+        <rdfs:subPropertyOf rdf:resource=":CityOntologyDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- i72:City -->
+
+    <owl:Class rdf:about="i72:City"/>
+    
+
+
+    <!-- i72:Population -->
+
+    <owl:Class rdf:about="i72:Population"/>
+    
+
+
+    <!-- bylaw:Bylaw -->
+
+    <owl:Class rdf:about="bylaw:Bylaw"/>
+    
+
+
+    <!-- :City -->
+
+    <owl:Class rdf:about=":City">
+        <rdfs:subClassOf rdf:resource=":CityOntologyThing"/>
+        <rdfs:subClassOf rdf:resource=":JurisdictionalArea"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":legalName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The City Ontology combines basic information about the:
+•	land area occupied by a city,
+•	divisions of the city, e.g., districts, wards, neighbourhoods, and
+•	government organization that runs a city.
+
+A City has the following properties:
+•	schema:legalName: The legal name of the city.
+•	hasLandArea: identifies the spatial areas occupied by the city.
+•	hasGovernment: identifies the GovernmentOrganization that manages the city.
+•	hasBylaw: identifies the bylaws in existence in the city.
+•	5087-1:hasProperPart:: identifies spatial subdivisions of a city. They do not have to be distinct and can be hierarchical. A CityAdministrativeArea can be specialized for use by a City to reflect its unique subdivisions such as Districts, Wards, Neighbourhoods, Prefectures, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- :CityAdministrativeArea -->
+
+    <owl:Class rdf:about=":CityAdministrativeArea">
+        <rdfs:subClassOf rdf:resource=":CityOntologyThing"/>
+        <rdfs:subClassOf rdf:resource=":JurisdictionalArea"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":administrativeAreaOf"/>
+                <owl:someValuesFrom rdf:resource="i72:City"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A CityAdministrativeArea is an area that has the authority and the power to make administrative or policy decisions. It can be specialized for use by a City to reflect its unique areas such as Districts, Wards, Neighbourhoods, Prefectures, etc.
+
+A CityAdministrativeAreais similar in properties to a City:
+•	schema:name: The name of the city division
+•	hasLandArea: identifies the spatial areas occupied by the city division.
+•	hasGovernment: identifies the GovernmentOrganization that manages the city division, if any.
+•	sBylaw: identifies the bylaws in existence in the city division.
+•	5087-1:hasProperPart: identifies spatial subdivisions of the city division. 
+•	5087-1:properPartOf: identifies the City or CityAdministrativeArea it is part of.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- :CityOntologyThing -->
+
+    <owl:Class rdf:about=":CityOntologyThing"/>
+    
+
+
+    <!-- :JurisdictionalArea -->
+
+    <owl:Class rdf:about=":JurisdictionalArea">
+        <rdfs:subClassOf rdf:resource=":CityOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="bylaw:hasBylaw"/>
+                <owl:allValuesFrom rdf:resource="bylaw:Bylaw"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":administrativeArea"/>
+                <owl:allValuesFrom rdf:resource=":JurisdictionalArea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":administrativeAreaOf"/>
+                <owl:allValuesFrom rdf:resource=":JurisdictionalArea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasGovernment"/>
+                <owl:allValuesFrom rdf:resource="organization:GovernmentOrganization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="landUse:hasLandArea"/>
+                <owl:allValuesFrom rdf:resource="landUse:LandArea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="landUse:residentPopulation"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="i72:Population"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="genProp:hasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+

@@ -1,0 +1,21 @@
+// Diagram for https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Schedule
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Schedule" [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Schedule</TD></TR></TABLE>> URL="../classes/Bylaw__https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Schedule.md" margin=0]
+	}
+	BylawOntologyThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BylawOntologyThing</TD></TR></TABLE>> URL="../_counters/Bylaw__BylawOntologyThing.md" margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Clause [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Clause</TD></TR></TABLE>> URL="../_counters/Bylaw__Clause.md" margin=0]
+	}
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Schedule" -> BylawOntologyThing [arrowhead=onormal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Schedule" -> Invis [style=invis]
+	Invis -> Clause [style=invis]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Schedule" -> Clause [label=" hasClause 
+ «only»  " arrowhead=normal style=solid]
+}

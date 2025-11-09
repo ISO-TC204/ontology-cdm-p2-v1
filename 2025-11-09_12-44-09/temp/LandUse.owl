@@ -1,0 +1,367 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/LandUse#"
+     xml:base="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/LandUse#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:adms="http://www.w3.org/ns/adms#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:i72="http://ontology.eil.utoronto.ca/ISO21972/iso21972#"
+     xmlns:change="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Change#"
+     xmlns:cityUnits="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/CityUnits#"
+     xmlns:spatialLoc="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/SpatialLoc#">
+    <owl:Ontology rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/LandUse#">
+        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/1/Change.owl"/>
+        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/1/CityUnits.owl"/>
+        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/1/SpatialLoc.owl"/>
+        <dc:creator>Megan Katsumi</dc:creator>
+        <dc:description rdf:datatype="xsd:string">The Land Use Pattern captures concepts related to land use and cover over time. 
+Land Use Classifications provide a means of describing the land cover/use in a standard way. Various classification systems are used to identify types of land use. Currently, we include LBCS, CLUMP, and AAFC.
+The ontology reuses and extends the Land Based Classification Standards (LBCS) Ontology  presented by (Montenegro, Gomes, Urbano, and Duarte, 2011) for this purpose.</dc:description>
+        <dc:issued rdf:datatype="xsd:string">January 11, 2021</dc:issued>
+        <dc:title>Land Use Ontology</dc:title>
+        <vann:preferredNamespacePrefix rdf:datatype="xsd:string">landuse</vann:preferredNamespacePrefix>
+        <owl:versionInfo rdf:datatype="xsd:decimal">1.2</owl:versionInfo>
+        <adms:relatedDocumentation rdf:datatype="xsd:string">Under development. Refer to latest version of ISO 5087-2.</adms:relatedDocumentation>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- ns:license -->
+
+    <owl:AnnotationProperty rdf:about="ns:license"/>
+    
+
+
+    <!-- dc:date -->
+
+    <owl:AnnotationProperty rdf:about="dc:date"/>
+    
+
+
+    <!-- dc:description -->
+
+    <owl:AnnotationProperty rdf:about="dc:description"/>
+    
+
+
+    <!-- dc:title -->
+
+    <owl:AnnotationProperty rdf:about="dc:title"/>
+    
+
+
+    <!-- terms:creator -->
+
+    <owl:AnnotationProperty rdf:about="terms:creator"/>
+    
+
+
+    <!-- terms:description -->
+
+    <owl:AnnotationProperty rdf:about="terms:description"/>
+    
+
+
+    <!-- terms:issued -->
+
+    <owl:AnnotationProperty rdf:about="terms:issued"/>
+    
+
+
+    <!-- terms:modified -->
+
+    <owl:AnnotationProperty rdf:about="terms:modified"/>
+    
+
+
+    <!-- terms:rights -->
+
+    <owl:AnnotationProperty rdf:about="terms:rights"/>
+    
+
+
+    <!-- terms:title -->
+
+    <owl:AnnotationProperty rdf:about="terms:title"/>
+    
+
+
+    <!-- vann:preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="vann:preferredNamespacePrefix"/>
+    
+
+
+    <!-- vann:preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="vann:preferredNamespaceUri"/>
+    
+
+
+    <!-- owl:versionInfo -->
+
+    <owl:AnnotationProperty rdf:about="owl:versionInfo"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- :LandUseOntologyProperty -->
+
+    <owl:ObjectProperty rdf:about=":LandUseOntologyProperty">
+        <dc:description>Added for organizational purposes, to identify all properties defined in the Land Use ontology.</dc:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :associatedArea -->
+
+    <owl:ObjectProperty rdf:about=":associatedArea">
+        <rdfs:subPropertyOf rdf:resource=":LandUseOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasCardinality -->
+
+    <owl:ObjectProperty rdf:about=":hasCardinality">
+        <rdfs:subPropertyOf rdf:resource=":LandUseOntologyProperty"/>
+        <owl:inverseOf rdf:resource="i72:cardinality_of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasEmployedPopulation -->
+
+    <owl:ObjectProperty rdf:about=":hasEmployedPopulation">
+        <rdfs:subPropertyOf rdf:resource=":hasResidentPopulation"/>
+        <rdfs:range rdf:resource=":EmployedPopulation"/>
+        <rdfs:comment>A Parcel may have a number of employed residents that is subject to change over time.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasLandArea -->
+
+    <owl:ObjectProperty rdf:about=":hasLandArea">
+        <rdfs:subPropertyOf rdf:resource=":LandUseOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasLandUse -->
+
+    <owl:ObjectProperty rdf:about=":hasLandUse">
+        <rdfs:subPropertyOf rdf:resource=":LandUseOntologyProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasPopulation -->
+
+    <owl:ObjectProperty rdf:about=":hasPopulation">
+        <rdfs:subPropertyOf rdf:resource=":LandUseOntologyProperty"/>
+        <rdfs:comment>A Parcel may have some population that is subject to change over time.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasResidentPopulation -->
+
+    <owl:ObjectProperty rdf:about=":hasResidentPopulation">
+        <rdfs:subPropertyOf rdf:resource=":hasPopulation"/>
+        <rdfs:range rdf:resource=":ResidentPopulation"/>
+        <rdfs:comment>A parcel may have some population of residents at a given point in time.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :parcelHasLocation -->
+
+    <owl:ObjectProperty rdf:about=":parcelHasLocation">
+        <rdfs:subPropertyOf rdf:resource="spatialLoc:hasLocation"/>
+        <rdfs:subPropertyOf rdf:resource=":LandUseOntologyProperty"/>
+        <cityUnits:isInvariant rdf:datatype="xsd:boolean">true</cityUnits:isInvariant>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- i72:cardinality_of -->
+
+    <owl:ObjectProperty rdf:about="i72:cardinality_of"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- :LandUseOntologyDataProperty -->
+
+    <owl:DatatypeProperty rdf:about=":LandUseOntologyDataProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- cityUnits:Area -->
+
+    <owl:Class rdf:about="cityUnits:Area"/>
+    
+
+
+    <!-- :EmployedPopulation -->
+
+    <owl:Class rdf:about=":EmployedPopulation">
+        <rdfs:subClassOf rdf:resource=":ResidentPopulation"/>
+        <rdfs:comment>The population of employed residents in a given area (Parcel)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- :LandArea -->
+
+    <owl:Class rdf:about=":LandArea">
+        <rdfs:subClassOf rdf:resource="change:Manifestation"/>
+        <rdfs:subClassOf rdf:resource=":LandUseOntologyThing"/>
+        <rdfs:subClassOf rdf:resource=":Parcel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":parcelHasLocation"/>
+                <owl:someValuesFrom rdf:resource="i72:Feature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":associatedArea"/>
+                <owl:allValuesFrom rdf:resource="cityUnits:Area"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasLandUse"/>
+                <owl:allValuesFrom rdf:resource=":LandUseClassification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasPopulation"/>
+                <owl:allValuesFrom rdf:resource="i72:Population"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="change:existsAt"/>
+                <owl:qualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="time:TemporalEntity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- :LandUseClassification -->
+
+    <owl:Class rdf:about=":LandUseClassification">
+        <rdfs:subClassOf rdf:resource=":LandUseOntologyThing"/>
+        <rdfs:comment>Land Use Classifications provide a means of describing the land cover/use in a standard way. Various classification systems are used to identify types of land use. Currently, we include LBCS, CLUMP, and AAFC.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- :LandUseOntologyThing -->
+
+    <owl:Class rdf:about=":LandUseOntologyThing">
+        <rdfs:comment>Added for organizational purposes, to identify all classes defined in the Land Use ontology.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- :Parcel -->
+
+    <owl:Class rdf:about=":Parcel">
+        <rdfs:subClassOf rdf:resource=":LandUseOntologyThing"/>
+        <dc:description>A Parcel is a way of defining some area in an urban system.
+A Parcel has a Location.
+A Parcel may be classified as having some type of Land Use.
+There may be other types (subclasses) of Parcel, defined in more precise or different ways, such as a Zone.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- :ResidentPopulation -->
+
+    <owl:Class rdf:about=":ResidentPopulation">
+        <rdfs:subClassOf rdf:resource=":LandUseOntologyThing"/>
+        <rdfs:subClassOf rdf:resource="i72:Population"/>
+        <rdfs:comment>The population that resides within a given area (Parcel)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- :TrafficZone -->
+
+    <owl:Class rdf:about=":TrafficZone">
+        <rdfs:subClassOf rdf:resource=":LandArea"/>
+    </owl:Class>
+    
+
+
+    <!-- i72:Feature -->
+
+    <owl:Class rdf:about="i72:Feature"/>
+    
+
+
+    <!-- i72:Population -->
+
+    <owl:Class rdf:about="i72:Population"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

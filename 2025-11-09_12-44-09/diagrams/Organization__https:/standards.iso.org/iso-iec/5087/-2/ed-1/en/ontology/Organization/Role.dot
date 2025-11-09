@@ -1,0 +1,31 @@
+// Diagram for https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Role
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Role" [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Role</TD></TR></TABLE>> URL="../classes/Organization__https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Role.md" margin=0]
+	}
+	CityOrgOntologyThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityOrgOntologyThing</TD></TR></TABLE>> URL="../_counters/Organization__CityOrgOntologyThing.md" margin=0]
+	org__Role [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">org::Role</TD></TR></TABLE>> margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		activity__Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">activity::Activity</TD></TR></TABLE>> margin=0]
+		consumestate__Resource [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">consumestate::Resource</TD></TR></TABLE>> margin=0]
+		Goal [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Goal</TD></TR></TABLE>> URL="../_counters/Organization__Goal.md" margin=0]
+	}
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Role" -> CityOrgOntologyThing [arrowhead=onormal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Role" -> org__Role [arrowhead=onormal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Role" -> Invis [style=invis]
+	Invis -> activity__Activity [style=invis]
+	activity__Activity -> consumestate__Resource [style=invis]
+	consumestate__Resource -> Goal [style=invis]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Role" -> Goal [label=" hasGoal 
+ «only»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Role" -> activity__Activity [label=" hasProcess 
+ «only»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Role" -> consumestate__Resource [label=" hasResource 
+ «only»  " arrowhead=normal style=solid]
+}

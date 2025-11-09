@@ -1,0 +1,40 @@
+// Diagram for sosa:Sampling
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		sosa_Sampling [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">sosa:Sampling</TD></TR><TR><TD ALIGN="LEFT">sosa:resultTime: xsd:dateTime «exactly 1»</TD></TR></TABLE>> URL="../classes/Sensors__sosa:Sampling.md" margin=0]
+	}
+	sensorsThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sensorsThing</TD></TR></TABLE>> URL="../_counters/Sensors__sensorsThing.md" margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		sosa_FeatureOfInterest [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sosa:FeatureOfInterest</TD></TR></TABLE>> margin=0]
+		sosa_Procedure [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sosa:Procedure</TD></TR></TABLE>> margin=0]
+		sosa_Sample [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sosa:Sample</TD></TR></TABLE>> margin=0]
+		sosa_Sampler [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sosa:Sampler</TD></TR></TABLE>> margin=0]
+	}
+	sosa_Sampling -> sensorsThing [arrowhead=onormal style=solid]
+	sosa_Sampling -> Invis [style=invis]
+	Invis -> sosa_FeatureOfInterest [style=invis]
+	sosa_FeatureOfInterest -> sosa_Procedure [style=invis]
+	sosa_Procedure -> sosa_Sample [style=invis]
+	sosa_Sample -> sosa_Sampler [style=invis]
+	sosa_FeatureOfInterest -> sosa_Sampling [label=" inverse sosa:isFeatureOfInterestOf 
+ «only»  " arrowhead=inv style=solid]
+	owl__Thing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">owl::Thing</TD></TR></TABLE>> margin=0]
+	owl__Thing -> sosa_Sampling [label=" inverse sosa:isFeatureOfInterestOf 
+ «exactly 1»  " arrowhead=inv style=solid]
+	sosa_Sample -> sosa_Sampling [label=" inverse sosa:isResultOf 
+ «only»  " arrowhead=inv style=solid]
+	sosa_Sampler -> sosa_Sampling [label=" inverse sosa:madeSampling 
+ «only»  " arrowhead=inv style=solid]
+	owl__Thing -> sosa_Sampling [label=" inverse sosa:madeSampling 
+ «exactly 1»  " arrowhead=inv style=solid]
+	sosa_Sampling -> sosa_Procedure [label=" sosa:usedProcedure 
+ «only»  " arrowhead=normal style=solid]
+	owl__Thing -> sosa_Sampling [label=" inverse sosa:isResultOf 
+ «min 1»  " arrowhead=inv style=solid]
+}

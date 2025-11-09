@@ -1,0 +1,21 @@
+// Diagram for cdmOrg:Salary
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		cdmOrg_Salary [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">cdmOrg:Salary</TD></TR></TABLE>> URL="../classes/Organization__cdmOrg:Salary.md" margin=0]
+	}
+	cdmOrg_Compensation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdmOrg:Compensation</TD></TR></TABLE>> margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		cityUnits_MonetaryValue [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cityUnits:MonetaryValue</TD></TR></TABLE>> margin=0]
+	}
+	cdmOrg_Salary -> cdmOrg_Compensation [arrowhead=onormal style=solid]
+	cdmOrg_Salary -> Invis [style=invis]
+	Invis -> cityUnits_MonetaryValue [style=invis]
+	cdmOrg_Salary -> cityUnits_MonetaryValue [label=" cdmOrg:annualPay 
+ «max 1»  " arrowhead=normal style=solid]
+}

@@ -1,0 +1,41 @@
+// Diagram for http://ontology.eil.utoronto.ca/5087/2/Building/BuildingUnit
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		"http_//ontology.eil.utoronto.ca/5087/2/Building/BuildingUnit" [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">http://ontology.eil.utoronto.ca/5087/2/Building/BuildingUnit</TD></TR><TR><TD ALIGN="LEFT">hasNumberOfRooms: xsd::integer «only»</TD></TR></TABLE>> URL="../classes/Building__http://ontology.eil.utoronto.ca/5087/2/Building/BuildingUnit.md" margin=0]
+	}
+	BuildingOntologyThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BuildingOntologyThing</TD></TR></TABLE>> URL="../_counters/Building__BuildingOntologyThing.md" margin=0]
+	Change__Manifestation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Change::Manifestation</TD></TR></TABLE>> margin=0]
+	infrastructureelement__InfrastructureElement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">infrastructureelement::InfrastructureElement</TD></TR></TABLE>> margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Building [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Building</TD></TR></TABLE>> URL="../_counters/Building__Building.md" margin=0]
+		BuildingFacility [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BuildingFacility</TD></TR></TABLE>> URL="../_counters/Building__BuildingFacility.md" margin=0]
+		CityUnits__Area [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityUnits::Area</TD></TR></TABLE>> margin=0]
+		CityUnits__MonetaryValue [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityUnits::MonetaryValue</TD></TR></TABLE>> margin=0]
+		hasaddress__Address [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">hasaddress::Address</TD></TR></TABLE>> margin=0]
+	}
+	"http_//ontology.eil.utoronto.ca/5087/2/Building/BuildingUnit" -> BuildingOntologyThing [arrowhead=onormal style=solid]
+	"http_//ontology.eil.utoronto.ca/5087/2/Building/BuildingUnit" -> Change__Manifestation [arrowhead=onormal style=solid]
+	"http_//ontology.eil.utoronto.ca/5087/2/Building/BuildingUnit" -> infrastructureelement__InfrastructureElement [arrowhead=onormal style=solid]
+	"http_//ontology.eil.utoronto.ca/5087/2/Building/BuildingUnit" -> Invis [style=invis]
+	Invis -> Building [style=invis]
+	Building -> BuildingFacility [style=invis]
+	BuildingFacility -> CityUnits__Area [style=invis]
+	CityUnits__Area -> CityUnits__MonetaryValue [style=invis]
+	CityUnits__MonetaryValue -> hasaddress__Address [style=invis]
+	"http_//ontology.eil.utoronto.ca/5087/2/Building/BuildingUnit" -> hasaddress__Address [label=" buildingUnitHasAddress 
+ «only»  " arrowhead=normal style=solid]
+	"http_//ontology.eil.utoronto.ca/5087/2/Building/BuildingUnit" -> BuildingFacility [label=" hasBuildingFacility 
+ «only»  " arrowhead=normal style=solid]
+	"http_//ontology.eil.utoronto.ca/5087/2/Building/BuildingUnit" -> CityUnits__MonetaryValue [label=" hasRent 
+ «only»  " arrowhead=normal style=solid]
+	"http_//ontology.eil.utoronto.ca/5087/2/Building/BuildingUnit" -> CityUnits__Area [label=" hasUnitSize 
+ «only»  " arrowhead=normal style=solid]
+	"http_//ontology.eil.utoronto.ca/5087/2/Building/BuildingUnit" -> Building [label=" unitInBuilding 
+ «exactly 1»  " arrowhead=normal style=solid]
+}

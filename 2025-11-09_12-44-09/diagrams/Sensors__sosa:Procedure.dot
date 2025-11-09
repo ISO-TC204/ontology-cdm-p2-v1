@@ -1,0 +1,29 @@
+// Diagram for sosa:Procedure
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		sosa_Procedure [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">sosa:Procedure</TD></TR></TABLE>> URL="../classes/Sensors__sosa:Procedure.md" margin=0]
+	}
+	sensorsThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sensorsThing</TD></TR></TABLE>> URL="../_counters/Sensors__sensorsThing.md" margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		ssn_Input [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ssn:Input</TD></TR></TABLE>> margin=0]
+		ssn_Output [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ssn:Output</TD></TR></TABLE>> margin=0]
+		ssn_System [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ssn:System</TD></TR></TABLE>> margin=0]
+	}
+	sosa_Procedure -> sensorsThing [arrowhead=onormal style=solid]
+	sosa_Procedure -> Invis [style=invis]
+	Invis -> ssn_Input [style=invis]
+	ssn_Input -> ssn_Output [style=invis]
+	ssn_Output -> ssn_System [style=invis]
+	ssn_System -> sosa_Procedure [label=" inverse ssn:implements 
+ «only»  " arrowhead=inv style=solid]
+	sosa_Procedure -> ssn_Input [label=" ssn:hasInput 
+ «only»  " arrowhead=normal style=solid]
+	sosa_Procedure -> ssn_Output [label=" ssn:hasOutput 
+ «only»  " arrowhead=normal style=solid]
+}

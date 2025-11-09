@@ -1,0 +1,29 @@
+// Diagram for person:PersonId
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		person_PersonId [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">person:PersonId</TD></TR><TR><TD ALIGN="LEFT">person:photoID: xsd:boolean «max 1»</TD></TR></TABLE>> URL="../classes/Person__person:PersonId.md" margin=0]
+	}
+	person_PersonOntologyThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">person:PersonOntologyThing</TD></TR></TABLE>> margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		agent_Agent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">agent:Agent</TD></TR></TABLE>> margin=0]
+		person_IDType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">person:IDType</TD></TR></TABLE>> margin=0]
+		time__Interval [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time::Interval</TD></TR></TABLE>> margin=0]
+	}
+	person_PersonId -> person_PersonOntologyThing [arrowhead=onormal style=solid]
+	person_PersonId -> Invis [style=invis]
+	Invis -> agent_Agent [style=invis]
+	agent_Agent -> person_IDType [style=invis]
+	person_IDType -> time__Interval [style=invis]
+	person_PersonId -> time__Interval [label=" person:validityPeriod 
+ «max 1»  " arrowhead=normal style=solid]
+	person_PersonId -> person_IDType [label=" person:hasIDType 
+ «only»  " arrowhead=normal style=solid]
+	person_PersonId -> agent_Agent [label=" person:issuedBy 
+ «max 1»  " arrowhead=normal style=solid]
+}

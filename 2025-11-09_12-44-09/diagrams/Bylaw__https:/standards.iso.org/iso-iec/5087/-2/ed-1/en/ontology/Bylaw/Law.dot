@@ -1,0 +1,44 @@
+// Diagram for https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Law
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Law" [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Law</TD></TR><TR><TD ALIGN="LEFT">abstract: xsd::string «max 1»</TD></TR><TR><TD ALIGN="LEFT">dateInEffect: xsd::dateTime «max 1»</TD></TR><TR><TD ALIGN="LEFT">datePublished: xsd::dateTime «max 1»</TD></TR><TR><TD ALIGN="LEFT">expires: xsd::dateTime «max 1»</TD></TR><TR><TD ALIGN="LEFT">keywords: xsd::string «only»</TD></TR><TR><TD ALIGN="LEFT">legislationDate: xsd::dateTime «max 1»</TD></TR><TR><TD ALIGN="LEFT">legislationIdentifier: xsd::string «max 1»</TD></TR></TABLE>> URL="../classes/Bylaw__https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Law.md" margin=0]
+	}
+	BylawOntologyThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BylawOntologyThing</TD></TR></TABLE>> URL="../_counters/Bylaw__BylawOntologyThing.md" margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Clause [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Clause</TD></TR></TABLE>> URL="../_counters/Bylaw__Clause.md" margin=0]
+		Definition [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Definition</TD></TR></TABLE>> URL="../_counters/Bylaw__Definition.md" margin=0]
+		"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/City/JurisdictionalArea" [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/City/JurisdictionalArea</TD></TR></TABLE>> margin=0]
+		Schedule [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Schedule</TD></TR></TABLE>> URL="../_counters/Bylaw__Schedule.md" margin=0]
+	}
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Law" -> BylawOntologyThing [arrowhead=onormal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Law" -> Invis [style=invis]
+	Invis -> Clause [style=invis]
+	Clause -> Definition [style=invis]
+	Definition -> "https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/City/JurisdictionalArea" [style=invis]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/City/JurisdictionalArea" -> Schedule [style=invis]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Law" -> Clause [label=" hasClause 
+ «only»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Law" -> Definition [label=" hasDefinition 
+ «only»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Law" -> Clause [label=" hasPenaltyClause 
+ «only»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Law" -> Clause [label=" hasRepealClause 
+ «only»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Law" -> Schedule [label=" hasSchedule 
+ «only»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Law" -> Clause [label=" hasSeveranceClause 
+ «only»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Law" -> Clause [label=" hasTransitionClause 
+ «only»  " arrowhead=normal style=solid]
+	Nb788fd6597fa4d488f505403afcb3389 [label=Nb788fd6597fa4d488f505403afcb3389 shape=plaintext]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Law" -> Nb788fd6597fa4d488f505403afcb3389 [label=" legislationLegalForce 
+ «only»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/Law" -> "https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/City/JurisdictionalArea" [label=" legislationJurisdiction 
+ «max 1»  " arrowhead=normal style=solid]
+}

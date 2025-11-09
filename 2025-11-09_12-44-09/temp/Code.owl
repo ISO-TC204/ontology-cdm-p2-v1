@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#"
+     xml:base="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:adms="http://www.w3.org/ns/adms#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:genProp="http://ontology.eil.utoronto.ca/5087/1/GenericProperties#"
+     xmlns:cdmOrgStruct="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#">
+    <owl:Ontology rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#">
+        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/1/GenericProperties.owl"/>
+        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/1/OrganizationStructure.owl"/>
+        <dc:description>The Code Pattern provides a structure to address the challenge of value enumeration with a general approach. In city data there are many classes of things that are intended to be instantiated using a set list of values (e.g., classification systems), however these values may change based on application or context. 
+The Code Pattern introduces a generic set of classes and properties that can be used to extend such classes to define various classification systems in an integrated way.
+Instead of enumerating value sets for classes, values can be defined with an associated Code that specifies additional metadata about the value and its origins.</dc:description>
+        <dc:title>Code Pattern</dc:title>
+        <adms:relatedDocumentation>Under development. Refer to latest draft of ISO 5087-2.</adms:relatedDocumentation>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- ns:license -->
+
+    <owl:AnnotationProperty rdf:about="ns:license"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/issued -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/issued"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- terms:creator -->
+
+    <owl:AnnotationProperty rdf:about="terms:creator"/>
+    
+
+
+    <!-- terms:description -->
+
+    <owl:AnnotationProperty rdf:about="terms:description"/>
+    
+
+
+    <!-- terms:issued -->
+
+    <owl:AnnotationProperty rdf:about="terms:issued"/>
+    
+
+
+    <!-- terms:modified -->
+
+    <owl:AnnotationProperty rdf:about="terms:modified"/>
+    
+
+
+    <!-- terms:rights -->
+
+    <owl:AnnotationProperty rdf:about="terms:rights"/>
+    
+
+
+    <!-- terms:title -->
+
+    <owl:AnnotationProperty rdf:about="terms:title"/>
+    
+
+
+    <!-- vann:preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="vann:preferredNamespacePrefix"/>
+    
+
+
+    <!-- vann:preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="vann:preferredNamespaceUri"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#versionInfo -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#versionInfo"/>
+    
+
+
+    <!-- http://www.w3.org/ns/adms#relatedDocumentation -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/adms#relatedDocumentation"/>
+    
+
+
+    <!-- foaf:based_near -->
+
+    <owl:AnnotationProperty rdf:about="foaf:based_near"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- :codeOntologyObjectProperty -->
+
+    <owl:ObjectProperty rdf:about=":codeOntologyObjectProperty"/>
+    
+
+
+    <!-- :definedBy -->
+
+    <owl:ObjectProperty rdf:about=":definedBy">
+        <rdfs:subPropertyOf rdf:resource=":codeOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasCode -->
+
+    <owl:ObjectProperty rdf:about=":hasCode">
+        <rdfs:subPropertyOf rdf:resource=":codeOntologyObjectProperty"/>
+        <rdfs:range rdf:resource=":Code"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- genProp:hasIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="genProp:hasIdentifier"/>
+    
+
+
+    <!-- :codeOntologyDataProperty -->
+
+    <owl:DatatypeProperty rdf:about=":codeOntologyDataProperty"/>
+    
+
+
+    <!-- :specification -->
+
+    <owl:DatatypeProperty rdf:about=":specification">
+        <rdfs:subPropertyOf rdf:resource=":codeOntologyDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- cdmOrgStruct:Organization -->
+
+    <owl:Class rdf:about="cdmOrgStruct:Organization"/>
+    
+
+
+    <!-- :Code -->
+
+    <owl:Class rdf:about=":Code">
+        <rdfs:subClassOf rdf:resource=":CodeOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":definedBy"/>
+                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="cdmOrgStruct:Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="genProp:hasDescription"/>
+                <owl:allValuesFrom rdf:resource="xsd:string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="genProp:hasName"/>
+                <owl:allValuesFrom rdf:resource="xsd:string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="genProp:hasIdentifier"/>
+                <owl:maxQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="xsd:string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- :CodeOntologyThing -->
+
+    <owl:Class rdf:about=":CodeOntologyThing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

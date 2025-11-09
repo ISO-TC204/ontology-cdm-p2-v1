@@ -1,0 +1,18 @@
+// Diagram for cdmOrg:Operation
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		cdmOrg_Operation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">cdmOrg:Operation</TD></TR><TR><TD ALIGN="LEFT">cdmOrg:closingTime: xsd:time «max 1»</TD></TR><TR><TD ALIGN="LEFT">cdmOrg:openingTime: xsd:time «max 1»</TD></TR></TABLE>> URL="../classes/Organization__cdmOrg:Operation.md" margin=0]
+	}
+	cdmOrg_CityOrgOntologyThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdmOrg:CityOrgOntologyThing</TD></TR></TABLE>> margin=0]
+	recurringEvent_RecurringEvent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">recurringEvent:RecurringEvent</TD></TR></TABLE>> margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+	}
+	cdmOrg_Operation -> cdmOrg_CityOrgOntologyThing [arrowhead=onormal style=solid]
+	cdmOrg_Operation -> recurringEvent_RecurringEvent [arrowhead=onormal style=solid]
+}

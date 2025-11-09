@@ -1,0 +1,39 @@
+// Diagram for https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Organization
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Organization" [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Organization</TD></TR><TR><TD ALIGN="LEFT">location::hasLocation: location::Location «only»</TD></TR></TABLE>> URL="../classes/Organization__https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Organization.md" margin=0]
+	}
+	CityOrgOntologyThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityOrgOntologyThing</TD></TR></TABLE>> URL="../_counters/Organization__CityOrgOntologyThing.md" margin=0]
+	organization__Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">organization::Organization</TD></TR></TABLE>> margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Goal [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Goal</TD></TR></TABLE>> URL="../_counters/Organization__Goal.md" margin=0]
+		hasaddress__Address [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">hasaddress::Address</TD></TR></TABLE>> margin=0]
+		hasaddress__PhoneNumber [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">hasaddress::PhoneNumber</TD></TR></TABLE>> margin=0]
+		location__Location [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">location::Location</TD></TR></TABLE>> margin=0]
+		Operation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Operation</TD></TR></TABLE>> URL="../_counters/Organization__Operation.md" margin=0]
+	}
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Organization" -> CityOrgOntologyThing [arrowhead=onormal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Organization" -> organization__Organization [arrowhead=onormal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Organization" -> Invis [style=invis]
+	Invis -> Goal [style=invis]
+	Goal -> hasaddress__Address [style=invis]
+	hasaddress__Address -> hasaddress__PhoneNumber [style=invis]
+	hasaddress__PhoneNumber -> location__Location [style=invis]
+	location__Location -> Operation [style=invis]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Organization" -> location__Location [label=" location::hasLocation 
+ «only»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Organization" -> hasaddress__PhoneNumber [label=" hasaddress::hasTelephone 
+ «only»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Organization" -> Goal [label=" hasGoal 
+ «only»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Organization" -> Operation [label=" operatingHours 
+ «only»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/Organization" -> hasaddress__Address [label=" orgAddress 
+ «only»  " arrowhead=normal style=solid]
+}

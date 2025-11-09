@@ -1,0 +1,695 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/CityService#"
+     xml:base="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/CityService#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:adms="http://www.w3.org/ns/adms#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:schema="http://schema.org/"
+     xml:activity="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity#"
+     xml:genProp="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/GenericProperties#"
+     xml:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Resource#"
+     xml:code="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Code#"
+     xml:cdmOrg="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization#"
+     xml:person="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Person#">
+    <owl:Ontology rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/CityService#">
+        <owl:imports rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity.owl"/>
+        <owl:imports rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization.owl"/>
+        <owl:imports rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Person.owl"/>
+        <owl:imports rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/GenericProperties.owl"/>
+        <owl:imports rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Code.owl"/>
+        <dc:description>Cities provide a variety of services to residents and businesses, including health and social services. The city service ontology, is based on the Canadian Government Reference Model (CGRM). See Wiseman, R. (2015). Canadian Governments Reference Models. In Service Systems Science (pp. 109-128). Springer, Tokyo.</dc:description>
+        <dc:title>City Service Pattern</dc:title>
+        <vann:preferredNamespacePrefix>Under development. Refer to latest version of ISO 5087-2.</vann:preferredNamespacePrefix>
+        <vann:preferredNamespacePrefix>cityservice</vann:preferredNamespacePrefix>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- vann:preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="vann:preferredNamespacePrefix"/>
+    
+
+
+    <!-- adms:relatedDocumentation -->
+
+    <owl:AnnotationProperty rdf:about="adms:relatedDocumentation"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- :forActivity -->
+
+    <owl:ObjectProperty rdf:about=":forActivity">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasActualAmount -->
+
+    <owl:ObjectProperty rdf:about=":hasActualAmount">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasPlannedAmount -->
+
+    <owl:ObjectProperty rdf:about=":hasPlannedAmount">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :usedByIndicator -->
+
+    <owl:ObjectProperty rdf:about=":usedByIndicator">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :CityServiceOntologyObjectProperty -->
+
+    <owl:ObjectProperty rdf:about=":CityServiceOntologyObjectProperty"/>
+    
+
+
+    <!-- :forStakeholder -->
+
+    <owl:ObjectProperty rdf:about=":forStakeholder">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :fromPerspectiveOf -->
+
+    <owl:ObjectProperty rdf:about=":fromPerspectiveOf">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasBeneficialStakeholder -->
+
+    <owl:ObjectProperty rdf:about=":hasBeneficialStakeholder">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasCatchmentArea -->
+
+    <owl:ObjectProperty rdf:about=":hasCatchmentArea">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasCatchmentAreaType -->
+
+    <owl:ObjectProperty rdf:about=":hasCatchmentAreaType">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasContributingStakeholder -->
+
+    <owl:ObjectProperty rdf:about=":hasContributingStakeholder">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasImpact -->
+
+    <owl:ObjectProperty rdf:about=":hasImpact">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasImportance -->
+
+    <owl:ObjectProperty rdf:about=":hasImportance">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasIndicator -->
+
+    <owl:ObjectProperty rdf:about=":hasIndicator">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasInput -->
+
+    <owl:ObjectProperty rdf:about=":hasInput">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasOutcome -->
+
+    <owl:ObjectProperty rdf:about=":hasOutcome">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasOutput -->
+
+    <owl:ObjectProperty rdf:about=":hasOutput">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasProgram -->
+
+    <owl:ObjectProperty rdf:about=":hasProgram">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasService -->
+
+    <owl:ObjectProperty rdf:about=":hasService">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :intendedImpact -->
+
+    <owl:ObjectProperty rdf:about=":intendedImpact">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :performs -->
+
+    <owl:ObjectProperty rdf:about=":performs">
+        <rdfs:subPropertyOf rdf:resource=":CityServiceOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- :CatchmentAreaType -->
+
+    <owl:Class rdf:about=":CatchmentAreaType">
+        <rdfs:subClassOf rdf:resource=":CityServiceOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="code:hasCode"/>
+                <owl:allValuesFrom rdf:resource="code:Code"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- :CityServiceOntologyThing -->
+
+    <owl:Class rdf:about=":CityServiceOntologyThing"/>
+    
+
+
+    <!-- :ImpactDirection -->
+
+    <owl:Class rdf:about=":ImpactDirection">
+        <rdfs:subClassOf rdf:resource=":CityServiceOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="code:hasCode"/>
+                <owl:allValuesFrom rdf:resource="code:Code"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- :Importance -->
+
+    <owl:Class rdf:about=":Importance">
+        <rdfs:subClassOf rdf:resource=":CityServiceOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="code:hasCode"/>
+                <owl:allValuesFrom rdf:resource="code:Code"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- :Input -->
+
+    <owl:Class rdf:about=":Input">
+        <rdfs:subClassOf rdf:resource=":CityServiceOntologyThing"/>
+        <rdfs:subClassOf rdf:resource="resource:TerminalResourceState"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasContributingStakeholder"/>
+                <owl:allValuesFrom rdf:resource=":Stakeholder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.eil.utoronto.ca/ISO21972/iso21972#for_time_interval"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#DateTimeInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="genProp:hasDescription"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="genProp:hasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description>Input defines the resources and the stakeholders that contribute them that are input to an Activity:
+•	inputFor: The Program or Service or Activity this is an input for.
+•	hasContributingStakeholder: The Stakeholders that contribute the resources as input.
+•	hasType: Specifies the input Resource.
+•	hasPlannedAmount: Specifies the amount of the input Resource
+•	hasActualAmount: Specifies actual amount of input Resource used.
+•	i72:for_time_interval: Specifies the time interval over which the input is used.
+•	sch:name: Name for the Input.
+•	sch:description: Description for the Input.</dc:description>
+        <rdfs:label xml:lang="en">Input</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- :Outcome -->
+
+    <owl:Class rdf:about=":Outcome">
+        <rdfs:subClassOf rdf:resource=":CityServiceOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasIndicator"/>
+                <owl:allValuesFrom rdf:resource="http://ontology.eil.utoronto.ca/ISO21972/iso21972#Indicator"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":fromPerspectiveOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource=":Stakeholder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasBeneficialStakeholder"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource=":Stakeholder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasImportance"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource=":Importance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":intendedImpact"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource=":ImpactDirection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="genProp:hasDescription"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">Outcome’s “are what stakeholders experience as a result of a city Programs and/or Services.  They can be positive or negative, intended or unintended.” Outcome contains the following properties:
+•	hasBeneficialStakeholder: Identifies the Stakeholder affected.
+•	hasIndicator: Identifies the set of Indicators the organization assigns to the Outcome.
+•	schema:description: A general description of the Outcome as a string.
+•	fromPerspectiveOf: Identifies the Stakeholder who is determining the importance of the Impact.
+•	hasImportance: Specifies how important the Impact is (high, medium, low).
+•	intendedImpact: Identifies the intended direction of the change.</dc:description>
+        <rdfs:label xml:lang="en">Outcome</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- :Output -->
+
+    <owl:Class rdf:about=":Output">
+        <rdfs:subClassOf rdf:resource=":CityServiceOntologyThing"/>
+        <rdfs:subClassOf rdf:resource="resource:TerminalResourceState"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":usedByIndicator"/>
+                <owl:allValuesFrom rdf:resource="http://ontology.eil.utoronto.ca/ISO21972/iso21972#Indicator"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="genProp:hasDescription"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="genProp:hasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">Output is a quantitative summary of an activity. For example, if the activity is ‘we provide training’ and the output is ‘we trained 50 people to NVQ level 3’. Or a production output could produce 100 meals for the homeless. Basic to these outputs is “what” has been produced and the quantity.
+•	forActivity: Identifies the Activity or Service that produces the Output.
+•	hasPlannedAmount: Specifies the amount of the output Resource
+•	hasActualAmount: Specifies actual amount of output Resource produced.
+•	hasResource: Identifies the Resource that is produced such as a skill, or a type of Meal.
+•	usedByIndicator: Identifies the Indicators that use this Output in determining the value of the Indicator.</dc:description>
+        <rdfs:label xml:lang="en">Output</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- :Program -->
+
+    <owl:Class rdf:about=":Program">
+        <rdfs:subClassOf rdf:resource=":CityServiceOntologyThing"/>
+        <rdfs:subClassOf rdf:resource="activity:Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasBeneficialStakeholder"/>
+                <owl:allValuesFrom rdf:resource=":Stakeholder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasContributingStakeholder"/>
+                <owl:allValuesFrom rdf:resource=":Stakeholder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasInput"/>
+                <owl:allValuesFrom rdf:resource=":Input"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasOutcome"/>
+                <owl:allValuesFrom rdf:resource=":Outcome"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasOutput"/>
+                <owl:allValuesFrom rdf:resource=":Output"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasService"/>
+                <owl:allValuesFrom rdf:resource=":Service"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="genProp:hasDescription"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="genProp:hasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">A Program defines a set of services that focus on a shared set of Outcomes. For example, a “poverty reduction program” can be made up of a set of Services such as mobiles services that provides food and clothing to those that live on the street, and a training service that provides basic skills for those living on the street. A Program has a set of Stakeholders that may contribute or benefit. The following are the Program properties:
+•	hasService: Identifies the Services that make up the Program.
+•	hasOutcome: Identifies the Outcomes that the program is trying to achieve.
+•	hasContributingStakeholder: Identifies the stakeholders that contribute to the Program.
+•	hasBeneficialStakeholder: Identifies the stakeholders that benefit from the Program.
+•	hasInput: Identifies the Inputs to the Program.
+•	hasOutput: Identifies the Outputs of the Program.</dc:description>
+        <rdfs:label xml:lang="en">Program</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- :Service -->
+
+    <owl:Class rdf:about=":Service">
+        <rdfs:subClassOf rdf:resource=":CityServiceOntologyThing"/>
+        <rdfs:subClassOf rdf:resource="activity:Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasBeneficialStakeholder"/>
+                <owl:allValuesFrom rdf:resource=":Stakeholder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasContributingStakeholder"/>
+                <owl:allValuesFrom rdf:resource=":Stakeholder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasInput"/>
+                <owl:allValuesFrom rdf:resource=":Input"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasOutcome"/>
+                <owl:allValuesFrom rdf:resource=":Outcome"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasOutput"/>
+                <owl:allValuesFrom rdf:resource=":Output"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="genProp:hasDescription"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="genProp:hasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description xml:lang="en">A Program is composed of one or more Services.  As described in the Program description, a poverty reduction program can have many services with each service comprised of different activities, Inputs, Outputs and Outcomes. The following are the Service properties:
+•	iso5087-1:hasSubActivity: Identifies the Activities that make that comprise the Service.
+•	hasInput: Identifies the Inputs to the Service.
+•	hasOutput: Identifies the Outputs of the Service.
+•	hasOutcome: Identifies the Outcomes that are specific to the Service.
+•	hasContributingStakeholder: Identifies the stakeholders that contribute to the Service.
+•	hasBeneficialStakeholder: Identifies the stakeholders that benefit from the Service.</dc:description>
+        <rdfs:label xml:lang="en">Service</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- :Stakeholder -->
+
+    <owl:Class rdf:about=":Stakeholder">
+        <rdfs:subClassOf rdf:resource=":CityServiceOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="cdmOrg:Organization"/>
+                    <rdf:Description rdf:about="person:Person"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":performs"/>
+                <owl:someValuesFrom rdf:resource="activity:Activity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasCatchmentArea"/>
+                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/SpatialLoc/Location"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasCatchmentAreaType"/>
+                <owl:allValuesFrom rdf:resource=":CatchmentAreaType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="genProp:hasDescription"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="genProp:hasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- :global-catchmentArea -->
+
+    <owl:NamedIndividual rdf:about=":global-catchmentArea"/>
+    
+
+
+    <!-- :high -->
+
+    <owl:NamedIndividual rdf:about=":high"/>
+    
+
+
+    <!-- :local-catchmentArea -->
+
+    <owl:NamedIndividual rdf:about=":local-catchmentArea"/>
+    
+
+
+    <!-- :low -->
+
+    <owl:NamedIndividual rdf:about=":low"/>
+    
+
+
+    <!-- :medium -->
+
+    <owl:NamedIndividual rdf:about=":medium"/>
+    
+
+
+    <!-- :multinational-catchmentArea -->
+
+    <owl:NamedIndividual rdf:about=":multinational-catchmentArea"/>
+    
+
+
+    <!-- :national-catchmentArea -->
+
+    <owl:NamedIndividual rdf:about=":national-catchmentArea"/>
+    
+
+
+    <!-- :negative -->
+
+    <owl:NamedIndividual rdf:about=":negative"/>
+    
+
+
+    <!-- :neutral -->
+
+    <owl:NamedIndividual rdf:about=":neutral"/>
+    
+
+
+    <!-- :positive -->
+
+    <owl:NamedIndividual rdf:about=":positive"/>
+    
+
+
+    <!-- :provincial-catchmentArea -->
+
+    <owl:NamedIndividual rdf:about=":provincial-catchmentArea"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

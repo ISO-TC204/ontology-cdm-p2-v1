@@ -1,0 +1,27 @@
+// Diagram for sosa:ObservableProperty
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		sosa_ObservableProperty [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">sosa:ObservableProperty</TD></TR></TABLE>> URL="../classes/Sensors__sosa:ObservableProperty.md" margin=0]
+	}
+	ssn_Property [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ssn:Property</TD></TR></TABLE>> margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		sosa_Sensor [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sosa:Sensor</TD></TR></TABLE>> margin=0]
+	}
+	sosa_ObservableProperty -> ssn_Property [arrowhead=onormal style=solid]
+	sosa_ObservableProperty -> Invis [style=invis]
+	Invis -> sosa_Sensor [style=invis]
+	ssn_Stimulus [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ssn:Stimulus</TD></TR></TABLE>> margin=0]
+	ssn_Stimulus -> sosa_ObservableProperty [label=" inverse ssn:isProxyFor 
+ «only»  " arrowhead=inv style=solid]
+	sosa_Observation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">sosa:Observation</TD></TR></TABLE>> margin=0]
+	sosa_Observation -> sosa_ObservableProperty [label=" inverse sosa:observedProperty 
+ «only»  " arrowhead=inv style=solid]
+	sosa_Sensor -> sosa_ObservableProperty [label=" inverse sosa:observes 
+ «only»  " arrowhead=inv style=solid]
+}

@@ -1,0 +1,44 @@
+// Diagram for https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract/Contract
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract/Contract" [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract/Contract</TD></TR></TABLE>> URL="../classes/Contract__https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract/Contract.md" margin=0]
+	}
+	ContractOntologyThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ContractOntologyThing</TD></TR></TABLE>> URL="../_counters/Contract__ContractOntologyThing.md" margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		agent__Agreement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">agent::Agreement</TD></TR></TABLE>> margin=0]
+		businessestablishment__Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">businessestablishment::Organization</TD></TR></TABLE>> margin=0]
+		ContractualElement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ContractualElement</TD></TR></TABLE>> URL="../_counters/Contract__ContractualElement.md" margin=0]
+		person__Person [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">person::Person</TD></TR></TABLE>> margin=0]
+		time__Interval [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time::Interval</TD></TR></TABLE>> margin=0]
+		time__TemporalEntity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time::TemporalEntity</TD></TR></TABLE>> margin=0]
+	}
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract/Contract" -> ContractOntologyThing [arrowhead=onormal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract/Contract" -> Invis [style=invis]
+	Invis -> agent__Agreement [style=invis]
+	agent__Agreement -> businessestablishment__Organization [style=invis]
+	businessestablishment__Organization -> ContractualElement [style=invis]
+	ContractualElement -> person__Person [style=invis]
+	person__Person -> time__Interval [style=invis]
+	time__Interval -> time__TemporalEntity [style=invis]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract/Contract" -> ContractualElement [label=" hasContractualElement 
+ «some»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract/Contract" -> agent__Agreement [label=" specifiesAgreement 
+ «some»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract/Contract" -> time__TemporalEntity [label=" executedOn 
+ «only»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract/Contract" -> time__Interval [label=" isValidFor 
+ «only»  " arrowhead=normal style=solid]
+	Nbd5e06f701f34b7dae7d0cc0526b00a0 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">«unionOf»</TD></TR></TABLE>> margin=0]
+	Nbd5e06f701f34b7dae7d0cc0526b00a0 -> businessestablishment__Organization [label=member arrowhead=normal style=dotted]
+	Nbd5e06f701f34b7dae7d0cc0526b00a0 -> person__Person [label=member arrowhead=normal style=dotted]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract/Contract" -> Nbd5e06f701f34b7dae7d0cc0526b00a0 [label=" hasParty 
+ «min 2»  " arrowhead=normal style=solid]
+	"https_//standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract/Contract" -> person__Person [label=" hasSignatory 
+ «min 2»  " arrowhead=normal style=solid]
+}

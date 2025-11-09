@@ -1,0 +1,25 @@
+// Diagram for cdmOrg:ForProfitOrganization
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		cdmOrg_ForProfitOrganization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">cdmOrg:ForProfitOrganization</TD></TR></TABLE>> URL="../classes/Organization__cdmOrg:ForProfitOrganization.md" margin=0]
+	}
+	cdmOrg_Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdmOrg:Organization</TD></TR></TABLE>> margin=0]
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		cdmOrg_BusinessEstablishment [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdmOrg:BusinessEstablishment</TD></TR></TABLE>> margin=0]
+		cdmOrg_IndustryType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdmOrg:IndustryType</TD></TR></TABLE>> margin=0]
+	}
+	cdmOrg_ForProfitOrganization -> cdmOrg_Organization [arrowhead=onormal style=solid]
+	cdmOrg_ForProfitOrganization -> Invis [style=invis]
+	Invis -> cdmOrg_BusinessEstablishment [style=invis]
+	cdmOrg_BusinessEstablishment -> cdmOrg_IndustryType [style=invis]
+	cdmOrg_ForProfitOrganization -> cdmOrg_IndustryType [label=" cdmOrg:hasIndustryType 
+ «only»  " arrowhead=normal style=solid]
+	cdmOrg_ForProfitOrganization -> cdmOrg_BusinessEstablishment [label=" cdmOrg:hasEstablishment 
+ «only»  " arrowhead=normal style=solid]
+}

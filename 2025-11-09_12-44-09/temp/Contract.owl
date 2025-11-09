@@ -1,0 +1,394 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract#"
+     xml:base="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:adms="http://www.w3.org/ns/adms#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:agreement="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Agreement#"
+     xmlns:cdmOrg="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization#"
+     xmlns:person="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Person#">
+    <owl:Ontology rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract#">
+        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/1/Agreement.owl"/>
+        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/2/Organization.owl"/>
+        <owl:imports rdf:resource="http://ontology.eil.utoronto.ca/5087/2/Person.owl"/>
+        <dc:description>A contract is a legal document that specifies some agreement(s) between two or more parties. The aim of the Contract Ontology is not to formalize the semantics of all possible involved legal concepts, but rather to enable to representation of the general structure and contents of a particular contract. The Contract Ontology adopts the definition of Contract specified in the Financial Business Ontology (FIBO) [8] specified at: https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/ with a key modification that a Contract is defined as a type of Document and is distinct from an Agreement (not a subclass, as specified in FIBO).</dc:description>
+        <dc:title>Contract Pattern</dc:title>
+        <vann:preferredNamespacePrefix>contract</vann:preferredNamespacePrefix>
+        <owl:versionInfo rdf:datatype="xsd:decimal">1.0</owl:versionInfo>
+        <adms:relatedDocumentation>Under development. Refer to latest draft of ISO 5087-2.</adms:relatedDocumentation>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- ns:license -->
+
+    <owl:AnnotationProperty rdf:about="ns:license"/>
+    
+
+
+    <!-- dc:creator -->
+
+    <owl:AnnotationProperty rdf:about="dc:creator"/>
+    
+
+
+    <!-- dc:date -->
+
+    <owl:AnnotationProperty rdf:about="dc:date"/>
+    
+
+
+    <!-- dc:description -->
+
+    <owl:AnnotationProperty rdf:about="dc:description"/>
+    
+
+
+    <!-- dc:issued -->
+
+    <owl:AnnotationProperty rdf:about="dc:issued"/>
+    
+
+
+    <!-- dc:title -->
+
+    <owl:AnnotationProperty rdf:about="dc:title"/>
+    
+
+
+    <!-- terms:creator -->
+
+    <owl:AnnotationProperty rdf:about="terms:creator"/>
+    
+
+
+    <!-- terms:description -->
+
+    <owl:AnnotationProperty rdf:about="terms:description"/>
+    
+
+
+    <!-- terms:issued -->
+
+    <owl:AnnotationProperty rdf:about="terms:issued"/>
+    
+
+
+    <!-- terms:modified -->
+
+    <owl:AnnotationProperty rdf:about="terms:modified"/>
+    
+
+
+    <!-- terms:rights -->
+
+    <owl:AnnotationProperty rdf:about="terms:rights"/>
+    
+
+
+    <!-- terms:title -->
+
+    <owl:AnnotationProperty rdf:about="terms:title"/>
+    
+
+
+    <!-- vann:preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="vann:preferredNamespacePrefix"/>
+    
+
+
+    <!-- vann:preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="vann:preferredNamespaceUri"/>
+    
+
+
+    <!-- owl:versionInfo -->
+
+    <owl:AnnotationProperty rdf:about="owl:versionInfo"/>
+    
+
+
+    <!-- adms:relatedDocumentation -->
+
+    <owl:AnnotationProperty rdf:about="adms:relatedDocumentation"/>
+    
+
+
+    <!-- foaf:based_near -->
+
+    <owl:AnnotationProperty rdf:about="foaf:based_near"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- :hasContract -->
+
+    <owl:ObjectProperty rdf:about=":hasContract">
+        <rdfs:subPropertyOf rdf:resource=":ContractOntologyObjectProperty"/>
+        <rdfs:range rdf:resource=":Contract"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :ContractOntologyObjectProperty -->
+
+    <owl:ObjectProperty rdf:about=":ContractOntologyObjectProperty"/>
+    
+
+
+    <!-- :executedOn -->
+
+    <owl:ObjectProperty rdf:about=":executedOn">
+        <rdfs:subPropertyOf rdf:resource=":ContractOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasContractualElement -->
+
+    <owl:ObjectProperty rdf:about=":hasContractualElement">
+        <rdfs:subPropertyOf rdf:resource=":ContractOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasParty -->
+
+    <owl:ObjectProperty rdf:about=":hasParty">
+        <rdfs:subPropertyOf rdf:resource=":ContractOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :hasSignatory -->
+
+    <owl:ObjectProperty rdf:about=":hasSignatory">
+        <rdfs:subPropertyOf rdf:resource=":ContractOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :isValidFor -->
+
+    <owl:ObjectProperty rdf:about=":isValidFor">
+        <rdfs:subPropertyOf rdf:resource=":ContractOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- :specifiesAgreement -->
+
+    <owl:ObjectProperty rdf:about=":specifiesAgreement">
+        <rdfs:subPropertyOf rdf:resource=":ContractOntologyObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- :ContractOntologyDataProperty -->
+
+    <owl:DatatypeProperty rdf:about=":ContractOntologyDataProperty"/>
+    
+
+
+    <!-- :hasContractText -->
+
+    <owl:DatatypeProperty rdf:about=":hasContractText">
+        <rdfs:subPropertyOf rdf:resource=":ContractOntologyDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- :ConditionPrecedent -->
+
+    <owl:Class rdf:about=":ConditionPrecedent">
+        <rdfs:subClassOf rdf:resource=":ContractualElement"/>
+    </owl:Class>
+    
+
+
+    <!-- :Contract -->
+
+    <owl:Class rdf:about=":Contract">
+        <rdfs:subClassOf rdf:resource=":ContractOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasContractualElement"/>
+                <owl:someValuesFrom rdf:resource=":ContractualElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":specifiesAgreement"/>
+                <owl:someValuesFrom rdf:resource="agreement:Agreement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":executedOn"/>
+                <owl:allValuesFrom rdf:resource="time:TemporalEntity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":isValidFor"/>
+                <owl:allValuesFrom rdf:resource="time:Interval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasParty"/>
+                <owl:minQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="cdmOrg:Organization"/>
+                            <rdf:Description rdf:about="person:Person"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasSignatory"/>
+                <owl:minQualifiedCardinality rdf:datatype="xsd:nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="person:Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- :ContractOntologyThing -->
+
+    <owl:Class rdf:about=":ContractOntologyThing"/>
+    
+
+
+    <!-- :ContractualCommitment -->
+
+    <owl:Class rdf:about=":ContractualCommitment">
+        <rdfs:subClassOf rdf:resource=":ContractualElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":specifiesAgreement"/>
+                <owl:allValuesFrom rdf:resource="agreement:Agreement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- :ContractualDefinition -->
+
+    <owl:Class rdf:about=":ContractualDefinition">
+        <rdfs:subClassOf rdf:resource=":ContractualElement"/>
+    </owl:Class>
+    
+
+
+    <!-- :ContractualElement -->
+
+    <owl:Class rdf:about=":ContractualElement">
+        <rdfs:subClassOf rdf:resource=":ContractOntologyThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource=":hasContractualElement"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource=":Contract"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource=":hasContractText"/>
+                <owl:someValuesFrom rdf:resource="xsd:string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- :NonBindingTerm -->
+
+    <owl:Class rdf:about=":NonBindingTerm">
+        <rdfs:subClassOf rdf:resource=":ContractualElement"/>
+    </owl:Class>
+    
+
+
+    <!-- :Representation -->
+
+    <owl:Class rdf:about=":Representation">
+        <rdfs:subClassOf rdf:resource=":ContractualElement"/>
+    </owl:Class>
+    
+
+
+    <!-- :Warranty -->
+
+    <owl:Class rdf:about=":Warranty">
+        <rdfs:subClassOf rdf:resource=":ContractualElement"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
