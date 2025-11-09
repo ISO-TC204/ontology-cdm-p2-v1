@@ -8,9 +8,8 @@
 
 | Property | Constraint |
 |----------|------------|
-| dayofWeek | only time::DayOfWeek |
-| hasClosingTime | exactly 1 xsd::time |
-| hasOpeningTime | exactly 1 xsd::time |
-| subClassOf | ContactThing |
+| dayofWeek | all time::DayOfWeek |
+| hasClosingTime | exactly 1 owl::Thing |
+| hasOpeningTime | exactly 1 owl::Thing |
 | subClassOf | ContactThing |
 

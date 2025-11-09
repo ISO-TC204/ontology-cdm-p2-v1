@@ -14,9 +14,7 @@
 
 | Property | Constraint |
 |----------|------------|
-| aggregateOf | only TravelledWay |
-| subClassOf | infrastructure::InfrastructureElement |
-| subClassOf | TransportationInfrastructureOntologyThing |
+| aggregateOf | all TravelledWay |
 | subClassOf | infrastructure::InfrastructureElement |
 | subClassOf | TransportationInfrastructureOntologyThing |
 

@@ -8,7 +8,6 @@
 
 | Property | Constraint |
 |----------|------------|
-| hasProgram | only cityService::Program |
-| subClassOf | Organization |
+| hasProgram | all cityService::Program |
 | subClassOf | Organization |
 

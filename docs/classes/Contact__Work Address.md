@@ -8,6 +8,6 @@
 
 | Property | Constraint |
 |----------|------------|
-| subClassOf | Address |
+| hasAddressType | has Work |
 | subClassOf | Address |
 

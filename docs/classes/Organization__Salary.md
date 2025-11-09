@@ -8,7 +8,6 @@
 
 | Property | Constraint |
 |----------|------------|
-| annualPay | max 1 cityunits::MonetaryValue |
-| subClassOf | Compensation |
+| annualPay | max 1 owl::Thing |
 | subClassOf | Compensation |
 

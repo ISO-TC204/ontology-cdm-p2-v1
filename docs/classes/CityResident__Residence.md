@@ -8,13 +8,12 @@
 
 | Property | Constraint |
 |----------|------------|
-| contact::hasAddress | max 1 contact::Address |
-| forCity | max 1 iso21972::City |
-| hasHomeType | max 1 HomeType |
-| hasResidentialRelationship | exactly 1 ResidentialRelationship |
+| contact::hasAddress | max 1 owl::Thing |
+| forCity | max 1 owl::Thing |
+| hasHomeType | max 1 owl::Thing |
+| hasResidentialRelationship | exactly 1 owl::Thing |
 | subClassOf | CityResidentOntologyThing |
-| subClassOf | CityResidentOntologyThing |
-| time::hasTime | max 1 time::ProperInterval |
+| time::hasTime | max 1 owl::Thing |
 
 ## Used by classes
 

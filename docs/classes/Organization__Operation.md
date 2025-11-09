@@ -8,9 +8,8 @@
 
 | Property | Constraint |
 |----------|------------|
-| closingTime | max 1 xsd::time |
-| openingTime | max 1 xsd::time |
-| subClassOf | CityOrgOntologyThing |
+| closingTime | max 1 owl::Thing |
+| openingTime | max 1 owl::Thing |
 | subClassOf | resource::RecurringEvent |
 | subClassOf | CityOrgOntologyThing |
 

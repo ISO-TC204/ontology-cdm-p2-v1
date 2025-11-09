@@ -8,7 +8,6 @@
 
 | Property | Constraint |
 |----------|------------|
-| subClassOf | CityOrgOntologyThing |
 | subClassOf | activity::State |
 | subClassOf | CityOrgOntologyThing |
 

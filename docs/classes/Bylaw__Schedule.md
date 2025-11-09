@@ -8,12 +8,11 @@
 
 | Property | Constraint |
 |----------|------------|
-| genProp::hasDescription | max 1 xsd::string |
-| genProp::hasIdentifier | max 1 xsd::string |
-| genProp::hasName | max 1 xsd::string |
-| hasClause | only Clause |
-| partwhole::properPartOf | exactly 1 Law |
-| subClassOf | BylawOntologyThing |
+| genProp::hasDescription | max 1 owl::Thing |
+| genProp::hasIdentifier | max 1 owl::Thing |
+| genProp::hasName | max 1 owl::Thing |
+| hasClause | all Clause |
+| partwhole::properPartOf | exactly 1 owl::Thing |
 | subClassOf | BylawOntologyThing |
 
 ## Used by classes

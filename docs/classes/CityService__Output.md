@@ -8,12 +8,11 @@
 
 | Property | Constraint |
 |----------|------------|
-| genProp::hasDescription | only xsd::string |
-| genProp::hasName | max 1 xsd::string |
-| subClassOf | CityServiceOntologyThing |
+| genProp::hasDescription | all xsd::string |
+| genProp::hasName | max 1 owl::Thing |
 | subClassOf | CityServiceOntologyThing |
 | subClassOf | resource::TerminalResourceState |
-| usedByIndicator | only iso21972::Indicator |
+| usedByIndicator | all iso21972::Indicator |
 
 ## Used by classes
 

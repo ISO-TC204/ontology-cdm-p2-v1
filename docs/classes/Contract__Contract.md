@@ -8,18 +8,17 @@
 
 | Property | Constraint |
 |----------|------------|
-| executedOn | only time::TemporalEntity |
+| executedOn | all time::TemporalEntity |
 | hasContractualElement | some ContractualElement |
-| hasParty | min 2 (cdmOrg::Organization or person::Person) |
-| hasSignatory | min 2 person::Person |
-| isValidFor | only time::Interval |
+| hasParty | min 2 owl::Thing |
+| hasSignatory | min 2 owl::Thing |
+| isValidFor | all time::Interval |
 | specifiesAgreement | some agreement::Agreement |
-| subClassOf | ContractOntologyThing |
 | subClassOf | ContractOntologyThing |
 
 ## Used by classes
 
 | Class | Property |
 |-------|----------|
-| [Contractual Element (Contract)](Contract__ContractualElement.md) | Nfbabd1f2777f4cb68bfd7b81e6feec0a |
+| [Contractual Element (Contract)](Contract__ContractualElement.md) | Nfa368abab1ac4443a50afd944ae7f95a |
 

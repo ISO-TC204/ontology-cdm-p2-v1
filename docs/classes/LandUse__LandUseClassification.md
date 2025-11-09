@@ -8,8 +8,7 @@
 
 | Property | Constraint |
 |----------|------------|
-| code::hasCode | only code::Code |
-| subClassOf | LandUseOntologyThing |
+| code::hasCode | all code::Code |
 | subClassOf | LandUseOntologyThing |
 
 ## Used by classes

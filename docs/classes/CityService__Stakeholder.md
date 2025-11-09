@@ -8,12 +8,11 @@
 
 | Property | Constraint |
 |----------|------------|
-| genProp::hasDescription | only xsd::string |
-| genProp::hasName | max 1 xsd::string |
-| hasCatchmentArea | only spatialloc::Location |
-| hasCatchmentAreaType | only CatchmentAreaType |
+| genProp::hasDescription | all xsd::string |
+| genProp::hasName | max 1 owl::Thing |
+| hasCatchmentArea | all spatialloc::Location |
+| hasCatchmentAreaType | all CatchmentAreaType |
 | performs | some activity::Activity |
-| subClassOf | CityServiceOntologyThing |
 | subClassOf | CityServiceOntologyThing |
 
 ## Used by classes

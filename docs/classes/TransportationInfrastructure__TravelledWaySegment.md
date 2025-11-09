@@ -18,8 +18,6 @@
 | partwhole::properPartOf | some TravelledWayLink |
 | subClassOf | infrastructure::InfrastructureElement |
 | subClassOf | TransportationInfrastructureOntologyThing |
-| subClassOf | infrastructure::InfrastructureElement |
-| subClassOf | TransportationInfrastructureOntologyThing |
 
 ## Used by classes
 

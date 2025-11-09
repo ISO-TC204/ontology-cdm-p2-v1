@@ -8,9 +8,8 @@
 
 | Property | Constraint |
 |----------|------------|
-| contact::hasAddress | only contact::Address |
-| spatialLoc::hasLocation | max 1 spatialLoc::Location |
-| subClassOf | CityOrgOntologyThing |
+| contact::hasAddress | all contact::Address |
+| spatialLoc::hasLocation | max 1 owl::Thing |
 | subClassOf | CityOrgOntologyThing |
 
 ## Used by classes

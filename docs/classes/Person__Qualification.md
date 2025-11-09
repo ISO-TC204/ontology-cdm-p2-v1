@@ -9,5 +9,4 @@
 | Property | Constraint |
 |----------|------------|
 | subClassOf | PersonOntologyThing |
-| subClassOf | PersonOntologyThing |
 

@@ -8,10 +8,9 @@
 
 | Property | Constraint |
 |----------|------------|
-| forCountry | max 1 contact::Country |
+| forCountry | max 1 owl::Thing |
 | subClassOf | PersonOntologyThing |
-| subClassOf | PersonOntologyThing |
-| validityPeriod | max 1 time::ProperInterval |
+| validityPeriod | max 1 owl::Thing |
 
 ## Used by classes
 

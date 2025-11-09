@@ -8,11 +8,10 @@
 
 | Property | Constraint |
 |----------|------------|
-| hasEmployment | only Employment |
-| hasGoal | only Goal |
-| org::memberOf | only Organization |
-| playsRole | only Role |
-| subClassOf | CityOrgOntologyThing |
+| hasEmployment | all Employment |
+| hasGoal | all Goal |
+| org::memberOf | all Organization |
+| playsRole | all Role |
 | subClassOf | agent::Agent |
 | subClassOf | CityOrgOntologyThing |
 

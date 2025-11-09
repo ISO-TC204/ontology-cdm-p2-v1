@@ -17,23 +17,22 @@
 
 | Property | Constraint |
 |----------|------------|
-| abstract | max 1 xsd::string |
-| dateInEffect | max 1 xsd::dateTime |
-| datePublished | max 1 xsd::dateTime |
-| expires | max 1 xsd::dateTime |
-| genProp::hasName | only xsd::string |
-| hasClause | only Clause |
-| hasDefinition | only Definition |
-| hasPenaltyClause | only Clause |
-| hasRepealClause | only Clause |
-| hasSchedule | only Schedule |
-| hasSeveranceClause | only Clause |
-| hasTransitionClause | only Clause |
-| keywords | only xsd::string |
-| legislationDate | max 1 xsd::dateTime |
-| legislationIdentifier | max 1 xsd::string |
-| legislationJurisdiction | max 1 city::JurisdictionalArea |
-| legislationLegalForce | only N3629e8fe921b488dabfc81cf8c47ecc5 |
-| subClassOf | BylawOntologyThing |
+| abstract | max 1 owl::Thing |
+| dateInEffect | max 1 owl::Thing |
+| datePublished | max 1 owl::Thing |
+| expires | max 1 owl::Thing |
+| genProp::hasName | all xsd::string |
+| hasClause | all Clause |
+| hasDefinition | all Definition |
+| hasPenaltyClause | all Clause |
+| hasRepealClause | all Clause |
+| hasSchedule | all Schedule |
+| hasSeveranceClause | all Clause |
+| hasTransitionClause | all Clause |
+| keywords | all xsd::string |
+| legislationDate | max 1 owl::Thing |
+| legislationIdentifier | max 1 owl::Thing |
+| legislationJurisdiction | max 1 owl::Thing |
+| legislationLegalForce | all Enum: InForce, NotInForce, PartiallyInForce |
 | subClassOf | BylawOntologyThing |
 

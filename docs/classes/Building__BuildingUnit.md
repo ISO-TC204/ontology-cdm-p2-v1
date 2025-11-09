@@ -8,20 +8,19 @@
 
 | Property | Constraint |
 |----------|------------|
-| buildingFacility | only Facility |
-| change::existsAt | exactly 1 time::TemporalEntity |
-| contact::hasAddress | only contact::Address |
-| floorToCeilingHeight | only cityUnits::Length |
-| hasRent | only cityUnits::MonetaryValue |
-| numberOfBedrooms | only xsd::nonNegativeInteger |
-| numberOfRooms | only xsd::nonNegativeInteger |
-| partwhole::hasValue | only cityUnits::MonetaryValue |
-| subClassOf | BuildingOntologyThing |
+| buildingFacility | all Facility |
+| change::existsAt | exactly 1 owl::Thing |
+| contact::hasAddress | all contact::Address |
+| floorToCeilingHeight | all cityUnits::Length |
+| hasRent | all cityUnits::MonetaryValue |
+| numberOfBedrooms | all xsd::nonNegativeInteger |
+| numberOfRooms | all xsd::nonNegativeInteger |
+| partwhole::hasValue | all cityUnits::MonetaryValue |
 | subClassOf | BuildingOntologyThing |
 | subClassOf | change::Manifestation |
 | subClassOf | infrastructure::InfrastructureElement |
-| unitInBuilding | exactly 1 Building |
-| unitSize | only cityUnits::Area |
+| unitInBuilding | exactly 1 owl::Thing |
+| unitSize | all cityUnits::Area |
 
 ## Used by classes
 

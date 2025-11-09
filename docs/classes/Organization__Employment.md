@@ -8,11 +8,10 @@
 
 | Property | Constraint |
 |----------|------------|
-| employedAs | only Occupation |
+| employedAs | all Occupation |
 | employedBy | some Organization |
 | hasCompensation | some Compensation |
-| hasEmploymentStatus | only EmploymentStatus |
-| subClassOf | CityOrgOntologyThing |
+| hasEmploymentStatus | all EmploymentStatus |
 | subClassOf | CityOrgOntologyThing |
 
 ## Used by classes

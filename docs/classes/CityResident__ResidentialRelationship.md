@@ -8,7 +8,6 @@
 
 | Property | Constraint |
 |----------|------------|
-| code::hasCode | only code::Code |
-| subClassOf | CityResidentOntologyThing |
+| code::hasCode | all code::Code |
 | subClassOf | CityResidentOntologyThing |
 

@@ -8,13 +8,12 @@
 
 | Property | Constraint |
 |----------|------------|
-| fromPerspectiveOf | exactly 1 Stakeholder |
-| genProp::hasDescription | max 1 xsd::string |
-| hasBeneficialStakeholder | exactly 1 Stakeholder |
-| hasImportance | max 1 Importance |
-| hasIndicator | only iso21972::Indicator |
-| intendedImpact | max 1 ImpactDirection |
-| subClassOf | CityServiceOntologyThing |
+| fromPerspectiveOf | exactly 1 owl::Thing |
+| genProp::hasDescription | max 1 owl::Thing |
+| hasBeneficialStakeholder | exactly 1 owl::Thing |
+| hasImportance | max 1 owl::Thing |
+| hasIndicator | all iso21972::Indicator |
+| intendedImpact | max 1 owl::Thing |
 | subClassOf | CityServiceOntologyThing |
 
 ## Used by classes

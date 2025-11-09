@@ -8,8 +8,7 @@
 
 | Property | Constraint |
 |----------|------------|
-| entity | max 1 cdmOrg::Organization |
-| subClassOf | ControlledEntity |
+| entity | max 1 owl::Thing |
 | subClassOf | ControlledEntity |
 
 ## Used by classes

@@ -11,6 +11,4 @@
 | administrativeAreaOf | some i72::City |
 | subClassOf | CityOntologyThing |
 | subClassOf | JurisdictionalArea |
-| subClassOf | CityOntologyThing |
-| subClassOf | JurisdictionalArea |
 

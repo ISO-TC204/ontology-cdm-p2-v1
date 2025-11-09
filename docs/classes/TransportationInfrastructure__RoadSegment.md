@@ -8,10 +8,8 @@
 
 | Property | Constraint |
 |----------|------------|
-| networkType | only RoadNetworkType |
+| networkType | all RoadNetworkType |
 | partwhole::properPartOf | some RoadLink |
-| subClassOf | TransportationInfrastructureOntologyThing |
-| subClassOf | TravelledWaySegment |
 | subClassOf | TransportationInfrastructureOntologyThing |
 | subClassOf | TravelledWaySegment |
 

@@ -8,21 +8,20 @@
 
 | Property | Constraint |
 |----------|------------|
-| buildingFacility | only Facility |
-| builtAccordingToConstructionCode | only xsd::string |
-| floorAreaRatio | max 1 (N5dde75247cfc4d6ea2aab9c973e7c2e9 and Nd704a6fca2b04130825ba15555141f8d and iso21972::RatioIndicator) |
-| hasBuildingFloorArea | only cityUnits::Area |
-| hasBuildingFootprintArea | only cityUnits::Area |
-| hasBuildingHeight | only cityUnits::Length |
-| hasConstructionStatus | max 1 ConstructionStatus |
-| inverse unitInBuilding | only BuildingUnit |
-| numAboveGroundFloors | max 1 xsd::nonNegativeInteger |
-| numBuildingUnits | max 1 xsd::nonNegativeInteger |
-| numFloors | exactly 1 xsd::nonNegativeInteger |
+| buildingFacility | all Facility |
+| builtAccordingToConstructionCode | all xsd::string |
+| floorAreaRatio | max 1 owl::Thing |
+| hasBuildingFloorArea | all cityUnits::Area |
+| hasBuildingFootprintArea | all cityUnits::Area |
+| hasBuildingHeight | all cityUnits::Length |
+| hasConstructionStatus | max 1 owl::Thing |
+| inverse unitInBuilding | all BuildingUnit |
+| numAboveGroundFloors | max 1 owl::Thing |
+| numBuildingUnits | max 1 owl::Thing |
+| numFloors | exactly 1 owl::Thing |
 | propertyRegistrationID | max 1 owl::Thing |
 | subClassOf | BuildingOntologyThing |
-| subClassOf | BuildingOntologyThing |
 | subClassOf | infrastructure::InfrastructureElement |
-| use | only BuildingUse |
-| windowToWallRatio | max 1 (N73766ab6116a48e59e1db9bd67e62ffe and N9495af7bc56a4850b35faf65639b7150 and iso21972::RatioIndicator) |
+| use | all BuildingUse |
+| windowToWallRatio | max 1 owl::Thing |
 

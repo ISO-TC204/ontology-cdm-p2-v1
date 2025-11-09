@@ -8,8 +8,7 @@
 
 | Property | Constraint |
 |----------|------------|
-| code::hasCode | only code::Code |
-| subClassOf | CityOrgOntologyThing |
+| code::hasCode | all code::Code |
 | subClassOf | CityOrgOntologyThing |
 
 ## Used by classes

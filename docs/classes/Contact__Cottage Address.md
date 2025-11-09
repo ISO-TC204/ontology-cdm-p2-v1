@@ -8,6 +8,6 @@
 
 | Property | Constraint |
 |----------|------------|
-| subClassOf | Address |
+| hasAddressType | has Cottage |
 | subClassOf | Address |
 

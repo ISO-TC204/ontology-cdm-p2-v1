@@ -8,13 +8,12 @@
 
 | Property | Constraint |
 |----------|------------|
-| clauseType | some Nebac0c39c638447dbffd45550c871bdd |
-| genProp::hasDescription | max 1 xsd::string |
-| genProp::hasIdentifier | max 1 xsd::string |
-| genProp::hasName | max 1 xsd::string |
-| hasClause | only Clause |
-| partwhole::properPartOf | exactly 1 (Clause or Law) |
-| subClassOf | BylawOntologyThing |
+| clauseType | some Enum: bylaw, penalty, repeal, schedule, severance, transition |
+| genProp::hasDescription | max 1 owl::Thing |
+| genProp::hasIdentifier | max 1 owl::Thing |
+| genProp::hasName | max 1 owl::Thing |
+| hasClause | all Clause |
+| partwhole::properPartOf | exactly 1 owl::Thing |
 | subClassOf | BylawOntologyThing |
 
 ## Used by classes

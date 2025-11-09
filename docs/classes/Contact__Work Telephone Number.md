@@ -8,6 +8,6 @@
 
 | Property | Constraint |
 |----------|------------|
-| subClassOf | PhoneNumber |
+| hasPhoneType | has WorkPhone |
 | subClassOf | PhoneNumber |
 

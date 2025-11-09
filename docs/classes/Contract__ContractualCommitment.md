@@ -8,7 +8,6 @@
 
 | Property | Constraint |
 |----------|------------|
-| specifiesAgreement | only agreement::Agreement |
-| subClassOf | ContractualElement |
+| specifiesAgreement | all agreement::Agreement |
 | subClassOf | ContractualElement |
 

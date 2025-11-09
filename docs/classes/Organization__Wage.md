@@ -8,8 +8,7 @@
 
 | Property | Constraint |
 |----------|------------|
-| hourlyPay | max 1 cityunits::MonetaryValue |
-| overtimePay | only cityUnits::MonetaryValue |
-| subClassOf | Compensation |
+| hourlyPay | max 1 owl::Thing |
+| overtimePay | all cityUnits::MonetaryValue |
 | subClassOf | Compensation |
 

@@ -16,12 +16,11 @@
 
 | Property | Constraint |
 |----------|------------|
-| contact::hasTelephone | only contact::PhoneNumber |
-| hasGoal | only Goal |
-| operatingHours | only Operation |
-| orgAddress | only contact::Address |
-| spatialLoc::hasLocation | only spatialLoc::Location |
-| subClassOf | CityOrgOntologyThing |
+| contact::hasTelephone | all contact::PhoneNumber |
+| hasGoal | all Goal |
+| operatingHours | all Operation |
+| orgAddress | all contact::Address |
+| spatialLoc::hasLocation | all spatialLoc::Location |
 | subClassOf | cdmOrgStruct::Organization |
 | subClassOf | CityOrgOntologyThing |
 

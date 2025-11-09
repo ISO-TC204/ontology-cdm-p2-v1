@@ -8,8 +8,7 @@
 
 | Property | Constraint |
 |----------|------------|
-| code1::hasCode | only code1::Code |
-| subClassOf | CityServiceOntologyThing |
+| code1::hasCode | all code1::Code |
 | subClassOf | CityServiceOntologyThing |
 
 ## Used by classes

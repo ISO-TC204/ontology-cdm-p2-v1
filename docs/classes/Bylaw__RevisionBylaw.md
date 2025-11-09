@@ -8,7 +8,7 @@
 
 | Property | Constraint |
 |----------|------------|
-| legislationChanges | exactly 1 Bylaw |
-| subClassOf | Bylaw |
+| legislationChanges | exactly 1 owl::Thing |
+| legislationType | has revisionBylaw |
 | subClassOf | Bylaw |
 

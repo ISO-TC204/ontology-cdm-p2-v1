@@ -8,13 +8,12 @@
 
 | Property | Constraint |
 |----------|------------|
-| genericproperties::hasIdentifier | exactly 1 xsd::string |
-| hasIDType | only IDType |
-| issuedBy | max 1 agent::Agent |
-| photoID | max 1 xsd::boolean |
+| genericproperties::hasIdentifier | exactly 1 owl::Thing |
+| hasIDType | all IDType |
+| issuedBy | max 1 owl::Thing |
+| photoID | max 1 owl::Thing |
 | subClassOf | PersonOntologyThing |
-| subClassOf | PersonOntologyThing |
-| validityPeriod | max 1 time::Interval |
+| validityPeriod | max 1 owl::Thing |
 
 ## Used by classes
 

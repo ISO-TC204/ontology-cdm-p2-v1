@@ -8,8 +8,7 @@
 
 | Property | Constraint |
 |----------|------------|
-| hasProgram | only cityService::Program |
-| jurisdiction | only city::JurisdictionalArea |
-| subClassOf | Organization |
+| hasProgram | all cityService::Program |
+| jurisdiction | all city::JurisdictionalArea |
 | subClassOf | Organization |
 

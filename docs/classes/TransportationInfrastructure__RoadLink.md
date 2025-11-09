@@ -8,9 +8,7 @@
 
 | Property | Constraint |
 |----------|------------|
-| aggregateOf | only Road |
-| subClassOf | TransportationInfrastructureOntologyThing |
-| subClassOf | TravelledWayLink |
+| aggregateOf | all Road |
 | subClassOf | TransportationInfrastructureOntologyThing |
 | subClassOf | TravelledWayLink |
 

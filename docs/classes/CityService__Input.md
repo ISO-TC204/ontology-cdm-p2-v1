@@ -8,11 +8,10 @@
 
 | Property | Constraint |
 |----------|------------|
-| genProp::hasDescription | only xsd::string |
-| genProp::hasName | max 1 xsd::string |
-| hasContributingStakeholder | only Stakeholder |
-| iso21972::for_time_interval | only time::DateTimeInterval |
-| subClassOf | CityServiceOntologyThing |
+| genProp::hasDescription | all xsd::string |
+| genProp::hasName | max 1 owl::Thing |
+| hasContributingStakeholder | all Stakeholder |
+| iso21972::for_time_interval | all time::DateTimeInterval |
 | subClassOf | CityServiceOntologyThing |
 | subClassOf | resource::TerminalResourceState |
 

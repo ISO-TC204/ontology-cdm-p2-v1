@@ -17,6 +17,5 @@
 |----------|------------|
 | entity | some owl::Thing |
 | subClassOf | CityResidentOntologyThing |
-| subClassOf | CityResidentOntologyThing |
-| time::hasTime | max 1 time::ProperInterval |
+| time::hasTime | max 1 owl::Thing |
 

@@ -16,24 +16,23 @@
 
 | Property | Constraint |
 |----------|------------|
-| hasAddressType | only AddressType |
-| hasBuilding | max 1 xsd::string |
-| hasCity | max 1 city::City |
-| hasCitySection | max 1 xsd::string |
-| hasCountry | max 1 Country |
-| hasPostalBox | max 1 xsd::string |
-| hasPostalCode | max 1 xsd::string |
-| hasProvince | max 1 State |
-| hasStreet | max 1 xsd::string |
-| hasStreetDirection | max 1 StreetDirection |
-| hasStreetNumber | max 1 xsd::string |
-| hasStreetType | max 1 StreetType |
-| hasUnitNumber | max 1 xsd::string |
-| maxStreetNumber | max 1 xsd::string |
-| minStreetNumber | max 1 xsd::nonNegativeInteger |
-| spatialLoc::hasLocation | max 1 spatialLoc::Location |
+| hasAddressType | all AddressType |
+| hasBuilding | max 1 owl::Thing |
+| hasCity | max 1 owl::Thing |
+| hasCitySection | max 1 owl::Thing |
+| hasCountry | max 1 owl::Thing |
+| hasPostalBox | max 1 owl::Thing |
+| hasPostalCode | max 1 owl::Thing |
+| hasProvince | max 1 owl::Thing |
+| hasStreet | max 1 owl::Thing |
+| hasStreetDirection | max 1 owl::Thing |
+| hasStreetNumber | max 1 owl::Thing |
+| hasStreetType | max 1 owl::Thing |
+| hasUnitNumber | max 1 owl::Thing |
+| maxStreetNumber | max 1 owl::Thing |
+| minStreetNumber | max 1 owl::Thing |
+| spatialLoc::hasLocation | max 1 owl::Thing |
 | subClassOf | ContactThing |
-| subClassOf | ContactThing |
-| wgs84::lat | max 1 xsd::decimal |
-| wgs84::long | max 1 xsd::decimal |
+| wgs84::lat | max 1 owl::Thing |
+| wgs84::long | max 1 owl::Thing |
 

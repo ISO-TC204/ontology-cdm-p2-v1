@@ -8,14 +8,13 @@
 
 | Property | Constraint |
 |----------|------------|
-| contact::hasAddress | only contact::Address |
-| genProp::hasDescription | only xsd::string |
-| genProp::hasIdentifier | only xsd::string |
-| genProp::hasName | only xsd::string |
-| i72::hasValue | only cityUnits::MonetaryValue |
-| partwhole::hasProperPart | only InfrastructureElement |
-| spatialLoc::hasLocation | only spatialLoc::Location |
-| subClassOf | InfrastructureOntologyThing |
+| contact::hasAddress | all contact::Address |
+| genProp::hasDescription | all xsd::string |
+| genProp::hasIdentifier | all xsd::string |
+| genProp::hasName | all xsd::string |
+| i72::hasValue | all cityUnits::MonetaryValue |
+| partwhole::hasProperPart | all InfrastructureElement |
+| spatialLoc::hasLocation | all spatialLoc::Location |
 | subClassOf | InfrastructureOntologyThing |
 
 ## Used by classes

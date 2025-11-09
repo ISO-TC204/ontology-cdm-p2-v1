@@ -8,10 +8,9 @@
 
 | Property | Constraint |
 |----------|------------|
-| hasGoal | only Goal |
-| hasProcess | only activity::Activity |
-| hasResource | only resource1::Resource |
-| subClassOf | CityOrgOntologyThing |
+| hasGoal | all Goal |
+| hasProcess | all activity::Activity |
+| hasResource | all resource1::Resource |
 | subClassOf | org::Role |
 | subClassOf | CityOrgOntologyThing |
 

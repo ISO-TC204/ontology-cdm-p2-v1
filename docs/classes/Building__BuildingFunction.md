@@ -9,5 +9,4 @@
 | Property | Constraint |
 |----------|------------|
 | subClassOf | BuildingOntologyThing |
-| subClassOf | BuildingOntologyThing |
 

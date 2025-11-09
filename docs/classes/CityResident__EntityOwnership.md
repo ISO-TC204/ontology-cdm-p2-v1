@@ -8,9 +8,8 @@
 
 | Property | Constraint |
 |----------|------------|
-| entity | max 1 (building::Building or landUse::LandArea or cdmOrg::Organization) |
-| percentOwnership | max 1 xsd::decimal |
-| subClassOf | ControlledEntity |
+| entity | max 1 owl::Thing |
+| percentOwnership | max 1 owl::Thing |
 | subClassOf | ControlledEntity |
 
 ## Used by classes

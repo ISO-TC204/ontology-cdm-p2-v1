@@ -8,7 +8,6 @@
 
 | Property | Constraint |
 |----------|------------|
-| code::hasCode | only code::Code |
-| subClassOf | PersonOntologyThing |
+| code::hasCode | all code::Code |
 | subClassOf | PersonOntologyThing |
 

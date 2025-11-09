@@ -8,6 +8,6 @@
 
 | Property | Constraint |
 |----------|------------|
-| subClassOf | Bylaw |
+| legislationType | has mainBylaw |
 | subClassOf | Bylaw |
 

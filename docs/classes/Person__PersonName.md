@@ -8,10 +8,9 @@
 
 | Property | Constraint |
 |----------|------------|
-| additionalName | only xsd::string |
-| familyName | max 1 xsd::string |
-| givenName | only xsd::string |
-| subClassOf | PersonOntologyThing |
+| additionalName | all xsd::string |
+| familyName | max 1 owl::Thing |
+| givenName | all xsd::string |
 | subClassOf | PersonOntologyThing |
 
 ## Used by classes

@@ -18,10 +18,9 @@
 
 | Property | Constraint |
 |----------|------------|
-| hasAreaCode | exactly 1 xsd::nonNegativeInteger |
-| hasCountryCode | exactly 1 xsd::nonNegativeInteger |
-| hasPhoneNumber | exactly 1 xsd::nonNegativeInteger |
-| hasPhoneType | exactly 1 PhoneType |
-| subClassOf | ContactThing |
+| hasAreaCode | exactly 1 owl::Thing |
+| hasCountryCode | exactly 1 owl::Thing |
+| hasPhoneNumber | exactly 1 owl::Thing |
+| hasPhoneType | exactly 1 owl::Thing |
 | subClassOf | ContactThing |
 

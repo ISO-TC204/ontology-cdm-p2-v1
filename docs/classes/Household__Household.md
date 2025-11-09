@@ -8,9 +8,8 @@
 
 | Property | Constraint |
 |----------|------------|
-| cdmOrg::hasMember | only person::Person |
-| householdOccupies | max 1 cityResident::Residence |
+| cdmOrg::hasMember | all person::Person |
+| householdOccupies | max 1 owl::Thing |
 | subClassOf | HouseholdOntologyThing |
-| subClassOf | HouseholdOntologyThing |
-| time::hasTime | only time::ProperInterval |
+| time::hasTime | all time::ProperInterval |
 

@@ -16,9 +16,8 @@
 
 | Property | Constraint |
 |----------|------------|
-| impacts | only (activity::Activity or city::JurisdictionalArea or landUse::LandArea or cdmOrg::Organization or cdmPerson::Person) |
-| legislationJurisdiction | max 1 i72::City |
-| legislationType | only Nf9f68cd4a7ef4e6b85815225f7311f1c |
-| subClassOf | Law |
+| impacts | all activity::Activity or cdmOrg::Organization or cdmPerson::Person or city::JurisdictionalArea or landUse::LandArea |
+| legislationJurisdiction | max 1 owl::Thing |
+| legislationType | all Enum: amendingBylaw, mainBylaw, revisionBylaw |
 | subClassOf | Law |
 

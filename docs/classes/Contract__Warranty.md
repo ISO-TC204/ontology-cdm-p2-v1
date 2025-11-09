@@ -9,5 +9,4 @@
 | Property | Constraint |
 |----------|------------|
 | subClassOf | ContractualElement |
-| subClassOf | ContractualElement |
 

@@ -15,8 +15,7 @@
 
 | Property | Constraint |
 |----------|------------|
-| hasPay | max 1 cityUnits::MonetaryValue |
-| subClassOf | CityOrgOntologyThing |
+| hasPay | max 1 owl::Thing |
 | subClassOf | CityOrgOntologyThing |
 
 ## Used by classes

@@ -8,8 +8,7 @@
 
 | Property | Constraint |
 |----------|------------|
-| spatialLoc::hasLocation | exactly 1 spatialLoc::Location |
-| subClassOf | BuildingOntologyThing |
+| spatialLoc::hasLocation | exactly 1 owl::Thing |
 | subClassOf | BuildingOntologyThing |
 
 ## Used by classes

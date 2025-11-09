@@ -11,6 +11,4 @@
 | partwhole::properPartOf | some RailLink |
 | subClassOf | TransportationInfrastructureOntologyThing |
 | subClassOf | TravelledWaySegment |
-| subClassOf | TransportationInfrastructureOntologyThing |
-| subClassOf | TravelledWaySegment |
 

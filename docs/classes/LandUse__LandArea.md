@@ -8,9 +8,8 @@
 
 | Property | Constraint |
 |----------|------------|
-| hasArea | only cityUnits::Area |
-| landUse | only LandUseClassification |
-| subClassOf | LandUseOntologyThing |
+| hasArea | all cityUnits::Area |
+| landUse | all LandUseClassification |
 | subClassOf | spatialloc::Location |
 | subClassOf | LandUseOntologyThing |
 

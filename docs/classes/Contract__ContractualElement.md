@@ -22,7 +22,6 @@
 | hasContractText | some xsd::string |
 | inverse hasContractualElement | some Contract |
 | subClassOf | ContractOntologyThing |
-| subClassOf | ContractOntologyThing |
 
 ## Used by classes
 

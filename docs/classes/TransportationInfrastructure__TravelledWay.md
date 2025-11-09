@@ -15,8 +15,7 @@
 
 | Property | Constraint |
 |----------|------------|
-| aggregationOf | only TravelledWayLink |
-| subClassOf | TransportationInfrastructureOntologyThing |
+| aggregationOf | all TravelledWayLink |
 | subClassOf | TransportationInfrastructureOntologyThing |
 
 ## Used by classes

@@ -1,399 +1,292 @@
-# ontology_processor_owl.py
+# diagram_generator.py
 import os
 import logging
 import traceback
-import re
-from rdflib import Graph, RDF, OWL, URIRef, Literal, XSD, RDFS
-from utils import get_qname, get_ontology_metadata, _norm_base, get_leaf_classes
-from rdflib.namespace import DC, DCTERMS
+from rdflib import Graph, RDF, RDFS, OWL, XSD, URIRef, BNode
+from graphviz import Digraph
+from collections import defaultdict
+from utils import get_qname, get_id, fmt_title, get_all_class_superclasses, is_refined_property, collect_list, get_class_expression_str, get_ontology_for_uri, insert_spaces, get_leaf_classes, get_property_info, collect_oneOf
 
-log = logging.getLogger("owl2mkdocs")
+# Configure logging
+log = logging.getLogger("ofn2mkdocs")
 
-def parse_concept_registry(script_dir):
-    registry_path = os.path.join(script_dir, "concept_registry.md")
-    if not os.path.exists(registry_path):
-        with open(registry_path, 'w', encoding='utf-8') as f:
-            f.write("| base_uri | name | type | description |\n|----------|------|------|-------------|\n")
-        log.info(f"Created new concept_registry.md in {script_dir}")
-        return {}
-    content = open(registry_path, 'r', encoding='utf-8').read()
-    lines = content.splitlines()
-    registry = {}
-    in_table = False
-    headers = None
-    for line in lines:
-        if line.strip().startswith('|'):
-            if not in_table:
-                headers = [h.strip().lower() for h in line.split('|') if h.strip()]
-                log.debug(f"Parsed headers: {headers}")
-                in_table = True
-            elif headers and not line.strip().startswith('|---'):
-                values = [v.strip() for v in line.split('|') if v.strip()]
-                log.debug(f"Parsed values: {values}")
-                if len(values) < 3:  # Require at least base_uri, name, type
-                    log.warning(f"Skipping row with insufficient values (expected at least 3, got {len(values)}): {line}")
-                    continue
-                try:
-                    base_uri = values[headers.index('base_uri')]
-                    name = values[headers.index('name')]
-                    concept_type = values[headers.index('type')]
-                    description = values[headers.index('description')] if 'description' in headers and len(values) > headers.index('description') else ''
-                    uri = f"{base_uri}{name}"
-                    registry[uri] = {'type': concept_type, 'description': description}
-                except ValueError as e:
-                    log.warning(f"Skipping row due to missing header: {line} ({str(e)})")
-    log.info(f"Loaded {len(registry)} entries from concept_registry.md")
-    return registry
+def get_target_info(g: Graph, expr, cls_name: str, ns: str, prefix_map: dict) -> tuple:
+    """Get target information for a property's range, handling complex expressions."""
+    if not expr:
+        return None, False, None, None, False, None
+    if isinstance(expr, URIRef):
+        target_qname = get_qname(g, expr, ns, prefix_map)
+        if target_qname == 'ITSThing':
+            return None, False, None, None, False, None
+        target_id = get_id(target_qname.replace(":", "_"))
+        reflexive = target_qname == cls_name
+        is_complex = False
+        return target_id, is_complex, None, target_qname, reflexive, expr
+    else:  # BNode, complex expression
+        target_id = str(expr).replace(":", "_").replace("/", "_").replace("#", "_").replace("_:", "bnode_")
+        target_qname = get_class_expression_str(g, expr, ns, prefix_map)
+        reflexive = False
+        is_complex = True
+        return target_id, is_complex, None, target_qname, reflexive, expr
 
-def update_concept_registry(script_dir, registry):
-    registry_path = os.path.join(script_dir, "concept_registry.md")
-    with open(registry_path, 'w', encoding='utf-8') as f:
-        f.write("| base_uri | name | type | description |\n|----------|------|------|-------------|\n")
-        # Sort by base_uri and then name
-        sorted_items = sorted(registry.items(), key=lambda x: (x[0].rsplit('/', 1)[0] if '/' in x[0] else x[0], x[0].rsplit('/', 1)[1] if '/' in x[0] else ''))
-        for uri, info in sorted_items:
-            if '#' in uri:
-                base_uri, name = uri.rsplit('#', 1)
-                base_uri += '#'
-            elif '/' in uri:
-                base_uri, name = uri.rsplit('/', 1)
-                base_uri += '/'
-            else:
-                base_uri = ''
-                name = uri
-            if not base_uri.startswith('N') and not name.startswith('N'):
-                f.write(f"| {base_uri} | {name} | {info['type']} | {info['description']} |\n")
-    log.info(f"Updated concept_registry.md with {len(registry)} entries")
+def add_class_expression_node(graph, g: Graph, expr, ns: str, prefix_map: dict, global_all_classes: set, ns_to_ontology: dict, abstract_map: dict, created: set, is_superclass: bool = False, in_associated_cluster: bool = False, enum_members: list = None, enum_name: str = None) -> tuple:
+    """Recursively add nodes for class expressions, returning (node_id, label)."""
+    if isinstance(expr, URIRef):
+        qname = get_qname(g, expr, ns, prefix_map)
+        node_id = get_id(qname.replace(":", "_"))
+        if node_id in created:
+            return node_id, qname
+        created.add(node_id)
+        local = qname.split(":")[-1]
+        target_ont = get_ontology_for_uri(str(expr), ns_to_ontology)
+        url = None if ':' in qname else f"../_counters/{target_ont}__{local}.md" if qname in global_all_classes else None
+        label = qname
+        graph.node(
+            node_id,
+            label=f'<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">{label}</TD></TR></TABLE>>',
+            URL=url,
+            margin="0"
+        )
+        log.debug("Added node %s: %s (superclass=%s, in_associated_cluster=%s)", node_id, qname, is_superclass, in_associated_cluster)
+        return node_id, qname
+    else:  # BNode
+        node_id = str(expr).replace(":", "_").replace("/", "_").replace("#", "_").replace("_:", "bnode_")
+        if node_id in created:
+            return node_id, get_class_expression_str(g, expr, ns, prefix_map)
+        created.add(node_id)
+        expr_str = get_class_expression_str(g, expr, ns, prefix_map)
+        # Handle unionOf
+        union_col = g.value(expr, OWL.unionOf)
+        if union_col and union_col != RDF.nil:
+            members = collect_list(g, union_col)
+            stereo = "unionOf"
+            graph.node(node_id, f'<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">«{stereo}»</TD></TR></TABLE>>', margin="0")
+            for member in sorted(members, key=str):
+                member_id, _ = add_class_expression_node(graph, g, member, ns, prefix_map, global_all_classes, ns_to_ontology, abstract_map, created, is_superclass=False, in_associated_cluster=in_associated_cluster)
+                graph.edge(node_id, member_id, style="dotted", label="member", arrowhead="normal")
+            log.debug("Added union node %s: %s", node_id, expr_str)
+            return node_id, ""
+        # Handle intersectionOf
+        inter_col = g.value(expr, OWL.intersectionOf)
+        if inter_col and inter_col != RDF.nil:
+            members = collect_list(g, inter_col)
+            stereo = "intersectionOf"
+            graph.node(node_id, f'<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">«{stereo}»</TD></TR></TABLE>>', margin="0")
+            for member in sorted(members, key=str):
+                member_id, _ = add_class_expression_node(graph, g, member, ns, prefix_map, global_all_classes, ns_to_ontology, abstract_map, created, is_superclass=False, in_associated_cluster=in_associated_cluster)
+                graph.edge(node_id, member_id, style="dotted", label="member", arrowhead="normal")
+            return node_id, ""
+        # Handle complementOf
+        complement = g.value(expr, OWL.complementOf)
+        if complement:
+            stereo = "not"
+            graph.node(node_id, f'<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">«{stereo}»</TD></TR></TABLE>>', margin="0")
+            comp_id, _ = add_class_expression_node(graph, g, complement, ns, prefix_map, global_all_classes, ns_to_ontology, abstract_map, created, is_superclass=False, in_associated_cluster=in_associated_cluster)
+            graph.edge(node_id, comp_id, style="dotted", label="complement", arrowhead="normal")
+            return node_id, ""
+        # Handle oneOf enumeration
+        oneOf_members = collect_oneOf(g, expr)
+        if oneOf_members:
+            stereo = "Enum"
+            member_str = '<BR/>'.join([f"+ {get_qname(g, m, ns, prefix_map)}" for m in sorted(oneOf_members, key=str)])
+            graph.node(node_id, f'<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">«{stereo}»<BR/>{enum_name or expr_str}</TD></TR><TR><TD ALIGN="LEFT">{member_str}</TD></TR></TABLE>>', margin="0")
+            log.debug("Added enum node %s: %s with members %s", node_id, enum_name or expr_str, oneOf_members)
+            return node_id, enum_name or ""
+        # Default for other expressions
+        graph.node(node_id, f'<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">{expr_str}</TD></TR></TABLE>>', margin="0")
+        return node_id, expr_str
 
-def process_ontology(owl_path: str, errors: list, ontology_info) -> tuple:
-    """Process an OWL file and update ontology_info, return graph, namespace, prefix map, classes, local_classes, and property map."""
-    # Load OWL ontology
+def generate_diagram(g: Graph, cls: URIRef, cls_name: str, cls_id: str, ns: str, global_all_classes: set, abstract_map: dict, owl_path: str, errors: list, prefix_map: dict, ontology_name: str, ns_to_ontology: dict):
+    """Generate a Graphviz DOT file and render it to SVG for a class."""
     try:
-        if not os.path.exists(owl_path):
-            error_msg = f"Ontology file not found: {owl_path}"
+        diagrams_dir = os.path.join(os.path.dirname(owl_path), "diagrams")
+        if not os.path.exists(diagrams_dir):
+            os.makedirs(diagrams_dir)
+            log.info(f"Created diagrams directory: {diagrams_dir}")
+        cls_filename = f"{ontology_name}__{cls_name}"
+        dot_file = os.path.join(diagrams_dir, f"{cls_filename}.dot")
+        svg_file = os.path.join(diagrams_dir, f"{cls_filename}.svg")
+        png_file = os.path.join(diagrams_dir, f"{cls_filename}.png")
+
+        dot = Digraph(
+            name=cls_id,
+            format='svg',
+            graph_attr={'rankdir': 'BT', 'compound': 'true'},
+            node_attr={'shape': 'plaintext', 'fontname': 'sans-serif', 'fontsize': '10', 'margin': '0'},
+            edge_attr={'fontname': 'sans-serif', 'fontsize': '10', 'arrowsize': '0.75'}
+        )
+
+        created = set()
+        created_complex = set()
+        assoc_nodes = []
+        combined = defaultdict(dict)
+        super_uris = set()
+
+        # Add main class node
+        desc = get_first_literal(g, cls, DESC_PROPS) or ""
+        stereo = "abstract" if abstract_map.get(cls_name, False) else ""
+        stereo_md = f"«{stereo}»<BR/>" if stereo else ""
+        title = fmt_title(cls_name, global_all_classes, ns, abstract_map)
+        label = f'<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">{stereo_md}{title}</TD></TR><TR><TD ALIGN="LEFT">{desc}</TD></TR></TABLE>>'
+        dot.node(cls_id, label, margin="0")
+        created.add(cls_id)
+        log.debug("Added main class node %s: %s", cls_id, cls_name)
+
+        # Collect superclasses
+        for sup in g.objects(cls, RDFS.subClassOf):
+            if isinstance(sup, URIRef) and sup != OWL.Thing and (sup, RDF.type, OWL.Class) in g:
+                super_uris.add(sup)
+
+        # Collect restrictions
+        for sup in g.objects(cls, RDFS.subClassOf):
+            if (sup, RDF.type, OWL.Restriction) in g:
+                prop = g.value(sup, OWL.onProperty)
+                if prop:
+                    prop_name, is_inverse, base_prop = get_property_info(g, prop, ns, prefix_map)
+                    is_refined = is_refined_property(g, cls, prop, sup)
+                    style = "dashed" if is_refined else "solid"
+                    all_values_from = g.value(sup, OWL.allValuesFrom)
+                    some_values_from = g.value(sup, OWL.someValuesFrom)
+                    has_value = g.value(sup, OWL.hasValue)
+                    min_card = g.value(sup, OWL.minQualifiedCardinality) or g.value(sup, OWL.minCardinality)
+                    max_card = g.value(sup, OWL.maxQualifiedCardinality) or g.value(sup, OWL.maxCardinality)
+                    card = g.value(sup, OWL.qualifiedCardinality) or g.value(sup, OWL.cardinality)
+                    label_parts = []
+                    target_expr = None
+                    if all_values_from:
+                        target_expr = all_values_from
+                        label_parts.append("all")
+                    if some_values_from:
+                        target_expr = some_values_from
+                        label_parts.append("some")
+                    if has_value:
+                        target_expr = has_value
+                        label_parts.append("has")
+                    if card:
+                        label_parts.append(f"exactly {card}")
+                    if min_card:
+                        label_parts.append(f"min {min_card}")
+                    if max_card:
+                        label_parts.append(f"max {max_card}")
+
+                    # Handle unqualified cardinality by treating as qualified with owl:Thing
+                    if label_parts and not target_expr:
+                        target_expr = OWL.Thing
+
+                    if target_expr and label_parts:
+                        # Check for oneOf enumeration
+                        oneOf_members = collect_oneOf(g, target_expr)
+                        enum_name = None
+                        if oneOf_members:
+                            prop_local = prop_name.split(':')[-1]
+                            enum_name = f"{prop_local[0].upper()}{prop_local[1:]}Enum"
+                        target_id, _, _, target_qname, reflexive, _ = get_target_info(g, target_expr, cls_name, ns, prefix_map)
+                        key = (prop_name, target_id)
+                        if key not in combined:
+                            combined[key] = {
+                                'label_parts': [],
+                                'style': style,
+                                'prop_name': prop_name,
+                                'target_expr': target_expr,
+                                'reflexive': reflexive,
+                                'target_qname': target_qname,
+                                'is_inverse': is_inverse,
+                                'enum_members': oneOf_members,
+                                'enum_name': enum_name
+                            }
+                        combined[key]['label_parts'].extend(label_parts)
+                        combined[key]['style'] = "dashed" if is_refined else combined[key]['style']
+                        log.debug("Added object property %s -> %s: %s, style=%s, reflexive=%s", prop_name, target_qname, label_parts, style, reflexive)
+
+        # Add edges for superclasses
+        for sup_uri in sorted(super_uris, key=lambda u: get_qname(g, u, ns, prefix_map).lower()):
+            sup_id, _ = add_class_expression_node(dot, g, sup_uri, ns, prefix_map, global_all_classes, ns_to_ontology, abstract_map, created, is_superclass=True)
+            dot.edge(cls_id, sup_id, arrowhead="onormal", style="solid")
+            log.debug("Added generalization edge %s -> %s", cls_id, sup_id)
+
+        # Add invisible edges for layout
+        if assoc_nodes:
+            dot.edge(cls_id, 'Invis', style="invis")
+            prev = 'Invis'
+            for assoc_id in assoc_nodes:
+                dot.edge(prev, assoc_id, style="invis")
+                log.debug("Added invisible edge %s -> %s", prev, assoc_id)
+                prev = assoc_id
+
+        # Add object property edges
+        for key, data in combined.items():
+            prop_name = data['prop_name']
+            style = data['style']
+            label_parts = data['label_parts']
+            reflexive = data['reflexive']
+            target_expr = data['target_expr']
+            is_inverse = data['is_inverse']
+            enum_members = data.get('enum_members', [])
+            enum_name = data.get('enum_name')
+            target_id, target_label = add_class_expression_node(dot, g, target_expr, ns, prefix_map, global_all_classes, ns_to_ontology, abstract_map, created_complex, is_superclass=False, in_associated_cluster=True, enum_members=enum_members, enum_name=enum_name)
+            label_prefix = f"«{', '.join(sorted(set(label_parts)))}» " if label_parts else ""
+            if style == "solid":
+                label = f" {prop_name} \n {label_prefix} "
+            else:
+                label = f" onProperty: {prop_name} \n {label_prefix} "
+            source_id = cls_id if not is_inverse else target_id
+            dest_id = target_id if not is_inverse else cls_id
+            arrowhead = "normal" if not is_inverse else "inv"
+            if reflexive:
+                dot.edge(cls_id, cls_id, label=label, style=style, arrowhead=arrowhead)
+            else:
+                dot.edge(source_id, dest_id, label=label, style=style, arrowhead=arrowhead)
+            log.debug("Added edge %s -> %s: %s", source_id, dest_id, label)
+
+        # Save and render the DOT file
+        log.debug("Generated DOT source for %s:\n%s", cls_name, dot.source)
+        try:
+            dot_file = os.path.join(diagrams_dir, f"{cls_filename}.dot")
+            dot.save(dot_file)
+            with open(dot_file, 'r') as f:
+                log.debug("DOT file content:\n%s", f.read())
+            dot.render(dot_file, cleanup=False)
+            dot.render(dot_file, format='png', cleanup=False)
+        except Exception as e:
+            error_msg = f"Error rendering diagram for {cls_name} from {owl_path}: {str(e)}\n{traceback.format_exc()}"
             errors.append(error_msg)
             log.error(error_msg)
-            return None, None, None, None, None, None
-
-        with open(owl_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-
-        # Extract xml:base
-        base_match = re.search(r'xml:base\s*=\s*"([^"]+)"', content)
-        xml_base = base_match.group(1) if base_match else None
-        log.debug(f"Extracted xml_base: {xml_base}")
-
-        # Replace invalid xml: prefixes with xmlns:
-        content = content.replace(' xml:', ' xmlns:')
-
-        # Remove leading colon in relative URIs for rdf:about and rdf:resource
-        content = content.replace('rdf:about=":', 'rdf:about="')
-        content = content.replace('rdf:resource=":', 'rdf:resource="')
-
-        g = Graph()
-        if owl_path.lower().endswith('.ttl'):
-            g.parse(data=content, format='turtle', base=xml_base)
-            log.info("Loaded ontology %s with Turtle format, %d triples", owl_path, len(g))
-        else:
-            try:
-                g.parse(data=content, format='xml', base=xml_base)
-                log.info("Loaded ontology %s with RDF/XML, %d triples", owl_path, len(g))
-            except Exception as xml_e:
-                try:
-                    from owlready2 import get_ontology, default_world
-                    onto = get_ontology("file://" + os.path.abspath(owl_path)).load()
-                    if onto is None:
-                        raise ValueError("owlready2 returned None")
-                    g = default_world.as_rdflib_graph()
-                    log.info("Loaded ontology %s with owlready2 fallback, %d triples", owl_path, len(g))
-                except Exception as owl_e:
-                    error_msg = f"Failed RDF/XML: {str(xml_e)}\n{traceback.format_exc()}\nFailed owlready2: {str(owl_e)}\n{traceback.format_exc()}"
-                    errors.append(error_msg)
-                    log.error(error_msg)
-                    return None, None, None, None, None, None
-        if len(g) == 0:
-            error_msg = f"RDF graph is empty after loading ontology {owl_path}"
-            errors.append(error_msg)
-            log.error(error_msg)
-            return None, None, None, None, None, None
+            raise
     except Exception as e:
-        error_msg = f"Failed to load or parse ontology from {owl_path}: {str(e)}\n{traceback.format_exc()}"
+        error_msg = f"Error generating diagram for {cls_name} from {owl_path}: {str(e)}\n{traceback.format_exc()}"
         errors.append(error_msg)
         log.error(error_msg)
-        return None, None, None, None, None, None
+        raise
+    finally:
+        # Any cleanup if needed
+        pass
 
-    # Extract and bind namespaces from content
-    default_ns_match = re.search(r'xmlns\s*=\s*"([^"]+)"', content)
-    if default_ns_match:
-        default_ns = default_ns_match.group(1)
-        g.bind('', URIRef(default_ns))
-        log.debug(f"Bound default namespace: {default_ns}")
-    ns_matches = re.findall(r'xmlns:(\w+)\s*=\s*"([^"]+)"', content)
-    for prefix, uri in ns_matches:
-        g.bind(prefix, URIRef(uri))
-    log.debug(f"Bound additional namespaces: {ns_matches}")
+def main():
+    """Main function to process the ontology and generate diagrams."""
+    g = Graph()
+    g.parse("Activity.owl", format="xml")
+    ns = "https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity#"
+    prefix_map = {
+        "activity": ns,
+        "time": "http://www.w3.org/2006/time#",
+        "spatialLoc": "https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/SpatialLoc#",
+        "change": "https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Change#",
+        "owl": "http://www.w3.org/2002/07/owl#"
+    }
+    ontology_name = "Activity"
+    ns_to_ontology = {ns: "Activity"}
+    global_all_classes = {get_qname(g, s, ns, prefix_map) for s, p, o in g.triples((None, RDF.type, OWL.Class))}
+    abstract_map = {}  # Assume no abstract classes for simplicity
+    errors = []
 
-    # Dynamically set default namespace from ontology IRI
-    ns = None
-    for s in g.subjects(RDF.type, OWL.Ontology):
-        ns = str(s)
-        break
-    if not ns:
-        log.warning("No ontology IRI found in OWL file %s; using default namespace", owl_path)
-        ns = "https://isotc204.org/ontologies/its/default#"
-
-    # Normalize unexpanded or relative URIs in the graph
-    to_fix = []
-    for s, p, o in g:
-        new_s = s
-        new_p = p
-        new_o = o
-        for term, new_term_setter in zip([s, p, o], [lambda x: globals().__setitem__('new_s', x), lambda x: globals().__setitem__('new_p', x), lambda x: globals().__setitem__('new_o', x)]):
-            if isinstance(term, URIRef):
-                t_str = str(term)
-                if '://' not in t_str:
-                    if ':' in t_str:
-                        # Likely unexpanded QName
-                        prefix, local = t_str.split(':', 1)
-                        prefix_ns = None
-                        for pr, u in g.namespaces():
-                            if pr == prefix:
-                                prefix_ns = str(u)
-                                break
-                        if prefix_ns:
-                            new_term_setter(URIRef(prefix_ns + local))
-                        else:
-                            log.warning(f"Unresolved prefix '{prefix}' in URI '{t_str}'")
-                            new_term_setter(URIRef(ns + t_str))
-                    else:
-                        # Relative URI without prefix
-                        new_term_setter(URIRef(ns + t_str))
-        if new_s != s or new_p != p or new_o != o:
-            to_fix.append((s, p, o, new_s, new_p, new_o))
-    for old_s, old_p, old_o, new_s, new_p, new_o in to_fix:
-        g.remove((old_s, old_p, old_o))
-        g.add((new_s, new_p, new_o))
-    if to_fix:
-        log.info(f"Normalized {len(to_fix)} triples with unexpanded or relative URIs in {owl_path}")
-
-    # Additional fix for misexpanded QNames appended to base
-    to_replace = {}
-    for s, p, o in g:
-        for term in (s, p, o):
-            if isinstance(term, URIRef):
-                t_str = str(term)
-                if t_str.startswith(ns) and ':' in t_str[len(ns):] and '://' not in t_str[len(ns):]:
-                    local_part = t_str[len(ns):]
-                    if ':' in local_part:
-                        prefix, local = local_part.split(':', 1)
-                        prefix_ns = None
-                        for pr, u in g.namespaces():
-                            if pr == prefix:
-                                prefix_ns = str(u)
-                                break
-                        if prefix_ns:
-                            new_term = URIRef(prefix_ns + local)
-                            to_replace[term] = new_term
-    if to_replace:
-        for old, new in to_replace.items():
-            for subj, pred, obj in list(g):
-                new_subj = new if subj == old else subj
-                new_pred = new if pred == old else pred
-                new_obj = new if obj == old else obj
-                if (new_subj, new_pred, new_obj) != (subj, pred, obj):
-                    g.remove((subj, pred, obj))
-                    g.add((new_subj, new_pred, new_obj))
-        log.info(f"Fixed {len(to_replace)} misexpanded URIs in {owl_path}")
-
-    # Load the concept registry from the Python script directory
-    script_dir = os.path.dirname(os.path.realpath(__file__))
-    registry = parse_concept_registry(script_dir)
-
-    # Add object and datatype properties from registry to the graph
-    for uri, info in registry.items():
-        if info['type'] == 'object_property':
-            g.add((URIRef(uri), RDF.type, OWL.ObjectProperty))
-            log.debug(f"Added to graph: {uri} a owl:ObjectProperty")
-        elif info['type'] == 'datatype_property':
-            g.add((URIRef(uri), RDF.type, OWL.DatatypeProperty))
-            log.debug(f"Added to graph: {uri} a owl:DatatypeProperty")
-
-    # Collect additional namespaces from the RDF graph
-    namespaces = set()
-    for s, p, o in g:
-        for term in (s, p, o):
-            if isinstance(term, URIRef):
-                # Extract namespace by removing the last component (after last '/' or '#')
-                uri = str(term)
-                ns_end = max(uri.rfind('/'), uri.rfind('#'))
-                if ns_end != -1 and uri.startswith('http'):
-                    namespace = uri[:ns_end + 1]
-                    namespaces.add(namespace)
-
-    # Extract prefixes and create prefix map
-    prefix_map = {str(uri): f"{prefix}:" for prefix, uri in g.namespaces()}
-    if ns not in prefix_map:
-        prefix_map[ns] = ":"
-    # Add missing namespaces to prefix_map with generated prefixes
-    for namespace in namespaces:
-        if namespace not in prefix_map:
-            ns_tail = namespace.rstrip('/#').split('/')[-1].split('#')[-1]
-            prefix = ns_tail.lower()
-            base_prefix = prefix
-            count = 1
-            while any(p.startswith(prefix + ':') for p in prefix_map.values()):
-                prefix = f"{base_prefix}{count}"
-                count += 1
-            prefix_map[namespace] = f"{prefix}:"
-            g.bind(prefix, URIRef(namespace))
-            log.debug(f"Added inferred namespace: {namespace} → {prefix}:")
-
-    # Add prefixes from registry
-    for uri, info in registry.items():
-        base_uri, name = uri.rsplit('/', 1) if '/' in uri else (uri, '')
-        if '#' in name:
-            base_uri, name = f"{base_uri}/{name.split('#')[0]}#", name.split('#')[1]
-        if not base_uri.endswith(('#', '/')):
-            base_uri += '/'
-        if base_uri not in prefix_map:
-            ns_tail = base_uri.rstrip('/#').split('/')[-1].split('#')[-1]
-            prefix = ns_tail.lower()
-            base_prefix = prefix
-            count = 1
-            while any(p.startswith(prefix + ':') for p in prefix_map.values()):
-                prefix = f"{base_prefix}{count}"
-                count += 1
-            prefix_map[base_uri] = f"{prefix}:"
-            g.bind(prefix, URIRef(base_uri))
-            log.debug(f"Added registry namespace: {base_uri} → {prefix}:")
-
-    log.debug("Prefixes for %s:", owl_path)
-    for uri, prefix in prefix_map.items():
-        log.debug("  %s → %s", prefix, uri)
-
-    # Collect new concepts (local and external) from the current ontology
-    new_concepts = {}
-    # Classes (local and declared external)
+    # Generate diagrams for each class
     for cls in g.subjects(RDF.type, OWL.Class):
-        uri = str(cls)
-        log.info(f"Examining class: {uri}")
-        if uri not in registry and uri not in new_concepts:
-            description = g.value(cls, RDFS.comment) or g.value(cls, DC.description) or ''
-            new_concepts[uri] = {'type': 'class', 'description': str(description) if isinstance(description, Literal) else description}
-            log.debug(f"Added class: {uri} (local={uri.startswith(ns)})")
-    # Object properties
-    for prop in g.subjects(RDF.type, OWL.ObjectProperty):
-        uri = str(prop)
-        if uri not in registry and uri not in new_concepts:
-            description = g.value(prop, RDFS.comment) or g.value(prop, DC.description) or ''
-            new_concepts[uri] = {'type': 'object_property', 'description': str(description) if isinstance(description, Literal) else description}
-            log.debug(f"Added object_property: {uri} (local={uri.startswith(ns)})")
-    # Datatype properties
-    for prop in g.subjects(RDF.type, OWL.DatatypeProperty):
-        uri = str(prop)
-        if uri not in registry and uri not in new_concepts:
-            description = g.value(prop, RDFS.comment) or g.value(prop, DC.description) or ''
-            new_concepts[uri] = {'type': 'datatype_property', 'description': str(description) if isinstance(description, Literal) else description}
-            log.debug(f"Added datatype_property: {uri} (local={uri.startswith(ns)})")
+        cls_name = get_qname(g, cls, ns, prefix_map)
+        cls_id = get_id(cls_name.replace(":", "_"))
+        generate_diagram(g, cls, cls_name, cls_id, ns, global_all_classes, abstract_map, "Activity.owl", errors, prefix_map, ontology_name, ns_to_ontology)
 
-    # Inferred external concepts from usage
-    for s, p, o in g.triples((None, RDFS.subClassOf, None)):
-        if isinstance(o, URIRef) and not str(o).startswith(ns) and str(o) != str(OWL.Thing):
-            uri = str(o)
-            if uri not in registry and uri not in new_concepts:
-                new_concepts[uri] = {'type': 'class', 'description': ''}
-                log.debug(f"Inferred external class: {uri}")
-    for s, p, o in g.triples((None, RDFS.subClassOf, None)):
-        if (o, RDF.type, OWL.Restriction) in g:
-            prop = g.value(o, OWL.onProperty)
-            if prop and isinstance(prop, URIRef) and not str(prop).startswith(ns):
-                uri = str(prop)
-                avf = g.value(o, OWL.allValuesFrom)
-                svf = g.value(o, OWL.someValuesFrom)
-                card = g.value(o, OWL.qualifiedCardinality) or g.value(o, OWL.minQualifiedCardinality) or g.value(o, OWL.maxQualifiedCardinality)
-                if avf or svf:
-                    target = avf or svf
-                    prop_type = 'object_property'
-                    # Infer classes from target expression
-                    leaf_classes = get_leaf_classes(g, target, ns, prefix_map)
-                    for leaf in leaf_classes:
-                        if isinstance(leaf, URIRef) and not str(leaf).startswith(ns):
-                            leaf_uri = str(leaf)
-                            if leaf_uri not in registry and leaf_uri not in new_concepts:
-                                new_concepts[leaf_uri] = {'type': 'class', 'description': ''}
-                                log.debug(f"Inferred external class from restriction target: {leaf_uri}")
-                elif card:
-                    on_class = g.value(o, OWL.onClass)
-                    on_data_range = g.value(o, OWL.onDataRange)
-                    if on_class:
-                        prop_type = 'object_property'
-                        # Infer classes from onClass
-                        leaf_classes = get_leaf_classes(g, on_class, ns, prefix_map)
-                        for leaf in leaf_classes:
-                            if isinstance(leaf, URIRef) and not str(leaf).startswith(ns):
-                                leaf_uri = str(leaf)
-                                if leaf_uri not in registry and leaf_uri not in new_concepts:
-                                    new_concepts[leaf_uri] = {'type': 'class', 'description': ''}
-                                    log.debug(f"Inferred external class from restriction onClass: {leaf_uri}")
-                    elif on_data_range:
-                        prop_type = 'datatype_property'
-                        # Infer datatypes if complex, but usually simple URIRef
-                        if isinstance(on_data_range, URIRef) and not str(on_data_range).startswith(ns):
-                            dt_uri = str(on_data_range)
-                            if dt_uri not in registry and dt_uri not in new_concepts:
-                                new_concepts[dt_uri] = {'type': 'datatype', 'description': ''}
-                                log.debug(f"Inferred external datatype: {dt_uri}")
-                    else:
-                        prop_type = 'object_property'  # Default assumption
-                else:
-                    prop_type = 'object_property'  # Default assumption
-                if uri not in registry and uri not in new_concepts:
-                    new_concepts[uri] = {'type': prop_type, 'description': ''}
-                    log.debug(f"Inferred external {prop_type}: {uri}")
+    if errors:
+        log.error("Errors encountered: %s", errors)
 
-    # Update registry with new concepts only if not present
-    for uri, info in new_concepts.items():
-        if uri not in registry:
-            registry[uri] = info
-    update_concept_registry(script_dir, registry)
-
-    # Extract ontology metadata and update ontology_info
-    dc_title = get_ontology_metadata(g, ns, DC.title) or "Untitled Ontology"
-    dc_description = get_ontology_metadata(g, ns, DC.description) or ""
-    ontology_info["title"] = dc_title
-    ontology_info["description"] = dc_description
-    ontology_info["patterns"] = set()
-    ontology_info["non_pattern_classes"] = set()
-
-    # Extract classes (include external from registry)
-    classes = set(g.subjects(RDF.type, OWL.Class)) - {OWL.Thing}
-    for uri, info in registry.items():
-        if info['type'] == 'class' and str(uri).startswith('http'):
-            classes.add(URIRef(uri))
-    classes = {cls for cls in classes if str(cls).startswith("http")}
-    log.debug("Found %d classes in ontology %s:", len(classes), owl_path)
-    for cls in classes:
-        log.debug("Class: %s", get_qname(g, cls, ns, prefix_map))
-
-    # Filter classes by namespace
-    local_classes = [cls for cls in classes if str(cls).startswith(ns)]
-    log.debug("Filtered to %d local classes in namespace %s for %s:", len(local_classes), ns, owl_path)
-    for cls in local_classes:
-        log.debug("  %s", get_qname(g, cls, ns, prefix_map))
-
-    # Create property map: qname to URI
-    prop_map = {}
-    for p in g.subjects(RDF.type, OWL.ObjectProperty):
-        qn = get_qname(g, p, ns, prefix_map)
-        prop_map[qn] = p
-    for p in g.subjects(RDF.type, OWL.DatatypeProperty):
-        qn = get_qname(g, p, ns, prefix_map)
-        prop_map[qn] = p
-    # Add external properties from registry
-    for uri, info in registry.items():
-        if info['type'] in ('object_property', 'datatype_property'):
-            qn = get_qname(g, URIRef(uri), ns, prefix_map)
-            prop_map[qn] = URIRef(uri)
-            log.debug(f"Added external {info['type']}: {qn}")
-
-    return g, ns, prefix_map, classes, local_classes, prop_map
+if __name__ == "__main__":
+    main()

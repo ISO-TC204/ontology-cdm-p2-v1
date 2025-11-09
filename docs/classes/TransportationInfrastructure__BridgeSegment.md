@@ -10,9 +10,7 @@
 |----------|------------|
 | subClassOf | infrastructure::InfrastructureElement |
 | subClassOf | TransportationInfrastructureOntologyThing |
-| subClassOf | infrastructure::InfrastructureElement |
-| subClassOf | TransportationInfrastructureOntologyThing |
-| supports | only TravelledWaySegment |
+| supports | all TravelledWaySegment |
 
 ## Used by classes
 

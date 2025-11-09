@@ -8,11 +8,10 @@
 
 | Property | Constraint |
 |----------|------------|
-| hasResidence | only Residence |
-| operates | only EntityOperation |
-| owns | only EntityOwnership |
-| residentOf | only city::JurisdictionalArea |
-| subClassOf | CityResidentOntologyThing |
+| hasResidence | all Residence |
+| operates | all EntityOperation |
+| owns | all EntityOwnership |
+| residentOf | all city::JurisdictionalArea |
 | subClassOf | CityResidentOntologyThing |
 | subClassOf | person::Person |
 

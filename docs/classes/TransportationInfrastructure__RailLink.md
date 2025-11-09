@@ -8,8 +8,7 @@
 
 | Property | Constraint |
 |----------|------------|
-| aggregateOf | only RailLine |
-| subClassOf | TransportationInfrastructureOntologyThing |
+| aggregateOf | all RailLine |
 | subClassOf | TransportationInfrastructureOntologyThing |
 
 ## Used by classes

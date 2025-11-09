@@ -8,8 +8,7 @@
 
 | Property | Constraint |
 |----------|------------|
-| hasEstablishment | only BusinessEstablishment |
-| hasIndustryType | only IndustryType |
-| subClassOf | Organization |
+| hasEstablishment | all BusinessEstablishment |
+| hasIndustryType | all IndustryType |
 | subClassOf | Organization |
 

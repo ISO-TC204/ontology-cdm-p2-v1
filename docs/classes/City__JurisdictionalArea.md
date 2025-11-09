@@ -15,14 +15,13 @@
 
 | Property | Constraint |
 |----------|------------|
-| administrativeAreaOf | only JurisdictionalArea |
-| bylaw::hasBylaw | only bylaw::Bylaw |
-| genericproperties::hasName | max 1 xsd::string |
-| hasGovernment | only organization::GovernmentOrganization |
-| inverse administrativeAreaOf | only JurisdictionalArea |
-| landUse::hasLandArea | only landUse::LandArea |
-| landUse::residentPopulation | max 1 i72::Population |
-| subClassOf | CityOntologyThing |
+| administrativeAreaOf | all JurisdictionalArea |
+| bylaw::hasBylaw | all bylaw::Bylaw |
+| genericproperties::hasName | max 1 owl::Thing |
+| hasGovernment | all organization::GovernmentOrganization |
+| inverse administrativeAreaOf | all JurisdictionalArea |
+| landUse::hasLandArea | all landUse::LandArea |
+| landUse::residentPopulation | max 1 owl::Thing |
 | subClassOf | CityOntologyThing |
 
 ## Used by classes

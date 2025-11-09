@@ -8,9 +8,7 @@
 
 | Property | Constraint |
 |----------|------------|
-| legalName | exactly 1 xsd::string |
-| subClassOf | CityOntologyThing |
-| subClassOf | JurisdictionalArea |
+| legalName | exactly 1 owl::Thing |
 | subClassOf | CityOntologyThing |
 | subClassOf | JurisdictionalArea |
 

@@ -8,10 +8,8 @@
 
 | Property | Constraint |
 |----------|------------|
-| partwhole::hasProperPart | only BridgeSegment |
+| partwhole::hasProperPart | all BridgeSegment |
 | subClassOf | infrastructure::InfrastructureElement |
 | subClassOf | TransportationInfrastructureOntologyThing |
-| subClassOf | infrastructure::InfrastructureElement |
-| subClassOf | TransportationInfrastructureOntologyThing |
-| supports | only TravelledWaySegment |
+| supports | all TravelledWaySegment |
 
