@@ -1,143 +1,46 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#"
-     xml:base="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/"
-     xmlns:ns="http://creativecommons.org/ns#"
+<rdf:RDF xmlns="https://w3id.org/isoiec5087-2/v1/"
+     xml:base="https://w3id.org/isoiec5087-2/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:adms="http://www.w3.org/ns/adms#"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:vann="http://purl.org/vocab/vann/"
-     xmlns:terms="http://purl.org/dc/terms/"
-     xmlns:genProp="https://isotc204.org/registries/ritso/city-data-model/part-1/v1-0-1/GenericProperties#"
-     xmlns:cdmOrgStruct="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#">
-    <owl:Ontology rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#">
-        <owl:imports rdf:resource="https://isotc204.org/registries/ritso/city-data-model/part-1/v1-0-1/GenericProperties.owl"/>
-        <owl:imports rdf:resource="https://isotc204.org/registries/ritso/city-data-model/part-1/v1-0-1/OrganizationStructure.owl"/>
-        <dc:description>The Code Pattern provides a structure to address the challenge of value enumeration with a general approach. In city data there are many classes of things that are intended to be instantiated using a set list of values (e.g., classification systems), however these values may change based on application or context. 
-The Code Pattern introduces a generic set of classes and properties that can be used to extend such classes to define various classification systems in an integrated way.
-Instead of enumerating value sets for classes, values can be defined with an associated Code that specifies additional metadata about the value and its origins.</dc:description>
-        <dc:title>Code Pattern</dc:title>
-        <adms:relatedDocumentation>Under development. Refer to latest draft of ISO 5087-2.</adms:relatedDocumentation>
+     xmlns:i72="https://w3id.org/isoiec21972/v1/"
+     xmlns:cdm1="https://w3id.org/isoiec5087-1/v1/">
+    <owl:Ontology rdf:about="https://w3id.org/isoiec5087-2/v1/CodePattern">
+        <!-- Identity -->
+        <dcterms:title>Information technology - City data model - Part 2: City level concepts - Code pattern</dcterms:title>
+        <rdfs:seeAlso rdf:resource="https://www.iso.org/standard/80742.html"/>
+        <dcterms:bibliographicCitation>ISO/IEC 5087-2:2024</dcterms:bibliographicCitation>
+    	<skos:definition>This ontology specifies the city-level concepts for the code pattern of the city data model. The Code Pattern provides a structure to address the challenge of value enumeration with a general approach. In city data there are many classes of things that are intended to be instantiated using a set list of values (e.g., classification systems), however these values may change based on application or context. 
+        The Code Pattern introduces a generic set of classes and properties that can be used to extend such classes to define various classification systems in an integrated way. Instead of enumerating value sets for classes, values can be defined with an associated Code that specifies additional metadata about the value and its origins.</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/isoiec5087-2/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>cdm2</vann:preferredNamespacePrefix>
+
+    	<!-- Provenance -->
+        <dcterms:creator>Megan Katsumi</dcterms:creator>
+        <dcterms:creator>Mark Fox</dcterms:creator>
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024</dcterms:issued> <!-- Date of the source document, comment out if draft -->
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/City/"/>
+        <owl:priorVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-01-11</owl:priorVersion> <!-- Date of prior ontology file, if any -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-08</dcterms:modified> <!-- Date of this ontology file -->
+        <owl:versionInfo>1.3.0</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/isoiec5087-2/v1/r3.0"/>
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024.</rdfs:comment>
+        
+        <!-- License -->
+        <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="https://w3id.org/isoiec5087-1/v1/OrganizationStructurePattern"/>
     </owl:Ontology>
     
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotation properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://creativecommons.org/ns#license -->
-
-    <owl:AnnotationProperty rdf:about="http://creativecommons.org/ns#license"/>
-    
-
-
-    <!-- http://purl.org/dc/elements/1.1/creator -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
-    
-
-
-    <!-- http://purl.org/dc/elements/1.1/date -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
-    
-
-
-    <!-- http://purl.org/dc/elements/1.1/description -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
-    
-
-
-    <!-- http://purl.org/dc/elements/1.1/issued -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/issued"/>
-    
-
-
-    <!-- http://purl.org/dc/elements/1.1/title -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/creator -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/description -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/issued -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/modified -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/rights -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/rights"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/title -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
-    
-
-
-    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
-    
-
-
-    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
-    
-
-
-    <!-- http://www.w3.org/2002/07/owl#versionInfo -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#versionInfo"/>
-    
-
-
-    <!-- http://www.w3.org/ns/adms#relatedDocumentation -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/adms#relatedDocumentation"/>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/based_near -->
-
-    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/based_near"/>
-    
-
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -148,30 +51,31 @@ Instead of enumerating value sets for classes, values can be defined with an ass
      -->
 
     
+    <!-- https://w3id.org/isoiec5087-2/v1/CodeObjectProperty -->
 
-
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#codeOntologyObjectProperty -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#codeOntologyObjectProperty"/>
-    
-
-
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#definedBy -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#definedBy">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#codeOntologyObjectProperty"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087-2/v1/CodeObjectProperty">
+        <skos:definition>Added for organizational purposes, to identify object properties defined for the Code Pattern in the City-level CDM ontology.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087-2/v1/CityObjectProperty"/>
     </owl:ObjectProperty>
     
 
+    <!-- https://w3id.org/isoiec5087-2/v1/definedBy -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#hasCode -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#hasCode">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#codeOntologyObjectProperty"/>
-        <rdfs:range rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#Code"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087-2/v1/definedBy">
+        <skos:definition>Identifies the Organization that defined the Code.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087-2/v1/CodeObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/org#Organization"/>
     </owl:ObjectProperty>
     
 
+    <!-- https://w3id.org/isoiec5087-2/v1/hasCode -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/isoiec5087-2/v1/hasCode">
+        <skos:definition>Identifies the code for the domain object.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087-2/v1/CodeObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/isoiec5087-2/v1/Code"/>
+    </owl:ObjectProperty>
+    
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -182,27 +86,22 @@ Instead of enumerating value sets for classes, values can be defined with an ass
      -->
 
     
+    <!-- https://w3id.org/isoiec5087-2/v1/CodeDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/isoiec5087-2/v1/CodeDataProperty">
+        <skos:definition>Added for organizational purposes, to identify data properties defined in the City Code Pattern.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087-2/v1/CityDataProperty"/>
+    </owl:DatatypeProperty>
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/GenericProperties#hasIdentifier -->
+    <!-- https://w3id.org/isoiec5087-2/v1/specification -->
 
-    <owl:DatatypeProperty rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/GenericProperties#hasIdentifier"/>
-    
-
-
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#codeOntologyDataProperty -->
-
-    <owl:DatatypeProperty rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#codeOntologyDataProperty"/>
-    
-
-
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#specification -->
-
-    <owl:DatatypeProperty rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#specification">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#codeOntologyDataProperty"/>
+    <owl:DatatypeProperty rdf:about="https://w3id.org/isoiec5087-2/v1/specification">
+        <skos:definition>Provides a URI where the definition of the domain object can be found.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/isoiec5087-2/v1/CodeDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
     </owl:DatatypeProperty>
     
-
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -213,40 +112,47 @@ Instead of enumerating value sets for classes, values can be defined with an ass
      -->
 
     
+    <!-- https://w3id.org/isoiec5087-2/v1/CodeThing -->
 
-
-    <!-- https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#Organization -->
-
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#Organization"/>
+    <owl:Class rdf:about="https://w3id.org/isoiec5087-2/v1/CodeThing">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087-2/v1/CityThing"/>
+        <skos:definition>Added for organizational purposes, to identify classes defined in the Code ontology.</skos:definition>
+    </owl:Class>
     
 
+    <!-- https://w3id.org/isoiec5087-2/v1/Code -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#Code -->
-
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#Code">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#CodeOntologyThing"/>
+    <owl:Class rdf:about="https://w3id.org/isoiec5087-2/v1/Code">
+        <skos:definition>A code represents a possible set of values for a property, according to some predefined system of values.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/isoiec5087-2/v1/CodeThing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#definedBy"/>
+                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087-2/v1/definedBy"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/OrganizationStructure#Organization"/>
+                <owl:onClass rdf:resource="https://w3id.org/isoiec5087-1/v1/Organization"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/GenericProperties#hasDescription"/>
+                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087-2/v1/specification"/>
                 <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/GenericProperties#hasName"/>
+                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087-1/v1/hasDescription"/>
                 <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/GenericProperties#hasIdentifier"/>
+                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087-1/v1/hasName"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/isoiec5087-1/v1/hasIdentifier"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
@@ -254,13 +160,4 @@ Instead of enumerating value sets for classes, values can be defined with an ass
     </owl:Class>
     
 
-
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#CodeOntologyThing -->
-
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#CodeOntologyThing"/>
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
-

@@ -14,7 +14,7 @@
      xmlns:cdm1="https://w3id.org/isoiec5087-1/v1/">
     <owl:Ontology rdf:about="https://w3id.org/isoiec5087-2/v1/CityPattern">
         <!-- Identity -->
-        <dcterms:title>Information technology - City data model - Part 2: City level concepts - City Pattern</dcterms:title>
+        <dcterms:title>Information technology - City data model - Part 2: City level concepts - City pattern</dcterms:title>
         <rdfs:seeAlso rdf:resource="https://www.iso.org/standard/80742.html"/>
         <dcterms:bibliographicCitation>ISO/IEC 5087-2:2024</dcterms:bibliographicCitation>
     	<skos:definition>This ontology specifies the city-level concepts for the city pattern of the city data model. The City pattern captures basic information about the geospatial aspects of the city.  In particular it represents the different ways in which the city is administratively divided.</skos:definition>
