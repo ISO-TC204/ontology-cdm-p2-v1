@@ -1,144 +1,45 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#"
-     xml:base="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/"
-     xmlns:ns="http://creativecommons.org/ns#"
+<rdf:RDF xmlns="https://w3id.org/citydata/part2/v1/"
+     xml:base="https://w3id.org/citydata/part2/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:adms="http://www.w3.org/ns/adms#"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:vann="http://purl.org/vocab/vann/"
-     xmlns:schema="http://schema.org/"
-     xmlns:terms="http://purl.org/dc/terms/"
-     xmlns:cdmOrg="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization#"
-     xmlns:change="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Change#"
-     xmlns:contact="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contact#"
-     xmlns:cityResident="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/CityResident#"
-     xmlns:person="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Person#">
-    <owl:Ontology rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#">
-        <owl:imports rdf:resource="https://isotc204.org/registries/ritso/city-data-model/part-1/v1-0-1/Change.owl"/>
-        <owl:imports rdf:resource="https://isotc204.org/registries/ritso/city-data-model/part-2/v1-0-1/CityResident.owl"/>
-        <owl:imports rdf:resource="https://isotc204.org/registries/ritso/city-data-model/part-2/v1-0-1/Person.owl"/>
-        <owl:imports rdf:resource="https://isotc204.org/registries/ritso/city-data-model/part-2/v1-0-1/Organization.owl"/>
-        <dc:description>The Household ontology defines the classes: Household, Family, and DwellingUnit. These definitions serve as a basis which may be extended for more specific applications such as a surveys and simulations.</dc:description>
-        <dc:title>Household Pattern</dc:title>
-        <vann:preferredNamespacePrefix>household</vann:preferredNamespacePrefix>
-        <owl:priorVersion>https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#1.1/</owl:priorVersion>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.2</owl:versionInfo>
-        <adms:relatedDocumentation>Under development. Refer to latest version of ISO 5087-1.</adms:relatedDocumentation>
+     xmlns:i72="https://w3id.org/isoiec21972/v1/"
+     xmlns:cdm1="https://w3id.org/citydata/part1/v1/">
+    <owl:Ontology rdf:about="https://w3id.org/citydata/part2/v1/HouseholdPattern">
+        <!-- Identity -->
+        <dcterms:title>Information technology - City data model - Part 2: City level concepts - Household pattern</dcterms:title>
+        <rdfs:seeAlso rdf:resource="https://www.iso.org/standard/80742.html"/>
+        <dcterms:bibliographicCitation>ISO/IEC 5087-2:2024</dcterms:bibliographicCitation>
+    	<skos:definition>This ontology specifies the city-level concepts for the household pattern of the city data model. The Household pattern captures basic information about households within the city.  In particular it represents the different types and structures of households.</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/citydata/part2/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>cdm2</vann:preferredNamespacePrefix>
+
+    	<!-- Provenance -->
+        <dcterms:creator>Megan Katsumi</dcterms:creator>
+        <dcterms:creator>Mark Fox</dcterms:creator>
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024</dcterms:issued> <!-- Date of the source document, comment out if draft -->
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household/"/>
+        <owl:priorVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-01-11</owl:priorVersion> <!-- Date of prior ontology file, if any -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-08</dcterms:modified> <!-- Date of this ontology file -->
+        <owl:versionInfo>1.3.0</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part2/v1/r3.0"/>
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024.</rdfs:comment>
+        
+        <!-- License -->
+        <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="https://w3id.org/citydata/part2/v1/CityResidentPattern"/>
     </owl:Ontology>
     
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotation properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://creativecommons.org/ns#license -->
-
-    <owl:AnnotationProperty rdf:about="http://creativecommons.org/ns#license"/>
-    
-
-
-    <!-- http://ontology.eil.utoronto.ca/5087/5087/1/Change/isInvariant -->
-
-    <owl:AnnotationProperty rdf:about="http://ontology.eil.utoronto.ca/5087/5087/1/Change/isInvariant"/>
-    
-
-
-    <!-- http://purl.org/dc/elements/1.1/date -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
-    
-
-
-    <!-- http://purl.org/dc/elements/1.1/description -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
-    
-
-
-    <!-- http://purl.org/dc/elements/1.1/title -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/creator -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/description -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/issued -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/modified -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/rights -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/rights"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/title -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
-    
-
-
-    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
-    
-
-
-    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
-    
-
-
-    <!-- http://www.w3.org/2002/07/owl#versionInfo -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#versionInfo"/>
-    
-
-
-    <!-- http://www.w3.org/ns/adms#relatedDocumentation -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/adms#relatedDocumentation"/>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/based_near -->
-
-    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/based_near"/>
-    
-
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -149,85 +50,77 @@
      -->
 
     
+    <!-- https://w3id.org/citydata/part2/v1/HouseholdObjectProperty -->
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/HouseholdObjectProperty">
+        <skos:definition>Added for organizational purposes, to identify object properties defined for the Household Pattern in the City-level CDM ontology.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityObjectProperty"/>
+    </owl:ObjectProperty>
+    
+    <!-- Issue: hasFamilyMember is not defined in ISO/IEC 5087-2 and is not used in this document. Recommend deletion. -->
+    <!-- https://w3id.org/citydata/part2/v1/hasFamilyMember -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#HouseholdOntologyProperty -->
+<!--    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasFamilyMember">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/PersonObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/hasComponent"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part2/v1/isMemberOfFamily"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Person"/>
+    </owl:ObjectProperty>  -->
+    
 
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#HouseholdOntologyProperty">
-        <dc:description>Added for organizational purposes, to identify properties defined in the Household ontology.</dc:description>
+    <!-- Issue: hasHouseholdMember is not defined in ISO/IEC 5087-2 and is not used in this document. Recommend deletion. (Household uses https://w3id.org/citydata/part1/v1/hasMember) -->
+    <!-- https://w3id.org/citydata/part2/v1/hasHouseholdMember -->
+
+<!--    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasHouseholdMember">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityResidentObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/hasComponent"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part2/v1/isMemberOfHousehold"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Household"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Person"/>
+    </owl:ObjectProperty>  -->
+    
+    <!-- Issue: hasValue is not defined in ISO/IEC 5087-2 and is not used in this document. Recommend deletion. (Infrastructure uses https://w3id.org/isoiec21972/v1/hasValue) -->
+    <!-- https://w3id.org/citydata/part2/v1/hasValue -->
+
+<!--    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasValue">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/HouseholdOntologyProperty"/>
+    </owl:ObjectProperty>  -->
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/householdOccupies -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/householdOccupies">
+        <skos:definition>Identifies the Residence that the Household occupies. A Household is defined by this residence, such that if the members move (even collectively), the new residence constitutes a new Household.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/HouseholdObjectProperty"/>
+        <cdm1:isInvariant rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cdm1:isInvariant>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Household"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Residence"/>
     </owl:ObjectProperty>
     
 
+    <!-- Issue: isMemberOfFamily is not defined in ISO/IEC 5087-2 and is not used by this file. Recommend deletion. -->
+    <!-- https://w3id.org/citydata/part2/v1/isMemberOfFamily -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#hasFamilyMember -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#hasFamilyMember">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#HouseholdOntologyProperty"/>
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#hasComponent"/>
-        <owl:inverseOf rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#isMemberOfFamily"/>
-        <rdfs:range rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Person#Person"/>
-    </owl:ObjectProperty>
+<!--    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/isMemberOfFamily">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityResidentObjectProperty"/>
+    </owl:ObjectProperty>  -->
     
 
+    <!-- Issue: isMemberOfHousehold is not defined in ISO/IEC 5087-2 and is not used by this file. Recommend deletion. ISO/IEC 5087-2 uses cdm1:hasMember-->
+    <!-- https://w3id.org/citydata/part2/v1/isMemberOfHousehold -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#hasHouseholdMember -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#hasHouseholdMember">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#HouseholdOntologyProperty"/>
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Mereology#hasComponent"/>
-        <owl:inverseOf rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#isMemberOfHousehold"/>
-        <rdfs:domain rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#Household"/>
-        <rdfs:range rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Person#Person"/>
-    </owl:ObjectProperty>
+<!--    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/isMemberOfHousehold">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityResidentObjectProperty"/>
+    </owl:ObjectProperty>  -->
     
 
+    <!-- Issue: tenureType is not defined in ISO/IEC 5087-2 or used by the current ontology. Recommend deletion. -->
+    <!-- https://w3id.org/citydata/part2/v1/tenureType -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#hasValue -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#hasValue">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#HouseholdOntologyProperty"/>
-    </owl:ObjectProperty>
+<!--    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/tenureType">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityObjectProperty"/>
+    </owl:ObjectProperty>  -->
     
-
-
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#householdOccupies -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#householdOccupies">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#HouseholdOntologyProperty"/>
-        <change:isInvariant rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</change:isInvariant>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#isMemberOfFamily -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#isMemberOfFamily">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#HouseholdOntologyProperty"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#isMemberOfHousehold -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#isMemberOfHousehold">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#HouseholdOntologyProperty"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#tenureType -->
-
-    <owl:ObjectProperty rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#tenureType">
-        <rdfs:subPropertyOf rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#HouseholdOntologyProperty"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://schema.org/address -->
-
-    <owl:ObjectProperty rdf:about="http://schema.org/address"/>
-    
-
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -238,35 +131,24 @@
      -->
 
     
+    <!-- https://w3id.org/citydata/part2/v1/HouseholdThing -->
 
-
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Building#BuildingUnit -->
-
-    <rdf:Description rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Building#BuildingUnit">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contact#hasAddress"/>
-                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contact#Address"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </rdf:Description>
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/HouseholdThing">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityThing"/>
+        <skos:definition>Added for organizational purposes, to identify classes defined in the Household ontology.</skos:definition>
+    </owl:Class>
     
 
+    <!-- https://w3id.org/citydata/part2/v1/Household -->
 
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/CityResident#Residence -->
-
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/CityResident#Residence"/>
-    
-
-
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#Household -->
-
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#Household">
-        <rdfs:subClassOf rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#HouseholdOntologyThing"/>
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Household">
+        <skos:definition>A Household refers to a collection of persons occupying a shared place of residence. Households may or may not be comprised of family members.</skos:definition>
+        <skos:note>More precise definitions of Household may be adopted as required for different contexts and applications through extensions to this class.</skos:note>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/HouseholdThing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization#hasMember"/>
-                <owl:allValuesFrom rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Person#Person"/>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/org#hasMember"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Person"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -277,32 +159,13 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#householdOccupies"/>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/householdOccupies"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/CityResident#Residence"/>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part2/v1/Residence"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment>A Household refers to a collection of persons occupying a shared place of residence. Households may or may not be comprised of family members. Different, more precise definitions of Household may be adopted as required for different contexts and applications through extensions to this class. A Household has the following key properties:
-•	householdOccupies: identifies the cityresident:Residence that it occupies, i.e. the residence that is shared by its members. A Household is defined by this residence, such that if the members move (even collectively), the new residence constitutes a new Household.
-•	org_s:hasMember: identifies a person:Person who is a member of the Household.
-•	time:hasTime: specifies the time interval the household exists in its current configuration.</rdfs:comment>
     </owl:Class>
     
-
-
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#HouseholdOntologyThing -->
-
-    <owl:Class rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#HouseholdOntologyThing">
-        <dc:description>Added for organizational purposes, to identify classes defined in the Household ontology.</dc:description>
-    </owl:Class>
-    
-
-
-    <!-- http://schema.org/PostalAddress -->
-
-    <owl:Class rdf:about="http://schema.org/PostalAddress"/>
-    
-
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -315,18 +178,13 @@
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#own -->
+    <!-- https://w3id.org/citydata/part2/v1/own -->
 
-    <owl:NamedIndividual rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#own"/>
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/own"/>
     
 
 
-    <!-- https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#rent -->
+    <!-- https://w3id.org/citydata/part2/v1/rent -->
 
-    <owl:NamedIndividual rdf:about="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household#rent"/>
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/rent"/>
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
-
