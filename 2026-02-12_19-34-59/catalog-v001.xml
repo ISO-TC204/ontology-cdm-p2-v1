@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-2/v1/CityResidentPattern" uri="CityResident.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-1/v1/AgreementPattern" uri="file:/Users/kvaughn/GitHub/ontology-cdm-p1/docs/Agreement.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-2/v1/BuildingPattern" uri="Building.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-2/v1/PersonPattern" uri="Person.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-2/v1/CityServicePattern" uri="CityService.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-1/v1/RecurringEventPattern" uri="file:/Users/kvaughn/GitHub/ontology-cdm-p1/docs/RecurringEvent.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-2/v1/OrganizationPattern" uri="Organization.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-2/v1/ContactPattern" uri="Contact.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-2/v1/Core" uri="Core.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-1/v1/CityUnitsPattern" uri="file:/Users/kvaughn/GitHub/ontology-cdm-p1/docs/CityUnits.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-1/v1/MereologyPattern" uri="file:/Users/kvaughn/GitHub/ontology-cdm-p1/docs/Mereology.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-1/v1/SpatialLocPattern" uri="file:/Users/kvaughn/GitHub/ontology-cdm-p1/docs/SpatialLoc.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-1/v1/ChangePattern" uri="file:/Users/kvaughn/GitHub/ontology-cdm-p1/docs/Change.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-1/v1/ActivityPattern" uri="file:/Users/kvaughn/GitHub/ontology-cdm-p1/docs/Activity.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-1/v1/ResourcePattern" uri="file:/Users/kvaughn/GitHub/ontology-cdm-p1/docs/Resource.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-1/v1/Core" uri="file:/Users/kvaughn/GitHub/ontology-cdm-p1/docs/Core.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-1/v1/GenericPropertiesPattern" uri="file:/Users/kvaughn/GitHub/ontology-cdm-p1/docs/GenericProperties.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-1/v1/AgentPattern" uri="file:/Users/kvaughn/GitHub/ontology-cdm-p1/docs/Agent.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-1/v1/OrganizationStructurePattern" uri="file:/Users/kvaughn/GitHub/ontology-cdm-p1/docs/OrganizationStructure.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-2/v1/CodePattern" uri="Code.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-2/v1/LandUsePattern" uri="LandUse.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-2/v1/CityPattern" uri="City.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087-2/v1/InfrastructurePattern" uri="Infrastructure.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec21972/v1" uri="file:/Users/kvaughn/GitHub/ontology-its-i72/docs/i72.owl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/isoiec5087/-1/v1/" uri="file:/Users/kvaughn/GitHub/ontology-cdm-p1/docs/5087-1.owl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1770842032644" name="duplicate:https://w3id.org/isoiec5087-2/v1/" uri="CityService.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770842032644" name="duplicate:https://w3id.org/isoiec5087-2/v1/" uri="Code.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770842032644" name="duplicate:https://w3id.org/isoiec5087-2/v1/" uri="Person.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770842032644" name="duplicate:https://w3id.org/isoiec5087-2/v1/" uri="Contact.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770842032644" name="duplicate:https://w3id.org/isoiec5087-2/v1/" uri="LandUse.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770842032644" name="duplicate:https://w3id.org/isoiec5087-2/v1/" uri="Bylaw.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770842032644" name="duplicate:https://w3id.org/isoiec5087-2/v1/" uri="City.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770842032644" name="duplicate:https://w3id.org/isoiec5087-2/v1/" uri="5087-2.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770842032644" name="duplicate:https://w3id.org/isoiec5087-2/v1/" uri="CityResident.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770842032644" name="duplicate:https://w3id.org/isoiec5087-2/v1/" uri="Building.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770842032644" name="duplicate:https://w3id.org/isoiec5087-2/v1/" uri="TransportInfrastructure.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770842032644" name="duplicate:https://w3id.org/isoiec5087-2/v1/" uri="Contract.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770842032644" name="duplicate:https://w3id.org/isoiec5087-2/v1/" uri="Core.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770842032644" name="duplicate:https://w3id.org/isoiec5087-2/v1/" uri="Organization.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770842032644" name="duplicate:https://w3id.org/isoiec5087-2/v1/" uri="Infrastructure.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770842032644" name="duplicate:https://w3id.org/isoiec5087-2/v1/" uri="Household.owl"/>
+    </group>
+</catalog>
