@@ -11,6 +11,9 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
     <owl:Ontology rdf:about="https://w3id.org/citydata/part2/v1/">
+        <rdfs:comment>It is expected that the w3id.org domain will be updated to reference a JTC4 designated domain once the new JTC holds its first meeting. The updated ontology IRIs only include a major version number while the minor version number and patch number (jointly called the release number) are added in the version IRI. This provides stability of the concept IRIs as long as there are no changes that break backwards compatibility.</rdfs:comment>
+
+
         <!-- Identity -->
         <dcterms:title>Information technology - City data model - Part 2: City level concepts</dcterms:title>
         <rdfs:seeAlso rdf:resource="https://www.iso.org/standard/80742.html"/>
@@ -23,28 +26,28 @@
         <dcterms:creator>Megan Katsumi</dcterms:creator>
         <dcterms:creator>Mark Fox</dcterms:creator>
     	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024</dcterms:issued> <!-- Date of the source document, comment out if draft -->
-        <owl:priorVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-01-11</owl:priorVersion> <!-- Date of prior ontology file, if any -->
-		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-01-27</dcterms:modified> <!-- Date of this ontology file -->
+        <!-- Prior release -->
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-1:2023.</rdfs:comment>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Activity"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Building"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/City"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/CityResident"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/CityService"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contact"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Houshold"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Infrastructure"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/LandUse"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Person"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Sensor"/>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/TransportationInfrastructure"/>
+        <!-- This release -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-12</dcterms:modified> 
         <owl:versionInfo>1.3.0</owl:versionInfo>
-        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part2/v1/r3.0"/>
-        <rdfs:comment>This version updates IRIs to permanent w3id.org namespace ending in a '/' to promote better dereferencing. It is expected that the w3id.org domain will be updated to reference a JTC4 designated domain once the new JTC holds its first meeting. The updated ontology IRIs only include a major version number while the minor version number and patch number (jointly called the release number) are shown in the version IRI. This provides stability of the concept IRIs as long as there are no changes that file to provide backwards compatibility.
-        The trailing character was changed to a '/' to allow for better dereferencing when using the IRI on the Internet. </rdfs:comment>
-        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/Building#"/>
-        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw#"/>
-        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/City#"/>
-        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/CityResident#"/>
-        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/CityService#"/>
-        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#"/>
-        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contact#"/>
-        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contract#"/>
-        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Houshold#"/>
-        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Infrastructure#"/>
-        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/LandUse#"/>
-        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization#"/>
-        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Person#"/>
-        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Sensor#"/>
-        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/TransportationInfrastructure#"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part2/v1/5087-2/r3.0"/>
         
         <!-- License -->
         <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
