@@ -1,0 +1,671 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/citydata/part2/v1/"
+     xml:base="https://w3id.org/citydata/part2/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:cdm1="https://w3id.org/citydata/part1/v1/">
+    <owl:Ontology rdf:about="https://w3id.org/citydata/part2/v1/OrganizationPattern/">
+        <!-- Identity -->
+        <dcterms:title>Information technology - City data model - Part 2: City level concepts - Organization pattern</dcterms:title>
+        <rdfs:seeAlso rdf:resource="https://www.iso.org/standard/80742.html"/>
+        <dcterms:bibliographicCitation>ISO/IEC 5087-2:2024</dcterms:bibliographicCitation>
+    	<skos:definition>This ontology specifies the city-level concepts for the organization pattern of the city data model. The Organization pattern is an extension of the Organization Structure pattern defined in ISO/IEC 5087-1 that introduces city-specific concepts related to Organizations such as Students and Employees.</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/citydata/part2/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>cdm2</vann:preferredNamespacePrefix>
+
+    	<!-- Provenance -->
+        <dcterms:creator>Megan Katsumi</dcterms:creator>
+        <dcterms:creator>Mark Fox</dcterms:creator>
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+        <!-- Prior release -->
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024.</rdfs:comment>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/"/>
+        <!-- This release -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-12</dcterms:modified> 
+        <owl:versionInfo>1.3.0</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part2/v1/OrganizationPattern/r3.0/"/>
+        
+        <!-- License -->
+        <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/RecurringEventPattern/"/>
+        <owl:imports rdf:resource="https://w3id.org/citydata/part2/v1/CityServicePattern/"/>
+    </owl:Ontology>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part2/v1/CityOrgObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty">
+        <skos:definition>Added for organizational purposes, to identify object properties defined for the City Organization Pattern in the City-level CDM ontology.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/annualPay -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/annualPay">
+        <skos:definition>Identifies the compensation to be paid for a year.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/hasPay"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/MonetaryValue"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/employedAs -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/employedAs">
+        <skos:definition>Identifies the occupation in which the agent is employed.</skos:definition>
+        <skos:example>General / Office / Clerical</skos:example>
+        <skos:example>Manufacturing / Construction / Trades</skos:example>
+        <skos:example>Professional / Management / Technical</skos:example>
+        <skos:example>Retail Sales and Service</skos:example>
+        <skos:note>An Occupation describes the type of work performed by some employee. Different classifications of occupations can be defined.</skos:note>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Employment"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Occupation"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/employedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/employedBy">
+        <skos:definition>Identifies the Organization that employs the agent.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Employment"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Organization"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasCompensation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasCompensation">
+        <skos:definition>identifies the monetary compensation received by the agent.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Employment"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Compensation"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasEmployment -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasEmployment">
+        <skos:definition>Specifies the details of an agent’s Employment.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/OrganizationAgent"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Employment"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasEmploymentStatus -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasEmploymentStatus">
+        <skos:definition>identifies the Employment Status of the employee.</skos:definition>
+        <skos:example>full-time regular, part-time regular, full-time-work-at-home, part-time-work-at-home</skos:example>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Employment"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/EmploymentStatus"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasEstablishment -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasEstablishment">
+        <skos:definition>Specifies a Business Establishment where the organization conducts business.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/ForProfitOrganization"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/BusinessEstablishment"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasGoal -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasGoal">
+        <skos:definition>identifies the Goal(s) of the domain object. </skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Goal"/>
+    </owl:ObjectProperty>
+
+    
+    <!-- https://w3id.org/citydata/part2/v1/hasGovernment -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasGovernment">
+        <skos:definition>Identifies the GovernmentOrganization that manages the JurisdictionalArea.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part2/v1/jurisdiction"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasIndustryType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasIndustryType">
+        <skos:definition>Specifies an Industry Type assigned to the organization based on the kind of business conducted.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/ForProfitOrganization"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/IndustryType"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasPay -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasPay">
+        <skos:definition>Identifies the MonetaryValue of the Compensation.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Compensation"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/MonetaryValue"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasProcess -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasProcess">
+        <skos:definition>Specifies an Activity that is performed as part of the Role.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Role"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Activity"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasProgram -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasProgram">
+        <skos:definition>Specifies a Program defined for the Organization.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Organization"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Program"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasResource -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasResource">
+        <skos:definition>Specifies a resource:Resource that is (expected to be) allocated for the Role.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Role"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Resource"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hourlyPay -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hourlyPay">
+        <skos:definition>Identifies the Compensation to be paid per hour.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/hasPay"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/jurisdiction -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/jurisdiction">
+        <skos:definition>Specifies the JurisdictionalArea for which the organization is responsible.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/GovernmentOrganization"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/JurisdictionalArea"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/operatingHours -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/operatingHours">
+        <skos:definition>Identifies the OperatingHours of the Organization.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Organization"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Operation"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/orgAddress -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/orgAddress">
+        <skos:definition>A specialization to hasAddress that specifies the Address associated with the Organization.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.w3.org/ns/org#hasSite"/>
+            <rdf:Description rdf:about="http://www.w3.org/ns/org#siteAddress"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/overtimePay -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/overtimePay">
+        <skos:definition>Identifies an additional rate of pay as a MonetaryValue to be paid per hour in the case of overtime compensation.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/hasPay"/>
+    </owl:ObjectProperty>
+
+
+    <!-- https://w3id.org/citydata/part2/v1/playsRole -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/playsRole">
+        <skos:definition>Specifies a Role that the domain object fulfils.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Role"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part2/v1/CityOrgDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/citydata/part2/v1/CityOrgDataProperty">
+        <skos:definition>Added for organizational purposes, to identify data properties defined for the City Organization Pattern in the City-level CDM ontology.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasClosingTime -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/citydata/part2/v1/hasClosingTime">
+        <rdfs:definition>Specifies the closing time for the domain object.</rdfs:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/endTime"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+        <rdfs:label xml:lang="en">has Closing Time</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasOpeningTime -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/citydata/part2/v1/hasOpeningTime">
+        <skos:definition>Specifies the opening time for the domain object.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/startTime"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+        <rdfs:label xml:lang="en">has Opening Time</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part2/v1/CityOrgThing -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/CityOrgThing">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityThing"/>
+        <skos:definition>Added for organizational purposes, to identify classes defined in the City Organization ontology.</skos:definition>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/BusinessEstablishment -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/BusinessEstablishment">
+        <skos:definition>Business Establishment: A Business establishment is a physical location where an Organization conducts business.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasAddress"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Address"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasLocation"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part1/v1/Location"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- ISO/IEC 5087-2 does not define BusinessId, this is a null definition, and it is not used by this document. Recommend deletion. -->
+    <!-- https://w3id.org/citydata/part2/v1/BusinessId -->
+
+<!--    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/BusinessId">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgThing"/>
+    </owl:Class>  -->
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Compensation -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Compensation">
+        <skos:definition>A compensation is a generalization of monetary compensation received for employment.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasPay"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part1/v1/MonetaryValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Employment -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Employment">
+        <skos:definition>Employment is a type of Organizational membership in which the Agent receives monetary compensation for the value that they provide to the Organization.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/employedBy"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasCompensation"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Compensation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <!-- Issue: The employedAs property is defined as some Occupation in ISO/IEC 5087-2 rather than only Occupation. Recommend keeping "only" as an appropriate value might not exist within the selected Code. -->
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/employedAs"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Occupation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasEmploymentStatus"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/EmploymentStatus"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/EmploymentStatus -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/EmploymentStatus">
+        <skos:definition>Employment Status is a type of Code that describes the employment status of an Agent within an Organization.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasCode"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Code"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/ForProfitOrganization -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/ForProfitOrganization">
+        <skos:definition>A for-profit organization is an organization that operates with the primary goal of generating profit for its owners or shareholders.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/Organization"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasEstablishment"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/BusinessEstablishment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasIndustryType"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/IndustryType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+
+    <!-- https://w3id.org/citydata/part2/v1/Goal -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Goal">
+        <skos:definition>A goal represents some state or complex states, and allows for the representation of various groups' responsibilities.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/State"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgThing"/>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/GovernmentOrganization -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/GovernmentOrganization">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/Organization"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasProgram"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Program"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/jurisdiction"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/JurisdictionalArea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/IndustryType -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/IndustryType">
+        <skos:definition>Industry Type is a type of Code that describes the industry sector of a business establishment.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasCode"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Code"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+    <!-- Issue: Extends the definition from City.owl -->
+    <!-- https://w3id.org/citydata/part2/v1/JurisdictionalArea -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/JurisdictionalArea">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasGovernment"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/GovernmentOrganization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <!-- https://w3id.org/citydata/part2/v1/NonProfitOrganization -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/NonProfitOrganization">
+        <skos:definition>A NonProfitOrganization is an non-governmental organization that operates for purposes other than generating profit.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/Organization"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasProgram"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Program"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Occupation -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Occupation">
+        <skos:definition>Occupation describes the work performed by some Employee.</skos:definition>
+        <skos:example>sales, skilled trade</skos:example>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasCode"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Code"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Operation -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Operation">
+        <skos:definition>An Operation defines the regular opening hours of an Organization or Infrastructure Element.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/RecurringEvent"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasClosingTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasOpeningTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Organization -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Organization">
+        <skos:definition>An Organization defined broadly as a formal or semi-formal group for which structure and behaviour are defined.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/Organization"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasLocation"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/Location"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasTelephone"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/PhoneNumber"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasGoal"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Goal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/operatingHours"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Operation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/orgAddress"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Address"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/OrganizationAgent -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/OrganizationAgent">
+        <skos:definition>Member of an organization</skos:definition>
+        <skos:note>Organization Agents have goals, authority, and may be members of some team.</skos:note>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/Agent"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgThing"/>
+        <!-- Issue: ISO/IEC 5087-2 incorrectly references https://w3id.org/citydata/part1/v1/memberOf, this shows correctly. -->
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/org#memberOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasEmployment"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Employment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasGoal"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Goal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/playsRole"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Role -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Role">
+        <skos:definition>A Role has a single, possibly complex, Goal.</skos:definition>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Role"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasGoal"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Goal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasProcess"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/Activity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasResource"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/Resource"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Salary -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Salary">
+        <skos:definition>A Salary is a form of compensation paid to an employee and is defined on an annual basis.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/Compensation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/annualPay"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part1/v1/MonetaryValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Wage -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Wage">
+        <skos:definition>A Wage is a form of compensation paid to an employee and is defined on an hourly basis.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/Compensation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/overtimePay"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/MonetaryValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hourlyPay"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part1/v1/MonetaryValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+
+</rdf:RDF>

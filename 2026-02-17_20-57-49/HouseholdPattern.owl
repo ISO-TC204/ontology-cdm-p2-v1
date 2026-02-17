@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/citydata/part2/v1/"
+     xml:base="https://w3id.org/citydata/part2/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:i72="https://w3id.org/citydata/21972/v1/"
+     xmlns:cdm1="https://w3id.org/citydata/part1/v1/">
+    <owl:Ontology rdf:about="https://w3id.org/citydata/part2/v1/HouseholdPattern/">
+        <!-- Identity -->
+        <dcterms:title>Information technology - City data model - Part 2: City level concepts - Household pattern</dcterms:title>
+        <rdfs:seeAlso rdf:resource="https://www.iso.org/standard/80742.html"/>
+        <dcterms:bibliographicCitation>ISO/IEC 5087-2:2024</dcterms:bibliographicCitation>
+    	<skos:definition>This ontology specifies the city-level concepts for the household pattern of the city data model. The Household pattern captures basic information about households within the city.  In particular it represents the different types and structures of households.</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/citydata/part2/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>cdm2</vann:preferredNamespacePrefix>
+
+    	<!-- Provenance -->
+        <dcterms:creator>Megan Katsumi</dcterms:creator>
+        <dcterms:creator>Mark Fox</dcterms:creator>
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+        <!-- Prior release -->
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024.</rdfs:comment>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household/"/>
+        <!-- This release -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-12</dcterms:modified> 
+        <owl:versionInfo>1.3.0</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part2/v1/HouseholdPattern/r3.0/"/>
+        
+        <!-- License -->
+        <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="https://w3id.org/citydata/part2/v1/CityResidentPattern/"/>
+    </owl:Ontology>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part2/v1/HouseholdObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/HouseholdObjectProperty">
+        <skos:definition>Added for organizational purposes, to identify object properties defined for the Household Pattern in the City-level CDM ontology.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityObjectProperty"/>
+    </owl:ObjectProperty>
+    
+    <!-- Issue: hasFamilyMember is not defined in ISO/IEC 5087-2 and is not used in this document. Recommend deletion. -->
+    <!-- https://w3id.org/citydata/part2/v1/hasFamilyMember -->
+
+<!--    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasFamilyMember">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/PersonObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/hasComponent"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part2/v1/isMemberOfFamily"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Person"/>
+    </owl:ObjectProperty>  -->
+    
+
+    <!-- Issue: hasHouseholdMember is not defined in ISO/IEC 5087-2 and is not used in this document. Recommend deletion. (Household uses https://w3id.org/citydata/part1/v1/hasMember) -->
+    <!-- https://w3id.org/citydata/part2/v1/hasHouseholdMember -->
+
+<!--    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasHouseholdMember">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityResidentObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part1/v1/hasComponent"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part2/v1/isMemberOfHousehold"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Household"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Person"/>
+    </owl:ObjectProperty>  -->
+    
+    <!-- Issue: hasValue is not defined in ISO/IEC 5087-2 and is not used in this document. Recommend deletion. (Infrastructure uses https://w3id.org/citydata/21972/v1/hasValue) -->
+    <!-- https://w3id.org/citydata/part2/v1/hasValue -->
+
+<!--    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasValue">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/HouseholdOntologyProperty"/>
+    </owl:ObjectProperty>  -->
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/householdOccupies -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/householdOccupies">
+        <skos:definition>Identifies the Residence that the Household occupies. A Household is defined by this residence, such that if the members move (even collectively), the new residence constitutes a new Household.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/HouseholdObjectProperty"/>
+        <cdm1:isInvariant rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cdm1:isInvariant>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Household"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Residence"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- Issue: isMemberOfFamily is not defined in ISO/IEC 5087-2 and is not used by this file. Recommend deletion. -->
+    <!-- https://w3id.org/citydata/part2/v1/isMemberOfFamily -->
+
+<!--    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/isMemberOfFamily">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityResidentObjectProperty"/>
+    </owl:ObjectProperty>  -->
+    
+
+    <!-- Issue: isMemberOfHousehold is not defined in ISO/IEC 5087-2 and is not used by this file. Recommend deletion. ISO/IEC 5087-2 uses cdm1:hasMember-->
+    <!-- https://w3id.org/citydata/part2/v1/isMemberOfHousehold -->
+
+<!--    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/isMemberOfHousehold">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityResidentObjectProperty"/>
+    </owl:ObjectProperty>  -->
+    
+
+    <!-- Issue: tenureType is not defined in ISO/IEC 5087-2 or used by the current ontology. Recommend deletion. -->
+    <!-- https://w3id.org/citydata/part2/v1/tenureType -->
+
+<!--    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/tenureType">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityObjectProperty"/>
+    </owl:ObjectProperty>  -->
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part2/v1/HouseholdThing -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/HouseholdThing">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityThing"/>
+        <skos:definition>Added for organizational purposes, to identify classes defined in the Household ontology.</skos:definition>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Household -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Household">
+        <skos:definition>A Household refers to a collection of persons occupying a shared place of residence. Households may or may not be comprised of family members.</skos:definition>
+        <skos:note>More precise definitions of Household may be adopted as required for different contexts and applications through extensions to this class.</skos:note>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/HouseholdThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/org#hasMember"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hasTime"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/householdOccupies"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part2/v1/Residence"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/own -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/own"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/rent -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/rent"/>
+</rdf:RDF>

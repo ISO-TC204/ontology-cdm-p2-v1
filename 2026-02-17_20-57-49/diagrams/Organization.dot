@@ -1,0 +1,35 @@
+// Diagram for Organization
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">Organization</TD></TR></TABLE>> URL="../Organization.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Address [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Address</TD></TR></TABLE>> URL="../Address.md" margin=0]
+		Goal [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Goal</TD></TR></TABLE>> URL="../Goal.md" margin=0]
+		Operation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Operation</TD></TR></TABLE>> URL="../Operation.md" margin=0]
+		PhoneNumber [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PhoneNumber</TD></TR></TABLE>> URL="../PhoneNumber.md" margin=0]
+	}
+	cdm1_Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Organization</TD></TR></TABLE>> margin=0]
+	Organization -> cdm1_Organization [arrowhead=onormal style=solid]
+	CityOrgThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityOrgThing</TD></TR></TABLE>> URL="../CityOrgThing.md" margin=0]
+	Organization -> CityOrgThing [arrowhead=onormal style=solid]
+	Organization -> Invis [style=invis]
+	Invis -> Address [style=invis]
+	Address -> Goal [style=invis]
+	Goal -> Operation [style=invis]
+	Operation -> PhoneNumber [style=invis]
+	Organization -> PhoneNumber [label=" hasTelephone 
+ «only»  " arrowhead=normal style=solid]
+	Organization -> Goal [label=" hasGoal 
+ «only»  " arrowhead=normal style=solid]
+	Organization -> Operation [label=" operatingHours 
+ «only»  " arrowhead=normal style=solid]
+	Organization -> Address [label=" orgAddress 
+ «only»  " arrowhead=normal style=solid]
+}

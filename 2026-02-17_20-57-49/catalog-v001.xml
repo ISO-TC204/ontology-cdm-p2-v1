@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="CityPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="TransportInfrastructurePattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="BuildingPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="LandUsePattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="CodePattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="PersonPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="OrganizationPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="5087-2.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="HouseholdPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="InfrastructurePattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="CityResidentPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="BylawPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="ContactPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="Core.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="AlertPattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="CityServicePattern.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1771211864860" name="duplicate:https://w3id.org/citydata/part2/v1/" uri="ContractPattern.owl"/>
+    </group>
+</catalog>

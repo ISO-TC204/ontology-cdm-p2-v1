@@ -1,0 +1,41 @@
+// Diagram for Address
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		Address [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">Address</TD></TR><HR/><TR><TD ALIGN="LEFT">«max 1» buildingName: xsd:string</TD></TR><TR><TD ALIGN="LEFT">«max 1» hasCitySection: xsd:string</TD></TR><TR><TD ALIGN="LEFT">«max 1» hasPostalBox: xsd:string</TD></TR><TR><TD ALIGN="LEFT">«max 1» hasPostalCode: xsd:string</TD></TR><TR><TD ALIGN="LEFT">«max 1» hasStreet: xsd:string</TD></TR><TR><TD ALIGN="LEFT">«max 1» hasStreetNumber: xsd:string</TD></TR><TR><TD ALIGN="LEFT">«max 1» hasUnitNumber: xsd:string</TD></TR><TR><TD ALIGN="LEFT">«max 1» maxStreetNumber: xsd:string</TD></TR><TR><TD ALIGN="LEFT">«max 1» minStreetNumber: xsd:string</TD></TR></TABLE>> URL="../Address.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		AddressType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">AddressType</TD></TR></TABLE>> URL="../AddressType.md" margin=0]
+		City [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">City</TD></TR></TABLE>> URL="../City.md" margin=0]
+		Country [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Country</TD></TR></TABLE>> URL="../Country.md" margin=0]
+		State [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">State</TD></TR></TABLE>> URL="../State.md" margin=0]
+		StreetDirection [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">StreetDirection</TD></TR></TABLE>> URL="../StreetDirection.md" margin=0]
+		StreetType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">StreetType</TD></TR></TABLE>> URL="../StreetType.md" margin=0]
+	}
+	ContactThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ContactThing</TD></TR></TABLE>> URL="../ContactThing.md" margin=0]
+	Address -> ContactThing [arrowhead=onormal style=solid]
+	Address -> Invis [style=invis]
+	Invis -> AddressType [style=invis]
+	AddressType -> City [style=invis]
+	City -> Country [style=invis]
+	Country -> State [style=invis]
+	State -> StreetDirection [style=invis]
+	StreetDirection -> StreetType [style=invis]
+	Address -> AddressType [label=" hasAddressType 
+ «only»  " arrowhead=normal style=solid]
+	Address -> City [label=" hasCity 
+ «max 1»  " arrowhead=normal style=solid]
+	Address -> Country [label=" hasCountry 
+ «max 1»  " arrowhead=normal style=solid]
+	Address -> State [label=" hasProvince 
+ «max 1»  " arrowhead=normal style=solid]
+	Address -> StreetDirection [label=" hasStreetDirection 
+ «max 1»  " arrowhead=normal style=solid]
+	Address -> StreetType [label=" hasStreetType 
+ «max 1»  " arrowhead=normal style=solid]
+}
