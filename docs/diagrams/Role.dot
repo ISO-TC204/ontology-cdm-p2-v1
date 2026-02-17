@@ -1,0 +1,31 @@
+// Diagram for Role
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		Role [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">Role</TD></TR></TABLE>> URL="../Role.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		cdm1_Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Activity</TD></TR></TABLE>> margin=0]
+		cdm1_Resource [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Resource</TD></TR></TABLE>> margin=0]
+		Goal [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Goal</TD></TR></TABLE>> URL="../Goal.md" margin=0]
+	}
+	CityOrgThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityOrgThing</TD></TR></TABLE>> URL="../CityOrgThing.md" margin=0]
+	Role -> CityOrgThing [arrowhead=onormal style=solid]
+	org_Role [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">org:Role</TD></TR></TABLE>> margin=0]
+	Role -> org_Role [arrowhead=onormal style=solid]
+	Role -> Invis [style=invis]
+	Invis -> cdm1_Activity [style=invis]
+	cdm1_Activity -> cdm1_Resource [style=invis]
+	cdm1_Resource -> Goal [style=invis]
+	Role -> Goal [label=" hasGoal 
+ «only»  " arrowhead=normal style=solid]
+	Role -> cdm1_Activity [label=" hasProcess 
+ «only»  " arrowhead=normal style=solid]
+	Role -> cdm1_Resource [label=" hasResource 
+ «only»  " arrowhead=normal style=solid]
+}

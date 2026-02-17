@@ -1,0 +1,50 @@
+// Diagram for Law
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		Law [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">Law</TD></TR><HR/><TR><TD ALIGN="LEFT">«only» keywords: xsd:string</TD></TR><TR><TD ALIGN="LEFT">«max 1» abstract: xsd:string</TD></TR><TR><TD ALIGN="LEFT">«max 1» dateInEffect: xsd:dateTime</TD></TR><TR><TD ALIGN="LEFT">«max 1» datePublished: xsd:dateTime</TD></TR><TR><TD ALIGN="LEFT">«max 1» expires: xsd:dateTime</TD></TR><TR><TD ALIGN="LEFT">«max 1» legislationDate: xsd:dateTime</TD></TR><TR><TD ALIGN="LEFT">«max 1» legislationIdentifier: xsd:string</TD></TR></TABLE>> URL="../Law.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Clause [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Clause</TD></TR></TABLE>> URL="../Clause.md" margin=0]
+		Definition [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Definition</TD></TR></TABLE>> URL="../Definition.md" margin=0]
+		InForce [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">InForce</TD></TR></TABLE>> margin=0]
+		JurisdictionalArea [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">JurisdictionalArea</TD></TR></TABLE>> URL="../JurisdictionalArea.md" margin=0]
+		NotInForce [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">NotInForce</TD></TR></TABLE>> margin=0]
+		PartiallyInForce [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PartiallyInForce</TD></TR></TABLE>> margin=0]
+		Schedule [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Schedule</TD></TR></TABLE>> URL="../Schedule.md" margin=0]
+	}
+	BylawThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BylawThing</TD></TR></TABLE>> URL="../BylawThing.md" margin=0]
+	Law -> BylawThing [arrowhead=onormal style=solid]
+	Law -> Invis [style=invis]
+	Invis -> Clause [style=invis]
+	Clause -> Definition [style=invis]
+	Definition -> InForce [style=invis]
+	InForce -> JurisdictionalArea [style=invis]
+	JurisdictionalArea -> NotInForce [style=invis]
+	NotInForce -> PartiallyInForce [style=invis]
+	PartiallyInForce -> Schedule [style=invis]
+	Law -> Clause [label=" hasClause 
+ «only»  " arrowhead=normal style=solid]
+	Law -> Definition [label=" hasDefinition 
+ «only»  " arrowhead=normal style=solid]
+	Law -> Clause [label=" hasPenaltyClause 
+ «only»  " arrowhead=normal style=solid]
+	Law -> Clause [label=" hasRepealClause 
+ «only»  " arrowhead=normal style=solid]
+	Law -> Schedule [label=" hasSchedule 
+ «only»  " arrowhead=normal style=solid]
+	Law -> Clause [label=" hasSeveranceClause 
+ «only»  " arrowhead=normal style=solid]
+	Law -> Clause [label=" hasTransitionClause 
+ «only»  " arrowhead=normal style=solid]
+	Nd67ef633742c4207935e76a2c77872b3 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">«Enum»<BR/>Enum: InForce, NotInForce, PartiallyInForce</TD></TR><TR><TD ALIGN="LEFT">+ InForce<BR/>+ NotInForce<BR/>+ PartiallyInForce</TD></TR></TABLE>> margin=0]
+	Law -> Nd67ef633742c4207935e76a2c77872b3 [label=" legislationLegalForce 
+ «only»  " arrowhead=normal style=solid]
+	Law -> JurisdictionalArea [label=" legislationJurisdiction 
+ «max 1»  " arrowhead=normal style=solid]
+}

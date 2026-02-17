@@ -1,0 +1,21 @@
+// Diagram for BusinessEstablishment
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		BusinessEstablishment [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">BusinessEstablishment</TD></TR></TABLE>> URL="../BusinessEstablishment.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Address [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Address</TD></TR></TABLE>> URL="../Address.md" margin=0]
+	}
+	CityOrgThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityOrgThing</TD></TR></TABLE>> URL="../CityOrgThing.md" margin=0]
+	BusinessEstablishment -> CityOrgThing [arrowhead=onormal style=solid]
+	BusinessEstablishment -> Invis [style=invis]
+	Invis -> Address [style=invis]
+	BusinessEstablishment -> Address [label=" hasAddress 
+ «only»  " arrowhead=normal style=solid]
+}

@@ -1,0 +1,35 @@
+// Diagram for Clause
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		Clause [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">Clause</TD></TR></TABLE>> URL="../Clause.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		bylaw [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">bylaw</TD></TR></TABLE>> margin=0]
+		penalty [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">penalty</TD></TR></TABLE>> margin=0]
+		repeal [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">repeal</TD></TR></TABLE>> margin=0]
+		schedule [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">schedule</TD></TR></TABLE>> margin=0]
+		severance [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">severance</TD></TR></TABLE>> margin=0]
+		transition [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">transition</TD></TR></TABLE>> margin=0]
+	}
+	BylawThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BylawThing</TD></TR></TABLE>> URL="../BylawThing.md" margin=0]
+	Clause -> BylawThing [arrowhead=onormal style=solid]
+	Clause -> Invis [style=invis]
+	Invis -> bylaw [style=invis]
+	bylaw -> penalty [style=invis]
+	penalty -> repeal [style=invis]
+	repeal -> schedule [style=invis]
+	schedule -> severance [style=invis]
+	severance -> transition [style=invis]
+	N8e0cccca430d4ae4b3941e4e097a9697 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">«Enum»<BR/>Enum: bylaw, penalty, repeal, schedule, severance, transition</TD></TR><TR><TD ALIGN="LEFT">+ bylaw<BR/>+ penalty<BR/>+ repeal<BR/>+ schedule<BR/>+ severance<BR/>+ transition</TD></TR></TABLE>> margin=0]
+	Clause -> N8e0cccca430d4ae4b3941e4e097a9697 [label=" clauseType 
+ «some»  " arrowhead=normal style=solid]
+	Clause [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Clause</TD></TR></TABLE>> URL="../Clause.md" margin=0]
+	Clause -> Clause [label=" hasClause 
+ «only»  " arrowhead=normal style=solid]
+}
