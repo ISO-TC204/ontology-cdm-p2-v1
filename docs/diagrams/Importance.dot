@@ -1,0 +1,21 @@
+// Diagram for Importance
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		Importance [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">Importance</TD></TR></TABLE>> URL="../Importance.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Code [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Code</TD></TR></TABLE>> URL="../Code.md" margin=0]
+	}
+	CityServiceThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityServiceThing</TD></TR></TABLE>> URL="../CityServiceThing.md" margin=0]
+	Importance -> CityServiceThing [arrowhead=onormal style=solid]
+	Importance -> Invis [style=invis]
+	Invis -> Code [style=invis]
+	Importance -> Code [label=" hasCode 
+ «only»  " arrowhead=normal style=solid]
+}

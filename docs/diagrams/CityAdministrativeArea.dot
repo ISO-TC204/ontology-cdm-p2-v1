@@ -1,0 +1,21 @@
+// Diagram for CityAdministrativeArea
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		CityAdministrativeArea [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">CityAdministrativeArea</TD></TR></TABLE>> URL="../CityAdministrativeArea.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		City [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">City</TD></TR></TABLE>> URL="../City.md" margin=0]
+	}
+	JurisdictionalArea [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">JurisdictionalArea</TD></TR></TABLE>> URL="../JurisdictionalArea.md" margin=0]
+	CityAdministrativeArea -> JurisdictionalArea [arrowhead=onormal style=solid]
+	CityAdministrativeArea -> Invis [style=invis]
+	Invis -> City [style=invis]
+	CityAdministrativeArea -> City [label=" onProperty: administrativeAreaOf 
+ «some»  " arrowhead=normal style=dashed]
+}

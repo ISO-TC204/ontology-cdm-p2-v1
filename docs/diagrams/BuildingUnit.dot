@@ -1,0 +1,45 @@
+// Diagram for BuildingUnit
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		BuildingUnit [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">BuildingUnit</TD></TR><HR/><TR><TD ALIGN="LEFT">«only» numberOfBedrooms: xsd:nonNegativeInteger</TD></TR><TR><TD ALIGN="LEFT">«only» numberOfRooms: xsd:nonNegativeInteger</TD></TR></TABLE>> URL="../BuildingUnit.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Address [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Address</TD></TR></TABLE>> URL="../Address.md" margin=0]
+		Building [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Building</TD></TR></TABLE>> URL="../Building.md" margin=0]
+		cdm1_Area [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Area</TD></TR></TABLE>> margin=0]
+		cdm1_Length [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Length</TD></TR></TABLE>> margin=0]
+		cdm1_MonetaryValue [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:MonetaryValue</TD></TR></TABLE>> margin=0]
+		Facility [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Facility</TD></TR></TABLE>> URL="../Facility.md" margin=0]
+	}
+	BuildingThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BuildingThing</TD></TR></TABLE>> URL="../BuildingThing.md" margin=0]
+	BuildingUnit -> BuildingThing [arrowhead=onormal style=solid]
+	cdm1_Manifestation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Manifestation</TD></TR></TABLE>> margin=0]
+	BuildingUnit -> cdm1_Manifestation [arrowhead=onormal style=solid]
+	InfrastructureElement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">InfrastructureElement</TD></TR></TABLE>> URL="../InfrastructureElement.md" margin=0]
+	BuildingUnit -> InfrastructureElement [arrowhead=onormal style=solid]
+	BuildingUnit -> Invis [style=invis]
+	Invis -> Address [style=invis]
+	Address -> Building [style=invis]
+	Building -> cdm1_Area [style=invis]
+	cdm1_Area -> cdm1_Length [style=invis]
+	cdm1_Length -> cdm1_MonetaryValue [style=invis]
+	cdm1_MonetaryValue -> Facility [style=invis]
+	BuildingUnit -> Facility [label=" buildingFacility 
+ «only»  " arrowhead=normal style=solid]
+	BuildingUnit -> cdm1_Length [label=" floorToCeilingHeight 
+ «only»  " arrowhead=normal style=solid]
+	BuildingUnit -> cdm1_MonetaryValue [label=" hasRent 
+ «only»  " arrowhead=normal style=solid]
+	BuildingUnit -> cdm1_Area [label=" hasUnitSize 
+ «only»  " arrowhead=normal style=solid]
+	BuildingUnit -> Address [label=" hasAddress 
+ «only»  " arrowhead=normal style=solid]
+	Building -> BuildingUnit [label=" inverse hasBuildingUnit 
+ «exactly 1»  " arrowhead=inv style=solid]
+}

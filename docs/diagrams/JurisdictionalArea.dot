@@ -1,0 +1,38 @@
+// Diagram for JurisdictionalArea
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		JurisdictionalArea [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">JurisdictionalArea</TD></TR></TABLE>> URL="../JurisdictionalArea.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Bylaw [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Bylaw</TD></TR></TABLE>> URL="../Bylaw.md" margin=0]
+		GovernmentOrganization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">GovernmentOrganization</TD></TR></TABLE>> URL="../GovernmentOrganization.md" margin=0]
+		i72_Population [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">i72:Population</TD></TR></TABLE>> margin=0]
+		LandArea [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">LandArea</TD></TR></TABLE>> URL="../LandArea.md" margin=0]
+	}
+	CityPatternThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityPatternThing</TD></TR></TABLE>> URL="../CityPatternThing.md" margin=0]
+	JurisdictionalArea -> CityPatternThing [arrowhead=onormal style=solid]
+	JurisdictionalArea -> Invis [style=invis]
+	Invis -> Bylaw [style=invis]
+	Bylaw -> GovernmentOrganization [style=invis]
+	GovernmentOrganization -> i72_Population [style=invis]
+	i72_Population -> LandArea [style=invis]
+	JurisdictionalArea [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">JurisdictionalArea</TD></TR></TABLE>> URL="../JurisdictionalArea.md" margin=0]
+	JurisdictionalArea -> JurisdictionalArea [label=" inverse administrativeAreaOf 
+ «only»  " arrowhead=inv style=solid]
+	JurisdictionalArea -> JurisdictionalArea [label=" administrativeAreaOf 
+ «only»  " arrowhead=normal style=solid]
+	JurisdictionalArea -> LandArea [label=" hasLandArea 
+ «only»  " arrowhead=normal style=solid]
+	JurisdictionalArea -> i72_Population [label=" residentPopulation 
+ «max 1»  " arrowhead=normal style=solid]
+	GovernmentOrganization -> JurisdictionalArea [label=" inverse jurisdiction 
+ «only»  " arrowhead=inv style=solid]
+	JurisdictionalArea -> Bylaw [label=" hasBylaw 
+ «only»  " arrowhead=normal style=solid]
+}

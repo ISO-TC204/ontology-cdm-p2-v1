@@ -1,0 +1,21 @@
+// Diagram for PhoneNumber
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		PhoneNumber [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">PhoneNumber</TD></TR><HR/><TR><TD ALIGN="LEFT">«exactly 1» hasAreaCode: xsd:nonNegativeInteger</TD></TR><TR><TD ALIGN="LEFT">«exactly 1» hasCountryCode: xsd:nonNegativeInteger</TD></TR><TR><TD ALIGN="LEFT">«exactly 1» hasPhoneNumber: xsd:nonNegativeInteger</TD></TR></TABLE>> URL="../PhoneNumber.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		PhoneType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PhoneType</TD></TR></TABLE>> URL="../PhoneType.md" margin=0]
+	}
+	ContactThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ContactThing</TD></TR></TABLE>> URL="../ContactThing.md" margin=0]
+	PhoneNumber -> ContactThing [arrowhead=onormal style=solid]
+	PhoneNumber -> Invis [style=invis]
+	Invis -> PhoneType [style=invis]
+	PhoneNumber -> PhoneType [label=" hasPhoneType 
+ «exactly 1»  " arrowhead=normal style=solid]
+}

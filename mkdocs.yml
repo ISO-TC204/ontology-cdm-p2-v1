@@ -1,142 +1,158 @@
-site_name: METR - Ontology
-site_description: A registry for documenting the ontology of METR terms
-repo_url: https://github.com/k-vaughn/ontology-metr
+site_name: City Data Model (CDM) - City-level concepts
+site_description: This ontology specifies the city-level concepts of the city data
+  model.
+repo_url: https://github.com/ISO-TC204/ontology-cdm-p2-v1
 nav:
 - Home: index.md
-- Untitled Ontology:
-  - Address (5087-2): classes/5087-2__Address.md
-  - Address Type (5087-2): classes/5087-2__AddressType.md
-  - amending Bylaw (5087-2): classes/5087-2__amendingBylaw.md
-  - Amending Bylaw (5087-2): classes/5087-2__AmendingBylaw.md
-  - Area Ratio (5087-2): classes/5087-2__AreaRatio.md
-  - Bridge (5087-2): classes/5087-2__Bridge.md
-  - Bridge Segment (5087-2): classes/5087-2__BridgeSegment.md
-  - Building (5087-2): classes/5087-2__Building.md
-  - Building Thing (5087-2): classes/5087-2__BuildingThing.md
-  - Building Unit (5087-2): classes/5087-2__BuildingUnit.md
-  - Building Use (5087-2): classes/5087-2__BuildingUse.md
-  - Business Establishment (5087-2): classes/5087-2__BusinessEstablishment.md
-  - bylaw (5087-2): classes/5087-2__bylaw.md
-  - Bylaw (5087-2): classes/5087-2__Bylaw.md
-  - Bylaw Pattern Clause Type Enum (5087-2): classes/5087-2__BylawPatternClauseTypeEnum.md
-  - Bylaw Pattern Legislation Legal Force Enum (5087-2): classes/5087-2__BylawPatternLegislationLegalForceEnum.md
-  - Bylaw Pattern Legislation Type Enum (5087-2): classes/5087-2__BylawPatternLegislationTypeEnum.md
-  - Bylaw Thing (5087-2): classes/5087-2__BylawThing.md
-  - Catchment Area Type (5087-2): classes/5087-2__CatchmentAreaType.md
-  - Citizenship (5087-2): classes/5087-2__Citizenship.md
-  - City (5087-2): classes/5087-2__City.md
-  - City Administrative Area (5087-2): classes/5087-2__CityAdministrativeArea.md
-  - City Org Thing (5087-2): classes/5087-2__CityOrgThing.md
-  - City Pattern Thing (5087-2): classes/5087-2__CityPatternThing.md
-  - City Resident (5087-2): classes/5087-2__CityResident.md
-  - City Resident Thing (5087-2): classes/5087-2__CityResidentThing.md
-  - City Service Thing (5087-2): classes/5087-2__CityServiceThing.md
-  - City Thing (5087-2): classes/5087-2__CityThing.md
-  - Clause (5087-2): classes/5087-2__Clause.md
-  - Code (5087-2): classes/5087-2__Code.md
-  - Code Thing (5087-2): classes/5087-2__CodeThing.md
-  - Compensation (5087-2): classes/5087-2__Compensation.md
-  - Condition Precedent (5087-2): classes/5087-2__ConditionPrecedent.md
-  - Construction Status (5087-2): classes/5087-2__ConstructionStatus.md
-  - Contact Thing (5087-2): classes/5087-2__ContactThing.md
-  - Contract (5087-2): classes/5087-2__Contract.md
-  - Contract Thing (5087-2): classes/5087-2__ContractThing.md
-  - Contractual Commitment (5087-2): classes/5087-2__ContractualCommitment.md
-  - Contractual Definition (5087-2): classes/5087-2__ContractualDefinition.md
-  - Contractual Element (5087-2): classes/5087-2__ContractualElement.md
-  - Controlled Entity (5087-2): classes/5087-2__ControlledEntity.md
-  - Country (5087-2): classes/5087-2__Country.md
-  - Definition (5087-2): classes/5087-2__Definition.md
-  - Education (5087-2): classes/5087-2__Education.md
-  - Email Address (5087-2): classes/5087-2__EmailAddress.md
-  - Employment (5087-2): classes/5087-2__Employment.md
-  - Employment Status (5087-2): classes/5087-2__EmploymentStatus.md
-  - Entity Operation (5087-2): classes/5087-2__EntityOperation.md
-  - Entity Ownership (5087-2): classes/5087-2__EntityOwnership.md
-  - Facility (5087-2): classes/5087-2__Facility.md
-  - For Profit Organization (5087-2): classes/5087-2__ForProfitOrganization.md
-  - Gender (5087-2): classes/5087-2__Gender.md
-  - Goal (5087-2): classes/5087-2__Goal.md
-  - Government Organization (5087-2): classes/5087-2__GovernmentOrganization.md
-  - Home Type (5087-2): classes/5087-2__HomeType.md
-  - Household (5087-2): classes/5087-2__Household.md
-  - Household Thing (5087-2): classes/5087-2__HouseholdThing.md
-  - ID Type (5087-2): classes/5087-2__IDType.md
-  - Impact Direction (5087-2): classes/5087-2__ImpactDirection.md
-  - Importance (5087-2): classes/5087-2__Importance.md
-  - Industry Type (5087-2): classes/5087-2__IndustryType.md
-  - In Force (5087-2): classes/5087-2__InForce.md
-  - Infrastructure Element (5087-2): classes/5087-2__InfrastructureElement.md
-  - Infrastructure Thing (5087-2): classes/5087-2__InfrastructureThing.md
-  - Input (5087-2): classes/5087-2__Input.md
-  - Jurisdictional Area (5087-2): classes/5087-2__JurisdictionalArea.md
-  - Land Area (5087-2): classes/5087-2__LandArea.md
-  - Land Use Classification (5087-2): classes/5087-2__LandUseClassification.md
-  - Land Use Thing (5087-2): classes/5087-2__LandUseThing.md
-  - Law (5087-2): classes/5087-2__Law.md
-  - main Bylaw (5087-2): classes/5087-2__mainBylaw.md
-  - Main Bylaw (5087-2): classes/5087-2__MainBylaw.md
-  - Name (5087-2): classes/5087-2__Name.md
-  - Non Binding Term (5087-2): classes/5087-2__NonBindingTerm.md
-  - Non Profit Organization (5087-2): classes/5087-2__NonProfitOrganization.md
-  - Not In Force (5087-2): classes/5087-2__NotInForce.md
-  - Occupation (5087-2): classes/5087-2__Occupation.md
-  - Operation (5087-2): classes/5087-2__Operation.md
-  - Organization (5087-2): classes/5087-2__Organization.md
-  - Organization Agent (5087-2): classes/5087-2__OrganizationAgent.md
-  - Outcome (5087-2): classes/5087-2__Outcome.md
-  - Output (5087-2): classes/5087-2__Output.md
-  - Partially In Force (5087-2): classes/5087-2__PartiallyInForce.md
-  - penalty (5087-2): classes/5087-2__penalty.md
-  - Person (5087-2): classes/5087-2__Person.md
-  - Person Id (5087-2): classes/5087-2__PersonId.md
-  - Person Name (5087-2): classes/5087-2__PersonName.md
-  - Person Thing (5087-2): classes/5087-2__PersonThing.md
-  - Phone Number (5087-2): classes/5087-2__PhoneNumber.md
-  - Phone Type (5087-2): classes/5087-2__PhoneType.md
-  - Program (5087-2): classes/5087-2__Program.md
-  - Rail Line (5087-2): classes/5087-2__RailLine.md
-  - Rail Link (5087-2): classes/5087-2__RailLink.md
-  - Rail Segment (5087-2): classes/5087-2__RailSegment.md
-  - repeal (5087-2): classes/5087-2__repeal.md
-  - Representation (5087-2): classes/5087-2__Representation.md
-  - Residence (5087-2): classes/5087-2__Residence.md
-  - Residential Relationship (5087-2): classes/5087-2__ResidentialRelationship.md
-  - Revision Bylaw (5087-2): classes/5087-2__RevisionBylaw.md
-  - revision Bylaw (5087-2): classes/5087-2__revisionBylaw.md
-  - Road (5087-2): classes/5087-2__Road.md
-  - Road Link (5087-2): classes/5087-2__RoadLink.md
-  - Road Network Type (5087-2): classes/5087-2__RoadNetworkType.md
-  - Road Segment (5087-2): classes/5087-2__RoadSegment.md
-  - Role (5087-2): classes/5087-2__Role.md
-  - Salary (5087-2): classes/5087-2__Salary.md
-  - Schedule (5087-2): classes/5087-2__Schedule.md
-  - schedule (5087-2): classes/5087-2__schedule.md
-  - Service (5087-2): classes/5087-2__Service.md
-  - severance (5087-2): classes/5087-2__severance.md
-  - Sex (5087-2): classes/5087-2__Sex.md
-  - Skill (5087-2): classes/5087-2__Skill.md
-  - Stakeholder (5087-2): classes/5087-2__Stakeholder.md
-  - State (5087-2): classes/5087-2__State.md
-  - Street Direction (5087-2): classes/5087-2__StreetDirection.md
-  - Street Type (5087-2): classes/5087-2__StreetType.md
-  - transition (5087-2): classes/5087-2__transition.md
-  - Transport Infrastructure Thing (5087-2): classes/5087-2__TransportInfrastructureThing.md
-  - Travelled Way (5087-2): classes/5087-2__TravelledWay.md
-  - Travelled Way Link (5087-2): classes/5087-2__TravelledWayLink.md
-  - Travelled Way Segment (5087-2): classes/5087-2__TravelledWaySegment.md
-  - Tunnel (5087-2): classes/5087-2__Tunnel.md
-  - Tunnel Segment (5087-2): classes/5087-2__TunnelSegment.md
-  - Wage (5087-2): classes/5087-2__Wage.md
-  - Warranty (5087-2): classes/5087-2__Warranty.md
-  - Year (5087-2): classes/5087-2__Year.md
-- Untitled Ontology:
-  - Bylaw Pattern Clause Type Enum (BylawPattern): classes/BylawPattern__BylawPatternClauseTypeEnum.md
-  - Bylaw Pattern Legislation Legal Force Enum (BylawPattern): classes/BylawPattern__BylawPatternLegislationLegalForceEnum.md
-  - Bylaw Pattern Legislation Type Enum (BylawPattern): classes/BylawPattern__BylawPatternLegislationTypeEnum.md
-- Untitled Ontology:
-  - City Pattern Thing (CityPattern): classes/CityPattern__CityPatternThing.md
-site_url: https://github.com/k-vaughn/ontology-metr
+- 5087-2:
+  - 5087-2: 5087-2.md
+- Alert Pattern:
+  - Alert Pattern: AlertPattern.md
+  - Alert: Alert.md
+  - Alert Thing: AlertThing.md
+- Building Pattern:
+  - Building Pattern: BuildingPattern.md
+  - Area Ratio: AreaRatio.md
+  - Building: Building.md
+  - Building Thing: BuildingThing.md
+  - Building Unit: BuildingUnit.md
+  - Building Use: BuildingUse.md
+  - Construction Status: ConstructionStatus.md
+  - Facility: Facility.md
+  - Year: Year.md
+- Bylaw Pattern:
+  - Bylaw Pattern: BylawPattern.md
+  - Amending Bylaw: AmendingBylaw.md
+  - Bylaw: Bylaw.md
+  - Bylaw Thing: BylawThing.md
+  - Clause: Clause.md
+  - Definition: Definition.md
+  - Jurisdictional Area (BylawPattern): JurisdictionalArea.md
+  - Law: Law.md
+  - Main Bylaw: MainBylaw.md
+  - Revision Bylaw: RevisionBylaw.md
+  - Schedule: Schedule.md
+- City Pattern:
+  - City Pattern: CityPattern.md
+  - City: City.md
+  - City Administrative Area: CityAdministrativeArea.md
+  - City Pattern Thing: CityPatternThing.md
+  - Jurisdictional Area (CityPattern): JurisdictionalArea.md
+- City Resident Pattern:
+  - City Resident Pattern: CityResidentPattern.md
+  - City Resident: CityResident.md
+  - City Resident Thing: CityResidentThing.md
+  - Controlled Entity: ControlledEntity.md
+  - Entity Operation: EntityOperation.md
+  - Entity Ownership: EntityOwnership.md
+  - Home Type: HomeType.md
+  - Residence: Residence.md
+  - Residential Relationship: ResidentialRelationship.md
+- City Service Pattern:
+  - City Service Pattern: CityServicePattern.md
+  - Catchment Area Type: CatchmentAreaType.md
+  - City Service Thing: CityServiceThing.md
+  - Impact Direction: ImpactDirection.md
+  - Importance: Importance.md
+  - Input: Input.md
+  - Outcome: Outcome.md
+  - Output: Output.md
+  - Program: Program.md
+  - Service: Service.md
+  - Stakeholder: Stakeholder.md
+- Code Pattern:
+  - Code Pattern: CodePattern.md
+  - Code: Code.md
+  - Code Thing: CodeThing.md
+- Contact Pattern:
+  - Contact Pattern: ContactPattern.md
+  - Address: Address.md
+  - Address Type: AddressType.md
+  - Contact Thing: ContactThing.md
+  - Country: Country.md
+  - Phone Number: PhoneNumber.md
+  - Phone Type: PhoneType.md
+  - State: State.md
+  - Street Direction: StreetDirection.md
+  - Street Type: StreetType.md
+- Contract Pattern:
+  - Contract Pattern: ContractPattern.md
+  - Condition Precedent: ConditionPrecedent.md
+  - Contract: Contract.md
+  - Contract Thing: ContractThing.md
+  - Contractual Commitment: ContractualCommitment.md
+  - Contractual Definition: ContractualDefinition.md
+  - Contractual Element: ContractualElement.md
+  - Non Binding Term: NonBindingTerm.md
+  - Representation: Representation.md
+  - Warranty: Warranty.md
+- Core:
+  - Core: Core.md
+  - City Thing: CityThing.md
+- Household Pattern:
+  - Household Pattern: HouseholdPattern.md
+  - Household: Household.md
+  - Household Thing: HouseholdThing.md
+- Infrastructure Pattern:
+  - Infrastructure Pattern: InfrastructurePattern.md
+  - Infrastructure Element: InfrastructureElement.md
+  - Infrastructure Thing: InfrastructureThing.md
+- Land Use Pattern:
+  - Land Use Pattern: LandUsePattern.md
+  - Land Area: LandArea.md
+  - Land Use Classification: LandUseClassification.md
+  - Land Use Thing: LandUseThing.md
+- Organization Pattern:
+  - Organization Pattern: OrganizationPattern.md
+  - Business Establishment: BusinessEstablishment.md
+  - City Org Thing: CityOrgThing.md
+  - Compensation: Compensation.md
+  - Employment: Employment.md
+  - Employment Status: EmploymentStatus.md
+  - For Profit Organization: ForProfitOrganization.md
+  - Goal: Goal.md
+  - Government Organization: GovernmentOrganization.md
+  - Industry Type: IndustryType.md
+  - Jurisdictional Area (OrganizationPattern): JurisdictionalArea.md
+  - Non Profit Organization: NonProfitOrganization.md
+  - Occupation: Occupation.md
+  - Operation: Operation.md
+  - Organization: Organization.md
+  - Organization Agent: OrganizationAgent.md
+  - Role: Role.md
+  - Salary: Salary.md
+  - Wage: Wage.md
+- Person Pattern:
+  - Person Pattern: PersonPattern.md
+  - Citizenship: Citizenship.md
+  - Education: Education.md
+  - Gender: Gender.md
+  - ID Type: IDType.md
+  - Name: Name.md
+  - Person: Person.md
+  - Person Id: PersonId.md
+  - Person Name: PersonName.md
+  - Person Thing: PersonThing.md
+  - Sex: Sex.md
+  - Skill: Skill.md
+- Transport Infrastructure Pattern:
+  - Transport Infrastructure Pattern: TransportInfrastructurePattern.md
+  - Bridge: Bridge.md
+  - Bridge Segment: BridgeSegment.md
+  - Rail Line: RailLine.md
+  - Rail Link: RailLink.md
+  - Rail Segment: RailSegment.md
+  - Road: Road.md
+  - Road Link: RoadLink.md
+  - Road Network Type: RoadNetworkType.md
+  - Road Segment: RoadSegment.md
+  - Transport Infrastructure Thing: TransportInfrastructureThing.md
+  - Travelled Way: TravelledWay.md
+  - Travelled Way Link: TravelledWayLink.md
+  - Travelled Way Segment: TravelledWaySegment.md
+  - Tunnel: Tunnel.md
+  - Tunnel Segment: TunnelSegment.md
+site_url: https://isotc204.org/ontology-cdm-p2-v1
 copyright: <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank"
   rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"

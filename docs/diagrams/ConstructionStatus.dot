@@ -1,0 +1,21 @@
+// Diagram for ConstructionStatus
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		ConstructionStatus [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">ConstructionStatus</TD></TR></TABLE>> URL="../ConstructionStatus.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Code [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Code</TD></TR></TABLE>> URL="../Code.md" margin=0]
+	}
+	BuildingThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BuildingThing</TD></TR></TABLE>> URL="../BuildingThing.md" margin=0]
+	ConstructionStatus -> BuildingThing [arrowhead=onormal style=solid]
+	ConstructionStatus -> Invis [style=invis]
+	Invis -> Code [style=invis]
+	ConstructionStatus -> Code [label=" hasCode 
+ «only»  " arrowhead=normal style=solid]
+}
