@@ -1,0 +1,775 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/citydata/part2/v1/"
+     xml:base="https://w3id.org/citydata/part2/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:i72="https://w3id.org/citydata/21972/v1/"
+     xmlns:cdm1="https://w3id.org/citydata/part1/v1/">
+    <owl:Ontology rdf:about="https://w3id.org/citydata/part2/v1/BylawPattern/">
+        <!-- Identity -->
+        <dcterms:title>Information technology - City data model - Part 2: City level concepts - Bylaw Pattern</dcterms:title>
+        <rdfs:seeAlso rdf:resource="https://www.iso.org/standard/80742.html"/>
+        <dcterms:bibliographicCitation>ISO/IEC 5087-2:2024</dcterms:bibliographicCitation>
+    	<skos:definition>This ontology specifies the city-level concepts for the bylaw pattern of the city data model.</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/citydata/part2/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>cdm2</vann:preferredNamespacePrefix>
+
+    	<!-- Provenance -->
+        <dcterms:creator>Megan Katsumi</dcterms:creator>
+        <dcterms:creator>Mark Fox</dcterms:creator>
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+        <!-- Prior release -->
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024.</rdfs:comment>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/"/>
+        <!-- This release -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-12</dcterms:modified> 
+        <owl:versionInfo>1.3.0</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part2/v1/BylawPattern/r3.0/"/>
+        <!-- License -->
+        <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="https://w3id.org/citydata/21972/v1/"/>
+        <owl:imports rdf:resource="https://w3id.org/citydata/part1/v1/GenericPropertiesPattern/"/>
+        <owl:imports rdf:resource="https://w3id.org/citydata/part2/v1/OrganizationPattern/"/>
+        <owl:imports rdf:resource="https://w3id.org/citydata/part2/v1/PersonPattern/"/>
+    </owl:Ontology>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part2/v1/BylawObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/BylawObjectProperty">
+        <skos:definition>Added for organizational purposes, to identify object properties defined for bylaws in the City-level CDM ontology.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/clauseType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/clauseType">
+        <skos:definition>A Code indicating a clause type of a clause within a Law or similar official document.</skos:definition>
+        <skos:example>severance, penalty, transition, repeal, schedule, or bylaw</skos:example>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Code"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasBylaw -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasBylaw">
+        <skos:definition>Identifies the bylaws in existence in the JurisdictionalArea.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/JurisdictionalArea"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Bylaw"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasClause -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasClause">
+        <skos:definition>Clauses that make up the body of the domain object.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Clause"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasDefinition -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasDefinition">
+        <skos:definition>Words or phrases that are defined to have a specific meaning within the domain object.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Definition"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasPenaltyClause -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasPenaltyClause">
+        <skos:definition>Identifies the Clauses that specify penalties for not adhering to the domain object.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Clause"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasRepealClause -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasRepealClause">
+        <skos:definition>Clauses that specify all previous Laws that deal with subjects that are addressed in the new bylaw must either be repealed or amended.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Clause"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasSchedule -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasSchedule">
+        <skos:definition>Schedules that are attached to the Law and are referenced by the Law. A Schedule is part of the Law.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Law"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Schedule"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasSeveranceClause -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasSeveranceClause">
+        <skos:definition>Clauses that specify that the bylaw remains valid if any portion of the Law is found to be invalid by a higher jurisdiction.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Law"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Clause"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasTransitionClause -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasTransitionClause">
+        <skos:definition>Clauses that cover the period during which entities affected by the Law can do things to conform to the new conditions.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Law"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Clause"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/impacts -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/impacts">
+        <skos:definition>Identifies what is impacted by the domain object.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/legislationChanges -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/legislationChanges">
+        <skos:definition>The Bylaw that is being amended.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Bylaw"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Bylaw"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/legislationJurisdiction -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/legislationJurisdiction">
+        <skos:definition>Identifies the jurisdiction that enacted the Law.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Law"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/JurisdictionalArea"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/legislationLegalForce -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/legislationLegalForce">
+        <skos:definition>Specifies whether the Law is currently in force, not in force or partially in force.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityOrgObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Law"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/InForce"/>
+                    <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/NotInForce"/>
+                    <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/PartiallyInForce"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/legislationType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/legislationType">
+        <skos:definition>Type of bylaw chosen from bylawMain, bylawAmending or bylawRevision.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Bylaw"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/bylawMain"/>
+                    <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/bylawAmending"/>
+                    <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/bylawRevision"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part2/v1/BylawDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/citydata/part2/v1/BylawDataProperty">
+        <skos:definition>Added for organizational purposes, to identify data properties defined in the Bylaw Pattern.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/abstract -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/citydata/part2/v1/abstract">
+        <skos:definition>Specifies a brief statement describing the purpose of the domain object.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/dateInEffect -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/citydata/part2/v1/dateInEffect">
+        <skos:definition>Date after which the domain object is in effect.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/datePublished -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/citydata/part2/v1/datePublished">
+        <skos:definition>Date the domain object is officially published.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/expires -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/citydata/part2/v1/expires">
+        <skos:definition>Date the domain object expires.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/keywords -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/citydata/part2/v1/keywords">
+        <skos:definition>Identifies keywords used to categorize the domain object for search purposes.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/legislationDate -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/citydata/part2/v1/legislationDate">
+        <skos:definition>Date on which the Law is officially adopted/signed by the Jurisdiction.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/legislationIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/citydata/part2/v1/legislationIdentifier">
+        <skos:definition>Identifies a unique identifier of the law.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawDataProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Law"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part2/v1/BylawThing -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/BylawThing">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityThing"/>
+        <skos:definition>Added for organizational purposes, to identify classes defined in the Bylaw ontology.</skos:definition>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/AmendingBylaw -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/AmendingBylaw">
+        <skos:definition>An Amending Bylaw is a type of Bylaw that modifies or updates an existing bylaw.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/Bylaw"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/legislationType"/>
+                <owl:hasValue rdf:resource="https://w3id.org/citydata/part2/v1/amendingBylaw"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/legislationChanges"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part2/v1/Bylaw"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- Issue: The distinction between a law and a bylaw varies by country. It is unclear what, if any, semantic meaning is intended to be captured by the distinction within the ontology. In fact, each level of legislative authority, below country, is subject to higher-level rules. The revised properties of this class seem to be rather Canada-centric:
+        legislationJurisdiction: is limited to City; in other jurisdictions, it could be other Jurisdictional areas and in fact no specialization is needed from Law.
+        legislationType: seems to be applicable to any law, not just bylaws.
+        impacts: seems to be applicable to any law, not just bylaws.
+        Recommend revising or deleting this class.
+     -->
+    <!-- https://w3id.org/citydata/part2/v1/Bylaw -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Bylaw">
+        <skos:definition>A bylaw is a law that is passed by a lower hierarchical entity that gains its authority from a government authority.</skos:definition>
+        <skos:note>Higher levels of government often place limits on what laws can be passed by lower-level entities.</skos:note>
+        <skos:note>The nominal distinction between a law and a bylaw varies by country. In some areas municipalities create "bylaws"; in others, municipalities create "laws" and "bylaws" are only established by private groups, such as home owner organizations.</skos:note>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/Law"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/impacts"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/JurisdictionalArea"/>
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/LandArea"/>
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/Organization"/>
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/Person"/>
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part1/v1/Activity"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/legislationType"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/amendingBylaw"/>
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/mainBylaw"/>
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/revisionBylaw"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/legislationJurisdiction"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part2/v1/City"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Clause -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Clause">
+        <skos:definition>A Clause is a statement of a rule, provision, requirement, etc. that is part of the body of the Law, or its schedules, penalties, etc.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/clauseType"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/bylaw"/>
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/penalty"/>
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/repeal"/>
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/schedule"/>
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/severance"/>
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/transition"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasClause"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Clause"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/properPartOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/Clause"/>
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/Law"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasDescription"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasIdentifier"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Definition -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Definition">
+        <skos:definition>A definition is a statement that explains the meaning of a term or concept as used within the domain object (e.g., a document).</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/properPartOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part2/v1/Law"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasDescription"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- Issue: Jurisdictional Area defined in city.owl but extended here to avoid circular loop -->
+    <!-- https://w3id.org/citydata/part2/v1/JurisdictionalArea -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/JurisdictionalArea">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasBylaw"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Bylaw"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+
+    <!-- https://w3id.org/citydata/part2/v1/Law -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Law">
+        <skos:definition>A Law is an legally enforceable rule.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasClause"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Clause"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasDefinition"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Definition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasPenaltyClause"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Clause"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasRepealClause"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Clause"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasSchedule"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Schedule"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasSeveranceClause"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Clause"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasTransitionClause"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Clause"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/legislationLegalForce"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/InForce"/>
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/NotInForce"/>
+                            <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/PartiallyInForce"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/legislationJurisdiction"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part2/v1/JurisdictionalArea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/keywords"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasName"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/abstract"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/dateInEffect"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/datePublished"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/expires"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/legislationDate"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/legislationIdentifier"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/MainBylaw -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/MainBylaw">
+        <skos:definition>A Main Bylaw is a legally enforceable rule that serves as the primary legislative document for a law within a Jurisdictional Area.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/Bylaw"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/legislationType"/>
+                <owl:hasValue rdf:resource="https://w3id.org/citydata/part2/v1/mainBylaw"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/RevisionBylaw -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/RevisionBylaw">
+        <skos:definition>A RevisionBylaw is a bylaw that amends an existing bylaw.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/Bylaw"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/legislationType"/>
+                <owl:hasValue rdf:resource="https://w3id.org/citydata/part2/v1/revisionBylaw"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/legislationChanges"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part2/v1/Bylaw"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Schedule -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Schedule">
+        <skos:definition>A Schedule is a component of a bylaw that outlines specific provisions, terms, or details related to the main content of the document.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/BylawThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasClause"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Clause"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/properPartOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part2/v1/Law"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasDescription"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasIdentifier"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/InForce -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/InForce"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/NotInForce -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/NotInForce"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/PartiallyInForce -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/PartiallyInForce"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/amendingBylaw -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/amendingBylaw"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/bylaw -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/bylaw"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/mainBylaw -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/mainBylaw"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/penalty -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/penalty"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/repeal -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/repeal"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/revisionBylaw -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/revisionBylaw"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/schedule -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/schedule"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/severance -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/severance"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/transition -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/transition"/>
+</rdf:RDF>

@@ -1,0 +1,21 @@
+// Diagram for Skill
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		Skill [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">Skill</TD></TR></TABLE>> URL="../Skill.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Code [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Code</TD></TR></TABLE>> URL="../Code.md" margin=0]
+	}
+	PersonThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PersonThing</TD></TR></TABLE>> URL="../PersonThing.md" margin=0]
+	Skill -> PersonThing [arrowhead=onormal style=solid]
+	Skill -> Invis [style=invis]
+	Invis -> Code [style=invis]
+	Skill -> Code [label=" hasCode 
+ «only»  " arrowhead=normal style=solid]
+}

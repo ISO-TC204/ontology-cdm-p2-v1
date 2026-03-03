@@ -1,0 +1,21 @@
+// Diagram for InfrastructureElement
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		InfrastructureElement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">InfrastructureElement</TD></TR></TABLE>> URL="../InfrastructureElement.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Address [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Address</TD></TR></TABLE>> URL="../Address.md" margin=0]
+	}
+	InfrastructureThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">InfrastructureThing</TD></TR></TABLE>> URL="../InfrastructureThing.md" margin=0]
+	InfrastructureElement -> InfrastructureThing [arrowhead=onormal style=solid]
+	InfrastructureElement -> Invis [style=invis]
+	Invis -> Address [style=invis]
+	InfrastructureElement -> Address [label=" hasAddress 
+ «only»  " arrowhead=normal style=solid]
+}

@@ -1,0 +1,68 @@
+// Diagram for Alert
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		Alert [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">Alert</TD></TR><HR/><TR><TD ALIGN="LEFT">«exactly 1» headline: xsd:string</TD></TR><TR><TD ALIGN="LEFT">«only» website: xsd:anyURI</TD></TR></TABLE>> URL="../Alert.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		cdm1_Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Activity</TD></TR></TABLE>> margin=0]
+		cdm1_Resource [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Resource</TD></TR></TABLE>> margin=0]
+		Code [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Code</TD></TR></TABLE>> URL="../Code.md" margin=0]
+		geo1_Geometry [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">geo1:Geometry</TD></TR></TABLE>> margin=0]
+		owl_Thing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">owl:Thing</TD></TR></TABLE>> margin=0]
+		time1_Instant [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time1:Instant</TD></TR></TABLE>> margin=0]
+	}
+	AlertThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">AlertThing</TD></TR></TABLE>> URL="../AlertThing.md" margin=0]
+	Alert -> AlertThing [arrowhead=onormal style=solid]
+	Alert -> Invis [style=invis]
+	Invis -> cdm1_Activity [style=invis]
+	cdm1_Activity -> cdm1_Resource [style=invis]
+	cdm1_Resource -> Code [style=invis]
+	Code -> geo1_Geometry [style=invis]
+	geo1_Geometry -> owl_Thing [style=invis]
+	owl_Thing -> time1_Instant [style=invis]
+	Alert -> cdm1_Activity [label=" activities 
+ «only»  " arrowhead=normal style=solid]
+	Alert -> owl_Thing [label=" beginInstant 
+ «max 1»  " arrowhead=normal style=solid]
+	Alert -> Code [label=" category 
+ «only»  " arrowhead=normal style=solid]
+	Alert -> Code [label=" cause 
+ «only»  " arrowhead=normal style=solid]
+	Alert -> Code [label=" certainty 
+ «only»  " arrowhead=normal style=solid]
+	Alert -> owl_Thing [label=" creationInstant 
+ «exactly 1»  " arrowhead=normal style=solid]
+	Alert -> Code [label=" distribution 
+ «only»  " arrowhead=normal style=solid]
+	Alert -> Code [label=" effect 
+ «only»  " arrowhead=normal style=solid]
+	Alert -> owl_Thing [label=" endInstant 
+ «max 1»  " arrowhead=normal style=solid]
+	Alert -> time1_Instant [label=" expiryInstant 
+ «only»  " arrowhead=normal style=solid]
+	Alert -> owl_Thing [label=" issuer 
+ «exactly 1»  " arrowhead=normal style=solid]
+	Alert -> owl_Thing [label=" lastUpdateInstant 
+ «exactly 1»  " arrowhead=normal style=solid]
+	Alert -> geo1_Geometry [label=" location 
+ «only»  " arrowhead=normal style=solid]
+	Alert -> Code [label=" recommendation 
+ «only»  " arrowhead=normal style=solid]
+	Alert [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Alert</TD></TR></TABLE>> URL="../Alert.md" margin=0]
+	Alert -> Alert [label=" referencedAlert 
+ «only»  " arrowhead=normal style=solid]
+	Alert -> cdm1_Resource [label=" resources 
+ «only»  " arrowhead=normal style=solid]
+	Alert -> owl_Thing [label=" severity 
+ «max 1»  " arrowhead=normal style=solid]
+	Alert -> owl_Thing [label=" status 
+ «exactly 1»  " arrowhead=normal style=solid]
+	Alert -> owl_Thing [label=" urgency 
+ «max 1»  " arrowhead=normal style=solid]
+}
