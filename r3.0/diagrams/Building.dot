@@ -1,0 +1,55 @@
+// Diagram for Building
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		Building [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">Building</TD></TR><HR/><TR><TD ALIGN="LEFT">«only» builtAccordingToConstructionCode: xsd:string</TD></TR><TR><TD ALIGN="LEFT">«exactly 1» numFloors: xsd:nonNegativeInteger</TD></TR><TR><TD ALIGN="LEFT">«max 1» numAboveGroundFloors: xsd:nonNegativeInteger</TD></TR><TR><TD ALIGN="LEFT">«max 1» numBuildingUnits: xsd:nonNegativeInteger</TD></TR><TR><TD ALIGN="LEFT">«max 1» propertyRegistrationID: rdfs:Literal</TD></TR></TABLE>> URL="../Building.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		AreaRatio [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">AreaRatio</TD></TR></TABLE>> URL="../AreaRatio.md" margin=0]
+		BuildingUnit [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BuildingUnit</TD></TR></TABLE>> URL="../BuildingUnit.md" margin=0]
+		BuildingUse [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BuildingUse</TD></TR></TABLE>> URL="../BuildingUse.md" margin=0]
+		cdm1_Area [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Area</TD></TR></TABLE>> margin=0]
+		cdm1_Length [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Length</TD></TR></TABLE>> margin=0]
+		ConstructionStatus [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ConstructionStatus</TD></TR></TABLE>> URL="../ConstructionStatus.md" margin=0]
+		Facility [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Facility</TD></TR></TABLE>> URL="../Facility.md" margin=0]
+		Year [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Year</TD></TR></TABLE>> URL="../Year.md" margin=0]
+	}
+	BuildingThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BuildingThing</TD></TR></TABLE>> URL="../BuildingThing.md" margin=0]
+	Building -> BuildingThing [arrowhead=onormal style=solid]
+	InfrastructureElement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">InfrastructureElement</TD></TR></TABLE>> URL="../InfrastructureElement.md" margin=0]
+	Building -> InfrastructureElement [arrowhead=onormal style=solid]
+	Building -> Invis [style=invis]
+	Invis -> AreaRatio [style=invis]
+	AreaRatio -> BuildingUnit [style=invis]
+	BuildingUnit -> BuildingUse [style=invis]
+	BuildingUse -> cdm1_Area [style=invis]
+	cdm1_Area -> cdm1_Length [style=invis]
+	cdm1_Length -> ConstructionStatus [style=invis]
+	ConstructionStatus -> Facility [style=invis]
+	Facility -> Year [style=invis]
+	Building -> Year [label=" yearOfConstruction 
+ «max 1»  " arrowhead=normal style=solid]
+	Building -> Facility [label=" buildingFacility 
+ «only»  " arrowhead=normal style=solid]
+	Building -> cdm1_Area [label=" hasBuildingFloorArea 
+ «only»  " arrowhead=normal style=solid]
+	Building -> cdm1_Area [label=" hasBuildingFootprintArea 
+ «only»  " arrowhead=normal style=solid]
+	Building -> cdm1_Length [label=" hasBuildingHeight 
+ «only»  " arrowhead=normal style=solid]
+	Building -> BuildingUnit [label=" hasBuildingUnit 
+ «only»  " arrowhead=normal style=solid]
+	Building -> BuildingUse [label=" use 
+ «only»  " arrowhead=normal style=solid]
+	Building -> AreaRatio [label=" floorAreaRatio 
+ «max 1»  " arrowhead=normal style=solid]
+	Building -> ConstructionStatus [label=" hasConstructionStatus 
+ «max 1»  " arrowhead=normal style=solid]
+	Building -> AreaRatio [label=" windowToWallRatio 
+ «max 1»  " arrowhead=normal style=solid]
+}

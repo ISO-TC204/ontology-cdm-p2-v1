@@ -1,0 +1,31 @@
+// Diagram for OrganizationAgent
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		OrganizationAgent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">OrganizationAgent</TD></TR></TABLE>> URL="../OrganizationAgent.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Employment [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Employment</TD></TR></TABLE>> URL="../Employment.md" margin=0]
+		Goal [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Goal</TD></TR></TABLE>> URL="../Goal.md" margin=0]
+		Role [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Role</TD></TR></TABLE>> URL="../Role.md" margin=0]
+	}
+	cdm1_Agent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Agent</TD></TR></TABLE>> margin=0]
+	OrganizationAgent -> cdm1_Agent [arrowhead=onormal style=solid]
+	CityOrgThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityOrgThing</TD></TR></TABLE>> URL="../CityOrgThing.md" margin=0]
+	OrganizationAgent -> CityOrgThing [arrowhead=onormal style=solid]
+	OrganizationAgent -> Invis [style=invis]
+	Invis -> Employment [style=invis]
+	Employment -> Goal [style=invis]
+	Goal -> Role [style=invis]
+	OrganizationAgent -> Employment [label=" hasEmployment 
+ «only»  " arrowhead=normal style=solid]
+	OrganizationAgent -> Goal [label=" hasGoal 
+ «only»  " arrowhead=normal style=solid]
+	OrganizationAgent -> Role [label=" playsRole 
+ «only»  " arrowhead=normal style=solid]
+}
