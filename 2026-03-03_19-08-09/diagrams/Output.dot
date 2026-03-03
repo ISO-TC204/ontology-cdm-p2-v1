@@ -1,0 +1,23 @@
+// Diagram for Output
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		Output [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">Output</TD></TR></TABLE>> URL="../Output.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		i72_Indicator [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">i72:Indicator</TD></TR></TABLE>> margin=0]
+	}
+	cdm1_TerminalResourceState [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:TerminalResourceState</TD></TR></TABLE>> margin=0]
+	Output -> cdm1_TerminalResourceState [arrowhead=onormal style=solid]
+	CityServiceThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityServiceThing</TD></TR></TABLE>> URL="../CityServiceThing.md" margin=0]
+	Output -> CityServiceThing [arrowhead=onormal style=solid]
+	Output -> Invis [style=invis]
+	Invis -> i72_Indicator [style=invis]
+	Output -> i72_Indicator [label=" usedByIndicator 
+ «only»  " arrowhead=normal style=solid]
+}

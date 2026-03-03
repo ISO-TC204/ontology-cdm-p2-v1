@@ -1,0 +1,649 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/citydata/part2/v1/"
+     xml:base="https://w3id.org/citydata/part2/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:i72="https://w3id.org/citydata/21972/v1/"
+     xmlns:cdm1="https://w3id.org/citydata/part1/v1/">
+    <owl:Ontology rdf:about="https://w3id.org/citydata/part2/v1/CityServicePattern/">
+        <!-- Identity -->
+        <dcterms:title>Information technology - City data model - Part 2: City level concepts - City service pattern</dcterms:title>
+        <rdfs:seeAlso rdf:resource="https://www.iso.org/standard/80742.html"/>
+        <dcterms:bibliographicCitation>ISO/IEC 5087-2:2024</dcterms:bibliographicCitation>
+    	<skos:definition>This ontology specifies the city-level concepts for the city service pattern of the city data model. Cities provide a variety of services to residents and businesses, including health and social services. The city service ontology, is based on the Canadian Government Reference Model (CGRM). See Wiseman, R. (2015). Canadian Governments Reference Models. In Service Systems Science (pp. 109-128). Springer, Tokyo.</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/citydata/part2/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>cdm2</vann:preferredNamespacePrefix>
+
+    	<!-- Provenance -->
+        <dcterms:creator>Megan Katsumi</dcterms:creator>
+        <dcterms:creator>Mark Fox</dcterms:creator>
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+        <!-- Prior release -->
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024.</rdfs:comment>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/CityService/"/>
+        <!-- This release -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-12</dcterms:modified> 
+        <owl:versionInfo>1.3.0</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part2/v1/CityServicePattern/r3.0/"/>
+        
+        <!-- License -->
+        <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="https://w3id.org/citydata/part2/v1/PersonPattern/"/>
+    </owl:Ontology>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part2/v1/CityServiceObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/CityServiceObjectProperty">
+        <skos:definition>Added for organizational purposes, to identify object properties defined for the City Service Pattern in the City-level CDM ontology.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Issue: In ISO/IEC 5087-2, forActivity is not defined, there is a textual reference in Output but not an ontological one. Recommend deleting from this version. -->
+    <!-- https://w3id.org/citydata/part2/v1/forActivity -->
+
+<!--     <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/forActivity">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityObjectProperty"/>
+    </owl:ObjectProperty>  -->
+    
+
+    <!-- Issue: forStakeholder is not defined in ISO/IEC 5087-2 nor is it used in this document. Perhaps it was intended as a superclass to hasContributingStakeholder and hasBeneficialStakeholder, but then it would seem like it would be hasStakeholder. Recommend deletion in this version. -->
+    <!-- https://w3id.org/citydata/part2/v1/forStakeholder -->
+
+<!--     <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/forStakeholder">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceObjectProperty"/>
+    </owl:ObjectProperty>  -->
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/fromPerspectiveOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/fromPerspectiveOf">
+        <skos:definition>Identifies the Stakeholder who is determining the importance of the Impact.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Outcome"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Stakeholder"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- Issue: hasActualAmount is not defined in ISO/IEC 5087-2 nor is it used in this document. -->
+    <!-- https://w3id.org/citydata/part2/v1/hasActualAmount -->
+
+<!--    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasActualAmount">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityObjectProperty"/>
+    </owl:ObjectProperty>  -->
+    
+
+    <!-- hasPlannedAmount is not defined in ISO/IEC 5087-2 or used by this document. Recommend deletion. -->
+    <!-- https://w3id.org/citydata/part2/v1/hasPlannedAmount -->
+
+<!--    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasPlannedAmount">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityObjectProperty"/>
+    </owl:ObjectProperty>  -->
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/usedByIndicator -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/usedByIndicator">
+        <skos:definition>Identifies the Indicators that use this Output in determining the value of the Indicator.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Output"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/21972/v1/Indicator"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasBeneficialStakeholder -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasBeneficialStakeholder">
+        <skos:definition>Identifies the Stakeholder who is benefiting from the object.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Stakeholder"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasCatchmentArea -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasCatchmentArea">
+        <skos:definition>Identifies the regional span of the stakeholders.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Stakeholder"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Location"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasCatchmentAreaType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasCatchmentAreaType">
+        <skos:definition>Identifies the type of regional span of the stakeholders.</skos:definition>
+        <skos:example>local, provincial</skos:example>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Stakeholder"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/CatchmentAreaType"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasContributingStakeholder -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasContributingStakeholder">
+        <skos:definition>Identifies the stakeholders that contribute to the domain object.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Stakeholder"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- hasImpact is not defined in ISO/IEC 5087-2 and is not used in this document. Recommend deletion. -->
+    <!-- https://w3id.org/citydata/part2/v1/hasImpact -->
+
+<!--    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasImpact">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityObjectProperty"/>
+    </owl:ObjectProperty>  -->
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasImportance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasImportance">
+        <skos:definition>Specifies how important the Outcome is.</skos:definition>
+        <skos:example>high, medium, low</skos:example>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Outcome"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Importance"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasIndicator -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasIndicator">
+        <skos:definition>identifies an Indicator used to measure to the Outcome.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/Outcome"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/21972/v1/Indicator"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasInput -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasInput">
+        <skos:definition>Identifies an input used in the domain object.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Input"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasOutcome -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasOutcome">
+        <skos:definition>Identifies the Outcomes or expected Outcomes of the domain object.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Outcome"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasOutput -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasOutput">
+        <skos:definition>Identifies an output produced by the domain object.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Output"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/hasService -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/hasService">
+        <skos:definition>Identifies the Services that make up the domain object.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/Service"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/intendedImpact -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/intendedImpact">
+        <skos:definition>identifies the intended impact.</skos:definition>
+        <skos:example>Direction of change in a parameter (e.g. positive, negative)</skos:example>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/performs -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/performs">
+        <skos:definition>Identifies activities performed by the domain object.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceObjectProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part1/v1/Activity"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part2/v1/CityServiceThing -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/CityServiceThing">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityThing"/>
+        <skos:definition>Added for organizational purposes, to identify classes defined in the City Service ontology.</skos:definition>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/CatchmentAreaType -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/CatchmentAreaType">
+        <skos:definition>Catchment Area Type is a type of Code that describes the type of catchment area that stakeholders represent</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasCode"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Code"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/ImpactDirection -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/ImpactDirection">
+        <skos:definition>Impact Direction is a type of Code that describes the direction of impact of an event or action.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasCode"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Code"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Importance -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Importance">
+        <skos:definition>Importance is a type of Code that describes the level of importance of an event or action.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasCode"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Code"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Input -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Input">
+        <skos:definition>Input defines the resources and the stakeholders that are needed for an Activity.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceThing"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/TerminalResourceState"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasContributingStakeholder"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Stakeholder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/21972/v1/for_time_interval"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#DateTimeInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <!-- Issue: ISO/IEC 5087-2 defines Input.hasDescription as max 1 rather than only. Recommend keeping only for multi-lingual support. -->
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasDescription"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Outcome -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Outcome">
+        <skos:definition xml:lang="en">Outcomes are what stakeholders experience as a result of a Program or Service.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasIndicator"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/21972/v1/Indicator"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <!-- Issue: ISO/IEC 5087-2 defines fromPerspectiveOf max 1 Stakeholder rather than exactly 1 Stakeholder. Recommend using exactly 1 for now. It can be released to max 1 later and still be backwards compatible. -->
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/fromPerspectiveOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part2/v1/Stakeholder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <!-- Issue: ISO/IEC 5087-2 defines hasBeneficialStakeholder max 1 Stakeholder rather than exactly 1 Stakeholder. Okay to use exactly 1 for now. It can be released to max 1 later and still be backwards compatible. -->
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasBeneficialStakeholder"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part2/v1/Stakeholder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasImportance"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part2/v1/Importance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/intendedImpact"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/part2/v1/ImpactDirection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <!-- Issue: ISO/IEC 5087-2 defines hasDescription "only 1 string" (which is not an allowed combination of qualifiers) rather than max 1 string. Keep max 1. -->
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasDescription"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Output -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Output">
+        <skos:definition>Output is a quantitative summary of an activity.</skos:definition>
+        <skos:example>produced 100 meals for the homeless</skos:example>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceThing"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/TerminalResourceState"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/usedByIndicator"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/21972/v1/Indicator"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <!-- Issue: ISO/IEC 5087-2 defines hasDescription as max 1 string only string. Keep only to support multi-lingual descriptions. -->
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasDescription"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Program -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Program">
+        <skos:definition>A program is a major city initiative to address the needs of constituents (citizens, clients). A Program defines a set of services that focus on achieving a shared set of Outcomes.</skos:definition>
+        <skos:example>A "poverty reduction program” can be made up of a set of Services such as mobiles services that provides food and clothing to those that live on the street, and a training service that provides basic skills for those living on the street. A Program has a set of Stakeholders that may contribute or benefit.</skos:example>
+        <rdfs:label xml:lang="en">Program</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceThing"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasBeneficialStakeholder"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Stakeholder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasContributingStakeholder"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Stakeholder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasInput"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Input"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasOutcome"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Outcome"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasOutput"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Output"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasService"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Service"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <!-- Issue: ISO/IEC 5087-2 defines hasDescription as only string rather than max 1; change to only in order to support multi-lingual -->
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasDescription"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Service -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Service">
+        <skos:definition>A Program is composed of one or more Services.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceThing"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part1/v1/Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasBeneficialStakeholder"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Stakeholder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasContributingStakeholder"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Stakeholder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasInput"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Input"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasOutcome"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Outcome"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasOutput"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/Output"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasDescription"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/Stakeholder -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/Stakeholder">
+        <skos:definition>A Stakeholder is an Organization or Person that has an interest in a Program or Service.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityServiceThing"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/citydata/part1/v1/Organization"/>
+                    <rdf:Description rdf:about="https://w3id.org/citydata/part2/v1/Person"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/performs"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/Activity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasCatchmentArea"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part1/v1/Location"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasCatchmentAreaType"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/CatchmentAreaType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasDescription"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/global-catchmentArea -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/global-catchmentArea"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/high -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/high"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/local-catchmentArea -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/local-catchmentArea"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/low -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/low"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/medium -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/medium"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/multinational-catchmentArea -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/multinational-catchmentArea"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/national-catchmentArea -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/national-catchmentArea"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/negative -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/negative"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/neutral -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/neutral"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/positive -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/positive"/>
+    
+
+
+    <!-- https://w3id.org/citydata/part2/v1/provincial-catchmentArea -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/citydata/part2/v1/provincial-catchmentArea"/>
+</rdf:RDF>

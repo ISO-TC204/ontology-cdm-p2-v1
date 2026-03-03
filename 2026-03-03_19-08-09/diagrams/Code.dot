@@ -1,0 +1,21 @@
+// Diagram for Code
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		Code [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">Code</TD></TR><HR/><TR><TD ALIGN="LEFT">«only» specification: xsd:string</TD></TR></TABLE>> URL="../Code.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		cdm1_Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Organization</TD></TR></TABLE>> margin=0]
+	}
+	CodeThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CodeThing</TD></TR></TABLE>> URL="../CodeThing.md" margin=0]
+	Code -> CodeThing [arrowhead=onormal style=solid]
+	Code -> Invis [style=invis]
+	Invis -> cdm1_Organization [style=invis]
+	Code -> cdm1_Organization [label=" definedBy 
+ «max 1»  " arrowhead=normal style=solid]
+}

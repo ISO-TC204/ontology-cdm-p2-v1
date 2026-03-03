@@ -1,0 +1,33 @@
+// Diagram for Stakeholder
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		Stakeholder [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">Stakeholder</TD></TR></TABLE>> URL="../Stakeholder.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		CatchmentAreaType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CatchmentAreaType</TD></TR></TABLE>> URL="../CatchmentAreaType.md" margin=0]
+		cdm1_Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Activity</TD></TR></TABLE>> margin=0]
+		cdm1_Location [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Location</TD></TR></TABLE>> margin=0]
+	}
+	cdm1_Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Organization</TD></TR></TABLE>> margin=0]
+	Stakeholder -> cdm1_Organization [arrowhead=onormal style=solid]
+	CityServiceThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityServiceThing</TD></TR></TABLE>> URL="../CityServiceThing.md" margin=0]
+	Stakeholder -> CityServiceThing [arrowhead=onormal style=solid]
+	Person [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Person</TD></TR></TABLE>> URL="../Person.md" margin=0]
+	Stakeholder -> Person [arrowhead=onormal style=solid]
+	Stakeholder -> Invis [style=invis]
+	Invis -> CatchmentAreaType [style=invis]
+	CatchmentAreaType -> cdm1_Activity [style=invis]
+	cdm1_Activity -> cdm1_Location [style=invis]
+	Stakeholder -> cdm1_Activity [label=" performs 
+ «some»  " arrowhead=normal style=solid]
+	Stakeholder -> cdm1_Location [label=" hasCatchmentArea 
+ «only»  " arrowhead=normal style=solid]
+	Stakeholder -> CatchmentAreaType [label=" hasCatchmentAreaType 
+ «only»  " arrowhead=normal style=solid]
+}

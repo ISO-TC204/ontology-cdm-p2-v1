@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/citydata/part2/v1/"
+     xml:base="https://w3id.org/citydata/part2/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:i72="https://w3id.org/citydata/21972/v1/"
+     xmlns:cdm1="https://w3id.org/citydata/part1/v1/">
+    <owl:Ontology rdf:about="https://w3id.org/citydata/part2/v1/CityPattern/">
+        <!-- Identity -->
+        <dcterms:title>Information technology - City data model - Part 2: City level concepts - City pattern</dcterms:title>
+    	<skos:definition>This ontology specifies the city-level concepts for the city pattern of the city data model. The City pattern captures basic information about the geospatial aspects of the city.  In particular it represents the different ways in which the city is administratively divided.</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/citydata/part2/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>cdm2</vann:preferredNamespacePrefix>
+
+    	<!-- Provenance -->
+        <dcterms:creator>Megan Katsumi</dcterms:creator>
+        <dcterms:creator>Mark Fox</dcterms:creator>
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+        <!-- Prior release -->
+        <rdfs:comment>The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024.</rdfs:comment>
+        <owl:priorVersion rdf:resource="https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/City/"/>
+        <!-- This release -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-12</dcterms:modified> 
+        <owl:versionInfo>1.3.0</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/citydata/part2/v1/CityPattern/r3.0/"/>
+        
+        <!-- License -->
+        <cc:license>http://creativecommons.org/licenses/by/4.0/</cc:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="https://w3id.org/citydata/part2/v1/LandUsePattern/"/>
+    </owl:Ontology>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part2/v1/CityPatternObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/CityPatternObjectProperty">
+        <skos:definition>Added for organizational purposes, to identify object properties defined in the City-level CDM ontology.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/administrativeArea -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/administrativeArea">
+        <skos:definition>Identifies administrative areas within the JurisdictionalArea.</skos:definition>
+        <skos:note>Jurisdictional areas can have a hierarchy of administrative areas.</skos:note>
+        <skos:note>Boundaries of an administrative area do not have to be distinct.</skos:note>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityPatternObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/citydata/part2/v1/administrativeAreaOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/JurisdictionalArea"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/JurisdictionalArea"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/administrativeAreaOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/administrativeAreaOf">
+        <skos:definition>Identifies the jurisdictional area that an administrative area belongs to.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityPatternObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/residentPopulation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/citydata/part2/v1/residentPopulation">
+        <skos:definition>Number of residents of the area.</skos:definition>
+        <skos:note>This number can be distinct from the population associated with the Land Area that an Administrative Area occupies. The resident population is determined based on the definition of a resident which is often times more specific than an occupant of an area.</skos:note>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityPatternObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/citydata/part2/v1/JurisdictionalArea"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/21972/v1/Population"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part2/v1/CityPatternDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/citydata/part2/v1/CityPatternDataProperty">
+        <skos:definition>Added for organizational purposes, to identify data properties defined in the City-level ontology.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/legalName -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/citydata/part2/v1/legalName">
+        <skos:definition>Identifies the legal name of the domain object.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/citydata/part2/v1/CityPatternDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/citydata/part2/v1/CityPatternThing -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/CityPatternThing">
+        <skos:definition>Added for organizational purposes, to identify classes defined in the City Services part of the City Data Model.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityThing"/>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/City -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/City">
+        <skos:definition>A City is a specialization of a Jurisdictional Area that is formally identified as such.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/JurisdictionalArea"/>
+        <!-- Issue: In ISO/IEC 5087-2, legalName is defined as max 1 rather than exactly 1. Recommend changing to max 1. -->
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/legalName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/CityAdministrativeArea -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/CityAdministrativeArea">
+        <skos:definition>Jurisdictional Area that has been identified for use by a City to reflect its unique areas such as districts, wards, neighbourhoods, or prefectures. </skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/JurisdictionalArea"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/administrativeAreaOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/City"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- Issue: Bylaw.owl extends this definition to support the hasBylaw property -->
+    <!-- Issue: Organization.owl extends this definition to support the hasGovernment property -->
+    <!-- https://w3id.org/citydata/part2/v1/JurisdictionalArea -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/JurisdictionalArea">
+        <skos:definition>A Jurisdictional Area is an abstract entity that is characterized not only by its location, but by the objects that occupy it (persons, buildings, etc), the governing body(s) it is subject to, and the activities that occur within it.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityPatternThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/administrativeArea"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/JurisdictionalArea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/administrativeAreaOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/JurisdictionalArea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/hasLandArea"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/LandArea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part2/v1/residentPopulation"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/citydata/21972/v1/Population"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+</rdf:RDF>

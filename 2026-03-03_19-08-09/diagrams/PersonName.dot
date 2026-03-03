@@ -1,0 +1,18 @@
+// Diagram for PersonName
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=max
+		PersonName [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">PersonName</TD></TR><HR/><TR><TD ALIGN="LEFT">«only» additionalName: xsd:string</TD></TR><TR><TD ALIGN="LEFT">«only» givenName: xsd:string</TD></TR><TR><TD ALIGN="LEFT">«max 1» familyName: xsd:string</TD></TR></TABLE>> URL="../PersonName.md" margin=0]
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+	}
+	Name [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Name</TD></TR></TABLE>> URL="../Name.md" margin=0]
+	PersonName -> Name [arrowhead=onormal style=solid]
+	PersonThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PersonThing</TD></TR></TABLE>> URL="../PersonThing.md" margin=0]
+	PersonName -> PersonThing [arrowhead=onormal style=solid]
+}
