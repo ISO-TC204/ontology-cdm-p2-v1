@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # AddressType
 
 ![AddressType Diagram](diagrams/AddressType.dot.svg)

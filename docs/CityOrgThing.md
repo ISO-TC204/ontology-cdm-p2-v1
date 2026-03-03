@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # CityOrgThing
 
 ![CityOrgThing Diagram](diagrams/CityOrgThing.dot.svg)

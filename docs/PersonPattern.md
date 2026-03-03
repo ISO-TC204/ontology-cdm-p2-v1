@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # Person Pattern
 
 This ontology specifies the city-level concepts for the person pattern of the city data model.

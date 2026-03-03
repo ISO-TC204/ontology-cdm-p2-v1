@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # Address
 
 ![Address Diagram](diagrams/Address.dot.svg)

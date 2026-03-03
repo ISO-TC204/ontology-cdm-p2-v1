@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # Core
 
 This ontology specifies the city-level concepts that are used by all other patterns of the city-level portion of the city data model.

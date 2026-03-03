@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # Bridge
 
 NOTE: A Bridge is identified as such by a governing body.

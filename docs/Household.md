@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # Household
 
 NOTE: More precise definitions of Household may be adopted as required for different contexts and applications through extensions to this class.

@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # OrganizationAgent
 
 NOTE: Organization Agents have goals, authority, and may be members of some team.

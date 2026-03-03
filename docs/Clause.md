@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # Clause
 
 ![Clause Diagram](diagrams/Clause.dot.svg)

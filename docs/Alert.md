@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # Alert
 
 An Alert can be used to notify people of important information.

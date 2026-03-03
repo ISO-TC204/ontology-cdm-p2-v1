@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # Definition
 
 ![Definition Diagram](diagrams/Definition.dot.svg)

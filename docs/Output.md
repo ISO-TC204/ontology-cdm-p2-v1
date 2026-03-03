@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # Output
 
 EXAMPLE: produced 100 meals for the homeless

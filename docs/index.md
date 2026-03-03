@@ -1,7 +1,5 @@
 # Information technology - City data model - Part 2: City level concepts
 
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 The Information technology - City data model - Part 2: City level concepts ontology consists of the following:
 
 - [5087-2](5087-2.md)

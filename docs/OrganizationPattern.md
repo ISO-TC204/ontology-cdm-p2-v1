@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # Organization Pattern
 
 This ontology specifies the city-level concepts for the organization pattern of the city data model. The Organization pattern is an extension of the Organization Structure pattern defined in ISO/IEC 5087-1 that introduces city-specific concepts related to Organizations such as Students and Employees.
