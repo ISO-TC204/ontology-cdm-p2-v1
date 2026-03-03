@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # Contract
 
 ![Contract Diagram](diagrams/Contract.dot.svg)
@@ -22,5 +20,5 @@
 
 | Class | Property |
 |-------|----------|
-| [Contractual Element](ContractualElement.md) | N1eb42ca44f0d4fe2b5369535d08ea2c3 |
+| [Contractual Element](ContractualElement.md) | Nd60714e41d7c4197827199e7d806e909 |
 

@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # LandArea
 
 ![LandArea Diagram](diagrams/LandArea.dot.svg)

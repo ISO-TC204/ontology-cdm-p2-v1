@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # Bylaw
 
 NOTE: Higher levels of government often place limits on what laws can be passed by lower-level entities.

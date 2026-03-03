@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # Building
 
 NOTE: There are different types (subclasses) of buildings; House, Apartment Building, Office Building...

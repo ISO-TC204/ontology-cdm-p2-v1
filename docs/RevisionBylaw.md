@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # RevisionBylaw
 
 ![RevisionBylaw Diagram](diagrams/RevisionBylaw.dot.svg)

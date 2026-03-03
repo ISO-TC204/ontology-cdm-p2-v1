@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # ConstructionStatus
 
 ![ConstructionStatus Diagram](diagrams/ConstructionStatus.dot.svg)

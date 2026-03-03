@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # City Service Pattern
 
 This ontology specifies the city-level concepts for the city service pattern of the city data model. Cities provide a variety of services to residents and businesses, including health and social services. The city service ontology, is based on the Canadian Government Reference Model (CGRM). See Wiseman, R. (2015). Canadian Governments Reference Models. In Service Systems Science (pp. 109-128). Springer, Tokyo.

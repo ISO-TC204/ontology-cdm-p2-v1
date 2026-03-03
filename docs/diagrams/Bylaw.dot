@@ -32,16 +32,16 @@ digraph {
 	mainBylaw -> Organization [style=invis]
 	Organization -> Person [style=invis]
 	Person -> revisionBylaw [style=invis]
-	N73e0d0f42e0b4883a98d78ec4b16b2c9 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">«unionOf»</TD></TR></TABLE>> margin=0]
-	N73e0d0f42e0b4883a98d78ec4b16b2c9 -> cdm1_Activity [label=member arrowhead=normal style=dotted]
-	N73e0d0f42e0b4883a98d78ec4b16b2c9 -> JurisdictionalArea [label=member arrowhead=normal style=dotted]
-	N73e0d0f42e0b4883a98d78ec4b16b2c9 -> LandArea [label=member arrowhead=normal style=dotted]
-	N73e0d0f42e0b4883a98d78ec4b16b2c9 -> Organization [label=member arrowhead=normal style=dotted]
-	N73e0d0f42e0b4883a98d78ec4b16b2c9 -> Person [label=member arrowhead=normal style=dotted]
-	Bylaw -> N73e0d0f42e0b4883a98d78ec4b16b2c9 [label=" impacts 
+	N1a84dc0dbce9456cb5b06fa4ff5b6602 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">«unionOf»</TD></TR></TABLE>> margin=0]
+	N1a84dc0dbce9456cb5b06fa4ff5b6602 -> cdm1_Activity [label=member arrowhead=normal style=dotted]
+	N1a84dc0dbce9456cb5b06fa4ff5b6602 -> JurisdictionalArea [label=member arrowhead=normal style=dotted]
+	N1a84dc0dbce9456cb5b06fa4ff5b6602 -> LandArea [label=member arrowhead=normal style=dotted]
+	N1a84dc0dbce9456cb5b06fa4ff5b6602 -> Organization [label=member arrowhead=normal style=dotted]
+	N1a84dc0dbce9456cb5b06fa4ff5b6602 -> Person [label=member arrowhead=normal style=dotted]
+	Bylaw -> N1a84dc0dbce9456cb5b06fa4ff5b6602 [label=" impacts 
  «only»  " arrowhead=normal style=solid]
-	N17b8353572d44302bfeee9d7d6e1d559 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">«Enum»<BR/>Enum: amendingBylaw, mainBylaw, revisionBylaw</TD></TR><TR><TD ALIGN="LEFT">+ amendingBylaw<BR/>+ mainBylaw<BR/>+ revisionBylaw</TD></TR></TABLE>> margin=0]
-	Bylaw -> N17b8353572d44302bfeee9d7d6e1d559 [label=" legislationType 
+	N1e2bada4777b4d7eabc591d01527d8cf [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">«Enum»<BR/>Enum: amendingBylaw, mainBylaw, revisionBylaw</TD></TR><TR><TD ALIGN="LEFT">+ amendingBylaw<BR/>+ mainBylaw<BR/>+ revisionBylaw</TD></TR></TABLE>> margin=0]
+	Bylaw -> N1e2bada4777b4d7eabc591d01527d8cf [label=" legislationType 
  «only»  " arrowhead=normal style=solid]
 	Bylaw -> City [label=" onProperty: legislationJurisdiction 
  «max 1»  " arrowhead=normal style=dashed]

@@ -1,5 +1,3 @@
-![Draft for review only](/assets/img/draft_for_review.svg)
-
 # PersonName
 
 ![PersonName Diagram](diagrams/PersonName.dot.svg)
