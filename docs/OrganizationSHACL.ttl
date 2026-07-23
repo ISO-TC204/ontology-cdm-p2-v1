@@ -1,0 +1,232 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
+:OrganizationSHACL
+    rdf:type owl:Ontology ;
+    dcterms:title "City Data Model Part 2 - Organization Pattern - SHACL constraints" ;
+    skos:definition "SHACL validation shapes for the Organization Pattern pattern module." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    owl:imports :OrganizationPattern ;
+    owl:imports :CoreSHACL .
+
+:BusinessEstablishmentShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :BusinessEstablishment ;
+    sh:property [
+        sh:path :hasAddress ;
+        sh:class :Address
+    ] ;
+    sh:property [
+        sh:path cdm1:hasLocation ;
+        sh:node :MaxOneShape ;
+        sh:class cdm1:Location
+    ] .
+
+:CompensationShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Compensation ;
+    sh:property [
+        sh:path :hasPay ;
+        sh:node :MaxOneShape ;
+        sh:class cdm1:MonetaryValue
+    ] .
+
+:EmploymentShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Employment ;
+    sh:property [
+        sh:path :hasCompensation ;
+        sh:node :MinOneShape ;
+        sh:class :Compensation
+    ] ;
+    sh:property [
+        sh:path :employedAs ;
+        sh:class :Occupation
+    ] ;
+    sh:property [
+        sh:path :employedBy ;
+        sh:node :MinOneShape ;
+        sh:class :Organization
+    ] ;
+    sh:property [
+        sh:path :hasEmploymentStatus ;
+        sh:class :EmploymentStatus
+    ] .
+
+:EmploymentStatusShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :EmploymentStatus ;
+    sh:property [
+        sh:path :hasCode ;
+        sh:class :Code
+    ] .
+
+:ForProfitOrganizationShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :ForProfitOrganization ;
+    sh:property [
+        sh:path :hasEstablishment ;
+        sh:class :BusinessEstablishment
+    ] ;
+    sh:property [
+        sh:path :hasIndustryType ;
+        sh:class :IndustryType
+    ] .
+
+:GovernmentOrganizationShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :GovernmentOrganization ;
+    sh:property [
+        sh:path :jurisdiction ;
+        sh:class :JurisdictionalArea
+    ] ;
+    sh:property [
+        sh:path :hasProgram ;
+        sh:class :Program
+    ] .
+
+:IndustryTypeShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :IndustryType ;
+    sh:property [
+        sh:path :hasCode ;
+        sh:class :Code
+    ] .
+
+:JurisdictionalAreaShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :JurisdictionalArea ;
+    sh:property [
+        sh:path :hasGovernment ;
+        sh:class :GovernmentOrganization
+    ] .
+
+:NonProfitOrganizationShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :NonProfitOrganization ;
+    sh:property [
+        sh:path :hasProgram ;
+        sh:class :Program
+    ] .
+
+:OccupationShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Occupation ;
+    sh:property [
+        sh:path :hasCode ;
+        sh:class :Code
+    ] .
+
+:OperationShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Operation ;
+    sh:property [
+        sh:path :hasOpeningTime ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:time
+    ] ;
+    sh:property [
+        sh:path :hasClosingTime ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:time
+    ] .
+
+:OrganizationShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Organization ;
+    sh:property [
+        sh:path cdm1:hasLocation ;
+        sh:class cdm1:Location
+    ] ;
+    sh:property [
+        sh:path :hasTelephone ;
+        sh:class :PhoneNumber
+    ] ;
+    sh:property [
+        sh:path :orgAddress ;
+        sh:class :Address
+    ] ;
+    sh:property [
+        sh:path :hasGoal ;
+        sh:class :Goal
+    ] ;
+    sh:property [
+        sh:path :operatingHours ;
+        sh:class :Operation
+    ] .
+
+:OrganizationAgentShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :OrganizationAgent ;
+    sh:property [
+        sh:path :hasEmployment ;
+        sh:class :Employment
+    ] ;
+    sh:property [
+        sh:path org:memberOf ;
+        sh:class :Organization
+    ] ;
+    sh:property [
+        sh:path :hasGoal ;
+        sh:class :Goal
+    ] ;
+    sh:property [
+        sh:path :playsRole ;
+        sh:class :Role
+    ] .
+
+:RoleShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Role ;
+    sh:property [
+        sh:path :hasGoal ;
+        sh:class :Goal
+    ] ;
+    sh:property [
+        sh:path :hasResource ;
+        sh:class cdm1:Resource
+    ] ;
+    sh:property [
+        sh:path :hasProcess ;
+        sh:class cdm1:Activity
+    ] .
+
+:SalaryShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Salary ;
+    sh:property [
+        sh:path :annualPay ;
+        sh:node :MaxOneShape ;
+        sh:class cdm1:MonetaryValue
+    ] .
+
+:WageShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Wage ;
+    sh:property [
+        sh:path :hourlyPay ;
+        sh:node :MaxOneShape ;
+        sh:class cdm1:MonetaryValue
+    ] ;
+    sh:property [
+        sh:path :overtimePay ;
+        sh:class cdm1:MonetaryValue
+    ] .

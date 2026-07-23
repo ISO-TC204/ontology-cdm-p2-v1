@@ -1,0 +1,183 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
+:ContactSHACL
+    rdf:type owl:Ontology ;
+    dcterms:title "City Data Model Part 2 - Contact Pattern - SHACL constraints" ;
+    skos:definition "SHACL validation shapes for the Contact Pattern pattern module." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    owl:imports :ContactPattern ;
+    owl:imports :CoreSHACL .
+
+:AddressShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Address ;
+    sh:property [
+        sh:path :buildingName ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path cdm1:hasLocation ;
+        sh:node :MaxOneShape ;
+        sh:class cdm1:Location
+    ] ;
+    sh:property [
+        sh:path :hasStreet ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :hasStreetType ;
+        sh:node :MaxOneShape ;
+        sh:class :StreetType
+    ] ;
+    sh:property [
+        sh:path :minStreetNumber ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:nonNegativeInteger
+    ] ;
+    sh:property [
+        sh:path :hasUnitNumber ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :hasStreetNumber ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :hasCitySection ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :hasPostalCode ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :hasCity ;
+        sh:node :MaxOneShape ;
+        sh:class :City
+    ] ;
+    sh:property [
+        sh:path :hasProvince ;
+        sh:node :MaxOneShape ;
+        sh:class :State
+    ] ;
+    sh:property [
+        sh:path :hasPostalBox ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :hasCountry ;
+        sh:node :MaxOneShape ;
+        sh:class :Country
+    ] ;
+    sh:property [
+        sh:path :maxStreetNumber ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :hasAddressType ;
+        sh:class :AddressType
+    ] ;
+    sh:property [
+        sh:path :hasStreetDirection ;
+        sh:node :MaxOneShape ;
+        sh:class :StreetDirection
+    ] .
+
+:AddressTypeShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :AddressType ;
+    sh:property [
+        sh:path :hasCode ;
+        sh:class :Code
+    ] .
+
+:CountryShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Country ;
+    sh:property [
+        sh:path :hasCode ;
+        sh:class :Code
+    ] .
+
+:PhoneNumberShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :PhoneNumber ;
+    sh:property [
+        sh:path :hasPhoneNumber ;
+        sh:node :ExactlyOneShape ;
+        sh:datatype xsd:nonNegativeInteger
+    ] ;
+    sh:property [
+        sh:path :hasCountryCode ;
+        sh:node :ExactlyOneShape ;
+        sh:datatype xsd:nonNegativeInteger
+    ] ;
+    sh:property [
+        sh:path :hasPhoneType ;
+        sh:node :ExactlyOneShape ;
+        sh:class :PhoneType
+    ] ;
+    sh:property [
+        sh:path :hasAreaCode ;
+        sh:node :ExactlyOneShape ;
+        sh:datatype xsd:nonNegativeInteger
+    ] .
+
+:PhoneTypeShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :PhoneType ;
+    sh:property [
+        sh:path :hasCode ;
+        sh:class :Code
+    ] .
+
+:StateShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :State ;
+    sh:property [
+        sh:path :hasCode ;
+        sh:class :Code
+    ] .
+
+:StreetDirectionShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :StreetDirection ;
+    sh:property [
+        sh:path :hasCode ;
+        sh:class :Code
+    ] .
+
+:StreetTypeShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :StreetType ;
+    sh:property [
+        sh:path :hasCode ;
+        sh:class :Code
+    ] .

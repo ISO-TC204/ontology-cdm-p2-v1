@@ -4,13 +4,21 @@ digraph {
 	node [fontname=Arial fontsize=12 margin=0 shape=none]
 	edge [fontname=Arial fontsize=11]
 	{
+		rank=source
+		Bylaw [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Bylaw</TD></TR></TABLE>> URL="../Bylaw" margin=0]
+	}
+	MainBylaw [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">MainBylaw</TD></TR></TABLE>> URL="../MainBylaw" margin=0]
+	{
 		rank=max
-		MainBylaw [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">MainBylaw</TD></TR></TABLE>> URL="../MainBylaw.md" margin=0]
 	}
 	subgraph cluster_associated {
 		label="" style=invis
 		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		BylawTypeCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BylawTypeCode</TD></TR></TABLE>> URL="../BylawTypeCode" margin=0]
 	}
-	Bylaw [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Bylaw</TD></TR></TABLE>> URL="../Bylaw.md" margin=0]
 	MainBylaw -> Bylaw [arrowhead=onormal style=solid]
+	MainBylaw -> Invis [style=invis]
+	Invis -> BylawTypeCode [style=invis]
+	BylawTypeCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BylawTypeCode</TD></TR></TABLE>> URL="../BylawTypeCode" margin=0]
+	MainBylaw -> BylawTypeCode [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">legislationType</TD></TR></TABLE>> arrowhead=normal style=solid]
 }

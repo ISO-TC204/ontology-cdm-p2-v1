@@ -1,0 +1,72 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
+:CitySHACL
+    rdf:type owl:Ontology ;
+    dcterms:title "City Data Model Part 2 - City Pattern - SHACL constraints" ;
+    skos:definition "SHACL validation shapes for the City Pattern pattern module." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    owl:imports :CityPattern ;
+    owl:imports :CoreSHACL .
+
+:CityShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :City ;
+    sh:property [
+        sh:path :legalName ;
+        sh:node :ExactlyOneShape ;
+        sh:datatype xsd:string
+    ] .
+
+:CityAdministrativeAreaShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :CityAdministrativeArea ;
+    sh:property [
+        sh:path :administrativeAreaOf ;
+        sh:node :MinOneShape ;
+        sh:class :City
+    ] .
+
+:JurisdictionalAreaShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :JurisdictionalArea ;
+    sh:property [
+        sh:path :administrativeArea ;
+        sh:class :JurisdictionalArea
+    ] ;
+    sh:property [
+        sh:path :hasLandArea ;
+        sh:class :LandArea
+    ] ;
+    sh:property [
+        sh:path :residentPopulation ;
+        sh:node :MaxOneShape ;
+        sh:class i72:Population
+    ] ;
+    sh:property [
+        sh:path cdm1:hasName ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :administrativeAreaOf ;
+        sh:class :JurisdictionalArea
+    ] .

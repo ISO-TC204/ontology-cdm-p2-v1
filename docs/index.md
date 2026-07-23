@@ -1,21 +1,24 @@
 # Information technology - City data model - Part 2: City level concepts
 
-The Information technology - City data model - Part 2: City level concepts ontology consists of the following:
+This ontology specifies the city-level concepts of the city data model.
 
-- [5087-2](5087-2.md)
-- [Alert Pattern](AlertPattern.md)
-- [Building Pattern](BuildingPattern.md)
-- [Bylaw Pattern](BylawPattern.md)
-- [City Pattern](CityPattern.md)
-- [City Resident Pattern](CityResidentPattern.md)
-- [City Service Pattern](CityServicePattern.md)
-- [Code Pattern](CodePattern.md)
-- [Contact Pattern](ContactPattern.md)
-- [Contract Pattern](ContractPattern.md)
-- [Core](Core.md)
-- [Household Pattern](HouseholdPattern.md)
-- [Infrastructure Pattern](InfrastructurePattern.md)
-- [Land Use Pattern](LandUsePattern.md)
-- [Organization Pattern](OrganizationPattern.md)
-- [Person Pattern](PersonPattern.md)
-- [Transport Infrastructure Pattern](TransportInfrastructurePattern.md)
+The Information technology - City data model - Part 2: City level concepts consists of the following patterns:
+
+- [Alert](classes/AlertPattern.md)
+- [Building](classes/BuildingPattern.md)
+- [Bylaw](classes/BylawPattern.md)
+- [City](classes/CityPattern.md)
+- [City Resident](classes/CityResidentPattern.md)
+- [City Service](classes/CityServicePattern.md)
+- [Code](classes/CodePattern.md)
+- [Contact](classes/ContactPattern.md)
+- [Contract](classes/ContractPattern.md)
+- [Core](classes/CorePattern.md)
+- [Household](classes/HouseholdPattern.md)
+- [Infrastructure](classes/InfrastructurePattern.md)
+- [Land Use](classes/LandUsePattern.md)
+- [Organization](classes/OrganizationPattern.md)
+- [Person](classes/PersonPattern.md)
+- [Transport Infrastructure](classes/TransportInfrastructurePattern.md)
+
+The formal definition of this ontology is available in [TURTLE Syntax](5087-2.ttl).

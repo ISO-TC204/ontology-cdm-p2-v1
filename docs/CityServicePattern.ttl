@@ -1,0 +1,425 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
+:CityServicePattern
+    dcterms:title            "Information technology - City data model - Part 2: City level concepts - City service pattern" ;
+    skos:definition          "This ontology specifies the city-level concepts for the city service pattern of the city data model. Cities provide a variety of services to residents and businesses, including health and social services. The city service ontology, is based on the Canadian Government Reference Model (CGRM). See Wiseman, R. (2015). Canadian Governments Reference Models. In Service Systems Science (pp. 109-128). Springer, Tokyo." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    dcterms:creator          "Kenneth Vaughn" ;
+    dcterms:creator          "Mark Fox" ;
+    dcterms:creator          "Megan Katsumi" ;
+    dcterms:bibliographicCitation "ISO/IEC 5087-2:2024" ;
+    rdfs:seeAlso             <https://www.iso.org/standard/80742.html> ;
+    rdfs:comment             "The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024." ;
+    owl:priorVersion         <https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/CityService/> ;
+    dcterms:modified         "2026-02-12"^^xsd:date ;
+    owl:versionInfo          "1.3.0" ;
+    owl:versionIRI           <https://w3id.org/citydata/part2/v1/CityServicePattern/r3.0/> ;
+    cc:license               "http://creativecommons.org/licenses/by/4.0/" ;
+    owl:imports              :PersonPattern ;
+    rdf:type                 owl:Ontology .
+
+:CityServiceObjectProperty
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityObjectProperty ;
+    skos:definition          "Added for organizational purposes, to identify object properties defined for the City Service Pattern in the City-level CDM ontology." .
+
+:fromPerspectiveOf
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityServiceObjectProperty ;
+    skos:definition          "Identifies the Stakeholder who is determining the importance of the Impact." ;
+    rdfs:domain              :Outcome ;
+    rdfs:range               :Stakeholder .
+
+:hasBeneficialStakeholder
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityServiceObjectProperty ;
+    skos:definition          "Identifies the Stakeholder who is benefiting from the object." ;
+    rdfs:range               :Stakeholder .
+
+:hasCatchmentArea
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityServiceObjectProperty ;
+    skos:definition          "Identifies the regional span of the stakeholders." ;
+    rdfs:domain              :Stakeholder ;
+    rdfs:range               cdm1:Location .
+
+:hasCatchmentAreaType
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityServiceObjectProperty ;
+    skos:definition          "Identifies the type of regional span of the stakeholders." ;
+    rdfs:domain              :Stakeholder ;
+    rdfs:range               :CatchmentAreaType ;
+    skos:example             "local, provincial" .
+
+:hasContributingStakeholder
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityServiceObjectProperty ;
+    skos:definition          "Identifies the stakeholders that contribute to the domain object." ;
+    rdfs:range               :Stakeholder .
+
+:hasImportance
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityServiceObjectProperty ;
+    skos:definition          "Specifies how important the Outcome is." ;
+    rdfs:domain              :Outcome ;
+    rdfs:range               :Importance ;
+    skos:example             "high, medium, low" .
+
+:hasIndicator
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityServiceObjectProperty ;
+    skos:definition          "identifies an Indicator used to measure to the Outcome." ;
+    rdfs:domain              :Outcome ;
+    rdfs:range               i72:Indicator .
+
+:hasInput
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityServiceObjectProperty ;
+    skos:definition          "Identifies an input used in the domain object." ;
+    rdfs:range               :Input .
+
+:hasOutcome
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityServiceObjectProperty ;
+    skos:definition          "Identifies the Outcomes or expected Outcomes of the domain object." ;
+    rdfs:range               :Outcome .
+
+:hasOutput
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityServiceObjectProperty ;
+    skos:definition          "Identifies an output produced by the domain object." ;
+    rdfs:range               :Output .
+
+:hasService
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityServiceObjectProperty ;
+    skos:definition          "Identifies the Services that make up the domain object." ;
+    rdfs:range               :Service .
+
+:intendedImpact
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityServiceObjectProperty ;
+    skos:definition          "identifies the intended impact." ;
+    skos:example             "Direction of change in a parameter (e.g. positive, negative)" .
+
+:performs
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityServiceObjectProperty ;
+    skos:definition          "Identifies activities performed by the domain object." ;
+    rdfs:range               cdm1:Activity .
+
+:usedByIndicator
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityServiceObjectProperty ;
+    skos:definition          "Identifies the Indicators that use this Output in determining the value of the Indicator." ;
+    rdfs:domain              :Output ;
+    rdfs:range               i72:Indicator .
+
+:CatchmentAreaType
+    rdf:type                 owl:Class ;
+    skos:definition          "Catchment Area Type is a type of Code that describes the type of catchment area that stakeholders represent" ;
+    rdfs:subClassOf          :CityServiceThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] .
+
+:CityServiceThing
+    rdf:type                 owl:Class ;
+    skos:definition          "Added for organizational purposes, to identify classes defined in the City Service ontology." ;
+    rdfs:subClassOf          :CityThing .
+
+:ImpactDirection
+    rdf:type                 owl:Class ;
+    skos:definition          "Impact Direction is a type of Code that describes the direction of impact of an event or action." ;
+    rdfs:subClassOf          :CityServiceThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] .
+
+:Importance
+    rdf:type                 owl:Class ;
+    skos:definition          "Importance is a type of Code that describes the level of importance of an event or action." ;
+    rdfs:subClassOf          :CityServiceThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] .
+
+:Input
+    rdf:type                 owl:Class ;
+    skos:definition          "Input defines the resources and the stakeholders that are needed for an Activity." ;
+    rdfs:subClassOf          cdm1:TerminalResourceState ;
+    rdfs:subClassOf          :CityServiceThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasContributingStakeholder ;
+        owl:onClass                  :Stakeholder
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasName ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasDescription ;
+        owl:onDataRange              xsd:string
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               i72:for_time_interval ;
+        owl:onClass                  time:DateTimeInterval
+    ] .
+
+:Outcome
+    rdf:type                 owl:Class ;
+    skos:definition          "Outcomes are what stakeholders experience as a result of a Program or Service."@en ;
+    rdfs:subClassOf          :CityServiceThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :fromPerspectiveOf ;
+        owl:onClass                  :Stakeholder ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasImportance ;
+        owl:onClass                  :Importance ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasDescription ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :intendedImpact ;
+        owl:onClass                  :ImpactDirection ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasIndicator ;
+        owl:onClass                  i72:Indicator
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasBeneficialStakeholder ;
+        owl:onClass                  :Stakeholder ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] .
+
+:Output
+    rdf:type                 owl:Class ;
+    skos:definition          "Output is a quantitative summary of an activity." ;
+    rdfs:subClassOf          cdm1:TerminalResourceState ;
+    rdfs:subClassOf          :CityServiceThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasName ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :usedByIndicator ;
+        owl:onClass                  i72:Indicator
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasDescription ;
+        owl:onDataRange              xsd:string
+    ] ;
+    skos:example             "produced 100 meals for the homeless" .
+
+:Program
+    rdf:type                 owl:Class ;
+    skos:definition          "A program is a major city initiative to address the needs of constituents (citizens, clients). A Program defines a set of services that focus on achieving a shared set of Outcomes." ;
+    rdfs:subClassOf          cdm1:Activity ;
+    rdfs:subClassOf          :CityServiceThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasOutcome ;
+        owl:onClass                  :Outcome
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasContributingStakeholder ;
+        owl:onClass                  :Stakeholder
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasService ;
+        owl:onClass                  :Service
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasDescription ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasName ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasInput ;
+        owl:onClass                  :Input
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasBeneficialStakeholder ;
+        owl:onClass                  :Stakeholder
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasOutput ;
+        owl:onClass                  :Output
+    ] ;
+    rdfs:label               "Program"@en ;
+    skos:example             "A \"poverty reduction program” can be made up of a set of Services such as mobiles services that provides food and clothing to those that live on the street, and a training service that provides basic skills for those living on the street. A Program has a set of Stakeholders that may contribute or benefit." .
+
+:Service
+    rdf:type                 owl:Class ;
+    skos:definition          "A Program is composed of one or more Services." ;
+    rdfs:subClassOf          cdm1:Activity ;
+    rdfs:subClassOf          :CityServiceThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasOutcome ;
+        owl:onClass                  :Outcome
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasInput ;
+        owl:onClass                  :Input
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasName ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasDescription ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasContributingStakeholder ;
+        owl:onClass                  :Stakeholder
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasOutput ;
+        owl:onClass                  :Output
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasBeneficialStakeholder ;
+        owl:onClass                  :Stakeholder
+    ] .
+
+:Stakeholder
+    rdf:type                 owl:Class ;
+    skos:definition          "A Stakeholder is an Organization or Person that has an interest in a Program or Service." ;
+    rdfs:subClassOf          :CityServiceThing ;
+    rdfs:subClassOf [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            cdm1:Organization
+            :Person
+        )
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasDescription ;
+        owl:onDataRange              xsd:string
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :performs ;
+        owl:onClass                  cdm1:Activity ;
+        owl:minQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasName ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCatchmentAreaType ;
+        owl:onClass                  :CatchmentAreaType
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCatchmentArea ;
+        owl:onClass                  cdm1:Location
+    ] .
+
+:global-catchmentArea
+    rdf:type                 owl:NamedIndividual .
+
+:high
+    rdf:type                 owl:NamedIndividual .
+
+:local-catchmentArea
+    rdf:type                 owl:NamedIndividual .
+
+:low
+    rdf:type                 owl:NamedIndividual .
+
+:medium
+    rdf:type                 owl:NamedIndividual .
+
+:multinational-catchmentArea
+    rdf:type                 owl:NamedIndividual .
+
+:national-catchmentArea
+    rdf:type                 owl:NamedIndividual .
+
+:negative
+    rdf:type                 owl:NamedIndividual .
+
+:neutral
+    rdf:type                 owl:NamedIndividual .
+
+:positive
+    rdf:type                 owl:NamedIndividual .
+
+:provincial-catchmentArea
+    rdf:type                 owl:NamedIndividual .

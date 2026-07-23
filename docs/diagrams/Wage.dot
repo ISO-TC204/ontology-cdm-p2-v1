@@ -4,20 +4,22 @@ digraph {
 	node [fontname=Arial fontsize=12 margin=0 shape=none]
 	edge [fontname=Arial fontsize=11]
 	{
+		rank=source
+		Compensation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Compensation</TD></TR></TABLE>> URL="../Compensation" margin=0]
+	}
+	Wage [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Wage</TD></TR></TABLE>> URL="../Wage" margin=0]
+	{
 		rank=max
-		Wage [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">Wage</TD></TR></TABLE>> URL="../Wage.md" margin=0]
 	}
 	subgraph cluster_associated {
 		label="" style=invis
 		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
-		cdm1_MonetaryValue [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:MonetaryValue</TD></TR></TABLE>> margin=0]
+		cdm1_MonetaryValue [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:MonetaryValue</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/MonetaryValue" margin=0]
 	}
-	Compensation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Compensation</TD></TR></TABLE>> URL="../Compensation.md" margin=0]
 	Wage -> Compensation [arrowhead=onormal style=solid]
 	Wage -> Invis [style=invis]
 	Invis -> cdm1_MonetaryValue [style=invis]
-	Wage -> cdm1_MonetaryValue [label=" overtimePay 
- «only»  " arrowhead=normal style=solid]
-	Wage -> cdm1_MonetaryValue [label=" hourlyPay 
- «max 1»  " arrowhead=normal style=solid]
+	cdm1_MonetaryValue [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:MonetaryValue</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/MonetaryValue" margin=0]
+	Wage -> cdm1_MonetaryValue [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hourlyPay</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Wage -> cdm1_MonetaryValue [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">overtimePay</TD></TR></TABLE>> arrowhead=normal style=solid]
 }

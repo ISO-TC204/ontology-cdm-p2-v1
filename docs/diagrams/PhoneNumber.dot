@@ -4,18 +4,21 @@ digraph {
 	node [fontname=Arial fontsize=12 margin=0 shape=none]
 	edge [fontname=Arial fontsize=11]
 	{
+		rank=source
+		ContactThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ContactThing</TD></TR></TABLE>> URL="../ContactThing" margin=0]
+	}
+	PhoneNumber [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PhoneNumber</TD></TR><TR><TD ALIGN="LEFT">hasAreaCode : xsd:nonNegativeInteger [1]</TD></TR><TR><TD ALIGN="LEFT">hasCountryCode : xsd:nonNegativeInteger [1]</TD></TR><TR><TD ALIGN="LEFT">hasPhoneNumber : xsd:nonNegativeInteger [1]</TD></TR></TABLE>> URL="../PhoneNumber" margin=0]
+	{
 		rank=max
-		PhoneNumber [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">PhoneNumber</TD></TR><HR/><TR><TD ALIGN="LEFT">«exactly 1» hasAreaCode: xsd:nonNegativeInteger</TD></TR><TR><TD ALIGN="LEFT">«exactly 1» hasCountryCode: xsd:nonNegativeInteger</TD></TR><TR><TD ALIGN="LEFT">«exactly 1» hasPhoneNumber: xsd:nonNegativeInteger</TD></TR></TABLE>> URL="../PhoneNumber.md" margin=0]
 	}
 	subgraph cluster_associated {
 		label="" style=invis
 		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
-		PhoneType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PhoneType</TD></TR></TABLE>> URL="../PhoneType.md" margin=0]
+		PhoneType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PhoneType</TD></TR></TABLE>> URL="../PhoneType" margin=0]
 	}
-	ContactThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ContactThing</TD></TR></TABLE>> URL="../ContactThing.md" margin=0]
 	PhoneNumber -> ContactThing [arrowhead=onormal style=solid]
 	PhoneNumber -> Invis [style=invis]
 	Invis -> PhoneType [style=invis]
-	PhoneNumber -> PhoneType [label=" hasPhoneType 
- «exactly 1»  " arrowhead=normal style=solid]
+	PhoneType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PhoneType</TD></TR></TABLE>> URL="../PhoneType" margin=0]
+	PhoneNumber -> PhoneType [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasPhoneType</TD></TR><TR><TD ALIGN="CENTER">1</TD></TR></TABLE>> arrowhead=normal style=solid]
 }

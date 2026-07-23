@@ -1,0 +1,155 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
+:TransportInfrastructureSHACL
+    rdf:type owl:Ontology ;
+    dcterms:title "City Data Model Part 2 - Transport Infrastructure Pattern - SHACL constraints" ;
+    skos:definition "SHACL validation shapes for the Transport Infrastructure Pattern pattern module." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    owl:imports :TransportInfrastructurePattern ;
+    owl:imports :CoreSHACL .
+
+:BridgeShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Bridge ;
+    sh:property [
+        sh:path :supports ;
+        sh:class :TravelledWaySegment
+    ] ;
+    sh:property [
+        sh:path cdm1:hasProperPart ;
+        sh:class :BridgeSegment
+    ] .
+
+:BridgeSegmentShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :BridgeSegment ;
+    sh:property [
+        sh:path :supports ;
+        sh:class :TravelledWaySegment
+    ] .
+
+:RailLineShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :RailLine ;
+    sh:property [
+        sh:path cdm1:aggregationOf ;
+        sh:class :RailLink
+    ] .
+
+:RailLinkShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :RailLink ;
+    sh:property [
+        sh:path cdm1:aggregateOf ;
+        sh:class :RailLine
+    ] .
+
+:RailSegmentShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :RailSegment ;
+    sh:property [
+        sh:path cdm1:properPartOf ;
+        sh:node :MinOneShape ;
+        sh:class :RailLink
+    ] .
+
+:RoadShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Road ;
+    sh:property [
+        sh:path cdm1:aggregationOf ;
+        sh:class :RoadLink
+    ] .
+
+:RoadLinkShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :RoadLink ;
+    sh:property [
+        sh:path cdm1:aggregateOf ;
+        sh:class :Road
+    ] .
+
+:RoadNetworkTypeShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :RoadNetworkType ;
+    sh:property [
+        sh:path :hasCode ;
+        sh:class :Code
+    ] .
+
+:RoadSegmentShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :RoadSegment ;
+    sh:property [
+        sh:path cdm1:properPartOf ;
+        sh:node :MinOneShape ;
+        sh:class :RoadLink
+    ] ;
+    sh:property [
+        sh:path :networkType ;
+        sh:class :RoadNetworkType
+    ] .
+
+:TravelledWayShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :TravelledWay ;
+    sh:property [
+        sh:path cdm1:aggregationOf ;
+        sh:class :TravelledWayLink
+    ] .
+
+:TravelledWayLinkShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :TravelledWayLink ;
+    sh:property [
+        sh:path cdm1:aggregateOf ;
+        sh:class :TravelledWay
+    ] .
+
+:TravelledWaySegmentShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :TravelledWaySegment ;
+    sh:property [
+        sh:path cdm1:aggregateOf ;
+        sh:node :MinOneShape ;
+        sh:class :TravelledWayLink
+    ] .
+
+:TunnelShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Tunnel ;
+    sh:property [
+        sh:path cdm1:hasProperPart ;
+        sh:class :TunnelSegment
+    ] ;
+    sh:property [
+        sh:path :supports ;
+        sh:class :TravelledWaySegment
+    ] .
+
+:TunnelSegmentShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :TunnelSegment ;
+    sh:property [
+        sh:path :supports ;
+        sh:class :TravelledWaySegment
+    ] .

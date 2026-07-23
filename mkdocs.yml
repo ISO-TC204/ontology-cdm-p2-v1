@@ -3,155 +3,398 @@ site_description: This ontology specifies the city-level concepts of the city da
   model.
 repo_url: https://github.com/ISO-TC204/ontology-cdm-p2-v1
 nav:
-- Home: index.md
-- 5087-2:
-  - 5087-2: 5087-2.md
-- Alert Pattern:
-  - Alert Pattern: AlertPattern.md
-  - Alert: Alert.md
-  - Alert Thing: AlertThing.md
-- Building Pattern:
-  - Building Pattern: BuildingPattern.md
-  - Area Ratio: AreaRatio.md
-  - Building: Building.md
-  - Building Thing: BuildingThing.md
-  - Building Unit: BuildingUnit.md
-  - Building Use: BuildingUse.md
-  - Construction Status: ConstructionStatus.md
-  - Facility: Facility.md
-  - Year: Year.md
-- Bylaw Pattern:
-  - Bylaw Pattern: BylawPattern.md
-  - Amending Bylaw: AmendingBylaw.md
-  - Bylaw: Bylaw.md
-  - Bylaw Thing: BylawThing.md
-  - Clause: Clause.md
-  - Definition: Definition.md
-  - Jurisdictional Area (BylawPattern): JurisdictionalArea.md
-  - Law: Law.md
-  - Main Bylaw: MainBylaw.md
-  - Revision Bylaw: RevisionBylaw.md
-  - Schedule: Schedule.md
-- City Pattern:
-  - City Pattern: CityPattern.md
-  - City: City.md
-  - City Administrative Area: CityAdministrativeArea.md
-  - City Pattern Thing: CityPatternThing.md
-  - Jurisdictional Area (CityPattern): JurisdictionalArea.md
-- City Resident Pattern:
-  - City Resident Pattern: CityResidentPattern.md
-  - City Resident: CityResident.md
-  - City Resident Thing: CityResidentThing.md
-  - Controlled Entity: ControlledEntity.md
-  - Entity Operation: EntityOperation.md
-  - Entity Ownership: EntityOwnership.md
-  - Home Type: HomeType.md
-  - Residence: Residence.md
-  - Residential Relationship: ResidentialRelationship.md
-- City Service Pattern:
-  - City Service Pattern: CityServicePattern.md
-  - Catchment Area Type: CatchmentAreaType.md
-  - City Service Thing: CityServiceThing.md
-  - Impact Direction: ImpactDirection.md
-  - Importance: Importance.md
-  - Input: Input.md
-  - Outcome: Outcome.md
-  - Output: Output.md
-  - Program: Program.md
-  - Service: Service.md
-  - Stakeholder: Stakeholder.md
-- Code Pattern:
-  - Code Pattern: CodePattern.md
-  - Code: Code.md
-  - Code Thing: CodeThing.md
-- Contact Pattern:
-  - Contact Pattern: ContactPattern.md
-  - Address: Address.md
-  - Address Type: AddressType.md
-  - Contact Thing: ContactThing.md
-  - Country: Country.md
-  - Phone Number: PhoneNumber.md
-  - Phone Type: PhoneType.md
-  - State: State.md
-  - Street Direction: StreetDirection.md
-  - Street Type: StreetType.md
-- Contract Pattern:
-  - Contract Pattern: ContractPattern.md
-  - Condition Precedent: ConditionPrecedent.md
-  - Contract: Contract.md
-  - Contract Thing: ContractThing.md
-  - Contractual Commitment: ContractualCommitment.md
-  - Contractual Definition: ContractualDefinition.md
-  - Contractual Element: ContractualElement.md
-  - Non Binding Term: NonBindingTerm.md
-  - Representation: Representation.md
-  - Warranty: Warranty.md
-- Core:
-  - Core: Core.md
-  - City Thing: CityThing.md
-- Household Pattern:
-  - Household Pattern: HouseholdPattern.md
-  - Household: Household.md
-  - Household Thing: HouseholdThing.md
-- Infrastructure Pattern:
-  - Infrastructure Pattern: InfrastructurePattern.md
-  - Infrastructure Element: InfrastructureElement.md
-  - Infrastructure Thing: InfrastructureThing.md
-- Land Use Pattern:
-  - Land Use Pattern: LandUsePattern.md
-  - Land Area: LandArea.md
-  - Land Use Classification: LandUseClassification.md
-  - Land Use Thing: LandUseThing.md
-- Organization Pattern:
-  - Organization Pattern: OrganizationPattern.md
-  - Business Establishment: BusinessEstablishment.md
-  - City Org Thing: CityOrgThing.md
-  - Compensation: Compensation.md
-  - Employment: Employment.md
-  - Employment Status: EmploymentStatus.md
-  - For Profit Organization: ForProfitOrganization.md
-  - Goal: Goal.md
-  - Government Organization: GovernmentOrganization.md
-  - Industry Type: IndustryType.md
-  - Jurisdictional Area (OrganizationPattern): JurisdictionalArea.md
-  - Non Profit Organization: NonProfitOrganization.md
-  - Occupation: Occupation.md
-  - Operation: Operation.md
-  - Organization: Organization.md
-  - Organization Agent: OrganizationAgent.md
-  - Role: Role.md
-  - Salary: Salary.md
-  - Wage: Wage.md
-- Person Pattern:
-  - Person Pattern: PersonPattern.md
-  - Citizenship: Citizenship.md
-  - Education: Education.md
-  - Gender: Gender.md
-  - ID Type: IDType.md
-  - Name: Name.md
-  - Person: Person.md
-  - Person Id: PersonId.md
-  - Person Name: PersonName.md
-  - Person Thing: PersonThing.md
-  - Sex: Sex.md
-  - Skill: Skill.md
-- Transport Infrastructure Pattern:
-  - Transport Infrastructure Pattern: TransportInfrastructurePattern.md
-  - Bridge: Bridge.md
-  - Bridge Segment: BridgeSegment.md
-  - Rail Line: RailLine.md
-  - Rail Link: RailLink.md
-  - Rail Segment: RailSegment.md
-  - Road: Road.md
-  - Road Link: RoadLink.md
-  - Road Network Type: RoadNetworkType.md
-  - Road Segment: RoadSegment.md
-  - Transport Infrastructure Thing: TransportInfrastructureThing.md
-  - Travelled Way: TravelledWay.md
-  - Travelled Way Link: TravelledWayLink.md
-  - Travelled Way Segment: TravelledWaySegment.md
-  - Tunnel: Tunnel.md
-  - Tunnel Segment: TunnelSegment.md
+- TC204 on ISO.org: https://www.iso.org/committee/54706.html
+- TC 204 Home: https://isotc204.org/
+- RITSO Home: https://isotc204.org/ritso/
+- City Data Model (CDM) - City-level concepts:
+  - Home: index.md
+  - Alert Pattern:
+    - Alert Pattern Overview: classes/AlertPattern.md
+    - Classes:
+      - Alert: classes/Alert.md
+      - Alert Thing: classes/AlertThing.md
+    - Properties:
+      - activities: properties/activities.md
+      - AlertDataProperty: properties/AlertDataProperty.md
+      - AlertObjectProperty: properties/AlertObjectProperty.md
+      - beginInstant: properties/beginInstant.md
+      - category: properties/category.md
+      - cause: properties/cause.md
+      - certainty: properties/certainty.md
+      - creationInstant: properties/creationInstant.md
+      - distribution: properties/distribution.md
+      - effect: properties/effect.md
+      - endInstant: properties/endInstant.md
+      - expiryInstant: properties/expiryInstant.md
+      - headline: properties/headline.md
+      - issuer: properties/issuer.md
+      - lastUpdateInstant: properties/lastUpdateInstant.md
+      - location: properties/location.md
+      - recommendation: properties/recommendation.md
+      - referencedAlert: properties/referencedAlert.md
+      - resources: properties/resources.md
+      - severity: properties/severity.md
+      - status: properties/status.md
+      - urgency: properties/urgency.md
+      - website: properties/website.md
+  - Building Pattern:
+    - Building Pattern Overview: classes/BuildingPattern.md
+    - Classes:
+      - Area Ratio: classes/AreaRatio.md
+      - Building: classes/Building.md
+      - Building Thing: classes/BuildingThing.md
+      - Building Unit: classes/BuildingUnit.md
+      - Building Use: classes/BuildingUse.md
+      - Construction Status: classes/ConstructionStatus.md
+      - Facility: classes/Facility.md
+      - Year: classes/Year.md
+    - Properties:
+      - BuildingDataProperty: properties/BuildingDataProperty.md
+      - buildingFacility: properties/buildingFacility.md
+      - BuildingObjectProperty: properties/BuildingObjectProperty.md
+      - builtAccordingToConstructionCode: properties/builtAccordingToConstructionCode.md
+      - floorAreaRatio: properties/floorAreaRatio.md
+      - floorToCeilingHeight: properties/floorToCeilingHeight.md
+      - hasBuildingFloorArea: properties/hasBuildingFloorArea.md
+      - hasBuildingFootprintArea: properties/hasBuildingFootprintArea.md
+      - hasBuildingHeight: properties/hasBuildingHeight.md
+      - hasBuildingUnit: properties/hasBuildingUnit.md
+      - hasConstructionStatus: properties/hasConstructionStatus.md
+      - hasRent: properties/hasRent.md
+      - hasUnitSize: properties/hasUnitSize.md
+      - numAboveGroundFloors: properties/numAboveGroundFloors.md
+      - numberOfBedrooms: properties/numberOfBedrooms.md
+      - numberOfRooms: properties/numberOfRooms.md
+      - numBuildingUnits: properties/numBuildingUnits.md
+      - numFloors: properties/numFloors.md
+      - propertyRegistrationID: properties/propertyRegistrationID.md
+      - unitInBuilding: properties/unitInBuilding.md
+      - use: properties/use.md
+      - windowToWallRatio: properties/windowToWallRatio.md
+      - yearOfConstruction: properties/yearOfConstruction.md
+  - Bylaw Pattern:
+    - Bylaw Pattern Overview: classes/BylawPattern.md
+    - Classes:
+      - Amending Bylaw: classes/AmendingBylaw.md
+      - Bylaw: classes/Bylaw.md
+      - Bylaw Thing: classes/BylawThing.md
+      - Bylaw Type Code: classes/BylawTypeCode.md
+      - Clause: classes/Clause.md
+      - Definition: classes/Definition.md
+      - Jurisdictional Area: classes/JurisdictionalArea.md
+      - Law: classes/Law.md
+      - Legislation Legal Force Code: classes/LegislationLegalForceCode.md
+      - Main Bylaw: classes/MainBylaw.md
+      - Revision Bylaw: classes/RevisionBylaw.md
+      - Schedule: classes/Schedule.md
+    - Properties:
+      - abstract: properties/abstract.md
+      - BylawDataProperty: properties/BylawDataProperty.md
+      - BylawObjectProperty: properties/BylawObjectProperty.md
+      - clauseType: properties/clauseType.md
+      - dateInEffect: properties/dateInEffect.md
+      - datePublished: properties/datePublished.md
+      - expires: properties/expires.md
+      - hasBylaw: properties/hasBylaw.md
+      - hasClause: properties/hasClause.md
+      - hasDefinition: properties/hasDefinition.md
+      - hasPenaltyClause: properties/hasPenaltyClause.md
+      - hasRepealClause: properties/hasRepealClause.md
+      - hasSchedule: properties/hasSchedule.md
+      - hasSeveranceClause: properties/hasSeveranceClause.md
+      - hasTransitionClause: properties/hasTransitionClause.md
+      - impacts: properties/impacts.md
+      - keywords: properties/keywords.md
+      - legislationChanges: properties/legislationChanges.md
+      - legislationDate: properties/legislationDate.md
+      - legislationIdentifier: properties/legislationIdentifier.md
+      - legislationJurisdiction: properties/legislationJurisdiction.md
+      - legislationLegalForce: properties/legislationLegalForce.md
+      - legislationType: properties/legislationType.md
+  - City Pattern:
+    - City Pattern Overview: classes/CityPattern.md
+    - Classes:
+      - City: classes/City.md
+      - City Administrative Area: classes/CityAdministrativeArea.md
+      - City Pattern Thing: classes/CityPatternThing.md
+      - Jurisdictional Area: classes/JurisdictionalArea.md
+    - Properties:
+      - administrativeArea: properties/administrativeArea.md
+      - administrativeAreaOf: properties/administrativeAreaOf.md
+      - CityPatternDataProperty: properties/CityPatternDataProperty.md
+      - CityPatternObjectProperty: properties/CityPatternObjectProperty.md
+      - legalName: properties/legalName.md
+      - residentPopulation: properties/residentPopulation.md
+  - City Resident Pattern:
+    - City Resident Pattern Overview: classes/CityResidentPattern.md
+    - Classes:
+      - City Resident: classes/CityResident.md
+      - City Resident Thing: classes/CityResidentThing.md
+      - Controlled Entity: classes/ControlledEntity.md
+      - Entity Operation: classes/EntityOperation.md
+      - Entity Ownership: classes/EntityOwnership.md
+      - Home Type: classes/HomeType.md
+      - Residence: classes/Residence.md
+      - Residential Relationship: classes/ResidentialRelationship.md
+    - Properties:
+      - CityResidentDataProperty: properties/CityResidentDataProperty.md
+      - CityResidentObjectProperty: properties/CityResidentObjectProperty.md
+      - entity: properties/entity.md
+      - forCity: properties/forCity.md
+      - hasHomeType: properties/hasHomeType.md
+      - hasResidence: properties/hasResidence.md
+      - hasResidentialRelationship: properties/hasResidentialRelationship.md
+      - operates: properties/operates.md
+      - owns: properties/owns.md
+      - percentOwnership: properties/percentOwnership.md
+      - residentOf: properties/residentOf.md
+  - City Service Pattern:
+    - City Service Pattern Overview: classes/CityServicePattern.md
+    - Classes:
+      - Catchment Area Type: classes/CatchmentAreaType.md
+      - City Service Thing: classes/CityServiceThing.md
+      - Impact Direction: classes/ImpactDirection.md
+      - Importance: classes/Importance.md
+      - Input: classes/Input.md
+      - Outcome: classes/Outcome.md
+      - Output: classes/Output.md
+      - Program: classes/Program.md
+      - Service: classes/Service.md
+      - Stakeholder: classes/Stakeholder.md
+    - Properties:
+      - CityServiceObjectProperty: properties/CityServiceObjectProperty.md
+      - fromPerspectiveOf: properties/fromPerspectiveOf.md
+      - hasBeneficialStakeholder: properties/hasBeneficialStakeholder.md
+      - hasCatchmentArea: properties/hasCatchmentArea.md
+      - hasCatchmentAreaType: properties/hasCatchmentAreaType.md
+      - hasContributingStakeholder: properties/hasContributingStakeholder.md
+      - hasImportance: properties/hasImportance.md
+      - hasIndicator: properties/hasIndicator.md
+      - hasInput: properties/hasInput.md
+      - hasOutcome: properties/hasOutcome.md
+      - hasOutput: properties/hasOutput.md
+      - hasService: properties/hasService.md
+      - intendedImpact: properties/intendedImpact.md
+      - performs: properties/performs.md
+      - usedByIndicator: properties/usedByIndicator.md
+  - Code Pattern:
+    - Code Pattern Overview: classes/CodePattern.md
+    - Classes:
+      - Code: classes/Code.md
+      - Code Thing: classes/CodeThing.md
+    - Properties:
+      - CodeDataProperty: properties/CodeDataProperty.md
+      - CodeObjectProperty: properties/CodeObjectProperty.md
+      - definedBy: properties/definedBy.md
+      - hasCode: properties/hasCode.md
+      - specification: properties/specification.md
+  - Contact Pattern:
+    - Contact Pattern Overview: classes/ContactPattern.md
+    - Classes:
+      - Address: classes/Address.md
+      - Address Type: classes/AddressType.md
+      - Contact Thing: classes/ContactThing.md
+      - Country: classes/Country.md
+      - Phone Number: classes/PhoneNumber.md
+      - Phone Type: classes/PhoneType.md
+      - State: classes/State.md
+      - Street Direction: classes/StreetDirection.md
+      - Street Type: classes/StreetType.md
+    - Properties:
+      - AddressDataProperty: properties/AddressDataProperty.md
+      - AddressProperty: properties/AddressProperty.md
+      - buildingName: properties/buildingName.md
+      - ContactDataProperty: properties/ContactDataProperty.md
+      - ContactObjectProperty: properties/ContactObjectProperty.md
+      - hasAddress: properties/hasAddress.md
+      - hasAddressType: properties/hasAddressType.md
+      - hasAreaCode: properties/hasAreaCode.md
+      - hasCity: properties/hasCity.md
+      - hasCitySection: properties/hasCitySection.md
+      - hasCountry: properties/hasCountry.md
+      - hasCountryCode: properties/hasCountryCode.md
+      - hasEmail: properties/hasEmail.md
+      - hasPhoneNumber: properties/hasPhoneNumber.md
+      - hasPhoneType: properties/hasPhoneType.md
+      - hasPostalBox: properties/hasPostalBox.md
+      - hasPostalCode: properties/hasPostalCode.md
+      - hasProvince: properties/hasProvince.md
+      - hasState: properties/hasState.md
+      - hasStreet: properties/hasStreet.md
+      - hasStreetDirection: properties/hasStreetDirection.md
+      - hasStreetNumber: properties/hasStreetNumber.md
+      - hasStreetType: properties/hasStreetType.md
+      - hasTelephone: properties/hasTelephone.md
+      - hasUnitNumber: properties/hasUnitNumber.md
+      - maxStreetNumber: properties/maxStreetNumber.md
+      - minStreetNumber: properties/minStreetNumber.md
+      - TelephoneDataProperty: properties/TelephoneDataProperty.md
+  - Contract Pattern:
+    - Contract Pattern Overview: classes/ContractPattern.md
+    - Classes:
+      - Condition Precedent: classes/ConditionPrecedent.md
+      - Contract: classes/Contract.md
+      - Contract Thing: classes/ContractThing.md
+      - Contractual Commitment: classes/ContractualCommitment.md
+      - Contractual Definition: classes/ContractualDefinition.md
+      - Contractual Element: classes/ContractualElement.md
+      - Non Binding Term: classes/NonBindingTerm.md
+      - Representation: classes/Representation.md
+      - Warranty: classes/Warranty.md
+    - Properties:
+      - ContractDataProperty: properties/ContractDataProperty.md
+      - ContractObjectProperty: properties/ContractObjectProperty.md
+      - contractualElementOf: properties/contractualElementOf.md
+      - hasContract: properties/hasContract.md
+      - hasContractText: properties/hasContractText.md
+      - hasContractualElement: properties/hasContractualElement.md
+      - hasParty: properties/hasParty.md
+      - hasSignatory: properties/hasSignatory.md
+      - isExecutedOn: properties/isExecutedOn.md
+      - isValidFor: properties/isValidFor.md
+      - specifiesAgreement: properties/specifiesAgreement.md
+  - Core Pattern:
+    - Core Pattern Overview: classes/CorePattern.md
+    - Classes:
+      - City Thing: classes/CityThing.md
+    - Properties:
+      - CityDataProperty: properties/CityDataProperty.md
+      - CityObjectProperty: properties/CityObjectProperty.md
+  - Household Pattern:
+    - Household Pattern Overview: classes/HouseholdPattern.md
+    - Classes:
+      - Household: classes/Household.md
+      - Household Thing: classes/HouseholdThing.md
+    - Properties:
+      - HouseholdObjectProperty: properties/HouseholdObjectProperty.md
+      - householdOccupies: properties/householdOccupies.md
+  - Infrastructure Pattern:
+    - Infrastructure Pattern Overview: classes/InfrastructurePattern.md
+    - Classes:
+      - Infrastructure Element: classes/InfrastructureElement.md
+      - Infrastructure Thing: classes/InfrastructureThing.md
+  - Land Use Pattern:
+    - Land Use Pattern Overview: classes/LandUsePattern.md
+    - Classes:
+      - Land Area: classes/LandArea.md
+      - Land Use Classification: classes/LandUseClassification.md
+      - Land Use Thing: classes/LandUseThing.md
+    - Properties:
+      - hasArea: properties/hasArea.md
+      - hasLandArea: properties/hasLandArea.md
+      - hasPopulation: properties/hasPopulation.md
+      - landUse: properties/landUse.md
+      - LandUseObjectProperty: properties/LandUseObjectProperty.md
+  - Organization Pattern:
+    - Organization Pattern Overview: classes/OrganizationPattern.md
+    - Classes:
+      - Business Establishment: classes/BusinessEstablishment.md
+      - City Org Thing: classes/CityOrgThing.md
+      - Compensation: classes/Compensation.md
+      - Employment: classes/Employment.md
+      - Employment Status: classes/EmploymentStatus.md
+      - For Profit Organization: classes/ForProfitOrganization.md
+      - Goal: classes/Goal.md
+      - Government Organization: classes/GovernmentOrganization.md
+      - Industry Type: classes/IndustryType.md
+      - Jurisdictional Area: classes/JurisdictionalArea.md
+      - Non Profit Organization: classes/NonProfitOrganization.md
+      - Occupation: classes/Occupation.md
+      - Operation: classes/Operation.md
+      - Organization: classes/Organization.md
+      - Organization Agent: classes/OrganizationAgent.md
+      - Role: classes/Role.md
+      - Salary: classes/Salary.md
+      - Wage: classes/Wage.md
+    - Properties:
+      - annualPay: properties/annualPay.md
+      - CityOrgDataProperty: properties/CityOrgDataProperty.md
+      - CityOrgObjectProperty: properties/CityOrgObjectProperty.md
+      - employedAs: properties/employedAs.md
+      - employedBy: properties/employedBy.md
+      - hasClosingTime: properties/hasClosingTime.md
+      - hasCompensation: properties/hasCompensation.md
+      - hasEmployment: properties/hasEmployment.md
+      - hasEmploymentStatus: properties/hasEmploymentStatus.md
+      - hasEstablishment: properties/hasEstablishment.md
+      - hasGoal: properties/hasGoal.md
+      - hasGovernment: properties/hasGovernment.md
+      - hasIndustryType: properties/hasIndustryType.md
+      - hasOpeningTime: properties/hasOpeningTime.md
+      - hasPay: properties/hasPay.md
+      - hasProcess: properties/hasProcess.md
+      - hasProgram: properties/hasProgram.md
+      - hasResource: properties/hasResource.md
+      - hourlyPay: properties/hourlyPay.md
+      - jurisdiction: properties/jurisdiction.md
+      - operatingHours: properties/operatingHours.md
+      - orgAddress: properties/orgAddress.md
+      - overtimePay: properties/overtimePay.md
+      - playsRole: properties/playsRole.md
+  - Person Pattern:
+    - Person Pattern Overview: classes/PersonPattern.md
+    - Classes:
+      - Citizenship: classes/Citizenship.md
+      - Education: classes/Education.md
+      - Gender: classes/Gender.md
+      - Id Type: classes/IDType.md
+      - Name: classes/Name.md
+      - Person: classes/Person.md
+      - Person Id: classes/PersonId.md
+      - Person Name: classes/PersonName.md
+      - Person Thing: classes/PersonThing.md
+      - Sex: classes/Sex.md
+      - Skill: classes/Skill.md
+    - Properties:
+      - additionalName: properties/additionalName.md
+      - alias: properties/alias.md
+      - birthDate: properties/birthDate.md
+      - birthplace: properties/birthplace.md
+      - children: properties/children.md
+      - citizenOf: properties/citizenOf.md
+      - deathDate: properties/deathDate.md
+      - deathPlace: properties/deathPlace.md
+      - familyName: properties/familyName.md
+      - forCountry: properties/forCountry.md
+      - givenName: properties/givenName.md
+      - hasEducation: properties/hasEducation.md
+      - hasGenderIdentity: properties/hasGenderIdentity.md
+      - hasIDType: properties/hasIDType.md
+      - hasPersonID: properties/hasPersonID.md
+      - hasQualification: properties/hasQualification.md
+      - hasSkill: properties/hasSkill.md
+      - income: properties/income.md
+      - issuedBy: properties/issuedBy.md
+      - name: properties/name.md
+      - parent: properties/parent.md
+      - PersonDataProperty: properties/PersonDataProperty.md
+      - PersonObjectProperty: properties/PersonObjectProperty.md
+      - photoID: properties/photoID.md
+      - sex: properties/sex.md
+      - spouse: properties/spouse.md
+      - validityPeriod: properties/validityPeriod.md
+  - Transport Infrastructure Pattern:
+    - Transport Infrastructure Pattern Overview: classes/TransportInfrastructurePattern.md
+    - Classes:
+      - Bridge: classes/Bridge.md
+      - Bridge Segment: classes/BridgeSegment.md
+      - Rail Line: classes/RailLine.md
+      - Rail Link: classes/RailLink.md
+      - Rail Segment: classes/RailSegment.md
+      - Road: classes/Road.md
+      - Road Link: classes/RoadLink.md
+      - Road Network Type: classes/RoadNetworkType.md
+      - Road Segment: classes/RoadSegment.md
+      - Transport Infrastructure Thing: classes/TransportInfrastructureThing.md
+      - Travelled Way: classes/TravelledWay.md
+      - Travelled Way Link: classes/TravelledWayLink.md
+      - Travelled Way Segment: classes/TravelledWaySegment.md
+      - Tunnel: classes/Tunnel.md
+      - Tunnel Segment: classes/TunnelSegment.md
+    - Properties:
+      - networkType: properties/networkType.md
+      - supports: properties/supports.md
+      - TransportInfrastructureObjectProperty: properties/TransportInfrastructureObjectProperty.md
 site_url: https://isotc204.org/ontology-cdm-p2-v1
 copyright: <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank"
@@ -167,6 +410,8 @@ theme:
   - content.tooltips
   - icons
   - navigation.path
+  - navigation.tabs
+  - navigation.tabs.sticky
   - navigation.top
   icon:
     repo: fontawesome/brands/github
