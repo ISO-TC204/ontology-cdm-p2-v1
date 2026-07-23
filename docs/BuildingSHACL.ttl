@@ -1,0 +1,170 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
+:BuildingSHACL
+    rdf:type owl:Ontology ;
+    dcterms:title "City Data Model Part 2 - Building Pattern - SHACL constraints" ;
+    skos:definition "SHACL validation shapes for the Building Pattern pattern module." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    owl:imports :BuildingPattern ;
+    owl:imports :CoreSHACL .
+
+:BuildingShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Building ;
+    sh:property [
+        sh:path :propertyRegistrationID ;
+        sh:node :MaxOneShape
+    ] ;
+    sh:property [
+        sh:path :buildingFacility ;
+        sh:class :Facility
+    ] ;
+    sh:property [
+        sh:path :numAboveGroundFloors ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:nonNegativeInteger
+    ] ;
+    sh:property [
+        sh:path :hasBuildingFloorArea ;
+        sh:class cdm1:Area
+    ] ;
+    sh:property [
+        sh:path :hasConstructionStatus ;
+        sh:node :MaxOneShape ;
+        sh:class :ConstructionStatus
+    ] ;
+    sh:property [
+        sh:path :numFloors ;
+        sh:node :ExactlyOneShape ;
+        sh:datatype xsd:nonNegativeInteger
+    ] ;
+    sh:property [
+        sh:path :windowToWallRatio ;
+        sh:node :MaxOneShape ;
+        sh:class :AreaRatio
+    ] ;
+    sh:property [
+        sh:path :hasBuildingFootprintArea ;
+        sh:class cdm1:Area
+    ] ;
+    sh:property [
+        sh:path :numBuildingUnits ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:nonNegativeInteger
+    ] ;
+    sh:property [
+        sh:path :builtAccordingToConstructionCode ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :use ;
+        sh:class :BuildingUse
+    ] ;
+    sh:property [
+        sh:path :yearOfConstruction ;
+        sh:node :MaxOneShape ;
+        sh:class :Year
+    ] ;
+    sh:property [
+        sh:path :hasBuildingHeight ;
+        sh:class cdm1:Length
+    ] ;
+    sh:property [
+        sh:path :hasBuildingUnit ;
+        sh:class :BuildingUnit
+    ] ;
+    sh:property [
+        sh:path :floorAreaRatio ;
+        sh:node :MaxOneShape ;
+        sh:class :AreaRatio
+    ] .
+
+:BuildingUnitShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :BuildingUnit ;
+    sh:property [
+        sh:path :numberOfRooms ;
+        sh:datatype xsd:nonNegativeInteger
+    ] ;
+    sh:property [
+        sh:path :hasUnitSize ;
+        sh:class cdm1:Area
+    ] ;
+    sh:property [
+        sh:path :unitInBuilding ;
+        sh:node :ExactlyOneShape ;
+        sh:class :Building
+    ] ;
+    sh:property [
+        sh:path :hasRent ;
+        sh:class cdm1:MonetaryValue
+    ] ;
+    sh:property [
+        sh:path :numberOfBedrooms ;
+        sh:datatype xsd:nonNegativeInteger
+    ] ;
+    sh:property [
+        sh:path :buildingFacility ;
+        sh:class :Facility
+    ] ;
+    sh:property [
+        sh:path cdm1:existsAt ;
+        sh:node :ExactlyOneShape ;
+        sh:class time:TemporalEntity
+    ] ;
+    sh:property [
+        sh:path :hasAddress ;
+        sh:class :Address
+    ] ;
+    sh:property [
+        sh:path :floorToCeilingHeight ;
+        sh:class cdm1:Length
+    ] ;
+    sh:property [
+        sh:path i72:hasValue ;
+        sh:class cdm1:MonetaryValue
+    ] .
+
+:BuildingUseShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :BuildingUse ;
+    sh:property [
+        sh:path :hasCode ;
+        sh:class :Code
+    ] .
+
+:ConstructionStatusShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :ConstructionStatus ;
+    sh:property [
+        sh:path :hasCode ;
+        sh:class :Code
+    ] .
+
+:FacilityShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Facility ;
+    sh:property [
+        sh:path cdm1:hasLocation ;
+        sh:node :ExactlyOneShape ;
+        sh:class cdm1:Location
+    ] .

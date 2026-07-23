@@ -1,0 +1,283 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
+:CityResidentPattern
+    dcterms:title            "Information technology - City data model - Part 2: City level concepts - City resident pattern" ;
+    skos:definition          "This ontology specifies the city-level concepts for the city resident pattern of the city data model. As different cities have different definitions of who is that city's Resident, the City Resident Pattern must contain the properties required by each.  Central to all of the definitions is the concept of residing. Variously referred to as a home or domicile in which the resident spends significant amounts of time.  They may own it, rent it or just stay in it.  Legally, “reside means to dwell permanently or continuously. It expresses an idea that a person keeps or returns to a particular dwelling place as his fixed, settled, or legal abode. The meaning of reside implies a continuous arrangement” ; reside has both a temporal and spatial dimension. The city of Toronto's definition of a city resident includes the concept of owning property or owning or operating a business in the city. For Beijing, nationality is a unique aspect." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    dcterms:creator          "Kenneth Vaughn" ;
+    dcterms:creator          "Mark Fox" ;
+    dcterms:creator          "Megan Katsumi" ;
+    dcterms:bibliographicCitation "ISO/IEC 5087-2:2024" ;
+    rdfs:seeAlso             <https://www.iso.org/standard/80742.html> ;
+    rdfs:comment             "The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024." ;
+    owl:priorVersion         <https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/CityResident/> ;
+    dcterms:modified         "2026-02-12"^^xsd:date ;
+    owl:versionInfo          "1.3.0" ;
+    owl:versionIRI           <https://w3id.org/citydata/part2/v1/CityResidentPattern/r3.0/> ;
+    cc:license               "http://creativecommons.org/licenses/by/4.0/" ;
+    owl:imports              :BuildingPattern ;
+    owl:imports              :OrganizationPattern ;
+    rdf:type                 owl:Ontology .
+
+:CityResidentDataProperty
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :CityDataProperty ;
+    skos:definition          "Added for organizational purposes, to identify data properties defined in the City Resident Pattern." .
+
+:CityResidentObjectProperty
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityObjectProperty ;
+    skos:definition          "Added for organizational purposes, to identify object properties defined for the City Resident Pattern in the City-level CDM ontology." .
+
+:entity
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityResidentObjectProperty ;
+    skos:definition          "Identifies an entity that is the subject domain object." ;
+    skos:example             "In the context of a ControlledEntity, the entity property would identify the entity being controlled." .
+
+:forCity
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityResidentObjectProperty ;
+    skos:definition          "Identifies the City of the residence." ;
+    rdfs:domain              :Residence ;
+    rdfs:range               :City .
+
+:hasHomeType
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityResidentObjectProperty ;
+    skos:definition          "Identifies the type of home." ;
+    rdfs:domain              :Residence ;
+    rdfs:range               :HomeType ;
+    skos:example             "house, apartment, or shelter" .
+
+:hasResidence
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityResidentObjectProperty ;
+    skos:definition          "Specifies a Residence of a CityResident." ;
+    rdfs:domain              :CityResident ;
+    rdfs:range               :Residence .
+
+:hasResidentialRelationship
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityResidentObjectProperty ;
+    skos:definition          "Specifies the type of residential relationship that exists." ;
+    rdfs:domain              :Residence ;
+    rdfs:range               :ResidentialRelationship ;
+    skos:example             "ownership, rental" .
+
+:operates
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityResidentObjectProperty ;
+    skos:definition          "Specifies an EntityOperation where the entity is an Organization that the resident operates." ;
+    rdfs:domain              :CityResident ;
+    rdfs:range               :EntityOperation .
+
+:owns
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityResidentObjectProperty ;
+    skos:definition          "Identifies an entity that is owned by another entity." ;
+    rdfs:range               :EntityOwnership .
+
+:percentOwnership
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :CityResidentDataProperty ;
+    skos:definition          "Specifies the percentage of ownership that an entity has in another entity." ;
+    rdfs:domain              :EntityOwnership ;
+    rdfs:range               xsd:decimal .
+
+:residentOf
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityResidentObjectProperty ;
+    skos:definition          "Identifies the JurisdictionalArea that a CityResident is a resident." ;
+    rdfs:domain              :CityResident ;
+    rdfs:range               :JurisdictionalArea .
+
+:CityResident
+    rdf:type                 owl:Class ;
+    skos:definition          "A City Resident is a Person who satisfies the requirements of being a city resident for the particular City." ;
+    rdfs:subClassOf          :CityResidentThing ;
+    rdfs:subClassOf          :Person ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :owns ;
+        owl:onClass                  :EntityOwnership
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasResidence ;
+        owl:onClass                  :Residence
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :operates ;
+        owl:onClass                  :EntityOperation
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :residentOf ;
+        owl:onClass                  :JurisdictionalArea
+    ] ;
+    skos:note                "Different cities have different definitions of who is that city's Resident, the City Resident Pattern contains the core properties required by each. For example, the city of Toronto's definition of a city resident includes the concept of owning property or owning or operating a business in the city. For Beijing, nationality is a unique aspect. Central to all the definitions is the concept of residing. " .
+
+:CityResidentThing
+    rdf:type                 owl:Class ;
+    skos:definition          "Added for organizational purposes, to identify classes defined in the City Resident ontology." ;
+    rdfs:subClassOf          :CityThing .
+
+:ControlledEntity
+    rdf:type                 owl:Class ;
+    skos:definition          "A controlled entity is an entity that is subject to control by another entity." ;
+    rdfs:subClassOf          :CityResidentThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :entity ;
+        owl:onClass                  owl:Thing ;
+        owl:minQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               time:hasTime ;
+        owl:onClass                  time:ProperInterval ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
+
+:EntityOperation
+    rdf:type                 owl:Class ;
+    skos:definition          "Activity of operating an Organization by City Resident." ;
+    rdfs:subClassOf          :ControlledEntity ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :entity ;
+        owl:onClass                  :Organization ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
+
+:EntityOwnership
+    rdf:type                 owl:Class ;
+    skos:definition          "Activity of owning a Building, Land Area, or Organization by City Resident." ;
+    rdfs:subClassOf          :ControlledEntity ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :entity ;
+        owl:onClass                  [
+                rdf:type owl:Class ;
+                owl:unionOf (
+                    :Building
+                    :LandArea
+                    :Organization
+                )
+            ] ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :percentOwnership ;
+        owl:onDataRange              xsd:decimal ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
+
+:HomeType
+    rdf:type                 owl:Class ;
+    skos:definition          "Home Type is a type of Code that describes the type of a Residence." ;
+    rdfs:subClassOf          :CityResidentThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] .
+
+:Residence
+    rdf:type                 owl:Class ;
+    rdfs:subClassOf          :CityResidentThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasAddress ;
+        owl:onClass                  :Address ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasHomeType ;
+        owl:onClass                  :HomeType ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               time:hasTime ;
+        owl:onClass                  time:ProperInterval ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :forCity ;
+        owl:onClass                  :City ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasResidentialRelationship ;
+        owl:onClass                  :ResidentialRelationship ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] .
+
+:ResidentialRelationship
+    rdf:type                 owl:Class ;
+    skos:definition          "A ResidentialRelationship defines the relationship of a Resident to a Residence." ;
+    rdfs:subClassOf          :CityResidentThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] .
+
+:apartment
+    rdf:type                 owl:NamedIndividual .
+
+:condominium
+    rdf:type                 owl:NamedIndividual .
+
+:freeload
+    rdf:type                 owl:NamedIndividual .
+
+:hotel
+    rdf:type                 owl:NamedIndividual .
+
+:house
+    rdf:type                 owl:NamedIndividual .
+
+:lease
+    rdf:type                 owl:NamedIndividual .
+
+:openLand
+    rdf:type                 owl:NamedIndividual .
+
+:own
+    rdf:type                 owl:NamedIndividual .
+
+:rent
+    rdf:type                 owl:NamedIndividual .
+
+:rent-to-own
+    rdf:type                 owl:NamedIndividual .
+
+:shelter
+    rdf:type                 owl:NamedIndividual .

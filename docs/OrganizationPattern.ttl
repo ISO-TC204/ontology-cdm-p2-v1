@@ -1,0 +1,475 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
+:OrganizationPattern
+    dcterms:title            "Information technology - City data model - Part 2: City level concepts - Organization pattern" ;
+    skos:definition          "This ontology specifies the city-level concepts for the organization pattern of the city data model. The Organization pattern is an extension of the Organization Structure pattern defined in ISO/IEC 5087-1 that introduces city-specific concepts related to Organizations such as Students and Employees." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    dcterms:creator          "Kenneth Vaughn" ;
+    dcterms:creator          "Mark Fox" ;
+    dcterms:creator          "Megan Katsumi" ;
+    dcterms:bibliographicCitation "ISO/IEC 5087-2:2024" ;
+    rdfs:seeAlso             <https://www.iso.org/standard/80742.html> ;
+    rdfs:comment             "The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024." ;
+    owl:priorVersion         <https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Organization/> ;
+    dcterms:modified         "2026-02-12"^^xsd:date ;
+    owl:versionInfo          "1.3.0" ;
+    owl:versionIRI           <https://w3id.org/citydata/part2/v1/OrganizationPattern/r3.0/> ;
+    cc:license               "http://creativecommons.org/licenses/by/4.0/" ;
+    owl:imports              cdm1:RecurringEventPattern ;
+    owl:imports              :CityServicePattern ;
+    rdf:type                 owl:Ontology .
+
+:CityOrgDataProperty
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :CityDataProperty ;
+    skos:definition          "Added for organizational purposes, to identify data properties defined for the City Organization Pattern in the City-level CDM ontology." .
+
+:CityOrgObjectProperty
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityObjectProperty ;
+    skos:definition          "Added for organizational purposes, to identify object properties defined for the City Organization Pattern in the City-level CDM ontology." .
+
+:annualPay
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :hasPay ;
+    skos:definition          "Identifies the compensation to be paid for a year." ;
+    rdfs:range               cdm1:MonetaryValue .
+
+:employedAs
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "Identifies the occupation in which the agent is employed." ;
+    skos:note                "An Occupation describes the type of work performed by some employee. Different classifications of occupations can be defined." ;
+    rdfs:domain              :Employment ;
+    rdfs:range               :Occupation ;
+    skos:example             "General / Office / Clerical" ;
+    skos:example             "Manufacturing / Construction / Trades" ;
+    skos:example             "Professional / Management / Technical" ;
+    skos:example             "Retail Sales and Service" .
+
+:employedBy
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "Identifies the Organization that employs the agent." ;
+    rdfs:domain              :Employment ;
+    rdfs:range               :Organization .
+
+:hasClosingTime
+    rdf:type                 owl:DatatypeProperty ;
+    rdf:type                 owl:FunctionalProperty ;
+    rdfs:subPropertyOf       cdm1:endTime ;
+    rdfs:subPropertyOf       :CityOrgDataProperty ;
+    rdfs:range               xsd:time ;
+    rdfs:definition          "Specifies the closing time for the domain object." ;
+    rdfs:label               "has Closing Time"@en .
+
+:hasCompensation
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "identifies the monetary compensation received by the agent." ;
+    rdfs:domain              :Employment ;
+    rdfs:range               :Compensation .
+
+:hasEmployment
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "Specifies the details of an agent’s Employment." ;
+    rdfs:domain              :OrganizationAgent ;
+    rdfs:range               :Employment .
+
+:hasEmploymentStatus
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "identifies the Employment Status of the employee." ;
+    rdfs:domain              :Employment ;
+    rdfs:range               :EmploymentStatus ;
+    skos:example             "full-time regular, part-time regular, full-time-work-at-home, part-time-work-at-home" .
+
+:hasEstablishment
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "Specifies a Business Establishment where the organization conducts business." ;
+    rdfs:domain              :ForProfitOrganization ;
+    rdfs:range               :BusinessEstablishment .
+
+:hasGoal
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "identifies the Goal(s) of the domain object. " ;
+    rdfs:range               :Goal .
+
+:hasGovernment
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    owl:inverseOf            :jurisdiction ;
+    skos:definition          "Identifies the GovernmentOrganization that manages the JurisdictionalArea." .
+
+:hasIndustryType
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "Specifies an Industry Type assigned to the organization based on the kind of business conducted." ;
+    rdfs:domain              :ForProfitOrganization ;
+    rdfs:range               :IndustryType .
+
+:hasOpeningTime
+    rdf:type                 owl:DatatypeProperty ;
+    rdf:type                 owl:FunctionalProperty ;
+    rdfs:subPropertyOf       cdm1:startTime ;
+    rdfs:subPropertyOf       :CityOrgDataProperty ;
+    skos:definition          "Specifies the opening time for the domain object." ;
+    rdfs:range               xsd:time ;
+    rdfs:label               "has Opening Time"@en .
+
+:hasPay
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "Identifies the MonetaryValue of the Compensation." ;
+    rdfs:domain              :Compensation ;
+    rdfs:range               cdm1:MonetaryValue .
+
+:hasProcess
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "Specifies an Activity that is performed as part of the Role." ;
+    rdfs:domain              :Role ;
+    rdfs:range               cdm1:Activity .
+
+:hasProgram
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "Specifies a Program defined for the Organization." ;
+    rdfs:domain              :Organization ;
+    rdfs:range               :Program .
+
+:hasResource
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "Specifies a resource:Resource that is (expected to be) allocated for the Role." ;
+    rdfs:domain              :Role ;
+    rdfs:range               cdm1:Resource .
+
+:hourlyPay
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :hasPay ;
+    skos:definition          "Identifies the Compensation to be paid per hour." .
+
+:jurisdiction
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "Specifies the JurisdictionalArea for which the organization is responsible." ;
+    rdfs:domain              :GovernmentOrganization ;
+    rdfs:range               :JurisdictionalArea .
+
+:operatingHours
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "Identifies the OperatingHours of the Organization." ;
+    rdfs:domain              :Organization ;
+    rdfs:range               :Operation .
+
+:orgAddress
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "A specialization to hasAddress that specifies the Address associated with the Organization." ;
+    owl:propertyChainAxiom
+        (
+            org:hasSite
+            org:siteAddress
+        ) .
+
+:overtimePay
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :hasPay ;
+    skos:definition          "Identifies an additional rate of pay as a MonetaryValue to be paid per hour in the case of overtime compensation." .
+
+:playsRole
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "Specifies a Role that the domain object fulfils." ;
+    rdfs:range               :Role .
+
+:BusinessEstablishment
+    rdf:type                 owl:Class ;
+    skos:definition          "Business Establishment: A Business establishment is a physical location where an Organization conducts business." ;
+    rdfs:subClassOf          :CityOrgThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasLocation ;
+        owl:onClass                  cdm1:Location ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasAddress ;
+        owl:onClass                  :Address
+    ] .
+
+:CityOrgThing
+    rdf:type                 owl:Class ;
+    skos:definition          "Added for organizational purposes, to identify classes defined in the City Organization ontology." ;
+    rdfs:subClassOf          :CityThing .
+
+:Compensation
+    rdf:type                 owl:Class ;
+    skos:definition          "A compensation is a generalization of monetary compensation received for employment." ;
+    rdfs:subClassOf          :CityOrgThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasPay ;
+        owl:onClass                  cdm1:MonetaryValue ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
+
+:Employment
+    rdf:type                 owl:Class ;
+    skos:definition          "Employment is a type of Organizational membership in which the Agent receives monetary compensation for the value that they provide to the Organization." ;
+    rdfs:subClassOf          :CityOrgThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCompensation ;
+        owl:onClass                  :Compensation ;
+        owl:minQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :employedBy ;
+        owl:onClass                  :Organization ;
+        owl:minQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :employedAs ;
+        owl:onClass                  :Occupation
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasEmploymentStatus ;
+        owl:onClass                  :EmploymentStatus
+    ] .
+
+:EmploymentStatus
+    rdf:type                 owl:Class ;
+    skos:definition          "Employment Status is a type of Code that describes the employment status of an Agent within an Organization." ;
+    rdfs:subClassOf          :CityOrgThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] .
+
+:ForProfitOrganization
+    rdf:type                 owl:Class ;
+    skos:definition          "A for-profit organization is an organization that operates with the primary goal of generating profit for its owners or shareholders." ;
+    rdfs:subClassOf          :Organization ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasIndustryType ;
+        owl:onClass                  :IndustryType
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasEstablishment ;
+        owl:onClass                  :BusinessEstablishment
+    ] .
+
+:Goal
+    rdf:type                 owl:Class ;
+    skos:definition          "A goal represents some state or complex states, and allows for the representation of various groups' responsibilities." ;
+    rdfs:subClassOf          cdm1:State ;
+    rdfs:subClassOf          :CityOrgThing .
+
+:GovernmentOrganization
+    rdf:type                 owl:Class ;
+    rdfs:subClassOf          :Organization ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasProgram ;
+        owl:onClass                  :Program
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :jurisdiction ;
+        owl:onClass                  :JurisdictionalArea
+    ] .
+
+:IndustryType
+    rdf:type                 owl:Class ;
+    skos:definition          "Industry Type is a type of Code that describes the industry sector of a business establishment." ;
+    rdfs:subClassOf          :CityOrgThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] .
+
+:JurisdictionalArea
+    rdf:type                 owl:Class ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasGovernment ;
+        owl:onClass                  :GovernmentOrganization
+    ] .
+
+:NonProfitOrganization
+    rdf:type                 owl:Class ;
+    skos:definition          "A NonProfitOrganization is an non-governmental organization that operates for purposes other than generating profit." ;
+    rdfs:subClassOf          :Organization ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasProgram ;
+        owl:onClass                  :Program
+    ] .
+
+:Occupation
+    rdf:type                 owl:Class ;
+    skos:definition          "Occupation describes the work performed by some Employee." ;
+    rdfs:subClassOf          :CityOrgThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] ;
+    skos:example             "sales, skilled trade" .
+
+:Operation
+    rdf:type                 owl:Class ;
+    skos:definition          "An Operation defines the regular opening hours of an Organization or Infrastructure Element." ;
+    rdfs:subClassOf          cdm1:RecurringEvent ;
+    rdfs:subClassOf          :CityOrgThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasOpeningTime ;
+        owl:onDataRange              xsd:time ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasClosingTime ;
+        owl:onDataRange              xsd:time ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
+
+:Organization
+    rdf:type                 owl:Class ;
+    skos:definition          "An Organization defined broadly as a formal or semi-formal group for which structure and behaviour are defined." ;
+    rdfs:subClassOf          cdm1:Organization ;
+    rdfs:subClassOf          :CityOrgThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :operatingHours ;
+        owl:onClass                  :Operation
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasGoal ;
+        owl:onClass                  :Goal
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasLocation ;
+        owl:onClass                  cdm1:Location
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasTelephone ;
+        owl:onClass                  :PhoneNumber
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :orgAddress ;
+        owl:onClass                  :Address
+    ] .
+
+:OrganizationAgent
+    rdf:type                 owl:Class ;
+    skos:definition          "Member of an organization" ;
+    rdfs:subClassOf          cdm1:Agent ;
+    rdfs:subClassOf          :CityOrgThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :playsRole ;
+        owl:onClass                  :Role
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasGoal ;
+        owl:onClass                  :Goal
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               org:memberOf ;
+        owl:onClass                  :Organization
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasEmployment ;
+        owl:onClass                  :Employment
+    ] ;
+    skos:note                "Organization Agents have goals, authority, and may be members of some team." .
+
+:Role
+    rdf:type                 owl:Class ;
+    skos:definition          "A Role has a single, possibly complex, Goal." ;
+    rdfs:subClassOf          org:Role ;
+    rdfs:subClassOf          :CityOrgThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasProcess ;
+        owl:onClass                  cdm1:Activity
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasGoal ;
+        owl:onClass                  :Goal
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasResource ;
+        owl:onClass                  cdm1:Resource
+    ] .
+
+:Salary
+    rdf:type                 owl:Class ;
+    skos:definition          "A Salary is a form of compensation paid to an employee and is defined on an annual basis." ;
+    rdfs:subClassOf          :Compensation ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :annualPay ;
+        owl:onClass                  cdm1:MonetaryValue ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
+
+:Wage
+    rdf:type                 owl:Class ;
+    skos:definition          "A Wage is a form of compensation paid to an employee and is defined on an hourly basis." ;
+    rdfs:subClassOf          :Compensation ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hourlyPay ;
+        owl:onClass                  cdm1:MonetaryValue ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :overtimePay ;
+        owl:onClass                  cdm1:MonetaryValue
+    ] .

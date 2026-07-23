@@ -1,0 +1,130 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
+:AlertSHACL
+    rdf:type owl:Ontology ;
+    dcterms:title "City Data Model Part 2 - Alert Pattern - SHACL constraints" ;
+    skos:definition "SHACL validation shapes for the Alert Pattern pattern module." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    owl:imports :AlertPattern ;
+    owl:imports :CoreSHACL .
+
+:AlertShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Alert ;
+    sh:property [
+        sh:path :beginInstant ;
+        sh:node :MaxOneShape ;
+        sh:datatype time:Instant
+    ] ;
+    sh:property [
+        sh:path :website ;
+        sh:datatype xsd:anyURI
+    ] ;
+    sh:property [
+        sh:path :status ;
+        sh:node :ExactlyOneShape ;
+        sh:datatype :Code
+    ] ;
+    sh:property [
+        sh:path :effect ;
+        sh:class :Code
+    ] ;
+    sh:property [
+        sh:path :severity ;
+        sh:node :MaxOneShape ;
+        sh:datatype :Code
+    ] ;
+    sh:property [
+        sh:path :activities ;
+        sh:class cdm1:Activity
+    ] ;
+    sh:property [
+        sh:path cdm1:hasDescription ;
+        sh:node :ExactlyOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :resources ;
+        sh:class cdm1:Resource
+    ] ;
+    sh:property [
+        sh:path :endInstant ;
+        sh:node :MaxOneShape ;
+        sh:datatype time:Instant
+    ] ;
+    sh:property [
+        sh:path :lastUpdateInstant ;
+        sh:node :ExactlyOneShape ;
+        sh:datatype time:Instant
+    ] ;
+    sh:property [
+        sh:path :recommendation ;
+        sh:class :Code
+    ] ;
+    sh:property [
+        sh:path :creationInstant ;
+        sh:node :ExactlyOneShape ;
+        sh:datatype time:Instant
+    ] ;
+    sh:property [
+        sh:path :referencedAlert ;
+        sh:class :Alert
+    ] ;
+    sh:property [
+        sh:path :category ;
+        sh:class :Code
+    ] ;
+    sh:property [
+        sh:path :location ;
+        sh:class geo:Geometry
+    ] ;
+    sh:property [
+        sh:path :expiryInstant ;
+        sh:class time:Instant
+    ] ;
+    sh:property [
+        sh:path :certainty ;
+        sh:class :Code
+    ] ;
+    sh:property [
+        sh:path :issuer ;
+        sh:node :ExactlyOneShape ;
+        sh:datatype cdm1:Agent
+    ] ;
+    sh:property [
+        sh:path :distribution ;
+        sh:class :Code
+    ] ;
+    sh:property [
+        sh:path :headline ;
+        sh:node :ExactlyOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :cause ;
+        sh:class :Code
+    ] ;
+    sh:property [
+        sh:path :urgency ;
+        sh:node :MaxOneShape ;
+        sh:datatype :Code
+    ] .

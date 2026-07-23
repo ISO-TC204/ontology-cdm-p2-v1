@@ -1,0 +1,232 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
+:BylawSHACL
+    rdf:type owl:Ontology ;
+    dcterms:title "City Data Model Part 2 - Bylaw Pattern - SHACL constraints" ;
+    skos:definition "SHACL validation shapes for the Bylaw Pattern pattern module." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    owl:imports :BylawPattern ;
+    owl:imports :CoreSHACL .
+
+:AmendingBylawShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :AmendingBylaw ;
+    sh:property [
+        sh:path :legislationType ;
+        sh:class :BylawTypeCode
+    ] ;
+    sh:property [
+        sh:path :legislationChanges ;
+        sh:node :ExactlyOneShape ;
+        sh:class :Bylaw
+    ] .
+
+:BylawShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Bylaw ;
+    sh:property [
+        sh:path :legislationType ;
+        sh:class :BylawTypeCode
+    ] ;
+    sh:property [
+        sh:path :legislationJurisdiction ;
+        sh:node :MaxOneShape ;
+        sh:class :City
+    ] .
+
+:ClauseShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Clause ;
+    sh:property [
+        sh:path cdm1:hasDescription ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path cdm1:hasIdentifier ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path cdm1:hasName ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :hasClause ;
+        sh:class :Clause
+    ] .
+
+:DefinitionShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Definition ;
+    sh:property [
+        sh:path cdm1:properPartOf ;
+        sh:node :ExactlyOneShape ;
+        sh:class :Law
+    ] ;
+    sh:property [
+        sh:path cdm1:hasName ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path cdm1:hasDescription ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] .
+
+:JurisdictionalAreaShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :JurisdictionalArea ;
+    sh:property [
+        sh:path :hasBylaw ;
+        sh:class :Bylaw
+    ] .
+
+:LawShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Law ;
+    sh:property [
+        sh:path :dateInEffect ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:dateTime
+    ] ;
+    sh:property [
+        sh:path :keywords ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :hasSchedule ;
+        sh:class :Schedule
+    ] ;
+    sh:property [
+        sh:path :abstract ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :hasClause ;
+        sh:class :Clause
+    ] ;
+    sh:property [
+        sh:path :legislationJurisdiction ;
+        sh:node :MaxOneShape ;
+        sh:class :JurisdictionalArea
+    ] ;
+    sh:property [
+        sh:path :legislationIdentifier ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :legislationLegalForce ;
+        sh:class :LegislationLegalForceCode
+    ] ;
+    sh:property [
+        sh:path cdm1:hasName ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :datePublished ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:dateTime
+    ] ;
+    sh:property [
+        sh:path :hasTransitionClause ;
+        sh:class :Clause
+    ] ;
+    sh:property [
+        sh:path :expires ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:dateTime
+    ] ;
+    sh:property [
+        sh:path :hasDefinition ;
+        sh:class :Definition
+    ] ;
+    sh:property [
+        sh:path :hasRepealClause ;
+        sh:class :Clause
+    ] ;
+    sh:property [
+        sh:path :hasPenaltyClause ;
+        sh:class :Clause
+    ] ;
+    sh:property [
+        sh:path :legislationDate ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:dateTime
+    ] ;
+    sh:property [
+        sh:path :hasSeveranceClause ;
+        sh:class :Clause
+    ] .
+
+:MainBylawShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :MainBylaw ;
+    sh:property [
+        sh:path :legislationType ;
+        sh:class :BylawTypeCode
+    ] .
+
+:RevisionBylawShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :RevisionBylaw ;
+    sh:property [
+        sh:path :legislationChanges ;
+        sh:node :ExactlyOneShape ;
+        sh:class :Bylaw
+    ] ;
+    sh:property [
+        sh:path :legislationType ;
+        sh:class :BylawTypeCode
+    ] .
+
+:ScheduleShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass :Schedule ;
+    sh:property [
+        sh:path cdm1:hasDescription ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path cdm1:properPartOf ;
+        sh:node :ExactlyOneShape ;
+        sh:class :Law
+    ] ;
+    sh:property [
+        sh:path cdm1:hasName ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path cdm1:hasIdentifier ;
+        sh:node :MaxOneShape ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path :hasClause ;
+        sh:class :Clause
+    ] .

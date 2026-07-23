@@ -4,18 +4,31 @@ digraph {
 	node [fontname=Arial fontsize=12 margin=0 shape=none]
 	edge [fontname=Arial fontsize=11]
 	{
+		rank=source
+		InfrastructureThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">InfrastructureThing</TD></TR></TABLE>> URL="../InfrastructureThing" margin=0]
+	}
+	InfrastructureElement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">InfrastructureElement</TD></TR><TR><TD ALIGN="LEFT">cdm1:hasDescription : xsd:string</TD></TR><TR><TD ALIGN="LEFT">cdm1:hasIdentifier : xsd:string</TD></TR><TR><TD ALIGN="LEFT">cdm1:hasName : xsd:string</TD></TR></TABLE>> URL="../InfrastructureElement" margin=0]
+	{
 		rank=max
-		InfrastructureElement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER" PORT="e">InfrastructureElement</TD></TR></TABLE>> URL="../InfrastructureElement.md" margin=0]
 	}
 	subgraph cluster_associated {
 		label="" style=invis
 		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
-		Address [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Address</TD></TR></TABLE>> URL="../Address.md" margin=0]
+		Address [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Address</TD></TR></TABLE>> URL="../Address" margin=0]
+		cdm1_Location [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Location</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Location" margin=0]
+		cdm1_MonetaryValue [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:MonetaryValue</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/MonetaryValue" margin=0]
 	}
-	InfrastructureThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">InfrastructureThing</TD></TR></TABLE>> URL="../InfrastructureThing.md" margin=0]
 	InfrastructureElement -> InfrastructureThing [arrowhead=onormal style=solid]
 	InfrastructureElement -> Invis [style=invis]
 	Invis -> Address [style=invis]
-	InfrastructureElement -> Address [label=" hasAddress 
- «only»  " arrowhead=normal style=solid]
+	Address -> cdm1_Location [style=invis]
+	cdm1_Location -> cdm1_MonetaryValue [style=invis]
+	cdm1_MonetaryValue [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:MonetaryValue</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/MonetaryValue" margin=0]
+	InfrastructureElement -> cdm1_MonetaryValue [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">i72:hasValue</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Address [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Address</TD></TR></TABLE>> URL="../Address" margin=0]
+	InfrastructureElement -> Address [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasAddress</TD></TR></TABLE>> arrowhead=normal style=solid]
+	cdm1_Location [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Location</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Location" margin=0]
+	InfrastructureElement -> cdm1_Location [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">cdm1:hasLocation</TD></TR></TABLE>> arrowhead=normal style=solid]
+	InfrastructureElement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">InfrastructureElement</TD></TR></TABLE>> URL="../InfrastructureElement" margin=0]
+	InfrastructureElement -> InfrastructureElement [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">cdm1:hasProperPart</TD></TR></TABLE>> arrowhead=normal style=solid]
 }
