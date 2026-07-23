@@ -1,0 +1,545 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
+:BylawPattern
+    dcterms:title            "Information technology - City data model - Part 2: City level concepts - Bylaw Pattern" ;
+    skos:definition          "This ontology specifies the city-level concepts for the bylaw pattern of the city data model." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    dcterms:creator          "Kenneth Vaughn" ;
+    dcterms:creator          "Mark Fox" ;
+    dcterms:creator          "Megan Katsumi" ;
+    dcterms:bibliographicCitation "ISO/IEC 5087-2:2024" ;
+    rdfs:seeAlso             <https://www.iso.org/standard/80742.html> ;
+    rdfs:comment             "The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024." ;
+    owl:priorVersion         <https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Bylaw/> ;
+    dcterms:modified         "2026-02-12"^^xsd:date ;
+    owl:versionInfo          "1.3.0" ;
+    owl:versionIRI           <https://w3id.org/citydata/part2/v1/BylawPattern/r3.0/> ;
+    cc:license               "http://creativecommons.org/licenses/by/4.0/" ;
+    owl:imports              i72: ;
+    owl:imports              cdm1:GenericPropertiesPattern ;
+    owl:imports              :OrganizationPattern ;
+    owl:imports              :PersonPattern ;
+    rdf:type                 owl:Ontology .
+
+:BylawDataProperty
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :CityDataProperty ;
+    skos:definition          "Added for organizational purposes, to identify data properties defined in the Bylaw Pattern." .
+
+:BylawObjectProperty
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityObjectProperty ;
+    skos:definition          "Added for organizational purposes, to identify object properties defined for bylaws in the City-level CDM ontology." .
+
+:abstract
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :BylawDataProperty ;
+    skos:definition          "Specifies a brief statement describing the purpose of the domain object." ;
+    rdfs:range               xsd:string .
+
+:clauseType
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :BylawObjectProperty ;
+    skos:definition          "A Code indicating a clause type of a clause within a Law or similar official document." ;
+    rdfs:range               :Code ;
+    skos:example             "severance, penalty, transition, repeal, schedule, or bylaw" .
+
+:dateInEffect
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :BylawDataProperty ;
+    skos:definition          "Date after which the domain object is in effect." ;
+    rdfs:range               xsd:dateTime .
+
+:datePublished
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :BylawDataProperty ;
+    skos:definition          "Date the domain object is officially published." ;
+    rdfs:range               xsd:dateTime .
+
+:expires
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :BylawDataProperty ;
+    skos:definition          "Date the domain object expires." ;
+    rdfs:range               xsd:dateTime .
+
+:hasBylaw
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :BylawObjectProperty ;
+    skos:definition          "Identifies the bylaws in existence in the JurisdictionalArea." ;
+    rdfs:domain              :JurisdictionalArea ;
+    rdfs:range               :Bylaw .
+
+:hasClause
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :BylawObjectProperty ;
+    skos:definition          "Clauses that make up the body of the domain object." ;
+    rdfs:range               :Clause .
+
+:hasDefinition
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :BylawObjectProperty ;
+    skos:definition          "Words or phrases that are defined to have a specific meaning within the domain object." ;
+    rdfs:range               :Definition .
+
+:hasPenaltyClause
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :BylawObjectProperty ;
+    skos:definition          "Identifies the Clauses that specify penalties for not adhering to the domain object." ;
+    rdfs:range               :Clause .
+
+:hasRepealClause
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :BylawObjectProperty ;
+    skos:definition          "Clauses that specify all previous Laws that deal with subjects that are addressed in the new bylaw must either be repealed or amended." ;
+    rdfs:range               :Clause .
+
+:hasSchedule
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :BylawObjectProperty ;
+    skos:definition          "Schedules that are attached to the Law and are referenced by the Law. A Schedule is part of the Law." ;
+    rdfs:domain              :Law ;
+    rdfs:range               :Schedule .
+
+:hasSeveranceClause
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :BylawObjectProperty ;
+    skos:definition          "Clauses that specify that the bylaw remains valid if any portion of the Law is found to be invalid by a higher jurisdiction." ;
+    rdfs:domain              :Law ;
+    rdfs:range               :Clause .
+
+:hasTransitionClause
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :BylawObjectProperty ;
+    skos:definition          "Clauses that cover the period during which entities affected by the Law can do things to conform to the new conditions." ;
+    rdfs:domain              :Law ;
+    rdfs:range               :Clause .
+
+:impacts
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :BylawObjectProperty ;
+    skos:definition          "Identifies what is impacted by the domain object." .
+
+:keywords
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :BylawDataProperty ;
+    skos:definition          "Identifies keywords used to categorize the domain object for search purposes." ;
+    rdfs:range               xsd:string .
+
+:legislationChanges
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :BylawObjectProperty ;
+    skos:definition          "The Bylaw that is being amended." ;
+    rdfs:domain              :Bylaw ;
+    rdfs:range               :Bylaw .
+
+:legislationDate
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :BylawDataProperty ;
+    skos:definition          "Date on which the Law is officially adopted/signed by the Jurisdiction." ;
+    rdfs:range               xsd:dateTime .
+
+:legislationIdentifier
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :BylawDataProperty ;
+    skos:definition          "Identifies a unique identifier of the law." ;
+    rdfs:domain              :Law ;
+    rdfs:range               xsd:string .
+
+:legislationJurisdiction
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "Identifies the jurisdiction that enacted the Law." ;
+    rdfs:domain              :Law ;
+    rdfs:range               :JurisdictionalArea .
+
+:legislationLegalForce
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityOrgObjectProperty ;
+    skos:definition          "Specifies whether the Law is currently in force, not in force or partially in force." ;
+    rdfs:domain              :Law ;
+    rdfs:range               :LegislationLegalForceCode .
+
+:legislationType
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :BylawObjectProperty ;
+    skos:definition          "Type of bylaw chosen from mainBylaw, amendingBylaw or revisionBylaw." ;
+    rdfs:domain              :Bylaw ;
+    rdfs:range               :BylawTypeCode .
+
+:AmendingBylaw
+    rdf:type                 owl:Class ;
+    skos:definition          "An Amending Bylaw is a type of Bylaw that modifies or updates an existing bylaw." ;
+    rdfs:subClassOf          :Bylaw ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :legislationChanges ;
+        owl:onClass                  :Bylaw ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :legislationType ;
+        owl:hasValue                 :amendingBylaw
+    ] .
+
+:Bylaw
+    rdf:type                 owl:Class ;
+    skos:definition          "A bylaw is a law that is passed by a lower hierarchical entity that gains its authority from a government authority." ;
+    rdfs:subClassOf          :Law ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :legislationType ;
+        owl:onClass                  :BylawTypeCode
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :impacts ;
+        owl:onClass                  [
+                rdf:type owl:Class ;
+                owl:unionOf (
+                    :JurisdictionalArea
+                    :LandArea
+                    :Organization
+                    :Person
+                    cdm1:Activity
+                )
+            ]
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :legislationJurisdiction ;
+        owl:onClass                  :City ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    skos:note                "Higher levels of government often place limits on what laws can be passed by lower-level entities." ;
+    skos:note                "The nominal distinction between a law and a bylaw varies by country. In some areas municipalities create \"bylaws\"; in others, municipalities create \"laws\" and \"bylaws\" are only established by private groups, such as home owner organizations." .
+
+:BylawThing
+    rdf:type                 owl:Class ;
+    skos:definition          "Added for organizational purposes, to identify classes defined in the Bylaw ontology." ;
+    rdfs:subClassOf          :CityThing .
+
+:BylawTypeCode
+    rdf:type                 owl:Class ;
+    rdfs:subClassOf          :BylawThing ;
+    skos:definition          "A code identifying whether a bylaw is a main, amending, or revision bylaw." ;
+    owl:oneOf (
+        :amendingBylaw
+        :mainBylaw
+        :revisionBylaw
+    ) .
+
+:LegislationLegalForceCode
+    rdf:type                 owl:Class ;
+    rdfs:subClassOf          :BylawThing ;
+    skos:definition          "A code identifying whether a law is in force, not in force, or partially in force." ;
+    owl:oneOf (
+        :InForce
+        :NotInForce
+        :PartiallyInForce
+    ) .
+
+:Clause
+    rdf:type                 owl:Class ;
+    skos:definition          "A Clause is a statement of a rule, provision, requirement, etc. that is part of the body of the Law, or its schedules, penalties, etc." ;
+    rdfs:subClassOf          :BylawThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasIdentifier ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasDescription ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasClause ;
+        owl:onClass                  :Clause
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasName ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :clauseType ;
+        owl:onClass                  [
+                rdf:type owl:Class ;
+                owl:oneOf (
+                    :bylaw
+                    :penalty
+                    :repeal
+                    :schedule
+                    :severance
+                    :transition
+                )
+            ] ;
+        owl:minQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:properPartOf ;
+        owl:onClass                  [
+                rdf:type owl:Class ;
+                owl:unionOf (
+                    :Clause
+                    :Law
+                )
+            ] ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] .
+
+:Definition
+    rdf:type                 owl:Class ;
+    skos:definition          "A definition is a statement that explains the meaning of a term or concept as used within the domain object (e.g., a document)." ;
+    rdfs:subClassOf          :BylawThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:properPartOf ;
+        owl:onClass                  :Law ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasDescription ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasName ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
+
+:JurisdictionalArea
+    rdf:type                 owl:Class ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasBylaw ;
+        owl:onClass                  :Bylaw
+    ] .
+
+:Law
+    rdf:type                 owl:Class ;
+    skos:definition          "A Law is an legally enforceable rule." ;
+    rdfs:subClassOf          :BylawThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasName ;
+        owl:onDataRange              xsd:string
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasSchedule ;
+        owl:onClass                  :Schedule
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasClause ;
+        owl:onClass                  :Clause
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasDefinition ;
+        owl:onClass                  :Definition
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :legislationDate ;
+        owl:onDataRange              xsd:dateTime ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :legislationJurisdiction ;
+        owl:onClass                  :JurisdictionalArea ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :keywords ;
+        owl:onDataRange              xsd:string
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :datePublished ;
+        owl:onDataRange              xsd:dateTime ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :legislationIdentifier ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :legislationLegalForce ;
+        owl:onClass                  :LegislationLegalForceCode
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasTransitionClause ;
+        owl:onClass                  :Clause
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasPenaltyClause ;
+        owl:onClass                  :Clause
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasSeveranceClause ;
+        owl:onClass                  :Clause
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :dateInEffect ;
+        owl:onDataRange              xsd:dateTime ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :expires ;
+        owl:onDataRange              xsd:dateTime ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasRepealClause ;
+        owl:onClass                  :Clause
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :abstract ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
+
+:MainBylaw
+    rdf:type                 owl:Class ;
+    skos:definition          "A Main Bylaw is a legally enforceable rule that serves as the primary legislative document for a law within a Jurisdictional Area." ;
+    rdfs:subClassOf          :Bylaw ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :legislationType ;
+        owl:hasValue                 :mainBylaw
+    ] .
+
+:RevisionBylaw
+    rdf:type                 owl:Class ;
+    skos:definition          "A RevisionBylaw is a bylaw that amends an existing bylaw." ;
+    rdfs:subClassOf          :Bylaw ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :legislationChanges ;
+        owl:onClass                  :Bylaw ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :legislationType ;
+        owl:hasValue                 :revisionBylaw
+    ] .
+
+:Schedule
+    rdf:type                 owl:Class ;
+    skos:definition          "A Schedule is a component of a bylaw that outlines specific provisions, terms, or details related to the main content of the document." ;
+    rdfs:subClassOf          :BylawThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:properPartOf ;
+        owl:onClass                  :Law ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasIdentifier ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasDescription ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasName ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasClause ;
+        owl:onClass                  :Clause
+    ] .
+
+:InForce
+    rdf:type                 owl:NamedIndividual ;
+    rdf:type                 :LegislationLegalForceCode .
+
+:NotInForce
+    rdf:type                 owl:NamedIndividual ;
+    rdf:type                 :LegislationLegalForceCode .
+
+:PartiallyInForce
+    rdf:type                 owl:NamedIndividual ;
+    rdf:type                 :LegislationLegalForceCode .
+
+:amendingBylaw
+    rdf:type                 owl:NamedIndividual ;
+    rdf:type                 :BylawTypeCode .
+
+:bylaw
+    rdf:type                 owl:NamedIndividual .
+
+:mainBylaw
+    rdf:type                 owl:NamedIndividual ;
+    rdf:type                 :BylawTypeCode .
+
+:penalty
+    rdf:type                 owl:NamedIndividual .
+
+:repeal
+    rdf:type                 owl:NamedIndividual .
+
+:revisionBylaw
+    rdf:type                 owl:NamedIndividual ;
+    rdf:type                 :BylawTypeCode .
+
+:schedule
+    rdf:type                 owl:NamedIndividual .
+
+:severance
+    rdf:type                 owl:NamedIndividual .
+
+:transition
+    rdf:type                 owl:NamedIndividual .

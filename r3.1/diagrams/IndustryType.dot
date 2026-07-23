@@ -1,0 +1,24 @@
+// Diagram for IndustryType
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		CityOrgThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityOrgThing</TD></TR></TABLE>> URL="../CityOrgThing" margin=0]
+	}
+	IndustryType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">IndustryType</TD></TR></TABLE>> URL="../IndustryType" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Code [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Code</TD></TR></TABLE>> URL="../Code" margin=0]
+	}
+	IndustryType -> CityOrgThing [arrowhead=onormal style=solid]
+	IndustryType -> Invis [style=invis]
+	Invis -> Code [style=invis]
+	Code [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Code</TD></TR></TABLE>> URL="../Code" margin=0]
+	IndustryType -> Code [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasCode</TD></TR></TABLE>> arrowhead=normal style=solid]
+}

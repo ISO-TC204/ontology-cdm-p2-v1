@@ -1,0 +1,42 @@
+// Diagram for Organization
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		cdm1_Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Organization</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Organization" margin=0]
+		CityOrgThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityOrgThing</TD></TR></TABLE>> URL="../CityOrgThing" margin=0]
+	}
+	Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Organization</TD></TR></TABLE>> URL="../Organization" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Address [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Address</TD></TR></TABLE>> URL="../Address" margin=0]
+		cdm1_Location [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Location</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Location" margin=0]
+		Goal [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Goal</TD></TR></TABLE>> URL="../Goal" margin=0]
+		Operation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Operation</TD></TR></TABLE>> URL="../Operation" margin=0]
+		PhoneNumber [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PhoneNumber</TD></TR></TABLE>> URL="../PhoneNumber" margin=0]
+	}
+	Organization -> cdm1_Organization [arrowhead=onormal style=solid]
+	Organization -> CityOrgThing [arrowhead=onormal style=solid]
+	Organization -> Invis [style=invis]
+	Invis -> Address [style=invis]
+	Address -> cdm1_Location [style=invis]
+	cdm1_Location -> Goal [style=invis]
+	Goal -> Operation [style=invis]
+	Operation -> PhoneNumber [style=invis]
+	Operation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Operation</TD></TR></TABLE>> URL="../Operation" margin=0]
+	Organization -> Operation [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">operatingHours</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Goal [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Goal</TD></TR></TABLE>> URL="../Goal" margin=0]
+	Organization -> Goal [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasGoal</TD></TR></TABLE>> arrowhead=normal style=solid]
+	cdm1_Location [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Location</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Location" margin=0]
+	Organization -> cdm1_Location [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">cdm1:hasLocation</TD></TR></TABLE>> arrowhead=normal style=solid]
+	PhoneNumber [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PhoneNumber</TD></TR></TABLE>> URL="../PhoneNumber" margin=0]
+	Organization -> PhoneNumber [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasTelephone</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Address [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Address</TD></TR></TABLE>> URL="../Address" margin=0]
+	Organization -> Address [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">orgAddress</TD></TR></TABLE>> arrowhead=normal style=solid]
+}

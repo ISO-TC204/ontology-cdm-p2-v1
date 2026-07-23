@@ -1,0 +1,36 @@
+// Diagram for Employment
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		CityOrgThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityOrgThing</TD></TR></TABLE>> URL="../CityOrgThing" margin=0]
+	}
+	Employment [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Employment</TD></TR></TABLE>> URL="../Employment" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Compensation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Compensation</TD></TR></TABLE>> URL="../Compensation" margin=0]
+		EmploymentStatus [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">EmploymentStatus</TD></TR></TABLE>> URL="../EmploymentStatus" margin=0]
+		Occupation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Occupation</TD></TR></TABLE>> URL="../Occupation" margin=0]
+		Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Organization</TD></TR></TABLE>> URL="../Organization" margin=0]
+	}
+	Employment -> CityOrgThing [arrowhead=onormal style=solid]
+	Employment -> Invis [style=invis]
+	Invis -> Compensation [style=invis]
+	Compensation -> EmploymentStatus [style=invis]
+	EmploymentStatus -> Occupation [style=invis]
+	Occupation -> Organization [style=invis]
+	Compensation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Compensation</TD></TR></TABLE>> URL="../Compensation" margin=0]
+	Employment -> Compensation [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasCompensation</TD></TR><TR><TD ALIGN="CENTER">1..*</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Organization</TD></TR></TABLE>> URL="../Organization" margin=0]
+	Employment -> Organization [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">employedBy</TD></TR><TR><TD ALIGN="CENTER">1..*</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Occupation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Occupation</TD></TR></TABLE>> URL="../Occupation" margin=0]
+	Employment -> Occupation [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">employedAs</TD></TR></TABLE>> arrowhead=normal style=solid]
+	EmploymentStatus [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">EmploymentStatus</TD></TR></TABLE>> URL="../EmploymentStatus" margin=0]
+	Employment -> EmploymentStatus [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasEmploymentStatus</TD></TR></TABLE>> arrowhead=normal style=solid]
+}

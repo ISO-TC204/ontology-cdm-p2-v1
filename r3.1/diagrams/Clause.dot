@@ -1,0 +1,43 @@
+// Diagram for Clause
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		BylawThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BylawThing</TD></TR></TABLE>> URL="../BylawThing" margin=0]
+	}
+	Clause [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Clause</TD></TR><TR><TD ALIGN="LEFT">cdm1:hasDescription : xsd:string [0..1]</TD></TR><TR><TD ALIGN="LEFT">cdm1:hasIdentifier : xsd:string [0..1]</TD></TR><TR><TD ALIGN="LEFT">cdm1:hasName : xsd:string [0..1]</TD></TR></TABLE>> URL="../Clause" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		bylaw [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">bylaw</TD></TR></TABLE>> URL="../bylaw" margin=0]
+		Law [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Law</TD></TR></TABLE>> URL="../Law" margin=0]
+		penalty [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">penalty</TD></TR></TABLE>> URL="../penalty" margin=0]
+		repeal [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">repeal</TD></TR></TABLE>> URL="../repeal" margin=0]
+		schedule [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">schedule</TD></TR></TABLE>> URL="../schedule" margin=0]
+		severance [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">severance</TD></TR></TABLE>> URL="../severance" margin=0]
+		transition [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">transition</TD></TR></TABLE>> URL="../transition" margin=0]
+	}
+	Clause -> BylawThing [arrowhead=onormal style=solid]
+	Clause -> Invis [style=invis]
+	Invis -> bylaw [style=invis]
+	bylaw -> Law [style=invis]
+	Law -> penalty [style=invis]
+	penalty -> repeal [style=invis]
+	repeal -> schedule [style=invis]
+	schedule -> severance [style=invis]
+	severance -> transition [style=invis]
+	Clause [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Clause</TD></TR></TABLE>> URL="../Clause" margin=0]
+	Clause -> Clause [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasClause</TD></TR></TABLE>> arrowhead=normal style=solid]
+	n7e2422bf65d74402b04f4f26665f0ae6b23 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">«Enum»<BR/>Enum: bylaw, penalty, repeal, schedule, severance, transition</TD></TR><TR><TD ALIGN="LEFT">+ bylaw<BR/>+ penalty<BR/>+ repeal<BR/>+ schedule<BR/>+ severance<BR/>+ transition</TD></TR></TABLE>> margin=0]
+	Clause -> n7e2422bf65d74402b04f4f26665f0ae6b23 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">clauseType</TD></TR><TR><TD ALIGN="CENTER">1..*</TD></TR></TABLE>> arrowhead=normal style=solid]
+	n7e2422bf65d74402b04f4f26665f0ae6b31 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">«unionOf»</TD></TR></TABLE>> margin=0]
+	n7e2422bf65d74402b04f4f26665f0ae6b31 -> Clause [label=member arrowhead=normal style=dotted]
+	Law [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Law</TD></TR></TABLE>> URL="../Law" margin=0]
+	n7e2422bf65d74402b04f4f26665f0ae6b31 -> Law [label=member arrowhead=normal style=dotted]
+	Clause -> n7e2422bf65d74402b04f4f26665f0ae6b31 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">cdm1:properPartOf</TD></TR><TR><TD ALIGN="CENTER">1</TD></TR></TABLE>> arrowhead=normal style=solid]
+}

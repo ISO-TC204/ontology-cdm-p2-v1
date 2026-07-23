@@ -1,0 +1,104 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
+:CodePattern
+    dcterms:title            "Information technology - City data model - Part 2: City level concepts - Code pattern" ;
+    skos:definition          "This ontology specifies the city-level concepts for the code pattern of the city data model. The Code Pattern provides a structure to address the challenge of value enumeration with a general approach. In city data there are many classes of things that are intended to be instantiated using a set list of values (e.g., classification systems), however these values may change based on application or context. \n        The Code Pattern introduces a generic set of classes and properties that can be used to extend such classes to define various classification systems in an integrated way. Instead of enumerating value sets for classes, values can be defined with an associated Code that specifies additional metadata about the value and its origins." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    dcterms:creator          "Kenneth Vaughn" ;
+    dcterms:creator          "Mark Fox" ;
+    dcterms:creator          "Megan Katsumi" ;
+    dcterms:bibliographicCitation "ISO/IEC 5087-2:2024" ;
+    rdfs:seeAlso             <https://www.iso.org/standard/80742.html> ;
+    rdfs:comment             "The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024." ;
+    owl:priorVersion         <https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code/> ;
+    dcterms:modified         "2026-02-12"^^xsd:date ;
+    owl:versionInfo          "1.3.0" ;
+    owl:versionIRI           <https://w3id.org/citydata/part2/v1/CodePattern/r3.0/> ;
+    cc:license               "http://creativecommons.org/licenses/by/4.0/" ;
+    owl:imports              cdm1:OrganizationStructurePattern ;
+    owl:imports              :CorePattern ;
+    rdf:type                 owl:Ontology .
+
+:CodeDataProperty
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :CityDataProperty ;
+    skos:definition          "Added for organizational purposes, to identify data properties defined in the City Code Pattern." .
+
+:CodeObjectProperty
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityObjectProperty ;
+    skos:definition          "Added for organizational purposes, to identify object properties defined for the Code Pattern in the City-level CDM ontology." .
+
+:definedBy
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CodeObjectProperty ;
+    skos:definition          "Identifies the Organization that defined the Code." ;
+    rdfs:range               org:Organization .
+
+:hasCode
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CodeObjectProperty ;
+    skos:definition          "Identifies the code for the domain object." ;
+    rdfs:range               :Code .
+
+:specification
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :CodeDataProperty ;
+    skos:definition          "Provides a URI where the definition of the domain object can be found." ;
+    rdfs:range               xsd:anyURI .
+
+:Code
+    rdf:type                 owl:Class ;
+    skos:definition          "A code represents a possible set of values for a property, according to some predefined system of values." ;
+    rdfs:subClassOf          :CodeThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasIdentifier ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasName ;
+        owl:onDataRange              xsd:string
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :definedBy ;
+        owl:onClass                  cdm1:Organization ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasDescription ;
+        owl:onDataRange              xsd:string
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :specification ;
+        owl:onDataRange              xsd:string
+    ] .
+
+:CodeThing
+    rdf:type                 owl:Class ;
+    skos:definition          "Added for organizational purposes, to identify classes defined in the Code ontology." ;
+    rdfs:subClassOf          :CityThing .

@@ -1,0 +1,56 @@
+// Diagram for Building
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		BuildingThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BuildingThing</TD></TR></TABLE>> URL="../BuildingThing" margin=0]
+		InfrastructureElement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">InfrastructureElement</TD></TR></TABLE>> URL="../InfrastructureElement" margin=0]
+	}
+	Building [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Building</TD></TR><TR><TD ALIGN="LEFT">builtAccordingToConstructionCode : xsd:string</TD></TR><TR><TD ALIGN="LEFT">numAboveGroundFloors : xsd:nonNegativeInteger [0..1]</TD></TR><TR><TD ALIGN="LEFT">numBuildingUnits : xsd:nonNegativeInteger [0..1]</TD></TR><TR><TD ALIGN="LEFT">numFloors : xsd:nonNegativeInteger [1]</TD></TR><TR><TD ALIGN="LEFT">propertyRegistrationID : rdfs:Literal [0..1]</TD></TR></TABLE>> URL="../Building" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		AreaRatio [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">AreaRatio</TD></TR></TABLE>> URL="../AreaRatio" margin=0]
+		BuildingUnit [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BuildingUnit</TD></TR></TABLE>> URL="../BuildingUnit" margin=0]
+		BuildingUse [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BuildingUse</TD></TR></TABLE>> URL="../BuildingUse" margin=0]
+		cdm1_Area [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Area</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Area" margin=0]
+		cdm1_Length [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Length</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Length" margin=0]
+		ConstructionStatus [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ConstructionStatus</TD></TR></TABLE>> URL="../ConstructionStatus" margin=0]
+		Facility [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Facility</TD></TR></TABLE>> URL="../Facility" margin=0]
+		Year [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Year</TD></TR></TABLE>> URL="../Year" margin=0]
+	}
+	Building -> BuildingThing [arrowhead=onormal style=solid]
+	Building -> InfrastructureElement [arrowhead=onormal style=solid]
+	Building -> Invis [style=invis]
+	Invis -> AreaRatio [style=invis]
+	AreaRatio -> BuildingUnit [style=invis]
+	BuildingUnit -> BuildingUse [style=invis]
+	BuildingUse -> cdm1_Area [style=invis]
+	cdm1_Area -> cdm1_Length [style=invis]
+	cdm1_Length -> ConstructionStatus [style=invis]
+	ConstructionStatus -> Facility [style=invis]
+	Facility -> Year [style=invis]
+	cdm1_Length [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Length</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Length" margin=0]
+	Building -> cdm1_Length [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasBuildingHeight</TD></TR></TABLE>> arrowhead=normal style=solid]
+	BuildingUse [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BuildingUse</TD></TR></TABLE>> URL="../BuildingUse" margin=0]
+	Building -> BuildingUse [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">use</TD></TR></TABLE>> arrowhead=normal style=solid]
+	BuildingUnit [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BuildingUnit</TD></TR></TABLE>> URL="../BuildingUnit" margin=0]
+	Building -> BuildingUnit [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasBuildingUnit</TD></TR></TABLE>> arrowhead=normal style=solid]
+	AreaRatio [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">AreaRatio</TD></TR></TABLE>> URL="../AreaRatio" margin=0]
+	Building -> AreaRatio [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">floorAreaRatio</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	cdm1_Area [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Area</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Area" margin=0]
+	Building -> cdm1_Area [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasBuildingFloorArea</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Facility [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Facility</TD></TR></TABLE>> URL="../Facility" margin=0]
+	Building -> Facility [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">buildingFacility</TD></TR></TABLE>> arrowhead=normal style=solid]
+	ConstructionStatus [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ConstructionStatus</TD></TR></TABLE>> URL="../ConstructionStatus" margin=0]
+	Building -> ConstructionStatus [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasConstructionStatus</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Building -> AreaRatio [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">windowToWallRatio</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Building -> cdm1_Area [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasBuildingFootprintArea</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Year [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Year</TD></TR></TABLE>> URL="../Year" margin=0]
+	Building -> Year [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">yearOfConstruction</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+}

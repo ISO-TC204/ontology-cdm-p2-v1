@@ -1,0 +1,454 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix schema: <http://schema.org/> .
+
+:PersonPattern
+    dcterms:title            "Information technology - City data model - Part 2: City level concepts - Person pattern" ;
+    skos:definition          "This ontology specifies the city-level concepts for the person pattern of the city data model." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    dcterms:creator          "Kenneth Vaughn" ;
+    dcterms:creator          "Mark Fox" ;
+    dcterms:creator          "Megan Katsumi" ;
+    dcterms:bibliographicCitation "ISO/IEC 5087-2:2024" ;
+    rdfs:seeAlso             <https://www.iso.org/standard/80742.html> ;
+    rdfs:comment             "The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024." ;
+    owl:priorVersion         <https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Person/> ;
+    dcterms:modified         "2026-02-12"^^xsd:date ;
+    owl:versionInfo          "1.3.0" ;
+    owl:versionIRI           <https://w3id.org/citydata/part2/v1/PersonPattern/r3.0/> ;
+    cc:license               "http://creativecommons.org/licenses/by/4.0/" ;
+    owl:imports              :ContactPattern ;
+    rdf:type                 owl:Ontology .
+
+:PersonDataProperty
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :CityDataProperty ;
+    skos:definition          "Added for organizational purposes, to identify data properties defined in the Person Pattern." .
+
+:PersonObjectProperty
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityObjectProperty ;
+    skos:definition          "Added for organizational purposes, to identify object properties defined for the Person Pattern in the City-level CDM ontology." .
+
+:additionalName
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :PersonDataProperty ;
+    skos:definition          "Identifies a string that is the middle or additional names of the Person." ;
+    rdfs:domain              :PersonName ;
+    rdfs:range               xsd:string .
+
+:alias
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies any alternative names associated with a Person. " ;
+    skos:note                "A Person can only have one legal name, but can have multiple alias names." ;
+    rdfs:range               :Name .
+
+:birthDate
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies the time:Instant when the Person was born." ;
+    rdfs:range               time:Instant ;
+    cdm1:isInvariant         true .
+
+:birthplace
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies the place where the Person was born." ;
+    rdfs:range               :Address .
+
+:children
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies any children of a person." ;
+    rdfs:range               :Person .
+
+:citizenOf
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "specifies one or more Citizenships, each specifying the country (Country) and time interval (time:ProperInterval) the Person is a citizen. A Person can be a citizen of more than one country and for different time intervals. It is recommended that a Country be defined with using ISO 3166-2 [4] alpha-2 (2-letter) country code, however different systems may be accommodated with the Code pattern." ;
+    rdfs:range               :Citizenship .
+
+:deathDate
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies the time:Instant when the Person died." ;
+    rdfs:range               time:Instant .
+
+:deathPlace
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies the place where the Person died." ;
+    rdfs:range               :Address .
+
+:familyName
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :PersonDataProperty ;
+    skos:definition          "Identifies as single string that is the family or last name of the Person." ;
+    rdfs:domain              :PersonName ;
+    rdfs:range               xsd:string .
+
+:forCountry
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies the country for which the Person is a citizen for the given dates." ;
+    rdfs:range               :Country .
+
+:givenName
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :PersonDataProperty ;
+    skos:definition          "Identifies a string that is the given or first name of the Person." ;
+    rdfs:domain              :PersonName ;
+    rdfs:range               xsd:string .
+
+:hasEducation
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies the education of a person." ;
+    rdfs:range               :Education .
+
+:hasGenderIdentity
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies the gender identity of a person." ;
+    rdfs:range               :Gender .
+
+:hasIDType
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Specifies the type of identifier, its values may be defined more precisely with the use of the code:hasCode property." ;
+    rdfs:range               :IDType .
+
+:hasPersonID
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies any instances of a Person’s PersonId." ;
+    rdfs:range               :PersonId ;
+    skos:example             "driver's license" ;
+    skos:example             "passport" ;
+    cdm1:isInvariant         true .
+
+:hasQualification
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityObjectProperty .
+
+:hasSkill
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies the skills of a person." ;
+    rdfs:range               :Skill .
+
+:income
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies the annual income of a person." ;
+    rdfs:range               cdm1:MonetaryValue .
+
+:issuedBy
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies the Agent that issued the ID, document, or certificate." ;
+    rdfs:range               cdm1:Agent .
+
+:name
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityObjectProperty ;
+    skos:definition          "Identifies the instance of Name legally associated with an Object (e.g., Person)." ;
+    rdfs:range               :Name .
+
+:parent
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies any parents of the Person." ;
+    skos:note                "The parent relation is broadly defined and can include legal and biological relations." ;
+    rdfs:range               :Person .
+
+:photoID
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :PersonDataProperty ;
+    skos:definition          "Specifies whether the identifier contains a photo." ;
+    rdfs:domain              :Person ;
+    rdfs:range               xsd:boolean .
+
+:sex
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies a Person's sex assigned at birth." ;
+    skos:note                "Sex is typically assigned based on a person's reproductive system and other physical characteristics. The definition of sex is distinct from that of a person’s gender; a Person is associated with at most one sex." ;
+    skos:closeMatch          schema:gender ;
+    cdm1:isInvariant         true .
+
+:spouse
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies any spouses of the person." ;
+    rdfs:range               :Person .
+
+:validityPeriod
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       time:hasTime ;
+    rdfs:subPropertyOf       :PersonObjectProperty ;
+    skos:definition          "Identifies the time interval during which the identifier is valid." .
+
+:Citizenship
+    rdf:type                 owl:Class ;
+    skos:definition          "Citizenship is a type of City Thing that indicates the country of citizenship for a person during a specific period." ;
+    rdfs:subClassOf          :PersonThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :validityPeriod ;
+        owl:onClass                  time:ProperInterval ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :forCountry ;
+        owl:onClass                  :Country ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
+
+:Education
+    rdf:type                 owl:Class ;
+    skos:definition          "Education is a type of Code that describes the educational background of a person." ;
+    rdfs:subClassOf          :PersonThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] .
+
+:Gender
+    rdf:type                 owl:Class ;
+    skos:definition          "Gender is a type of Code that describes the gender identity of a person." ;
+    rdfs:subClassOf          :PersonThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] .
+
+:IDType
+    rdf:type                 owl:Class ;
+    skos:definition          "ID Type is a type of Code that describes the type of identification document issued to a person." ;
+    rdfs:subClassOf          :PersonThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] .
+
+:Name
+    rdf:type                 owl:Class ;
+    skos:definition          "A Name represents a formal name given to an entity and is a superclass for all more descriptive name types." ;
+    rdfs:subClassOf          :CityThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasName ;
+        owl:onDataRange              xsd:string
+    ] .
+
+:Person
+    rdf:type                 owl:Class ;
+    skos:definition          "A Person is an individual human being." ;
+    rdfs:subClassOf          cdm1:Agent ;
+    rdfs:subClassOf          :PersonThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :alias ;
+        owl:onClass                  :PersonName
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasAddress ;
+        owl:onClass                  :Address
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasSkill ;
+        owl:onClass                  :Skill
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasTelephone ;
+        owl:onClass                  :PhoneNumber
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :name ;
+        owl:onClass                  :PersonName ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :deathDate ;
+        owl:onClass                  time:Instant ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasGenderIdentity ;
+        owl:onClass                  :Gender
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :income ;
+        owl:onClass                  cdm1:MonetaryValue
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasEducation ;
+        owl:onClass                  :Education
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :sex ;
+        owl:onClass                  :Sex ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :deathPlace ;
+        owl:onClass                  :Address ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasPersonID ;
+        owl:onClass                  :PersonId
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :birthDate ;
+        owl:onClass                  time:Instant ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :parent ;
+        owl:onClass                  :Person
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasEmail ;
+        owl:onClass                  :EmailAddress
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :birthplace ;
+        owl:onClass                  :Address ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :spouse ;
+        owl:onClass                  :Person
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :citizenOf ;
+        owl:onClass                  :Citizenship
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :children ;
+        owl:onClass                  :Person
+    ] ;
+    skos:note                "Some properties are not defined in the Person ontology, but in an extension of the Person ontology that captures the interaction between iCity domain ontologies (e.g. Persons and their Vehicles)" .
+
+:PersonId
+    rdf:type                 owl:Class ;
+    skos:definition          "Person ID is a type of City Thing that represents an identification document issued to a person by an authoritative body." ;
+    rdfs:subClassOf          :PersonThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasIDType ;
+        owl:onClass                  :IDType
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :photoID ;
+        owl:onDataRange              xsd:boolean ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :validityPeriod ;
+        owl:onClass                  time:Interval ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasIdentifier ;
+        owl:onDataRange              xsd:string ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :issuedBy ;
+        owl:onClass                  cdm1:Agent ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
+
+:PersonName
+    rdf:type                 owl:Class ;
+    rdfs:subClassOf          :Name ;
+    rdfs:subClassOf          :PersonThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :familyName ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :givenName ;
+        owl:onDataRange              xsd:string
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :additionalName ;
+        owl:onDataRange              xsd:string
+    ] .
+
+:PersonThing
+    rdf:type                 owl:Class ;
+    skos:definition          "Added for organizational purposes, to identify classes defined in the Person ontology." ;
+    rdfs:subClassOf          :CityThing .
+
+:Sex
+    rdf:type                 owl:Class ;
+    skos:definition          "Sex is a type of Code that describes the biological sex of a person." ;
+    rdfs:subClassOf          :PersonThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] .
+
+:Skill
+    rdf:type                 owl:Class ;
+    skos:definition          "Skill is a type of Code that describes a specific ability or competency of a person." ;
+    rdfs:subClassOf          :PersonThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] .

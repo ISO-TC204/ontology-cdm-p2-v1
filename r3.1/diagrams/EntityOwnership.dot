@@ -1,0 +1,34 @@
+// Diagram for EntityOwnership
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		ControlledEntity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ControlledEntity</TD></TR></TABLE>> URL="../ControlledEntity" margin=0]
+	}
+	EntityOwnership [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">EntityOwnership</TD></TR><TR><TD ALIGN="LEFT">percentOwnership : xsd:decimal [0..1]</TD></TR></TABLE>> URL="../EntityOwnership" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Building [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Building</TD></TR></TABLE>> URL="../Building" margin=0]
+		LandArea [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">LandArea</TD></TR></TABLE>> URL="../LandArea" margin=0]
+		Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Organization</TD></TR></TABLE>> URL="../Organization" margin=0]
+	}
+	EntityOwnership -> ControlledEntity [arrowhead=onormal style=solid]
+	EntityOwnership -> Invis [style=invis]
+	Invis -> Building [style=invis]
+	Building -> LandArea [style=invis]
+	LandArea -> Organization [style=invis]
+	na3c433dde1d646699edc27e027b2ae59b9 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">«unionOf»</TD></TR></TABLE>> margin=0]
+	Building [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Building</TD></TR></TABLE>> URL="../Building" margin=0]
+	na3c433dde1d646699edc27e027b2ae59b9 -> Building [label=member arrowhead=normal style=dotted]
+	LandArea [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">LandArea</TD></TR></TABLE>> URL="../LandArea" margin=0]
+	na3c433dde1d646699edc27e027b2ae59b9 -> LandArea [label=member arrowhead=normal style=dotted]
+	Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Organization</TD></TR></TABLE>> URL="../Organization" margin=0]
+	na3c433dde1d646699edc27e027b2ae59b9 -> Organization [label=member arrowhead=normal style=dotted]
+	EntityOwnership -> na3c433dde1d646699edc27e027b2ae59b9 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">redefines</TD></TR><TR><TD ALIGN="CENTER">entity</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=dashed]
+}

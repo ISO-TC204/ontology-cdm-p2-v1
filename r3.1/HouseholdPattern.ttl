@@ -1,0 +1,84 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
+:HouseholdPattern
+    dcterms:title            "Information technology - City data model - Part 2: City level concepts - Household pattern" ;
+    skos:definition          "This ontology specifies the city-level concepts for the household pattern of the city data model. The Household pattern captures basic information about households within the city.  In particular it represents the different types and structures of households." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    dcterms:creator          "Kenneth Vaughn" ;
+    dcterms:creator          "Mark Fox" ;
+    dcterms:creator          "Megan Katsumi" ;
+    dcterms:bibliographicCitation "ISO/IEC 5087-2:2024" ;
+    rdfs:seeAlso             <https://www.iso.org/standard/80742.html> ;
+    rdfs:comment             "The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024." ;
+    owl:priorVersion         <https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Household/> ;
+    dcterms:modified         "2026-02-12"^^xsd:date ;
+    owl:versionInfo          "1.3.0" ;
+    owl:versionIRI           <https://w3id.org/citydata/part2/v1/HouseholdPattern/r3.0/> ;
+    cc:license               "http://creativecommons.org/licenses/by/4.0/" ;
+    owl:imports              :CityResidentPattern ;
+    rdf:type                 owl:Ontology .
+
+:HouseholdObjectProperty
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityObjectProperty ;
+    skos:definition          "Added for organizational purposes, to identify object properties defined for the Household Pattern in the City-level CDM ontology." .
+
+:householdOccupies
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :HouseholdObjectProperty ;
+    skos:definition          "Identifies the Residence that the Household occupies. A Household is defined by this residence, such that if the members move (even collectively), the new residence constitutes a new Household." ;
+    rdfs:domain              :Household ;
+    rdfs:range               :Residence ;
+    cdm1:isInvariant         true .
+
+:Household
+    rdf:type                 owl:Class ;
+    skos:definition          "A Household refers to a collection of persons occupying a shared place of residence. Households may or may not be comprised of family members." ;
+    rdfs:subClassOf          :HouseholdThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               org:hasMember ;
+        owl:onClass                  :Person
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :householdOccupies ;
+        owl:onClass                  :Residence ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               time:hasTime ;
+        owl:onClass                  time:ProperInterval
+    ] ;
+    skos:note                "More precise definitions of Household may be adopted as required for different contexts and applications through extensions to this class." .
+
+:HouseholdThing
+    rdf:type                 owl:Class ;
+    skos:definition          "Added for organizational purposes, to identify classes defined in the Household ontology." ;
+    rdfs:subClassOf          :CityThing .
+
+:own
+    rdf:type                 owl:NamedIndividual .
+
+:rent
+    rdf:type                 owl:NamedIndividual .

@@ -1,0 +1,219 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
+:TransportInfrastructurePattern
+    dcterms:title            "Information technology - City data model - Part 2: City level concepts - Transport Infrastructure pattern" ;
+    skos:definition          "This ontology specifies the city-level concepts for the transport infrastructure pattern of the city data model. The Transportation Infrastructure pattern defines the concepts that are relevant in describing the physical transportation infrastructure and their characteristics. This includes the concepts of a Road, Bridge, and Tunnel. The Infrastructure Pattern is reused here, as these transportation structures are all defined as types of (subclasses) Infrastructure Elements." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    dcterms:creator          "Kenneth Vaughn" ;
+    dcterms:creator          "Mark Fox" ;
+    dcterms:creator          "Megan Katsumi" ;
+    dcterms:bibliographicCitation "ISO/IEC 5087-2:2024" ;
+    rdfs:seeAlso             <https://www.iso.org/standard/80742.html> ;
+    rdfs:comment             "The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024." ;
+    owl:priorVersion         <https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/TransportInfrastructure/> ;
+    dcterms:modified         "2026-02-12"^^xsd:date ;
+    owl:versionInfo          "1.3.0" ;
+    owl:versionIRI           <https://w3id.org/citydata/part2/v1/TransportInfrastructurePattern/r3.0/> ;
+    cc:license               "http://creativecommons.org/licenses/by/4.0/" ;
+    owl:imports              :InfrastructurePattern ;
+    rdf:type                 owl:Ontology .
+
+:TransportInfrastructureObjectProperty
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityObjectProperty ;
+    skos:definition          "Added for organizational purposes, to identify object properties defined for the Transport Infrastructure Pattern in the City-level CDM ontology." .
+
+:networkType
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :TransportInfrastructureObjectProperty ;
+    skos:definition          "Identifies the type of network." ;
+    rdfs:range               :Code ;
+    rdfs:comment             "This was originally defined for types of transport infrastructure but can be applied to other network types as well."@en .
+
+:supports
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :TransportInfrastructureObjectProperty ;
+    skos:definition          "Identifies the infrastructure element that is supported (carried in or carried through) the current (domain) object." ;
+    rdfs:range               :InfrastructureElement ;
+    skos:example             "A road segment can be supported by a tunnel or bridge." .
+
+:Bridge
+    rdf:type                 owl:Class ;
+    skos:definition          "A Bridge is a Infrastructure Element that enables travel over some obstacle or area. It may contain some Road Segments or Rail Line Segments." ;
+    rdfs:subClassOf          :InfrastructureElement ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :supports ;
+        owl:onClass                  :TravelledWaySegment
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasProperPart ;
+        owl:onClass                  :BridgeSegment
+    ] ;
+    skos:note                "A Bridge is identified as such by a governing body." .
+
+:BridgeSegment
+    rdf:type                 owl:Class ;
+    rdfs:subClassOf          :InfrastructureElement ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :supports ;
+        owl:onClass                  :TravelledWaySegment
+    ] .
+
+:RailLine
+    rdf:type                 owl:Class ;
+    skos:definition          "A Rail Line is a type of Travelled Way that describes a part of the physical transportation infrastructure that has been fitted with tracks to allow travel by trains and other sorts of rail vehicles. No distinction is made between Rail Line types at this level." ;
+    rdfs:subClassOf          :TravelledWay ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:aggregationOf ;
+        owl:onClass                  :RailLink
+    ] .
+
+:RailLink
+    rdf:type                 owl:Class ;
+    skos:definition          "A Rail Link is a type of Travelled Way Link that represents a length of RailLine." ;
+    rdfs:subClassOf          :TravelledWayLink ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:aggregateOf ;
+        owl:onClass                  :RailLine
+    ] .
+
+:RailSegment
+    rdf:type                 owl:Class ;
+    skos:definition          "A Rail Segment is a type of Travelled Way Segment that represents part of a Rail Link." ;
+    rdfs:subClassOf          :TravelledWaySegment ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:properPartOf ;
+        owl:onClass                  :RailLink ;
+        owl:minQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
+
+:Road
+    rdf:type                 owl:Class ;
+    skos:definition          "A Road is a type of Travelled Way that describes a part of the physical transport infrastructure that has been improved to allow travel by motor vehicles, persons, bicycles, or similar methods of conveyance. road vehicles. No distinction is made between Road types at this level." ;
+    rdfs:subClassOf          :TravelledWay ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:aggregationOf ;
+        owl:onClass                  :RoadLink
+    ] .
+
+:RoadLink
+    rdf:type                 owl:Class ;
+    skos:definition          "A Road Link is a type of Travelled Way Link that represents a length of Road." ;
+    rdfs:subClassOf          :TravelledWayLink ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:aggregateOf ;
+        owl:onClass                  :Road
+    ] .
+
+:RoadNetworkType
+    rdf:type                 owl:Class ;
+    rdfs:subClassOf          :InfrastructureThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] .
+
+:RoadSegment
+    rdf:type                 owl:Class ;
+    skos:definition          "A Road Segment is a type of Travelled Way Segment that represents part of a Road Link." ;
+    rdfs:subClassOf          :TravelledWaySegment ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:properPartOf ;
+        owl:onClass                  :RoadLink ;
+        owl:minQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :networkType ;
+        owl:onClass                  :RoadNetworkType
+    ] .
+
+:TransportInfrastructureThing
+    rdf:type                 owl:Class ;
+    skos:definition          "Added for organizational purposes, to identify classes defined in the Transport Infrastructure Pattern ontology." ;
+    rdfs:subClassOf          :CityPatternThing .
+
+:TravelledWay
+    rdf:type                 owl:Class ;
+    skos:definition          "A Travelled Way is a type of Infrastructure Element that enables travel." ;
+    rdfs:subClassOf          :InfrastructureElement ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:aggregationOf ;
+        owl:onClass                  :TravelledWayLink
+    ] .
+
+:TravelledWayLink
+    rdf:type                 owl:Class ;
+    skos:definition          "A Travelled Way Link represents a continuous length of a Travelled Way and is a type of Infrastructure Element that connects two or more Travelled Way Segments." ;
+    rdfs:subClassOf          :InfrastructureElement ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:aggregateOf ;
+        owl:onClass                  :TravelledWay
+    ] .
+
+:TravelledWaySegment
+    rdf:type                 owl:Class ;
+    skos:definition          "A Travelled Way Segment is a type of Infrastructure Element that represents part of a Travelled Way Link." ;
+    rdfs:subClassOf          :InfrastructureElement ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:aggregateOf ;
+        owl:onClass                  :TravelledWayLink ;
+        owl:minQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
+
+:Tunnel
+    rdf:type                 owl:Class ;
+    skos:definition          "A Tunnel is a Infrastructure Element that enables travel through or underneath some obstacle or area. It may contain some Road or RailLine Segments." ;
+    rdfs:subClassOf          :InfrastructureElement ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :supports ;
+        owl:onClass                  :TravelledWaySegment
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasProperPart ;
+        owl:onClass                  :TunnelSegment
+    ] .
+
+:TunnelSegment
+    rdf:type                 owl:Class ;
+    skos:definition          "A Tunnel Segment is a type of Infrastructure Element that represents part of a Tunnel." ;
+    rdfs:subClassOf          :InfrastructureElement ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :supports ;
+        owl:onClass                  :TravelledWaySegment
+    ] .

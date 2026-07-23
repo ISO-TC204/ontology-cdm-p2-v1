@@ -1,0 +1,38 @@
+// Diagram for OrganizationAgent
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		cdm1_Agent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Agent</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Agent" margin=0]
+		CityOrgThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityOrgThing</TD></TR></TABLE>> URL="../CityOrgThing" margin=0]
+	}
+	OrganizationAgent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">OrganizationAgent</TD></TR></TABLE>> URL="../OrganizationAgent" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Employment [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Employment</TD></TR></TABLE>> URL="../Employment" margin=0]
+		Goal [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Goal</TD></TR></TABLE>> URL="../Goal" margin=0]
+		Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Organization</TD></TR></TABLE>> URL="../Organization" margin=0]
+		Role [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Role</TD></TR></TABLE>> URL="../Role" margin=0]
+	}
+	OrganizationAgent -> cdm1_Agent [arrowhead=onormal style=solid]
+	OrganizationAgent -> CityOrgThing [arrowhead=onormal style=solid]
+	OrganizationAgent -> Invis [style=invis]
+	Invis -> Employment [style=invis]
+	Employment -> Goal [style=invis]
+	Goal -> Organization [style=invis]
+	Organization -> Role [style=invis]
+	Role [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Role</TD></TR></TABLE>> URL="../Role" margin=0]
+	OrganizationAgent -> Role [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">playsRole</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Goal [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Goal</TD></TR></TABLE>> URL="../Goal" margin=0]
+	OrganizationAgent -> Goal [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasGoal</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Organization</TD></TR></TABLE>> URL="../Organization" margin=0]
+	OrganizationAgent -> Organization [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">org:memberOf</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Employment [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Employment</TD></TR></TABLE>> URL="../Employment" margin=0]
+	OrganizationAgent -> Employment [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasEmployment</TD></TR></TABLE>> arrowhead=normal style=solid]
+}

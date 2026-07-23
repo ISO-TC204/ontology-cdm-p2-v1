@@ -1,0 +1,1989 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix contact: <https://w3id.org/citydata/part2/v1/Contact#> .
+
+:ContactPattern
+    dcterms:title            "Information technology - City data model - Part 2: City level concepts - Contact pattern" ;
+    skos:definition          "This ontology specifies the city-level concepts for the contact pattern of the city data model." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    dcterms:creator          "Kenneth Vaughn" ;
+    dcterms:creator          "Mark Fox" ;
+    dcterms:creator          "Megan Katsumi" ;
+    dcterms:bibliographicCitation "ISO/IEC 5087-2:2024" ;
+    rdfs:seeAlso             <https://www.iso.org/standard/80742.html> ;
+    rdfs:comment             "The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024." ;
+    owl:priorVersion         <https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Contact/> ;
+    dcterms:modified         "2026-02-12"^^xsd:date ;
+    owl:versionInfo          "1.3.0" ;
+    owl:versionIRI           <https://w3id.org/citydata/part2/v1/ContactPattern/r3.0/> ;
+    cc:license               "http://creativecommons.org/licenses/by/4.0/" ;
+    owl:imports              :CityPattern ;
+    rdf:type                 owl:Ontology .
+
+:AddressDataProperty
+    rdf:type                 owl:DatatypeProperty ;
+    rdf:type                 owl:FunctionalProperty ;
+    rdfs:subPropertyOf       :ContactDataProperty ;
+    skos:definition          "Added for organizational purposes, to identify data properties defined for addresses in the contact pattern." ;
+    rdfs:domain              :Address .
+
+:AddressProperty
+    rdf:type                 owl:FunctionalProperty ;
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ContactObjectProperty ;
+    skos:definition          "Added for organizational purposes, to identify properties related to an address." ;
+    rdfs:domain              :Address .
+
+:ContactDataProperty
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :CityDataProperty ;
+    skos:definition          "Added for organizational purposes, to identify data properties defined in the contact pattern." ;
+    rdfs:domain              :Address .
+
+:ContactObjectProperty
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityObjectProperty ;
+    skos:definition          "Added for organizational purposes, to identify object properties defined for the Contact Pattern in the City-level CDM ontology." .
+
+:TelephoneDataProperty
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :ContactDataProperty ;
+    skos:definition          "Added for organizational purposes, to identify data properties defined for telephone numbers in the Contact Pattern." .
+
+:buildingName
+    rdf:type                 owl:DatatypeProperty ;
+    rdf:type                 owl:FunctionalProperty ;
+    rdfs:subPropertyOf       :AddressDataProperty ;
+    skos:definition          "Specifies the name of the building for the Address." ;
+    skos:note                "Often used in countries like England, India and Japan." ;
+    rdfs:range               xsd:string .
+
+:hasAddress
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ContactObjectProperty ;
+    skos:definition          "Specifies the address of the object." ;
+    rdfs:range               :Address ;
+    rdfs:comment             "hasAddress links any class to the Address class."@en .
+
+:hasAddressType
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AddressProperty ;
+    skos:definition          "specifies the type of address." ;
+    rdfs:range               :AddressType ;
+    rdfs:label               "has Address Type"@en ;
+    skos:example             "home, work" .
+
+:hasAreaCode
+    rdf:type                 owl:DatatypeProperty ;
+    rdf:type                 owl:FunctionalProperty ;
+    rdfs:subPropertyOf       :TelephoneDataProperty ;
+    skos:definition          "Specifies the area code for the PhoneNumber." ;
+    rdfs:domain              :PhoneNumber ;
+    rdfs:range               xsd:nonNegativeInteger ;
+    rdfs:label               "has Area Code"@en .
+
+:hasCity
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AddressProperty ;
+    skos:definition          "Specifies the name of the city for the address." ;
+    rdfs:range               :City .
+
+:hasCitySection
+    rdf:type                 owl:DatatypeProperty ;
+    rdf:type                 owl:FunctionalProperty ;
+    rdfs:subPropertyOf       :AddressDataProperty ;
+    skos:definition          "Specifies the section of the city for the Address." ;
+    skos:note                "Often used in countries like England, India and Japan." ;
+    rdfs:range               xsd:string ;
+    rdfs:label               "has City Section"@en .
+
+:hasCountry
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AddressProperty ;
+    skos:definition          "Specifies the country for the address." ;
+    skos:note                "Use of the ISO 3166-2 [4] alpha-2 2 letter country code is recommended." ;
+    rdfs:range               :Country ;
+    rdfs:label               "has Country"@en .
+
+:hasCountryCode
+    rdf:type                 owl:DatatypeProperty ;
+    rdf:type                 owl:FunctionalProperty ;
+    rdfs:subPropertyOf       :TelephoneDataProperty ;
+    skos:definition          "Identifies the country code for the telephone number." ;
+    rdfs:domain              :PhoneNumber ;
+    rdfs:range               xsd:nonNegativeInteger ;
+    rdfs:label               "has Country Code"@en .
+
+:hasEmail
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :ContactDataProperty ;
+    skos:definition          "Identifies an email address of the organization or individual." ;
+    rdfs:range               :EmailAddress .
+
+:hasPhoneNumber
+    rdf:type                 owl:DatatypeProperty ;
+    rdf:type                 owl:FunctionalProperty ;
+    rdfs:subPropertyOf       :TelephoneDataProperty ;
+    skos:definition          "Specifies the remaining digits of the number after the area code." ;
+    rdfs:domain              :PhoneNumber ;
+    rdfs:range               xsd:nonNegativeInteger ;
+    rdfs:label               "has Phone Number"@en .
+
+:hasPhoneType
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ContactObjectProperty ;
+    skos:definition          "Specifies the type of phone number." ;
+    rdfs:range               :PhoneType ;
+    rdfs:label               "has Phone Type"@en ;
+    skos:example             "cell phone, home phone" .
+
+:hasPostalBox
+    rdf:type                 owl:DatatypeProperty ;
+    rdf:type                 owl:FunctionalProperty ;
+    rdfs:subPropertyOf       :AddressDataProperty ;
+    skos:definition          "sSecifies the box number for the address." ;
+    rdfs:domain              :Address ;
+    rdfs:range               xsd:string ;
+    rdfs:label               "has Postal Box"@en .
+
+:hasPostalCode
+    rdf:type                 owl:DatatypeProperty ;
+    rdf:type                 owl:FunctionalProperty ;
+    rdfs:subPropertyOf       :AddressDataProperty ;
+    skos:definition          "Specifies the zip or postalcode for the address." ;
+    rdfs:domain              :Address ;
+    rdfs:range               xsd:string ;
+    rdfs:label               "has Postal Code"@en .
+
+:hasProvince
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AddressProperty ;
+    skos:definition          "Specifies the state or province for the address." ;
+    rdfs:range               :State ;
+    rdfs:label               "has Province"@en-CA ;
+    rdfs:label               "has State"@en-US .
+
+:hasState
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AddressProperty ;
+    owl:equivalentProperty   :hasProvince .
+
+:hasStreet
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :AddressDataProperty ;
+    skos:definition          "Specifies the street name for the address." ;
+    rdfs:domain              :Address ;
+    rdfs:range               xsd:string ;
+    rdfs:label               "has Street"@en .
+
+:hasStreetDirection
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AddressProperty ;
+    skos:definition          "Specifies the direction of the street for the address." ;
+    rdfs:domain              :Address ;
+    rdfs:range               :StreetDirection ;
+    rdfs:label               "has Street Direction"@en ;
+    skos:example             "east, west" .
+
+:hasStreetNumber
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :AddressDataProperty ;
+    skos:definition          "Specifies the street number for the address." ;
+    rdfs:domain              :Address ;
+    rdfs:range               xsd:string ;
+    rdfs:label               "has Street Number"@en .
+
+:hasStreetType
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AddressProperty ;
+    skos:definition          "specifies the type of the street for the address." ;
+    rdfs:domain              :Address ;
+    rdfs:range               :StreetType ;
+    rdfs:label               "has Street Type"@en ;
+    skos:example             "road, drive" .
+
+:hasTelephone
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :ContactObjectProperty ;
+    skos:definition          "Identifies the PhoneNumber for the domain object." ;
+    rdfs:range               :PhoneNumber ;
+    rdfs:label               "has Telephone"@en .
+
+:hasUnitNumber
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :AddressDataProperty ;
+    skos:definition          "Specifies the unit or suite number for the address." ;
+    rdfs:domain              :Address ;
+    rdfs:range               xsd:string ;
+    rdfs:label               "has Unit Number"@en .
+
+:maxStreetNumber
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :AddressDataProperty ;
+    skos:definition          "specifies the maximum street number of an street number range, in the case that it is defined with a street number range." ;
+    rdfs:range               xsd:string .
+
+:minStreetNumber
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :AddressDataProperty ;
+    skos:definition          "specifies the minimum street number of an street number range, in the case that it is defined with a street number range." ;
+    rdfs:range               xsd:string .
+
+:Address
+    rdf:type                 owl:Class ;
+    skos:definition          "Address is the main concept for a contact.  It has been designed to represent any type of address in the world, including India and the UK.  For example, the property hasBuilding is important in many UK and Indian addresses to further identify the person or business location. Street information is divided into separate properties to fully identify direction (hasStreetDirection), Type (hasStreetType), etc."@en ;
+    rdfs:subClassOf          :ContactThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCity ;
+        owl:onClass                  :City ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasAddressType ;
+        owl:onClass                  :AddressType
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :minStreetNumber ;
+        owl:onDataRange              xsd:nonNegativeInteger ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCitySection ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :maxStreetNumber ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasStreetType ;
+        owl:onClass                  :StreetType ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCountry ;
+        owl:onClass                  :Country ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasLocation ;
+        owl:onClass                  cdm1:Location ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasUnitNumber ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasStreetDirection ;
+        owl:onClass                  :StreetDirection ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasProvince ;
+        owl:onClass                  :State ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :buildingName ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasPostalBox ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasStreetNumber ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasStreet ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasPostalCode ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
+
+:AddressType
+    rdf:type                 owl:Class ;
+    skos:definition          "Address Type is a type of Code that describes the type of address, such as residential, business, or mailing."@en ;
+    rdfs:subClassOf          :ContactThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] ;
+    rdfs:label               "Address Type"@en .
+
+:ContactThing
+    rdf:type                 owl:Class ;
+    skos:definition          "Added for organizational purposes, to identify classes defined in the Contact ontology." ;
+    rdfs:subClassOf          :CityThing .
+
+:Country
+    rdf:type                 owl:Class ;
+    skos:definition          "A Country is a specialization of a Jurisdictional Area that is formally identified as such." ;
+    rdfs:subClassOf          :ContactThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] .
+
+:PhoneNumber
+    rdf:type                 owl:Class ;
+    skos:definition          "A PhoneNumber defines the complete international phone number and type of number." ;
+    rdfs:subClassOf          :ContactThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasPhoneNumber ;
+        owl:onDataRange              xsd:nonNegativeInteger ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasAreaCode ;
+        owl:onDataRange              xsd:nonNegativeInteger ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasPhoneType ;
+        owl:onClass                  :PhoneType ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCountryCode ;
+        owl:onDataRange              xsd:nonNegativeInteger ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:label               "Phone Number"@en .
+
+:PhoneType
+    rdf:type                 owl:Class ;
+    skos:definition          "A PhoneType defines the type of phone number." ;
+    rdfs:subClassOf          :ContactThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] ;
+    rdfs:label               "Phone Type"@en ;
+    skos:example             "home, cell, work, etc." .
+
+:State
+    rdf:type                 owl:Class ;
+    skos:definition          "A State is a political subdivision of a country." ;
+    rdfs:subClassOf          :ContactThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] .
+
+:StreetDirection
+    rdf:type                 owl:Class ;
+    skos:definition          "A StreetDirection defines the directional component of a street name." ;
+    rdfs:subClassOf          :ContactThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] ;
+    rdfs:label               "Street Direction"@en .
+
+:StreetType
+    rdf:type                 owl:Class ;
+    skos:definition          "A StreetType defines the type of street." ;
+    rdfs:subClassOf          :ContactThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasCode ;
+        owl:onClass                  :Code
+    ] ;
+    rdfs:label               "Street Type"@en .
+
+contact:Abbey
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "ABBEY"@en ;
+    rdfs:label               "Abbey"@en .
+
+contact:Acres
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "AC"@en ;
+    rdfs:label               "ACRES"@en ;
+    rdfs:label               "Acres"@en .
+
+contact:Alley
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "AL"@en ;
+    rdfs:label               "ALLEY"@en ;
+    rdfs:label               "ALLÉE"@fr ;
+    rdfs:label               "ALY"@en ;
+    rdfs:label               "Alley"@en ;
+    rdfs:label               "Allée"@fr ;
+    rdfs:label               "RLE"@fr ;
+    rdfs:label               "Ruelle"@fr .
+
+contact:Annex
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "ANX"@en ;
+    rdfs:label               "Anex"@fr ;
+    rdfs:label               "Annex"@en .
+
+contact:Arcade
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "ARC"@en ;
+    rdfs:label               "Arcade"@en .
+
+contact:Autoroute
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "AUT"@en ;
+    rdfs:label               "Autoroute"@en .
+
+contact:Avenue
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "AV"@en ;
+    rdfs:label               "AV"@fr ;
+    rdfs:label               "AVE"@en ;
+    rdfs:label               "Avenue"@en .
+
+contact:Barrage
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "BRGE"@fr ;
+    rdfs:label               "Barrage"@en .
+
+contact:Bay
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "BA"@en ;
+    rdfs:label               "BAY"@en ;
+    rdfs:label               "Bay"@en .
+
+contact:Bayou
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "BYU"@en ;
+    rdfs:label               "Bayou"@en .
+
+contact:Beach
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "BCH"@en ;
+    rdfs:label               "BE"@en ;
+    rdfs:label               "BEACH"@en ;
+    rdfs:label               "Beach"@en .
+
+contact:Bend
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "BEND"@en ;
+    rdfs:label               "BN"@en ;
+    rdfs:label               "BND"@en ;
+    rdfs:label               "Bend"@en .
+
+contact:Block
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "BLOC"@fr ;
+    rdfs:label               "BLOCK"@en ;
+    rdfs:label               "Bloc"@fr ;
+    rdfs:label               "Block"@en .
+
+contact:Bluff
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "BLF"@en ;
+    rdfs:label               "BLFS"@en ;
+    rdfs:label               "Bluff"@en ;
+    rdfs:label               "Bluffs"@en .
+
+contact:Bottom
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "BTM"@en ;
+    rdfs:label               "Bottom"@en .
+
+contact:Boulevard
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "BLVD"@en ;
+    rdfs:label               "BOUL"@fr ;
+    rdfs:label               "BV"@en ;
+    rdfs:label               "Boulevard"@fr ;
+    rdfs:label               "Boulevard"@en .
+
+contact:Box
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Box"@en .
+
+contact:Branch
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "BR"@en ;
+    rdfs:label               "Branch"@en .
+
+contact:Bridge
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "BRG"@en ;
+    rdfs:label               "Bridge"@en .
+
+contact:Brook
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "BRK"@en ;
+    rdfs:label               "BRKS"@en ;
+    rdfs:label               "Brook"@en ;
+    rdfs:label               "Brooks"@en .
+
+contact:Burg
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "BG"@en ;
+    rdfs:label               "BGS"@en ;
+    rdfs:label               "Burg"@en ;
+    rdfs:label               "Burgs"@en .
+
+contact:Burrow
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Burrow"@en .
+
+contact:By-pass
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "BYP"@en ;
+    rdfs:label               "BYPASS"@en ;
+    rdfs:label               "By-pass"@en ;
+    rdfs:label               "Bypass"@en .
+
+contact:Byway
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "BYWAY"@en ;
+    rdfs:label               "Byway"@en .
+
+contact:Camp
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CP"@en ;
+    rdfs:label               "Camp"@en .
+
+contact:Campus
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CAMPUS"@en ;
+    rdfs:label               "Campus"@en .
+
+contact:Canyon
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CYN"@en ;
+    rdfs:label               "Canyon"@en .
+
+contact:Cape
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CA"@en ;
+    rdfs:label               "CAPE"@en ;
+    rdfs:label               "CPE"@en ;
+    rdfs:label               "Cape"@en .
+
+contact:Carrefour
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CARREF"@en ;
+    rdfs:label               "Carrefour"@en .
+
+contact:Castle
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CS"@en ;
+    rdfs:label               "Castle"@en .
+
+contact:Causeway
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CSWY"@en ;
+    rdfs:label               "Causeway"@en .
+
+contact:CellPhone
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Cell Phone"@en .
+
+contact:Centre
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "C"@fr ;
+    rdfs:label               "CE"@en ;
+    rdfs:label               "CTR"@en ;
+    rdfs:label               "CTRS"@en ;
+    rdfs:label               "Centre"@en ;
+    rdfs:label               "Centres"@en .
+
+contact:Cercle
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CERCLE"@en ;
+    rdfs:label               "Cercle"@en .
+
+contact:Chare
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CHARE"@en ;
+    rdfs:label               "Chare"@en .
+
+contact:Chase
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CHASE"@en ;
+    rdfs:label               "Chase"@en .
+
+contact:Chemin
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CH"@en ;
+    rdfs:label               "Chemin"@en .
+
+contact:Circle
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CERCLE"@fr ;
+    rdfs:label               "CI"@en ;
+    rdfs:label               "CIR"@en ;
+    rdfs:label               "CIRS"@en ;
+    rdfs:label               "Cercle"@fr ;
+    rdfs:label               "Circle"@en ;
+    rdfs:label               "Circles"@en .
+
+contact:Circuit
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CIRCT"@en ;
+    rdfs:label               "Circuit"@en .
+
+contact:Cliffs
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CLF"@en ;
+    rdfs:label               "CLFS"@en ;
+    rdfs:label               "Cliff"@en ;
+    rdfs:label               "Cliffs"@en .
+
+contact:Climb
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Climb"@en ;
+    rdfs:label               "MONTÉE"@fr ;
+    rdfs:label               "Montée"@fr .
+
+contact:Close
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CL"@en ;
+    rdfs:label               "CLOSE"@en ;
+    rdfs:label               "Close"@en .
+
+contact:Club
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CLB"@en ;
+    rdfs:label               "Club"@en .
+
+contact:Coast
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Coast"@en ;
+    rdfs:label               "CÔTE"@fr ;
+    rdfs:label               "Côte"@fr .
+
+contact:Common
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CM"@en ;
+    rdfs:label               "CMN"@en ;
+    rdfs:label               "CMNS"@en ;
+    rdfs:label               "COMMON"@en ;
+    rdfs:label               "Common"@en ;
+    rdfs:label               "Commons"@en .
+
+contact:Concession
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CONC"@en ;
+    rdfs:label               "Concession"@en .
+
+contact:Corners
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "COR"@en ;
+    rdfs:label               "CORS"@en ;
+    rdfs:label               "CRNRS"@en ;
+    rdfs:label               "Corner"@en ;
+    rdfs:label               "Corners"@en .
+
+contact:Cottage
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Cottage Address"@en .
+
+contact:Cour
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "COUR"@en ;
+    rdfs:label               "Cour"@en .
+
+contact:Cours
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "COURS"@en ;
+    rdfs:label               "Cours"@en .
+
+contact:Course
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CRSE"@en ;
+    rdfs:label               "Course"@en .
+
+contact:Court
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CO"@en ;
+    rdfs:label               "COUR"@fr ;
+    rdfs:label               "COURS"@fr ;
+    rdfs:label               "CRT"@en ;
+    rdfs:label               "CT"@en ;
+    rdfs:label               "CTS"@en ;
+    rdfs:label               "Court"@en ;
+    rdfs:label               "Courts"@en .
+
+contact:Cove
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "COVE"@en ;
+    rdfs:label               "CV"@en ;
+    rdfs:label               "CVS"@en ;
+    rdfs:label               "Cove"@en ;
+    rdfs:label               "Coves"@en .
+
+contact:Creek
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CRK"@en ;
+    rdfs:label               "Creek"@en .
+
+contact:Crescent
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CR"@en ;
+    rdfs:label               "CRES"@en ;
+    rdfs:label               "CROIS"@fr ;
+    rdfs:label               "Crescent"@en ;
+    rdfs:label               "Croissant"@fr .
+
+contact:Crest
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CRST"@en ;
+    rdfs:label               "CT"@en ;
+    rdfs:label               "Crest"@en .
+
+contact:Croissant
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CROIS"@en ;
+    rdfs:label               "Croissant"@en .
+
+contact:Cross
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CX"@en ;
+    rdfs:label               "Cross"@en .
+
+contact:Crossing
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CROSS"@en ;
+    rdfs:label               "Crossing"@en ;
+    rdfs:label               "XING"@en ;
+    rdfs:label               "XS"@en .
+
+contact:Crossroads
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Crossroad"@en ;
+    rdfs:label               "Crossroads"@en ;
+    rdfs:label               "XRD"@en ;
+    rdfs:label               "XRDS"@en .
+
+contact:Cul-de-sac
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CDS"@en ;
+    rdfs:label               "Cul-de-sac"@en .
+
+contact:Curve
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CURV"@en ;
+    rdfs:label               "Curve"@en .
+
+<https://w3id.org/citydata/part2/v1/Contact#Côte>
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CÔTE"@en ;
+    rdfs:label               "Côte"@en .
+
+contact:Dale
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "DALE"@en ;
+    rdfs:label               "DL"@en ;
+    rdfs:label               "Dale"@en .
+
+contact:Dam
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "DM"@en ;
+    rdfs:label               "Dam"@en .
+
+contact:Dell
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "DELL"@en ;
+    rdfs:label               "Dell"@en .
+
+contact:Desert
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Desert"@en ;
+    rdfs:label               "Desserte"@fr .
+
+contact:Diagonal
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Diagonal"@en .
+
+contact:Diversion
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "DI"@en ;
+    rdfs:label               "DIVERS"@en ;
+    rdfs:label               "Diversion"@en .
+
+contact:Divide
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "DV"@en ;
+    rdfs:label               "Divide"@en .
+
+contact:Downs
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "DO"@en ;
+    rdfs:label               "DOWNS"@en ;
+    rdfs:label               "Downs"@en .
+
+contact:Drive
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "DR"@en ;
+    rdfs:label               "Drive"@en .
+
+contact:End
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "EN"@en ;
+    rdfs:label               "END"@en ;
+    rdfs:label               "End"@en .
+
+contact:Esplanada
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "ESPL"@en ;
+    rdfs:label               "Esplanada"@en .
+
+contact:Esplanade
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "ESPL"@en ;
+    rdfs:label               "Esplanada"@es ;
+    rdfs:label               "Esplanade"@en .
+
+contact:Estates
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "ES"@en ;
+    rdfs:label               "EST"@en ;
+    rdfs:label               "ESTATE"@en ;
+    rdfs:label               "ESTS"@en ;
+    rdfs:label               "Estate"@en ;
+    rdfs:label               "Estates"@en .
+
+contact:Expressway
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "EXPY"@en ;
+    rdfs:label               "Expressway"@en .
+
+contact:Extension
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "EXT"@en ;
+    rdfs:label               "EXTEN"@en ;
+    rdfs:label               "EXTS"@en ;
+    rdfs:label               "Extension"@en ;
+    rdfs:label               "Extensions"@en .
+
+contact:Fall
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "FALL"@en ;
+    rdfs:label               "Fall"@en .
+
+contact:Falls
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "FLS"@en ;
+    rdfs:label               "Falls"@en .
+
+contact:Farm
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "FARM"@en ;
+    rdfs:label               "Farm"@en .
+
+contact:FaxPhone
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Fax Line"@en .
+
+contact:Ferry
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "FRY"@en ;
+    rdfs:label               "Ferry"@en .
+
+contact:Field
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "FIELD"@en ;
+    rdfs:label               "FLD"@en ;
+    rdfs:label               "FLDS"@en ;
+    rdfs:label               "Field"@en ;
+    rdfs:label               "Fields"@en .
+
+contact:Flat
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "FLT of FLTS"@en ;
+    rdfs:label               "Flat"@en ;
+    rdfs:label               "Flats"@en .
+
+contact:Ford
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "FRD"@en ;
+    rdfs:label               "FRDS"@en ;
+    rdfs:label               "Ford"@en ;
+    rdfs:label               "Fords"@en .
+
+contact:Forest
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "FOREST"@en ;
+    rdfs:label               "FRST"@en ;
+    rdfs:label               "Forest"@en .
+
+contact:Forge
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "FRG"@en ;
+    rdfs:label               "FRGS"@en ;
+    rdfs:label               "Forge"@en ;
+    rdfs:label               "Forges"@en .
+
+contact:Fork
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "FRK"@en ;
+    rdfs:label               "FRKS"@en ;
+    rdfs:label               "Fork"@en ;
+    rdfs:label               "Forks"@en .
+
+contact:Fort
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "FT"@en ;
+    rdfs:label               "Fort"@en .
+
+contact:Freeway
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "FR"@en ;
+    rdfs:label               "FWY"@en ;
+    rdfs:label               "Freeway"@en .
+
+contact:Front
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "FRONT"@en ;
+    rdfs:label               "Front"@en .
+
+contact:Gardens
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "GD"@en ;
+    rdfs:label               "GDN"@en ;
+    rdfs:label               "GDNS"@en ;
+    rdfs:label               "Garden"@en ;
+    rdfs:label               "Gardens"@en .
+
+contact:Gate
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "GA"@en ;
+    rdfs:label               "GATE"@en ;
+    rdfs:label               "Gate"@en .
+
+contact:Gateway
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "GTWY"@en ;
+    rdfs:label               "GW"@en ;
+    rdfs:label               "Gateway"@en .
+
+contact:Glade
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "GLADE"@en ;
+    rdfs:label               "Glade"@en .
+
+contact:Glen
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "GL"@en ;
+    rdfs:label               "GLEN"@en ;
+    rdfs:label               "GLN"@en ;
+    rdfs:label               "GLNS"@en ;
+    rdfs:label               "Glen"@en ;
+    rdfs:label               "Glens"@en .
+
+contact:Glenway
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Glenway"@en .
+
+contact:Golfway
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Golfway"@en .
+
+contact:Green
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "GR"@en ;
+    rdfs:label               "GREEN"@en ;
+    rdfs:label               "GREENS"@en ;
+    rdfs:label               "GRN"@en ;
+    rdfs:label               "GRNS"@en ;
+    rdfs:label               "Green"@en ;
+    rdfs:label               "Greens"@en .
+
+contact:Grounds
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "GRNDS"@en ;
+    rdfs:label               "Grounds"@en .
+
+contact:Grove
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "GROVE"@en ;
+    rdfs:label               "GRV"@en ;
+    rdfs:label               "GRVS"@en ;
+    rdfs:label               "GV"@en ;
+    rdfs:label               "Grove"@en ;
+    rdfs:label               "Groves"@en .
+
+contact:Hall
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "HL"@en ;
+    rdfs:label               "Hall"@en .
+
+contact:Harbour
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "HARBR"@en ;
+    rdfs:label               "HB"@en ;
+    rdfs:label               "HBR"@en ;
+    rdfs:label               "HBRS"@en ;
+    rdfs:label               "Harbour"@en ;
+    rdfs:label               "Harbours"@en .
+
+contact:Haven
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "HA"@en ;
+    rdfs:label               "HVN"@en ;
+    rdfs:label               "Haven"@en .
+
+contact:Heath
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "HE"@en ;
+    rdfs:label               "HEATH"@en ;
+    rdfs:label               "Heath"@en .
+
+contact:Heights
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "HT"@en ;
+    rdfs:label               "HTS"@en ;
+    rdfs:label               "Heights"@en .
+
+contact:Highlands
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "HGHLDS"@en ;
+    rdfs:label               "Highlands"@en .
+
+contact:Highway
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "HI"@en ;
+    rdfs:label               "HWY"@en ;
+    rdfs:label               "Highway"@en .
+
+contact:Hill
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "HILL"@en ;
+    rdfs:label               "HL"@en ;
+    rdfs:label               "HLS"@en ;
+    rdfs:label               "Hill"@en ;
+    rdfs:label               "Hills"@en .
+
+contact:Hollow
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "HO"@en ;
+    rdfs:label               "HOLLOW"@en ;
+    rdfs:label               "HOLW"@en ;
+    rdfs:label               "Hollow"@en .
+
+contact:Home
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Home Address"@en .
+
+contact:HomePhone
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Home Phone"@en .
+
+contact:Impasse
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "IMP"@en ;
+    rdfs:label               "Impasse"@en .
+
+contact:Inlet
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "IN"@en ;
+    rdfs:label               "INLET"@en ;
+    rdfs:label               "INLT"@en ;
+    rdfs:label               "Inlet"@en .
+
+contact:Island
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "IS"@en ;
+    rdfs:label               "ISLAND"@en ;
+    rdfs:label               "ISLE"@en ;
+    rdfs:label               "ISS"@en ;
+    rdfs:label               "Island"@en ;
+    rdfs:label               "Islands"@en ;
+    rdfs:label               "Isle"@en ;
+    rdfs:label               "ÎLE"@fr ;
+    rdfs:label               "Île"@fr .
+
+contact:Junction
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "JCT"@en ;
+    rdfs:label               "JCTS"@en ;
+    rdfs:label               "Junction"@en ;
+    rdfs:label               "Junctions"@en .
+
+contact:Keep
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "KE"@en ;
+    rdfs:label               "Keep"@en .
+
+contact:Key
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "KEY"@en ;
+    rdfs:label               "KY"@en ;
+    rdfs:label               "KYS"@en ;
+    rdfs:label               "Key"@en ;
+    rdfs:label               "Keys"@en .
+
+contact:Knoll
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "KN"@en ;
+    rdfs:label               "KNL"@en ;
+    rdfs:label               "KNLS"@en ;
+    rdfs:label               "KNOLL"@en ;
+    rdfs:label               "Knoll"@en ;
+    rdfs:label               "Knolls"@en .
+
+contact:Lake
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "LK"@en ;
+    rdfs:label               "LKS"@en ;
+    rdfs:label               "Lake"@en ;
+    rdfs:label               "Lakes"@en .
+
+contact:Land
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "LAND"@en ;
+    rdfs:label               "Land"@en .
+
+contact:Landing
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "LANDNG"@en ;
+    rdfs:label               "LD"@en ;
+    rdfs:label               "LNDG"@en ;
+    rdfs:label               "Landing"@en .
+
+contact:Lane
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "LANE"@en ;
+    rdfs:label               "LN"@en ;
+    rdfs:label               "Lane"@en .
+
+contact:Light
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "LGT"@en ;
+    rdfs:label               "LGTS"@en ;
+    rdfs:label               "Light"@en ;
+    rdfs:label               "Lights"@en .
+
+contact:Ligne
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Ligne"@en .
+
+contact:Limits
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "LMTS"@en ;
+    rdfs:label               "Limits"@en .
+
+contact:Line
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "LINE"@en ;
+    rdfs:label               "Line"@en .
+
+contact:Link
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "LI"@en ;
+    rdfs:label               "LINK"@en ;
+    rdfs:label               "Link"@en .
+
+contact:Loaf
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "LF"@en ;
+    rdfs:label               "Loaf"@en .
+
+contact:Lock
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "LCK"@en ;
+    rdfs:label               "LCKS"@en ;
+    rdfs:label               "Lock"@en ;
+    rdfs:label               "Locks"@en .
+
+contact:Lodge
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "LDG"@en ;
+    rdfs:label               "Lodge"@en .
+
+contact:Lookout
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "LKOUT"@en ;
+    rdfs:label               "Lookout"@en .
+
+contact:Loop
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "LO"@en ;
+    rdfs:label               "LOOP"@en ;
+    rdfs:label               "Loop"@en .
+
+contact:Mall
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "MA"@en ;
+    rdfs:label               "MALL"@en ;
+    rdfs:label               "Mall"@en .
+
+contact:Manor
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "MANOR"@en ;
+    rdfs:label               "MNR"@en ;
+    rdfs:label               "MNRS"@en ;
+    rdfs:label               "MR"@en ;
+    rdfs:label               "Manor"@en ;
+    rdfs:label               "Manors"@en .
+
+contact:Maze
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "MAZE"@en ;
+    rdfs:label               "MZ"@en ;
+    rdfs:label               "Maze"@en .
+
+contact:Meadow
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "MD"@en ;
+    rdfs:label               "MDW"@en ;
+    rdfs:label               "MDWS"@en ;
+    rdfs:label               "MEADOW"@en ;
+    rdfs:label               "Meadow"@en ;
+    rdfs:label               "Meadows"@en .
+
+contact:Mews
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "ME"@en ;
+    rdfs:label               "MEWS"@en ;
+    rdfs:label               "Mews"@en .
+
+contact:Mill
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "ML"@en ;
+    rdfs:label               "MLS"@en ;
+    rdfs:label               "Mill"@en ;
+    rdfs:label               "Mills"@en .
+
+contact:Mission
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "MSN"@en ;
+    rdfs:label               "Mission"@en .
+
+contact:Moor
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "MOOR"@en ;
+    rdfs:label               "Moor"@en .
+
+contact:Motorway
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "MTWY"@en ;
+    rdfs:label               "Motorway"@en .
+
+contact:Mount
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "MOUNT"@en ;
+    rdfs:label               "MT"@en ;
+    rdfs:label               "Mount"@en .
+
+contact:Mountain
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "MTN"@en ;
+    rdfs:label               "MTNS"@en ;
+    rdfs:label               "Mountain"@en ;
+    rdfs:label               "Mountains"@en .
+
+contact:Neck
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "NCK"@en ;
+    rdfs:label               "Neck"@en .
+
+contact:Nene
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "NENE"@en ;
+    rdfs:label               "Nene"@en .
+
+contact:Oaks
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "OA"@en ;
+    rdfs:label               "Oaks"@en .
+
+contact:Orchard
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "ORCH"@en ;
+    rdfs:label               "Orchard"@en .
+
+contact:Oval
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "OVAL"@en ;
+    rdfs:label               "Oval"@en .
+
+contact:Overpass
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "OPAS"@en ;
+    rdfs:label               "Overpass"@en .
+
+contact:Parade
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PARADE"@en ;
+    rdfs:label               "PR"@en ;
+    rdfs:label               "Parade"@en .
+
+contact:Parc
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PARC"@en ;
+    rdfs:label               "Parc"@en .
+
+contact:Park
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PA"@en ;
+    rdfs:label               "PARC"@fr ;
+    rdfs:label               "PARK"@en ;
+    rdfs:label               "PK"@en ;
+    rdfs:label               "Parc"@fr ;
+    rdfs:label               "Park"@en .
+
+contact:Parkway
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PK"@en ;
+    rdfs:label               "PKWY"@en ;
+    rdfs:label               "PKY"@en ;
+    rdfs:label               "Parkway"@en .
+
+contact:Pass
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PASS"@en ;
+    rdfs:label               "PS"@en ;
+    rdfs:label               "PSGE"@en ;
+    rdfs:label               "Pass"@en ;
+    rdfs:label               "Passage"@en .
+
+contact:Passage
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PASS"@en ;
+    rdfs:label               "Passage"@en .
+
+contact:Path
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CH"@fr ;
+    rdfs:label               "Chemin"@fr ;
+    rdfs:label               "PATH"@en ;
+    rdfs:label               "PH"@en ;
+    rdfs:label               "Path"@en ;
+    rdfs:label               "SENT"@en ;
+    rdfs:label               "Sentier"@fr .
+
+contact:Pathway
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PTWAY"@en ;
+    rdfs:label               "Pathway"@en .
+
+contact:Peak
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Peak"@en .
+
+contact:Pike
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PIKE"@en ;
+    rdfs:label               "Pike"@en .
+
+contact:Pine
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PINE"@en ;
+    rdfs:label               "PINES"@en ;
+    rdfs:label               "PNES"@en ;
+    rdfs:label               "Pine"@en ;
+    rdfs:label               "Pines"@en .
+
+contact:Pines
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PINES"@en ;
+    rdfs:label               "Pines"@en .
+
+contact:Place
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PL"@en ;
+    rdfs:label               "PLACE"@fr ;
+    rdfs:label               "Place"@en .
+
+contact:Placeway
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Placeway"@en .
+
+contact:Plain
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PLN"@en ;
+    rdfs:label               "PLNS"@en ;
+    rdfs:label               "Plain"@en ;
+    rdfs:label               "Plains"@en .
+
+contact:Plateau
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PLAT"@en ;
+    rdfs:label               "Plateau"@en .
+
+contact:Plaza
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PLAZA"@en ;
+    rdfs:label               "PLZ"@en ;
+    rdfs:label               "PZ"@en ;
+    rdfs:label               "Plaza"@en .
+
+contact:Point
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "POINTE"@fr ;
+    rdfs:label               "PT"@en ;
+    rdfs:label               "Point"@en ;
+    rdfs:label               "Pointe"@fr .
+
+contact:Pond
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PD"@en ;
+    rdfs:label               "Pond"@en .
+
+contact:Port
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PORT"@en ;
+    rdfs:label               "PRT"@en ;
+    rdfs:label               "Port"@en .
+
+contact:Prairie
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PR"@en ;
+    rdfs:label               "Prairie"@en .
+
+contact:Private
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PVT"@en ;
+    rdfs:label               "Private"@en .
+
+contact:Promenade
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "PM"@en ;
+    rdfs:label               "PROM"@en ;
+    rdfs:label               "Promenade"@en .
+
+contact:Quai
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "QUAI"@en ;
+    rdfs:label               "Quai"@en .
+
+contact:Quary
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "QU"@en ;
+    rdfs:label               "Quary"@en .
+
+contact:Quay
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "QUAY"@en ;
+    rdfs:label               "QY"@en ;
+    rdfs:label               "Quay"@en .
+
+contact:Radial
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RADL"@en ;
+    rdfs:label               "Radial"@en .
+
+contact:Ramp
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RAMP"@en ;
+    rdfs:label               "Ramp"@en .
+
+contact:Ranch
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RA"@en ;
+    rdfs:label               "RNCH"@en ;
+    rdfs:label               "Ranch"@en .
+
+contact:Rang
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RANG"@en ;
+    rdfs:label               "Rang"@en .
+
+contact:Range
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RG"@en ;
+    rdfs:label               "Range"@en ;
+    rdfs:label               "Rangée"@fr .
+
+contact:Rapid
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RPD"@en ;
+    rdfs:label               "RPDS"@en ;
+    rdfs:label               "Rapid"@en ;
+    rdfs:label               "Rapids"@en .
+
+contact:Reach
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Reach"@en .
+
+contact:Rest
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RST"@en ;
+    rdfs:label               "Rest"@en .
+
+contact:Ridge
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RDG"@en ;
+    rdfs:label               "RDGS"@en ;
+    rdfs:label               "RG"@en ;
+    rdfs:label               "RIDGE"@en ;
+    rdfs:label               "Ridge"@en ;
+    rdfs:label               "Ridges"@en .
+
+contact:Right-of-Way
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Droit de passage"@fr ;
+    rdfs:label               "ROWY"@en ;
+    rdfs:label               "Right of Way"@en .
+
+contact:Rise
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RI"@en ;
+    rdfs:label               "RISE"@en ;
+    rdfs:label               "Rise"@en .
+
+contact:River
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RIV"@en ;
+    rdfs:label               "River"@en .
+
+contact:Road
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RD"@en ;
+    rdfs:label               "Road"@en .
+
+contact:Rond-point
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RDPT"@en ;
+    rdfs:label               "Rond-point"@en .
+
+contact:Round
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Ronde (French"@en ;
+    rdfs:label               "Round"@en .
+
+contact:Round-about
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RDPT"@en ;
+    rdfs:label               "Rond-point"@fr ;
+    rdfs:label               "Round about"@en .
+
+contact:Route
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RTE"@en ;
+    rdfs:label               "Route"@en .
+
+contact:Row
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RO"@en ;
+    rdfs:label               "ROW"@en ;
+    rdfs:label               "Row"@en .
+
+contact:Run
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RU"@en ;
+    rdfs:label               "RUN"@en ;
+    rdfs:label               "Run"@en .
+
+contact:Sentier
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "SENT"@en ;
+    rdfs:label               "Sentier"@en .
+
+contact:Shoal
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "SHL"@en ;
+    rdfs:label               "SHLS"@en ;
+    rdfs:label               "Shoal"@en ;
+    rdfs:label               "Shoals"@en .
+
+contact:Shores
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "SH"@en ;
+    rdfs:label               "SHR"@en ;
+    rdfs:label               "SHRS"@en ;
+    rdfs:label               "Shore"@en ;
+    rdfs:label               "Shores"@en .
+
+contact:Sideroad
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Sideroad"@en .
+
+contact:Skyway
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "SKWY"@en ;
+    rdfs:label               "Skyway"@en .
+
+contact:Springs
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "SP"@en ;
+    rdfs:label               "SPG"@en ;
+    rdfs:label               "SPGS"@en ;
+    rdfs:label               "Spring"@en ;
+    rdfs:label               "Springs"@en .
+
+contact:Spur
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "SPUR"@en ;
+    rdfs:label               "Spur"@en .
+
+contact:Square
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "CAR"@fr ;
+    rdfs:label               "Carré"@fr ;
+    rdfs:label               "SQ"@en ;
+    rdfs:label               "SQS"@en ;
+    rdfs:label               "Square"@en ;
+    rdfs:label               "Squares"@en .
+
+contact:Standard
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Standard"@en .
+
+contact:Station
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "STA"@en ;
+    rdfs:label               "Station"@en .
+
+contact:Stravenue
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "STRA"@en ;
+    rdfs:label               "Stravenue"@en .
+
+contact:Stream
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RUIS"@fr ;
+    rdfs:label               "Ruisseau"@fr ;
+    rdfs:label               "STRM"@en ;
+    rdfs:label               "Stream"@en .
+
+contact:Street
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "RUE"@fr ;
+    rdfs:label               "Rue"@fr ;
+    rdfs:label               "ST"@en ;
+    rdfs:label               "STS"@en ;
+    rdfs:label               "Street"@en ;
+    rdfs:label               "Streets"@en .
+
+contact:Stroll
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Stroll"@en .
+
+contact:Subdivision
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "SUBDIV"@en ;
+    rdfs:label               "Subdivision"@en .
+
+contact:Summit
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "SMT"@en ;
+    rdfs:label               "SU"@en ;
+    rdfs:label               "Summit"@en ;
+    rdfs:label               "Summits"@en .
+
+contact:Tailer
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "TRLR"@en ;
+    rdfs:label               "Tailer"@en .
+
+contact:Terrace
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "TC"@en ;
+    rdfs:label               "TER"@en ;
+    rdfs:label               "TERR"@en ;
+    rdfs:label               "TSSE"@fr ;
+    rdfs:label               "Terrace"@en ;
+    rdfs:label               "Terrasse"@fr .
+
+contact:Thicket
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "THICK"@en ;
+    rdfs:label               "Thicket"@en .
+
+contact:Throughway
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "TRWY"@en ;
+    rdfs:label               "Throughway"@en .
+
+contact:TollFreePhone
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Toll Free Number"@en .
+
+contact:Tour
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Tour"@en .
+
+contact:Towers
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "TOWERS"@en ;
+    rdfs:label               "Towers"@en .
+
+contact:Townline
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "TLINE"@en ;
+    rdfs:label               "Townline"@en .
+
+contact:Trace
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "TRCE"@en ;
+    rdfs:label               "Trace"@en .
+
+contact:Track
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "TRAK"@en ;
+    rdfs:label               "Track"@en .
+
+contact:Trafficway
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "TRFY"@en ;
+    rdfs:label               "Trafficway"@en .
+
+contact:Trail
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "TR"@en ;
+    rdfs:label               "TRAIL"@en ;
+    rdfs:label               "TRL"@en ;
+    rdfs:label               "Trail"@en .
+
+contact:Tunnel
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "TUNL"@en ;
+    rdfs:label               "Tunnel"@en .
+
+contact:Turnabout
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "TRNABT"@en ;
+    rdfs:label               "Turnabout"@en .
+
+contact:Turnpike
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "TPKE"@en ;
+    rdfs:label               "Turnpike"@en .
+
+contact:Union
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "UN"@en ;
+    rdfs:label               "UNS"@en ;
+    rdfs:label               "Union"@en ;
+    rdfs:label               "Unions"@en .
+
+contact:Vale
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "VA"@en ;
+    rdfs:label               "VALE"@en ;
+    rdfs:label               "Vale"@en .
+
+contact:Valley
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "VLY"@en ;
+    rdfs:label               "VLYS"@en ;
+    rdfs:label               "Valley"@en ;
+    rdfs:label               "Valleys"@en .
+
+contact:Via
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "VIA"@en ;
+    rdfs:label               "Via"@en ;
+    rdfs:label               "Viaduct"@en .
+
+contact:View
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "VIEW"@en ;
+    rdfs:label               "VW"@en ;
+    rdfs:label               "VWS"@en ;
+    rdfs:label               "View"@en ;
+    rdfs:label               "Views"@en .
+
+contact:Villa
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "VI"@en ;
+    rdfs:label               "VILLA"@en ;
+    rdfs:label               "VILLAS"@en ;
+    rdfs:label               "VLG"@en ;
+    rdfs:label               "VLGS"@en ;
+    rdfs:label               "Villa"@en ;
+    rdfs:label               "Villas"@en .
+
+contact:Village
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "VG"@en ;
+    rdfs:label               "VILLGE"@en ;
+    rdfs:label               "Village"@en ;
+    rdfs:label               "Villages"@en .
+
+contact:Ville
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "VL"@en ;
+    rdfs:label               "Ville"@en .
+
+contact:Vista
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "VIS"@en ;
+    rdfs:label               "VISTA"@en ;
+    rdfs:label               "VS"@en ;
+    rdfs:label               "Vista"@en .
+
+contact:Voie
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "VOIE"@en ;
+    rdfs:label               "Voie"@en .
+
+contact:Walk
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "WALK"@en ;
+    rdfs:label               "WK"@en ;
+    rdfs:label               "Walk"@en ;
+    rdfs:label               "Walkway"@en .
+
+contact:Wall
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "WALL"@en ;
+    rdfs:label               "Wall"@en .
+
+contact:Way
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "VOIE"@fr ;
+    rdfs:label               "Voie"@fr ;
+    rdfs:label               "WAY"@en ;
+    rdfs:label               "WAYS"@en ;
+    rdfs:label               "WY"@en ;
+    rdfs:label               "Way"@en ;
+    rdfs:label               "Ways"@en .
+
+contact:Well
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "WL"@en ;
+    rdfs:label               "Well"@en .
+
+contact:Wells
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "WLS"@en ;
+    rdfs:label               "Wells"@en .
+
+contact:Wharf
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "WHARF"@en ;
+    rdfs:label               "Wharf"@en .
+
+contact:Wold
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Wold"@en .
+
+contact:Wood
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "WO"@en ;
+    rdfs:label               "WOOD"@en ;
+    rdfs:label               "WOODS"@en ;
+    rdfs:label               "Wood"@en ;
+    rdfs:label               "Woods"@en .
+
+contact:Work
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "WorkAddress"@en .
+
+contact:WorkPhone
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Work Phone"@en .
+
+contact:Wynd
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "WD"@en ;
+    rdfs:label               "WYND"@en ;
+    rdfs:label               "Wynd"@en .
+
+contact:east
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "E"@en ;
+    rdfs:label               "East"@en ;
+    rdfs:label               "Est"@fr .
+
+contact:north
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "N"@en ;
+    rdfs:label               "Nord"@fr ;
+    rdfs:label               "North"@en .
+
+contact:north-east
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "NE"@en ;
+    rdfs:label               "Nord-est"@fr ;
+    rdfs:label               "North East"@en .
+
+contact:north-west
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "NO"@en ;
+    rdfs:label               "NW"@en ;
+    rdfs:label               "Nord-ouest"@fr ;
+    rdfs:label               "North West"@en .
+
+contact:south
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "S"@en ;
+    rdfs:label               "South"@en ;
+    rdfs:label               "Sud"@fr .
+
+contact:south-east
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "SE"@en ;
+    rdfs:label               "South East"@en ;
+    rdfs:label               "Sud-est"@fr .
+
+contact:south-west
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "SO"@en ;
+    rdfs:label               "SW"@en ;
+    rdfs:label               "South West"@en ;
+    rdfs:label               "Sud-ouest"@fr .
+
+contact:west
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "O"@en ;
+    rdfs:label               "Ouest"@en ;
+    rdfs:label               "W"@en ;
+    rdfs:label               "West"@en .
+
+<https://w3id.org/citydata/part2/v1/Contact#Échangeur>
+    rdf:type                 owl:NamedIndividual ;
+    rdfs:label               "Échangeur"@fr .
+
+:EmailAddress
+    rdf:type                 rdfs:Datatype ;
+    owl:onDatatype           xsd:string .

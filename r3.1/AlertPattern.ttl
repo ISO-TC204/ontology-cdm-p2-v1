@@ -1,0 +1,301 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
+:AlertPattern
+    dcterms:title            "Information technology - City data model - Part 2: City-level concepts - Alert pattern" ;
+    skos:definition          "This ontology specifies the city-level concepts for the alert pattern of the city data model." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    dcterms:creator          "Kenneth Vaughn" ;
+    dcterms:creator          "Mark Fox" ;
+    dcterms:creator          "Megan Katsumi" ;
+    dcterms:creator          "Tom Lusco" ;
+    dcterms:modified         "2026-02-13"^^xsd:date ;
+    owl:versionInfo          "1.0.0" ;
+    owl:versionIRI           <https://w3id.org/citydata/part2/v1/AlertPattern/r0.0/> ;
+    cc:license               "http://creativecommons.org/licenses/by/4.0/" ;
+    owl:imports              :CodePattern ;
+    rdf:type                 owl:Ontology .
+
+:AlertDataProperty
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :CityDataProperty ;
+    skos:definition          "Added for organizational purposes, to identify all data properties defined in the Alert Pattern." .
+
+:AlertObjectProperty
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityObjectProperty ;
+    skos:definition          "Added for organizational purposes, to identify all object properties defined in the Alert Pattern." .
+
+:activities
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               cdm1:Activity ;
+    dcterms:description      "activities that caused the described object" .
+
+:beginInstant
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               time:Instant ;
+    dcterms:description      "The time that the described object began or is expected to begin. If not specified, the object is assumed to begin at the creation time." .
+
+:category
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               :Code ;
+    dcterms:description      "A code indicating the category of the described object." .
+
+:cause
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               :Code ;
+    dcterms:description      "A code indicating the cause (e.g., construction, collision, weather) of the described object." .
+
+:certainty
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               :Code ;
+    dcterms:description      "The likelihood of the condition occurring." .
+
+:creationInstant
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               time:Instant ;
+    dcterms:description      "The time that the described object was created." .
+
+:distribution
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               :Code ;
+    dcterms:description      "A code indicating the groups who are authorized to receive the object." .
+
+:effect
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               :Code ;
+    dcterms:description      "A code indicating the effect of the alert (e.g., congestion, delays)." .
+
+:endInstant
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               time:Instant ;
+    dcterms:description      "The time that the described object is expected to end; if no end time is specified, it is assumed to be indeterminate." .
+
+:expiryInstant
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               time:Instant ;
+    dcterms:description      "The time at which the information for the described object is considered no longer valid unless this value is updated." .
+
+:headline
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :AlertDataProperty ;
+    rdfs:range               xsd:string ;
+    dcterms:description      "short textual caption" .
+
+:issuer
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertDataProperty ;
+    rdfs:range               cdm1:Agent ;
+    dcterms:description      "Entity that issued the alert" .
+
+:lastUpdateInstant
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               time:Instant ;
+    dcterms:description      "The time at which the alert was last updated." .
+
+:location
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               geo:Geometry ;
+    dcterms:description      "A geographic area associated with the alert." .
+
+:recommendation
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               :Code ;
+    dcterms:description      "A code providing advice on actions to take (e.g., evacuate, shelter in-place)." .
+
+:referencedAlert
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               :Alert ;
+    dcterms:description      "Other alerts associated with this alert." .
+
+:resources
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertDataProperty ;
+    rdfs:range               cdm1:Resource ;
+    dcterms:description      "additional files that provide additional information" .
+
+:severity
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               :Code ;
+    dcterms:description      "A code indicating the expected severity of the condition (e.g., life threatening, injury potential)." .
+
+:status
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               :Code ;
+    dcterms:description      "The operational status." .
+
+:urgency
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :AlertObjectProperty ;
+    rdfs:range               :Code ;
+    dcterms:description      "The urgency associated with distributing the alert." .
+
+:website
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :AlertDataProperty ;
+    rdfs:range               xsd:anyURI ;
+    dcterms:description      "URI that identifies a website" .
+
+:Alert
+    rdf:type                 owl:Class ;
+    rdfs:subClassOf          :AlertThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasDescription ;
+        owl:onDataRange              xsd:string ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :effect ;
+        owl:onClass                  :Code
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :headline ;
+        owl:onDataRange              xsd:string ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :urgency ;
+        owl:onDataRange              :Code ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :activities ;
+        owl:onClass                  cdm1:Activity
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :issuer ;
+        owl:onDataRange              cdm1:Agent ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :referencedAlert ;
+        owl:onClass                  :Alert
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :resources ;
+        owl:onClass                  cdm1:Resource
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :location ;
+        owl:onClass                  geo:Geometry
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :creationInstant ;
+        owl:onDataRange              time:Instant ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :expiryInstant ;
+        owl:onClass                  time:Instant
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :endInstant ;
+        owl:onDataRange              time:Instant ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :category ;
+        owl:onClass                  :Code
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :distribution ;
+        owl:onClass                  :Code
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :lastUpdateInstant ;
+        owl:onDataRange              time:Instant ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :cause ;
+        owl:onClass                  :Code
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :beginInstant ;
+        owl:onDataRange              time:Instant ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :certainty ;
+        owl:onClass                  :Code
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :status ;
+        owl:onDataRange              :Code ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :website ;
+        owl:onDataRange              xsd:anyURI
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :recommendation ;
+        owl:onClass                  :Code
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :severity ;
+        owl:onDataRange              :Code ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    dcterms:description      "An Alert can be used to notify people of important information." .
+
+:AlertThing
+    rdf:type                 owl:Class ;
+    skos:definition          "Added for organizational purposes, to identify classes defined for the Alert Pattern." ;
+    rdfs:subClassOf          :CityThing .

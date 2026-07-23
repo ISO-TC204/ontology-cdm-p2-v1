@@ -1,0 +1,50 @@
+// Diagram for Bylaw
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		Law [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Law</TD></TR></TABLE>> URL="../Law" margin=0]
+	}
+	Bylaw [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Bylaw</TD></TR></TABLE>> URL="../Bylaw" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		BylawTypeCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BylawTypeCode</TD></TR></TABLE>> URL="../BylawTypeCode" margin=0]
+		cdm1_Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Activity</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Activity" margin=0]
+		City [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">City</TD></TR></TABLE>> URL="../City" margin=0]
+		JurisdictionalArea [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">JurisdictionalArea</TD></TR></TABLE>> URL="../JurisdictionalArea" margin=0]
+		LandArea [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">LandArea</TD></TR></TABLE>> URL="../LandArea" margin=0]
+		Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Organization</TD></TR></TABLE>> URL="../Organization" margin=0]
+		Person [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Person</TD></TR></TABLE>> URL="../Person" margin=0]
+	}
+	Bylaw -> Law [arrowhead=onormal style=solid]
+	Bylaw -> Invis [style=invis]
+	Invis -> BylawTypeCode [style=invis]
+	BylawTypeCode -> cdm1_Activity [style=invis]
+	cdm1_Activity -> City [style=invis]
+	City -> JurisdictionalArea [style=invis]
+	JurisdictionalArea -> LandArea [style=invis]
+	LandArea -> Organization [style=invis]
+	Organization -> Person [style=invis]
+	BylawTypeCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BylawTypeCode</TD></TR></TABLE>> URL="../BylawTypeCode" margin=0]
+	Bylaw -> BylawTypeCode [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">legislationType</TD></TR></TABLE>> arrowhead=normal style=solid]
+	n7e2422bf65d74402b04f4f26665f0ae6b5 [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="lightyellow"><TR><TD ALIGN="CENTER">«unionOf»</TD></TR></TABLE>> margin=0]
+	cdm1_Activity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Activity</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Activity" margin=0]
+	n7e2422bf65d74402b04f4f26665f0ae6b5 -> cdm1_Activity [label=member arrowhead=normal style=dotted]
+	JurisdictionalArea [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">JurisdictionalArea</TD></TR></TABLE>> URL="../JurisdictionalArea" margin=0]
+	n7e2422bf65d74402b04f4f26665f0ae6b5 -> JurisdictionalArea [label=member arrowhead=normal style=dotted]
+	LandArea [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">LandArea</TD></TR></TABLE>> URL="../LandArea" margin=0]
+	n7e2422bf65d74402b04f4f26665f0ae6b5 -> LandArea [label=member arrowhead=normal style=dotted]
+	Organization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Organization</TD></TR></TABLE>> URL="../Organization" margin=0]
+	n7e2422bf65d74402b04f4f26665f0ae6b5 -> Organization [label=member arrowhead=normal style=dotted]
+	Person [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Person</TD></TR></TABLE>> URL="../Person" margin=0]
+	n7e2422bf65d74402b04f4f26665f0ae6b5 -> Person [label=member arrowhead=normal style=dotted]
+	Bylaw -> n7e2422bf65d74402b04f4f26665f0ae6b5 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">impacts</TD></TR></TABLE>> arrowhead=normal style=solid]
+	City [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">City</TD></TR></TABLE>> URL="../City" margin=0]
+	Bylaw -> City [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">redefines</TD></TR><TR><TD ALIGN="CENTER">legislationJurisdiction</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=dashed]
+}

@@ -1,0 +1,38 @@
+// Diagram for CityResident
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		CityResidentThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityResidentThing</TD></TR></TABLE>> URL="../CityResidentThing" margin=0]
+		Person [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Person</TD></TR></TABLE>> URL="../Person" margin=0]
+	}
+	CityResident [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityResident</TD></TR></TABLE>> URL="../CityResident" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		EntityOperation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">EntityOperation</TD></TR></TABLE>> URL="../EntityOperation" margin=0]
+		EntityOwnership [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">EntityOwnership</TD></TR></TABLE>> URL="../EntityOwnership" margin=0]
+		JurisdictionalArea [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">JurisdictionalArea</TD></TR></TABLE>> URL="../JurisdictionalArea" margin=0]
+		Residence [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Residence</TD></TR></TABLE>> URL="../Residence" margin=0]
+	}
+	CityResident -> CityResidentThing [arrowhead=onormal style=solid]
+	CityResident -> Person [arrowhead=onormal style=solid]
+	CityResident -> Invis [style=invis]
+	Invis -> EntityOperation [style=invis]
+	EntityOperation -> EntityOwnership [style=invis]
+	EntityOwnership -> JurisdictionalArea [style=invis]
+	JurisdictionalArea -> Residence [style=invis]
+	EntityOwnership [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">EntityOwnership</TD></TR></TABLE>> URL="../EntityOwnership" margin=0]
+	CityResident -> EntityOwnership [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">owns</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Residence [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Residence</TD></TR></TABLE>> URL="../Residence" margin=0]
+	CityResident -> Residence [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasResidence</TD></TR></TABLE>> arrowhead=normal style=solid]
+	EntityOperation [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">EntityOperation</TD></TR></TABLE>> URL="../EntityOperation" margin=0]
+	CityResident -> EntityOperation [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">operates</TD></TR></TABLE>> arrowhead=normal style=solid]
+	JurisdictionalArea [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">JurisdictionalArea</TD></TR></TABLE>> URL="../JurisdictionalArea" margin=0]
+	CityResident -> JurisdictionalArea [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">residentOf</TD></TR></TABLE>> arrowhead=normal style=solid]
+}

@@ -1,0 +1,48 @@
+// Diagram for Address
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		ContactThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ContactThing</TD></TR></TABLE>> URL="../ContactThing" margin=0]
+	}
+	Address [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Address</TD></TR><TR><TD ALIGN="LEFT">buildingName : xsd:string [0..1]</TD></TR><TR><TD ALIGN="LEFT">hasCitySection : xsd:string [0..1]</TD></TR><TR><TD ALIGN="LEFT">hasPostalBox : xsd:string [0..1]</TD></TR><TR><TD ALIGN="LEFT">hasPostalCode : xsd:string [0..1]</TD></TR><TR><TD ALIGN="LEFT">hasStreet : xsd:string [0..1]</TD></TR><TR><TD ALIGN="LEFT">hasStreetNumber : xsd:string [0..1]</TD></TR><TR><TD ALIGN="LEFT">hasUnitNumber : xsd:string [0..1]</TD></TR><TR><TD ALIGN="LEFT">maxStreetNumber : xsd:string [0..1]</TD></TR><TR><TD ALIGN="LEFT">minStreetNumber : xsd:nonNegativeInteger [0..1]</TD></TR></TABLE>> URL="../Address" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		AddressType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">AddressType</TD></TR></TABLE>> URL="../AddressType" margin=0]
+		cdm1_Location [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Location</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Location" margin=0]
+		City [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">City</TD></TR></TABLE>> URL="../City" margin=0]
+		Country [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Country</TD></TR></TABLE>> URL="../Country" margin=0]
+		State [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">State</TD></TR></TABLE>> URL="../State" margin=0]
+		StreetDirection [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">StreetDirection</TD></TR></TABLE>> URL="../StreetDirection" margin=0]
+		StreetType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">StreetType</TD></TR></TABLE>> URL="../StreetType" margin=0]
+	}
+	Address -> ContactThing [arrowhead=onormal style=solid]
+	Address -> Invis [style=invis]
+	Invis -> AddressType [style=invis]
+	AddressType -> cdm1_Location [style=invis]
+	cdm1_Location -> City [style=invis]
+	City -> Country [style=invis]
+	Country -> State [style=invis]
+	State -> StreetDirection [style=invis]
+	StreetDirection -> StreetType [style=invis]
+	City [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">City</TD></TR></TABLE>> URL="../City" margin=0]
+	Address -> City [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasCity</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	AddressType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">AddressType</TD></TR></TABLE>> URL="../AddressType" margin=0]
+	Address -> AddressType [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasAddressType</TD></TR></TABLE>> arrowhead=normal style=solid]
+	StreetType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">StreetType</TD></TR></TABLE>> URL="../StreetType" margin=0]
+	Address -> StreetType [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasStreetType</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Country [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Country</TD></TR></TABLE>> URL="../Country" margin=0]
+	Address -> Country [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasCountry</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	cdm1_Location [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Location</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Location" margin=0]
+	Address -> cdm1_Location [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">cdm1:hasLocation</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	StreetDirection [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">StreetDirection</TD></TR></TABLE>> URL="../StreetDirection" margin=0]
+	Address -> StreetDirection [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasStreetDirection</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	State [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">State</TD></TR></TABLE>> URL="../State" margin=0]
+	Address -> State [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasProvince</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+}

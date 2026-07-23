@@ -1,0 +1,24 @@
+// Diagram for CatchmentAreaType
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		CityServiceThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CityServiceThing</TD></TR></TABLE>> URL="../CityServiceThing" margin=0]
+	}
+	CatchmentAreaType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">CatchmentAreaType</TD></TR></TABLE>> URL="../CatchmentAreaType" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Code [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Code</TD></TR></TABLE>> URL="../Code" margin=0]
+	}
+	CatchmentAreaType -> CityServiceThing [arrowhead=onormal style=solid]
+	CatchmentAreaType -> Invis [style=invis]
+	Invis -> Code [style=invis]
+	Code [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Code</TD></TR></TABLE>> URL="../Code" margin=0]
+	CatchmentAreaType -> Code [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasCode</TD></TR></TABLE>> arrowhead=normal style=solid]
+}

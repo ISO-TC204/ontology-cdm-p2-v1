@@ -1,0 +1,26 @@
+// Diagram for RevisionBylaw
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		Bylaw [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Bylaw</TD></TR></TABLE>> URL="../Bylaw" margin=0]
+	}
+	RevisionBylaw [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">RevisionBylaw</TD></TR></TABLE>> URL="../RevisionBylaw" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		BylawTypeCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BylawTypeCode</TD></TR></TABLE>> URL="../BylawTypeCode" margin=0]
+	}
+	RevisionBylaw -> Bylaw [arrowhead=onormal style=solid]
+	RevisionBylaw -> Invis [style=invis]
+	Invis -> BylawTypeCode [style=invis]
+	Bylaw [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Bylaw</TD></TR></TABLE>> URL="../Bylaw" margin=0]
+	RevisionBylaw:e -> Bylaw:e [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">legislationChanges</TD></TR><TR><TD ALIGN="CENTER">1</TD></TR></TABLE>> arrowhead=normal constraint=false style=solid]
+	BylawTypeCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BylawTypeCode</TD></TR></TABLE>> URL="../BylawTypeCode" margin=0]
+	RevisionBylaw -> BylawTypeCode [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">legislationType</TD></TR></TABLE>> arrowhead=normal style=solid]
+}

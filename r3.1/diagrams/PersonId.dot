@@ -1,0 +1,32 @@
+// Diagram for PersonId
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		PersonThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PersonThing</TD></TR></TABLE>> URL="../PersonThing" margin=0]
+	}
+	PersonId [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PersonId</TD></TR><TR><TD ALIGN="LEFT">cdm1:hasIdentifier : xsd:string [1]</TD></TR><TR><TD ALIGN="LEFT">photoID : xsd:boolean [0..1]</TD></TR></TABLE>> URL="../PersonId" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		cdm1_Agent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Agent</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Agent" margin=0]
+		IDType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">IDType</TD></TR></TABLE>> URL="../IDType" margin=0]
+		time_Interval [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:Interval</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/Interval" margin=0]
+	}
+	PersonId -> PersonThing [arrowhead=onormal style=solid]
+	PersonId -> Invis [style=invis]
+	Invis -> cdm1_Agent [style=invis]
+	cdm1_Agent -> IDType [style=invis]
+	IDType -> time_Interval [style=invis]
+	IDType [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">IDType</TD></TR></TABLE>> URL="../IDType" margin=0]
+	PersonId -> IDType [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasIDType</TD></TR></TABLE>> arrowhead=normal style=solid]
+	time_Interval [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:Interval</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/Interval" margin=0]
+	PersonId -> time_Interval [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">validityPeriod</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	cdm1_Agent [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Agent</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Agent" margin=0]
+	PersonId -> cdm1_Agent [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">issuedBy</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+}

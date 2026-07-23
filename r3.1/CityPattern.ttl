@@ -1,0 +1,134 @@
+@prefix : <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix i72: <https://w3id.org/citydata/21972/v1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+
+:CityPattern
+    dcterms:title            "Information technology - City data model - Part 2: City level concepts - City pattern" ;
+    skos:definition          "This ontology specifies the city-level concepts for the city pattern of the city data model. The City pattern captures basic information about the geospatial aspects of the city.  In particular it represents the different ways in which the city is administratively divided." ;
+    vann:preferredNamespaceUri "https://w3id.org/citydata/part2/v1/" ;
+    vann:preferredNamespacePrefix "cdm2" ;
+    dcterms:creator          "Kenneth Vaughn" ;
+    dcterms:creator          "Mark Fox" ;
+    dcterms:creator          "Megan Katsumi" ;
+    rdfs:comment             "The prior version of this ontology used a different ontology IRI. This update remains semantically consistent with the version adopted as ISO 5087-2:2024." ;
+    owl:priorVersion         <https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/City/> ;
+    dcterms:modified         "2026-02-12"^^xsd:date ;
+    owl:versionInfo          "1.3.0" ;
+    owl:versionIRI           <https://w3id.org/citydata/part2/v1/CityPattern/r3.0/> ;
+    cc:license               "http://creativecommons.org/licenses/by/4.0/" ;
+    owl:imports              :LandUsePattern ;
+    rdf:type                 owl:Ontology .
+
+:CityPatternDataProperty
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :CityDataProperty ;
+    skos:definition          "Added for organizational purposes, to identify data properties defined in the City-level ontology." .
+
+:CityPatternObjectProperty
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityObjectProperty ;
+    skos:definition          "Added for organizational purposes, to identify object properties defined in the City-level CDM ontology." .
+
+:administrativeArea
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityPatternObjectProperty ;
+    owl:inverseOf            :administrativeAreaOf ;
+    skos:definition          "Identifies administrative areas within the JurisdictionalArea." ;
+    skos:note                "Boundaries of an administrative area do not have to be distinct." ;
+    skos:note                "Jurisdictional areas can have a hierarchy of administrative areas." ;
+    rdfs:domain              :JurisdictionalArea ;
+    rdfs:range               :JurisdictionalArea .
+
+:administrativeAreaOf
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityPatternObjectProperty ;
+    skos:definition          "Identifies the jurisdictional area that an administrative area belongs to." .
+
+:legalName
+    rdf:type                 owl:DatatypeProperty ;
+    rdfs:subPropertyOf       :CityPatternDataProperty ;
+    skos:definition          "Identifies the legal name of the domain object." ;
+    rdfs:range               xsd:string .
+
+:residentPopulation
+    rdf:type                 owl:ObjectProperty ;
+    rdfs:subPropertyOf       :CityPatternObjectProperty ;
+    skos:definition          "Number of residents of the area." ;
+    skos:note                "This number can be distinct from the population associated with the Land Area that an Administrative Area occupies. The resident population is determined based on the definition of a resident which is often times more specific than an occupant of an area." ;
+    rdfs:domain              :JurisdictionalArea ;
+    rdfs:range               i72:Population .
+
+:City
+    rdf:type                 owl:Class ;
+    skos:definition          "A City is a specialization of a Jurisdictional Area that is formally identified as such." ;
+    rdfs:subClassOf          :JurisdictionalArea ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :legalName ;
+        owl:onDataRange              xsd:string ;
+        owl:qualifiedCardinality     "1"^^xsd:nonNegativeInteger
+    ] .
+
+:CityAdministrativeArea
+    rdf:type                 owl:Class ;
+    skos:definition          "Jurisdictional Area that has been identified for use by a City to reflect its unique areas such as districts, wards, neighbourhoods, or prefectures. " ;
+    rdfs:subClassOf          :JurisdictionalArea ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :administrativeAreaOf ;
+        owl:onClass                  :City ;
+        owl:minQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
+
+:CityPatternThing
+    rdf:type                 owl:Class ;
+    skos:definition          "Added for organizational purposes, to identify classes defined in the City Services part of the City Data Model." ;
+    rdfs:subClassOf          :CityThing .
+
+:JurisdictionalArea
+    rdf:type                 owl:Class ;
+    skos:definition          "A Jurisdictional Area is an abstract entity that is characterized not only by its location, but by the objects that occupy it (persons, buildings, etc), the governing body(s) it is subject to, and the activities that occur within it." ;
+    rdfs:subClassOf          :CityPatternThing ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :administrativeAreaOf ;
+        owl:onClass                  :JurisdictionalArea
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :hasLandArea ;
+        owl:onClass                  :LandArea
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :residentPopulation ;
+        owl:onClass                  i72:Population ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               :administrativeArea ;
+        owl:onClass                  :JurisdictionalArea
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                     owl:Restriction ;
+        owl:onProperty               cdm1:hasName ;
+        owl:onDataRange              xsd:string ;
+        owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger
+    ] .
